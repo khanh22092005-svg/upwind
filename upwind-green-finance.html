@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upwind — Green Finance Simulation · Cohort 1</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #f5f7fc;
+  --bg-2: #edf0f9;
+  --white: #ffffff;
+  --ink: #0d1117;
+  --ink-2: #2e3a4e;
+  --ink-3: #7a8696;
+  --border: #dde3ee;
+  --accent: #1a3fcf;
+  --accent-light: #eaedfc;
+  --accent-mid: #2e52e8;
+  --yellow: #ffd84d;
+  --yellow-dark: #e6c000;
+  --dark: #0d1117;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 40px; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px; height: 64px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.logo { font-size: 18px; font-weight: 900; color: var(--accent); letter-spacing: -0.5px; }
+.nav-links { display: flex; gap: 28px; font-size: 14px; font-weight: 500; }
+.nav-links a { color: var(--ink-2); transition: color 0.15s; }
+.nav-links a:hover { color: var(--accent); }
+.nav-cta { display: flex; align-items: center; gap: 12px; }
+
+.btn {
+  display: inline-block; font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 700; font-size: 14px; padding: 10px 22px;
+  border-radius: 100px; border: 1.5px solid transparent;
+  cursor: pointer; white-space: nowrap; text-decoration: none;
+  transition: background 0.15s, transform 0.15s, border-color 0.15s, color 0.15s;
+}
+.btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+.btn-primary:hover { background: var(--accent-mid); transform: translateY(-1px); }
+.btn-primary-lg { padding: 16px 36px; font-size: 16px; font-weight: 800; }
+.btn-yellow { background: var(--yellow); color: var(--ink); border-color: var(--yellow); }
+.btn-yellow:hover { background: var(--yellow-dark); transform: translateY(-2px); }
+.btn-yellow-lg { padding: 16px 36px; font-size: 16px; font-weight: 800; }
+.btn-ghost { background: transparent; color: var(--ink-2); border-color: var(--border); }
+.btn-ghost:hover { border-color: var(--ink-2); color: var(--ink); }
+.btn-ghost-lg { padding: 15px 32px; font-size: 15px; }
+.btn-ghost-inv { background: transparent; color: rgba(255,255,255,0.85); border-color: rgba(255,255,255,0.35); }
+.btn-ghost-inv:hover { border-color: var(--yellow); color: var(--yellow); }
+
+.burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; }
+.burger span { width: 22px; height: 2px; background: var(--ink); display: block; }
+
+/* ── HERO ── */
+.hero {
+  padding: 100px 40px 72px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+.hero-grid {
+  display: grid; grid-template-columns: 1.55fr 1fr; gap: 64px;
+  align-items: center; max-width: 1100px; margin: 0 auto;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--accent-light); color: var(--accent);
+  border-radius: 100px; padding: 6px 16px;
+  font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  width: fit-content; margin-bottom: 32px;
+}
+.eyebrow-dot {
+  width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
+  animation: pulse 2.2s infinite; flex-shrink: 0;
+}
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(26,63,207,.55); }
+  70%  { box-shadow: 0 0 0 8px rgba(26,63,207,0); }
+  100% { box-shadow: 0 0 0 0 rgba(26,63,207,0); }
+}
+
+.hero h1 {
+  font-size: clamp(36px, 5vw, 68px);
+  font-weight: 900; line-height: 1.05; letter-spacing: -2px;
+  color: var(--ink); margin-bottom: 24px;
+}
+.hero h1 em { font-style: italic; color: var(--accent); }
+.hero h1 .hl { background: var(--yellow); padding: 0 5px 2px; font-style: italic; }
+
+.hero-sub {
+  font-size: 17px; color: var(--ink-2); line-height: 1.75;
+  max-width: 520px; margin-bottom: 36px;
+}
+.hero-sub strong { color: var(--ink); font-weight: 700; }
+.hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 0; }
+
+/* Hero side card */
+.hero-card {
+  background: var(--white); border: 1.5px solid var(--border);
+  border-radius: 20px; padding: 32px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+}
+.hero-card .lbl {
+  font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 20px;
+}
+.stat-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 13px 0; border-bottom: 1px solid var(--border);
+}
+.stat-row:last-child { border-bottom: none; padding-bottom: 0; }
+.stat-row .v {
+  font-size: 30px; font-weight: 900; color: var(--accent);
+  letter-spacing: -1px; line-height: 1;
+}
+.stat-row .k { font-size: 13px; color: var(--ink-3); max-width: 148px; text-align: right; line-height: 1.4; }
+
+/* Partner strip */
+.partner-strip {
+  max-width: 1100px; margin: 48px auto 0;
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  padding: 16px 0; display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+}
+.partner-strip .t {
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--ink-3);
+}
+.partner-strip .partner-name {
+  font-size: 17px; font-weight: 900; color: var(--accent); letter-spacing: -0.3px;
+  display: flex; align-items: center; gap: 7px;
+}
+.partner-dot {
+  width: 10px; height: 10px; border-radius: 50%; background: var(--yellow);
+  box-shadow: 0 0 10px 2px rgba(255,216,77,0.55); display: inline-block;
+}
+
+/* ── SECTIONS ── */
+section { padding: 96px 40px; }
+.section-label {
+  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--accent); font-weight: 700; margin-bottom: 12px;
+}
+.sec-head { margin-bottom: 56px; }
+.sec-head h2 {
+  font-size: clamp(28px, 3.5vw, 48px); font-weight: 900;
+  letter-spacing: -1.5px; line-height: 1.1; color: var(--ink); max-width: 760px;
+}
+.sec-head h2 em { font-style: italic; color: var(--accent); }
+
+/* ── PROBLEM ── */
+.problem-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+}
+.problem-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 20px; padding: 40px 36px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.problem-card:hover { border-color: #b0bcde; box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+.problem-card:first-child { border-top: 3px solid var(--accent); }
+.problem-card .n {
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  color: var(--accent); margin-bottom: 18px;
+}
+.problem-card h3 { font-size: 17px; font-weight: 800; letter-spacing: -0.3px; margin-bottom: 10px; }
+.problem-card p { font-size: 14px; color: var(--ink-3); line-height: 1.75; }
+
+/* ── EXPERIENCE (dark) ── */
+.dark-section { background: var(--dark); padding: 96px 40px; }
+.dark-section .section-label { color: var(--yellow); }
+.dark-section .sec-head h2 { color: #fff; }
+.dark-section .sec-head h2 em { color: var(--yellow); }
+
+.sol-lead {
+  font-size: clamp(18px, 2.3vw, 26px); font-weight: 400;
+  line-height: 1.5; color: rgba(255,255,255,0.8);
+  max-width: 860px; margin-bottom: 56px;
+}
+.sol-lead em { font-style: italic; color: var(--yellow); font-weight: 600; }
+
+.steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+.exp-step {
+  padding: 32px 28px 32px 0; border-top: 1px solid rgba(255,255,255,0.12);
+}
+.exp-step .n { font-size: 11px; font-weight: 700; color: var(--yellow); letter-spacing: 2px; margin-bottom: 20px; }
+.exp-step h3 { font-size: 17px; font-weight: 800; color: #fff; margin-bottom: 10px; letter-spacing: -0.3px; }
+.exp-step p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+
+/* ── PARTNER ── */
+.partner-block { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.partner-visual {
+  aspect-ratio: 1 / 0.82; border: 1.5px solid var(--border); border-radius: 20px;
+  background: linear-gradient(135deg, rgba(255,216,77,0.15) 0%, rgba(26,63,207,0.06) 60%, var(--bg) 100%);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.partner-visual .ring { position: absolute; border: 1px solid var(--border); border-radius: 50%; }
+.partner-visual .sun-big {
+  width: 88px; height: 88px; border-radius: 50%; background: var(--yellow);
+  box-shadow: 0 0 50px 8px rgba(255,216,77,0.4); position: relative; z-index: 2;
+}
+.partner-visual .vis-name {
+  position: absolute; bottom: 24px; left: 28px;
+  font-size: 24px; font-weight: 900; color: var(--accent); letter-spacing: -0.5px;
+}
+.partner-copy .section-label { margin-bottom: 16px; }
+.partner-copy h3 {
+  font-size: clamp(22px, 2.8vw, 34px); font-weight: 900;
+  letter-spacing: -1px; line-height: 1.1; margin-bottom: 20px;
+}
+.partner-copy h3 em { font-style: italic; color: var(--accent); }
+.partner-copy p { font-size: 16px; color: var(--ink-2); line-height: 1.75; margin-bottom: 14px; }
+
+/* ── CURRICULUM ── */
+.curr-table { max-width: 100%; }
+.curr-row {
+  display: grid; grid-template-columns: 56px 1.1fr 1.3fr 1.4fr;
+  gap: 20px; padding: 20px 12px; border-bottom: 1px solid var(--border);
+  align-items: start; border-radius: 8px; transition: background 0.2s;
+}
+.curr-row:not(.head):hover { background: rgba(26,63,207,0.04); }
+.curr-row.head {
+  padding-bottom: 12px; border-bottom: 2px solid var(--ink);
+}
+.curr-row.head span {
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--ink-3);
+}
+.curr-row .wk {
+  font-size: 28px; font-weight: 900; color: var(--yellow-dark);
+  letter-spacing: -1px; line-height: 1;
+}
+.curr-row .mod { font-size: 17px; font-weight: 800; line-height: 1.2; letter-spacing: -0.3px; }
+.curr-row .learn { font-size: 14px; color: var(--ink-3); line-height: 1.6; }
+.curr-row .do { font-size: 14px; color: var(--accent); font-weight: 600; line-height: 1.6; }
+.focus-note { margin-top: 20px; font-size: 13px; color: var(--ink-3); font-style: italic; }
+
+/* ── DELIVERABLES ── */
+.deliv-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.deliv {
+  border: 1px solid var(--border); border-radius: 20px; padding: 32px 28px;
+  background: var(--white); transition: border-color 0.2s, transform 0.2s;
+}
+.deliv:hover { border-color: var(--accent); transform: translateY(-4px); }
+.deliv .n { font-size: 11px; font-weight: 700; color: var(--accent); letter-spacing: 2px; margin-bottom: 20px; }
+.deliv h3 { font-size: 18px; font-weight: 800; letter-spacing: -0.3px; line-height: 1.2; margin-bottom: 10px; }
+.deliv p { font-size: 13px; color: var(--ink-3); line-height: 1.7; }
+
+/* ── REWARDS (dark) ── */
+.reward-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.reward {
+  border: 1px solid rgba(255,255,255,0.12); border-radius: 20px;
+  padding: 40px 36px; background: rgba(255,255,255,0.04);
+}
+.reward .ic { font-size: 28px; color: var(--yellow); margin-bottom: 20px; }
+.reward h3 { font-size: 21px; font-weight: 800; color: #fff; letter-spacing: -0.5px; margin-bottom: 12px; }
+.reward p { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.75; }
+
+/* ── OFFERS ── */
+.offers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch; }
+.offer {
+  border: 1.5px solid var(--border); border-radius: 24px; padding: 44px 40px;
+  display: flex; flex-direction: column; background: var(--white);
+}
+.offer.feat {
+  background: var(--accent); color: white; border-color: var(--accent);
+  position: relative;
+}
+.offer.feat::before {
+  content: "MOST POPULAR";
+  position: absolute; top: -1px; left: 40px;
+  font-size: 10px; font-weight: 800; letter-spacing: 1.5px;
+  background: var(--yellow); color: var(--ink); padding: 5px 14px;
+  border-radius: 0 0 8px 8px;
+}
+.offer .kind {
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 16px;
+}
+.offer.feat .kind { color: rgba(255,255,255,0.55); }
+.offer h3 { font-size: 24px; font-weight: 900; letter-spacing: -0.8px; margin-bottom: 8px; }
+.offer .price {
+  font-size: 46px; font-weight: 900; line-height: 1; letter-spacing: -2px;
+  color: var(--ink); margin: 14px 0 6px;
+}
+.offer.feat .price { color: var(--yellow); }
+.offer .price s { font-size: 18px; font-weight: 400; color: var(--ink-3); margin-left: 8px; }
+.offer .sub { font-size: 14px; color: var(--ink-3); line-height: 1.6; margin-bottom: 28px; }
+.offer.feat .sub { color: rgba(255,255,255,0.65); }
+.offer ul { list-style: none; margin-bottom: 32px; flex: 1; }
+.offer li {
+  font-size: 14px; padding: 10px 0 10px 26px; position: relative;
+  border-bottom: 1px solid var(--border); color: var(--ink-2);
+}
+.offer.feat li { border-bottom-color: rgba(255,255,255,0.12); color: rgba(255,255,255,0.85); }
+.offer li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
+.offer.feat li::before { color: var(--yellow); }
+.offer .offer-cta { display: block; text-align: center; padding: 16px; font-size: 15px; font-weight: 800; border-radius: 100px; cursor: pointer; margin-top: auto; transition: background 0.15s, transform 0.15s; }
+
+/* ── FOUNDER ── */
+.founder-grid { display: grid; grid-template-columns: 0.9fr 1.4fr; gap: 56px; align-items: center; }
+.founder-card {
+  border: 1.5px solid var(--border); border-radius: 20px; padding: 40px;
+  background: var(--white);
+}
+.founder-card .avatar {
+  width: 80px; height: 80px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-mid));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; font-weight: 900; color: var(--yellow); margin-bottom: 24px;
+}
+.founder-card .nm { font-size: 22px; font-weight: 900; letter-spacing: -0.5px; margin-bottom: 4px; }
+.founder-card .rl { font-size: 13px; color: var(--accent); font-weight: 700; margin-bottom: 24px; }
+.creds { list-style: none; }
+.creds li {
+  font-size: 14px; padding: 12px 0; border-top: 1px solid var(--border);
+  display: flex; gap: 10px; color: var(--ink-2);
+}
+.creds li .b { color: var(--accent); font-weight: 800; flex-shrink: 0; }
+.founder-quote h3 {
+  font-size: clamp(20px, 2.6vw, 32px); font-weight: 900; line-height: 1.2;
+  letter-spacing: -0.8px; margin-bottom: 20px;
+}
+.founder-quote h3 em { font-style: italic; color: var(--accent); }
+.founder-quote p { font-size: 16px; color: var(--ink-2); line-height: 1.75; margin-bottom: 14px; }
+
+/* ── FAQ ── */
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-q {
+  width: 100%; text-align: left; background: none; border: none; cursor: pointer;
+  font-family: 'Be Vietnam Pro', sans-serif; font-size: 17px; font-weight: 700;
+  color: var(--ink); padding: 24px 48px 24px 0; position: relative; display: block;
+  letter-spacing: -0.2px;
+}
+.faq-q::after {
+  content: "+"; position: absolute; right: 4px; top: 20px;
+  font-size: 28px; color: var(--accent); font-weight: 300; transition: transform 0.25s;
+}
+.faq-item.open .faq-q::after { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+.faq-a p { font-size: 15px; color: var(--ink-3); padding: 0 60px 24px 0; line-height: 1.75; }
+
+/* ── FINAL CTA ── */
+.final-cta {
+  background: var(--accent); padding: 100px 40px;
+  text-align: center; position: relative; overflow: hidden;
+}
+.final-cta::before {
+  content: 'UPWIND';
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  font-size: clamp(100px, 18vw, 200px); font-weight: 900;
+  color: rgba(255,255,255,0.055); letter-spacing: -6px;
+  pointer-events: none; white-space: nowrap;
+}
+.final-inner { position: relative; z-index: 1; }
+.final-cta h2 {
+  font-size: clamp(32px, 4.5vw, 58px); font-weight: 900; letter-spacing: -2px;
+  color: #fff; margin: 0 auto 20px; max-width: 580px; line-height: 1.05;
+}
+.final-cta h2 em { font-style: italic; color: var(--yellow); }
+.final-cta p { font-size: 17px; color: rgba(255,255,255,0.72); max-width: 480px; margin: 0 auto 40px; line-height: 1.7; }
+.final-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
+.final-cta small { font-size: 12px; color: rgba(255,255,255,0.45); letter-spacing: 0.3px; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--white); border-top: 1px solid var(--border);
+  padding: 32px 40px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 16px;
+}
+.footer-logo { font-size: 18px; font-weight: 900; color: var(--accent); }
+.footer-text { font-size: 13px; color: var(--ink-3); }
+
+/* ── ANIMATIONS ── */
+.rev { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.rev.in { opacity: 1; transform: none; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .burger { display: flex; }
+  .nav-cta .btn-ghost { display: none; }
+  .hero { padding: 90px 20px 56px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  section { padding: 64px 20px; }
+  .dark-section { padding: 64px 20px; }
+  .problem-grid { grid-template-columns: 1fr; }
+  .steps-grid { grid-template-columns: 1fr 1fr; }
+  .partner-block { grid-template-columns: 1fr; gap: 36px; }
+  .curr-row { grid-template-columns: 44px 1fr; gap: 8px 14px; }
+  .curr-row .learn, .curr-row .do { grid-column: 2; }
+  .curr-row.head { display: none; }
+  .deliv-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .reward-grid { grid-template-columns: 1fr; }
+  .offers-grid { grid-template-columns: 1fr; }
+  .founder-grid { grid-template-columns: 1fr; gap: 32px; }
+  footer { flex-direction: column; text-align: center; padding: 24px 20px; }
+  .final-cta { padding: 72px 20px; }
+}
+@media (max-width: 560px) {
+  .wrap { padding: 0 20px; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .deliv-grid { grid-template-columns: 1fr; }
+}
+
+/* ── MOBILE MENU ── */
+.mmenu {
+  display: none; position: fixed; inset: 64px 0 0;
+  background: var(--white); z-index: 99; flex-direction: column;
+  padding: 24px; gap: 4px; border-top: 1px solid var(--border);
+}
+.mmenu.show { display: flex; }
+.mmenu a {
+  font-size: 20px; font-weight: 700; padding: 16px 0;
+  border-bottom: 1px solid var(--border); color: var(--ink);
+}
+.mmenu .btn { margin-top: 16px; text-align: center; padding: 14px; font-size: 15px; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Upwind</div>
+  <div class="nav-links">
+    <a href="#problem">The Gap</a>
+    <a href="#experience">Experience</a>
+    <a href="#curriculum">Curriculum</a>
+    <a href="#offers">Join</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <div class="nav-cta">
+    <a href="#offers" class="btn btn-ghost">Reserve a slot</a>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="mmenu" id="mmenu">
+  <a href="#problem">The Gap</a>
+  <a href="#experience">Experience</a>
+  <a href="#curriculum">Curriculum</a>
+  <a href="#offers">Join</a>
+  <a href="#faq">FAQ</a>
+  <a href="#offers" class="btn btn-primary">Reserve a slot →</a>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        Cohort 1 · Limited seats
+      </div>
+      <h1>For 6 weeks, you are an <em>analyst</em> at a green investment fund.</h1>
+      <p class="hero-sub">Not a course. Not lectures. A simulated job with real tasks and real deliverables — so you walk into the job market with a <strong>portfolio</strong>, not a blank CV.</p>
+      <div class="hero-cta">
+        <a href="#offers" class="btn btn-yellow btn-yellow-lg">Apply for a scholarship · 3 slots</a>
+        <a href="#offers" class="btn btn-ghost btn-ghost-lg">Reserve a refundable slot →</a>
+      </div>
+    </div>
+    <div>
+      <div class="hero-card">
+        <div class="lbl">The program at a glance</div>
+        <div class="stat-row"><span class="v">6</span><span class="k">weeks as a fund analyst</span></div>
+        <div class="stat-row"><span class="v">4</span><span class="k">portfolio-ready deliverables</span></div>
+        <div class="stat-row"><span class="v">2</span><span class="k">rewards: rec. letter + certificate</span></div>
+        <div class="stat-row"><span class="v">100%</span><span class="k">online · ~4–6h / week</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="partner-strip">
+    <span class="t">Real project briefs in partnership with</span>
+    <span class="partner-name"><span class="partner-dot"></span>SmartSolar</span>
+  </div>
+</header>
+
+<!-- PROBLEM -->
+<section id="problem" style="background: var(--bg);">
+  <div class="wrap">
+    <div class="sec-head rev">
+      <div class="section-label">01 / The Gap</div>
+      <h2>Why do students with great grades still get <em>filtered out</em> at the résumé stage?</h2>
+    </div>
+    <div class="problem-grid rev">
+      <div class="problem-card">
+        <div class="n">→ 01</div>
+        <h3>The experience catch-22</h3>
+        <p>Employers want candidates with experience. You need a job to get experience. That loop traps most students for years.</p>
+      </div>
+      <div class="problem-card">
+        <div class="n">→ 02</div>
+        <h3>Classroom vs. reality</h3>
+        <p>University gives you theory. The real job demands analysis, judgment, and delivering under pressure — a gap best closed early.</p>
+      </div>
+      <div class="problem-card">
+        <div class="n">→ 03</div>
+        <h3>Starting in year 3–4</h3>
+        <p>By the time most students start looking, others already have 2–3 real projects on their CV. That head start is hard to catch.</p>
+      </div>
+      <div class="problem-card">
+        <div class="n">→ 04</div>
+        <h3>Misaligned internships</h3>
+        <p>Many settle for off-track, unmentored roles — burning time fetching coffee just to put "Intern" on a CV.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<div id="experience" class="dark-section">
+  <div class="wrap">
+    <div class="sec-head rev">
+      <div class="section-label">02 / The Experience</div>
+      <h2>Not a course. <em>A simulated job.</em></h2>
+    </div>
+    <p class="sol-lead rev">You're onboarded as an <em>intern analyst</em> at a green finance fund. You get a real thesis, real constraints, and real projects to assess. Each week: learn it in a live session, then immediately <em>do it</em> on a real deal.</p>
+    <div class="steps-grid rev">
+      <div class="exp-step">
+        <div class="n">01</div>
+        <h3>Real brief</h3>
+        <p>Receive an authentic investment scenario with context, numbers, and a green mandate — no hypothetical case studies.</p>
+      </div>
+      <div class="exp-step">
+        <div class="n">02</div>
+        <h3>Problem solving</h3>
+        <p>Work solo or in a team with direct mentor guidance: assess risk, run the analysis, make the call.</p>
+      </div>
+      <div class="exp-step">
+        <div class="n">03</div>
+        <h3>Deliverable</h3>
+        <p>Each module ends in a tangible output — a report, a deck, a recommendation. Proof you can do the work.</p>
+      </div>
+      <div class="exp-step">
+        <div class="n">04</div>
+        <h3>Defend it</h3>
+        <p>Pitch your recommendation to a mock investment committee and defend it under real questioning.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PARTNER -->
+<section id="partner" style="background: var(--white);">
+  <div class="wrap">
+    <div class="partner-block">
+      <div class="partner-visual rev">
+        <div class="ring" style="width:70%;height:70%"></div>
+        <div class="ring" style="width:46%;height:46%"></div>
+        <div class="sun-big"></div>
+        <div class="vis-name">SmartSolar</div>
+      </div>
+      <div class="partner-copy rev">
+        <div class="section-label">03 / Our Partner</div>
+        <h3>Real briefs from a <em>real company.</em></h3>
+        <p>The projects you scout and evaluate are grounded in real-world green business — built in partnership with <strong>SmartSolar</strong>, a renewable-energy company.</p>
+        <p>This is what separates Upwind from a textbook: you're not solving made-up problems. You're working with the kind of context, constraints, and numbers a real analyst faces — and producing work to the standard a real fund would expect.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<section id="curriculum" style="background: var(--bg-2);">
+  <div class="wrap">
+    <div class="sec-head rev">
+      <div class="section-label">04 / Curriculum</div>
+      <h2>Six weeks, end to end — from <em>thesis</em> to portfolio.</h2>
+    </div>
+    <div class="curr-table rev">
+      <div class="curr-row head"><span>Week</span><span>Module</span><span>What you learn</span><span>What you do</span></div>
+      <div class="curr-row"><div class="wk">0</div><div class="mod">Onboarding</div><div class="learn">How a fund operates, key roles, finance fundamentals, the green mandate</div><div class="do">Set up, read the fund brief, finance 101 primer</div></div>
+      <div class="curr-row"><div class="wk">1</div><div class="mod">Investment Thesis</div><div class="learn">What a thesis is, investment criteria, green/ESG screening</div><div class="do">Draft the fund's thesis & screening criteria</div></div>
+      <div class="curr-row"><div class="wk">2</div><div class="mod">Project Scouting</div><div class="learn">Sourcing, market mapping, where deals come from</div><div class="do">Scout & shortlist 2–3 real green projects</div></div>
+      <div class="curr-row"><div class="wk">3</div><div class="mod">Project Evaluation</div><div class="learn">Financial analysis, impact analysis, risk assessment</div><div class="do">Produce a full evaluation report on your top pick</div></div>
+      <div class="curr-row"><div class="wk">4</div><div class="mod">Investment Committee</div><div class="learn">How decisions get made, how to pitch and defend</div><div class="do">Present to a mock IC and get challenged</div></div>
+      <div class="curr-row"><div class="wk">5</div><div class="mod">Optimization</div><div class="learn">Stress-testing assumptions, deal structuring basics</div><div class="do">Revise your recommendation on IC feedback</div></div>
+      <div class="curr-row"><div class="wk">6</div><div class="mod">Portfolio Management</div><div class="learn">Post-investment monitoring, stakeholder reporting</div><div class="do">Build a portfolio monitoring & reporting summary</div></div>
+      <p class="focus-note">Focus areas: renewable energy, sustainable agriculture, clean water, EVs & mobility, waste & circular economy, ESG-driven businesses.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERABLES -->
+<section id="deliverables" style="background: var(--white);">
+  <div class="wrap">
+    <div class="sec-head rev">
+      <div class="section-label">05 / Your Portfolio</div>
+      <h2>You finish with <em>four artifacts</em> you can walk through in an interview.</h2>
+    </div>
+    <div class="deliv-grid rev">
+      <div class="deliv"><div class="n">01</div><h3>Investment Thesis</h3><p>A sharp 1–2 page statement of what the fund backs and why.</p></div>
+      <div class="deliv"><div class="n">02</div><h3>Evaluation Report</h3><p>Full analysis of your pick — financials and impact metrics.</p></div>
+      <div class="deliv"><div class="n">03</div><h3>IC Deck</h3><p>The pitch presentation you delivered and defended.</p></div>
+      <div class="deliv"><div class="n">04</div><h3>Monitoring Report</h3><p>Post-investment tracking and stakeholder reporting summary.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REWARDS -->
+<div id="rewards" class="dark-section">
+  <div class="wrap">
+    <div class="sec-head rev">
+      <div class="section-label">06 / Rewards</div>
+      <h2>Proof that <em>opens doors.</em></h2>
+    </div>
+    <div class="reward-grid rev">
+      <div class="reward">
+        <div class="ic">✦</div>
+        <h3>Personal recommendation letter</h3>
+        <p>A signed letter from Nam Khánh — Founding Member & Chief of Staff at a $3M-raised startup. High-signal, because it comes from someone who actually hires.</p>
+      </div>
+      <div class="reward">
+        <div class="ic">❖</div>
+        <h3>Certificate of completion</h3>
+        <p>An official certificate from the program — usable on your CV and, where applicable, toward graduation internship requirements.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OFFERS -->
+<section id="offers" style="background: var(--bg-2);">
+  <div class="wrap">
+    <div class="sec-head rev">
+      <div class="section-label">07 / Join Cohort 1</div>
+      <h2>Two ways in. Both <em>limited.</em></h2>
+    </div>
+    <div class="offers-grid rev">
+      <div class="offer">
+        <div class="kind">Circle 1 · Scholarship</div>
+        <h3>The Scholarship</h3>
+        <div class="price">Free <s>up to 3 slots</s></div>
+        <p class="sub">A competitive scholarship, not a giveaway. You apply — only three are selected.</p>
+        <ul>
+          <li>Full 6-week program, same as everyone</li>
+          <li>All four portfolio deliverables</li>
+          <li>Recommendation letter + certificate</li>
+          <li>In return: a testimonial + permission to showcase your work</li>
+        </ul>
+        <a href="#" class="offer-cta btn btn-ghost" style="text-align:center;padding:16px;font-size:15px;font-weight:800;">Apply for the scholarship →</a>
+      </div>
+      <div class="offer feat">
+        <div class="kind">Circle 2 · Fully refundable</div>
+        <h3>The Refundable Slot</h3>
+        <div class="price">2,000,000₫</div>
+        <p class="sub">Pay upfront — get <strong>100% back when you complete all 6 weeks.</strong> Finish the program, get every dong back.</p>
+        <ul>
+          <li>Full 6-week simulated analyst experience</li>
+          <li>All four portfolio deliverables</li>
+          <li>Recommendation letter + certificate</li>
+          <li>Completion guarantee — zero net cost if you finish</li>
+        </ul>
+        <a href="#" class="btn btn-yellow" style="display:block;text-align:center;padding:16px;font-size:15px;font-weight:800;border-radius:100px;margin-top:auto;">Reserve a refundable slot →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section id="founder" style="background: var(--white);">
+  <div class="wrap">
+    <div class="founder-grid">
+      <div class="founder-card rev">
+        <div class="avatar">NK</div>
+        <div class="nm">Nam Khánh</div>
+        <div class="rl">Founder, Upwind</div>
+        <ul class="creds">
+          <li><span class="b">→</span> Founding Member & Chief of Staff at a startup that raised <strong>$3M</strong></li>
+          <li><span class="b">→</span> Recipient of <strong>[Scholarship name]</strong></li>
+          <li><span class="b">→</span> Interning since grade 11 — the hard way</li>
+        </ul>
+      </div>
+      <div class="founder-quote rev">
+        <h3>"I started interning in grade 11. It was rewarding — but the price was <em>steep.</em>"</h3>
+        <p>I learned a huge amount, but I paid for it in friendships, health, and burnout. I don't recommend doing it the way I did.</p>
+        <p>I built Upwind with a few friends who went through the same thing — so you can gain real, finance-specific experience without sacrificing everything to get it. The recommendation letter you earn comes from me, personally. That's the commitment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background: var(--bg-2);">
+  <div class="wrap">
+    <div class="sec-head rev">
+      <div class="section-label">08 / FAQ</div>
+      <h2>Questions, answered.</h2>
+    </div>
+    <div class="rev">
+      <div class="faq-item"><button class="faq-q">What does "fully refundable" mean?</button><div class="faq-a"><p>You pay 2,000,000₫ upfront to hold your slot. When you complete all six weeks of the program, you get 100% of it back. If you finish, your net cost is zero — the deposit simply keeps everyone committed.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Do I need a finance background?</button><div class="faq-a"><p>No. The program is built for people starting from zero. Onboarding covers the fundamentals, and you'll build real fluency by doing the work, week by week.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Can high school students join?</button><div class="faq-a"><p>Yes. High schoolers get early exposure to finance before choosing a major, something impressive for university applications, and a low-risk way to find out if finance is for them.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Is the certificate usable for graduation internship requirements?</button><div class="faq-a"><p>The program issues a certificate of completion that can support graduation internship criteria at many universities. Please confirm with your faculty for their specific rules.</p></div></div>
+      <div class="faq-item"><button class="faq-q">How much time does it take per week?</button><div class="faq-a"><p>Around 4–6 hours a week — one live session plus async project work. It's designed to fit around a full university schedule.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-inner">
+    <h2 class="rev">Build your edge <em>now</em> — not next year.</h2>
+    <p class="rev">Cohort 1 is intentionally small for close mentorship. Reserve your slot or apply for a scholarship before they're gone.</p>
+    <div class="final-btns rev">
+      <a href="#offers" class="btn btn-yellow btn-yellow-lg">Reserve a refundable slot →</a>
+      <a href="#offers" class="btn btn-ghost-inv btn-ghost-lg">Apply for a scholarship</a>
+    </div>
+    <small class="rev">Free to register · No spam · The Upwind team replies within 24 hours</small>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Upwind</div>
+  <p class="footer-text">In partnership with SmartSolar · Green Finance track · © 2025 Upwind</p>
+</footer>
+
+<script>
+  // Mobile menu
+  const burger = document.getElementById('burger');
+  const mmenu  = document.getElementById('mmenu');
+  burger.addEventListener('click', () => mmenu.classList.toggle('show'));
+  mmenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mmenu.classList.remove('show')));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const ans  = item.querySelector('.faq-a');
+      const open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if (!open) { item.classList.add('open'); ans.style.maxHeight = ans.scrollHeight + 'px'; }
+    });
+  });
+
+  // Scroll reveal
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.rev').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
