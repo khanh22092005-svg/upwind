@@ -40,7 +40,7 @@ a { color: inherit; text-decoration: none; }
 /* ── NAV ── */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(255,255,255,0.94); backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
   padding: 0 48px; height: 64px;
   display: flex; justify-content: space-between; align-items: center;
@@ -59,16 +59,15 @@ nav {
   font-weight: 700; font-size: 14px; padding: 10px 22px;
   border-radius: 100px; border: 1.5px solid transparent;
   cursor: pointer; white-space: nowrap; text-decoration: none;
-  transition: background 0.15s, transform 0.15s, border-color 0.15s, color 0.15s;
+  transition: background 0.15s, transform 0.15s, border-color 0.15s, color 0.15s, box-shadow 0.15s;
 }
-.btn-primary     { background: var(--accent); color: #fff; border-color: var(--accent); }
-.btn-primary:hover { background: var(--accent-mid); transform: translateY(-1px); }
-.btn-yellow      { background: var(--yellow); color: var(--ink); border-color: var(--yellow); }
-.btn-yellow:hover { background: var(--yellow-dark); transform: translateY(-2px); }
-.btn-ghost       { background: transparent; color: var(--ink-2); border-color: var(--border); }
-.btn-ghost:hover { border-color: var(--ink-2); color: var(--ink); }
-/* on accent-bg sections */
-.btn-outline-inv { background: transparent; color: #fff; border-color: rgba(255,255,255,0.45); }
+.btn-primary       { background: var(--accent); color: #fff; border-color: var(--accent); }
+.btn-primary:hover { background: var(--accent-mid); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(26,63,207,.3); }
+.btn-yellow        { background: var(--yellow); color: var(--ink); border-color: var(--yellow); }
+.btn-yellow:hover  { background: var(--yellow-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,216,77,.4); }
+.btn-ghost         { background: transparent; color: var(--ink-2); border-color: var(--border); }
+.btn-ghost:hover   { border-color: var(--ink-2); color: var(--ink); }
+.btn-outline-inv   { background: transparent; color: #fff; border-color: rgba(255,255,255,0.45); }
 .btn-outline-inv:hover { border-color: var(--yellow); color: var(--yellow); }
 .btn-lg { padding: 16px 36px; font-size: 16px; font-weight: 800; }
 
@@ -83,6 +82,10 @@ h2 {
   letter-spacing: -1.5px; line-height: 1.1; color: var(--ink);
 }
 h2 em { font-style: italic; color: var(--accent); }
+.section-intro {
+  font-size: 17px; color: var(--ink-2); line-height: 1.75;
+  max-width: 600px; margin-top: 16px;
+}
 
 /* ── HERO ── */
 .hero {
@@ -97,7 +100,7 @@ h2 em { font-style: italic; color: var(--accent); }
   background: var(--accent-light); color: var(--accent);
   border-radius: 100px; padding: 6px 16px;
   font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
-  margin-bottom: 32px; width: fit-content;
+  margin-bottom: 28px; width: fit-content;
   opacity: 0; animation: fadeUp 0.6s 0.1s ease forwards;
 }
 .eyebrow-dot {
@@ -115,26 +118,30 @@ h2 em { font-style: italic; color: var(--accent); }
 }
 
 .hero h1 {
-  font-size: clamp(36px, 5vw, 68px); font-weight: 900;
-  letter-spacing: -2px; line-height: 1.05; color: var(--ink); margin-bottom: 24px;
+  font-size: clamp(36px, 5vw, 66px); font-weight: 900;
+  letter-spacing: -2px; line-height: 1.05; color: var(--ink); margin-bottom: 20px;
   opacity: 0; animation: fadeUp 0.6s 0.2s ease forwards;
 }
 .hero h1 .hl { background: var(--yellow); padding: 0 5px 2px; font-style: italic; }
 .hero-sub {
-  font-size: 17px; color: var(--ink-2); line-height: 1.75; max-width: 520px; margin-bottom: 36px;
+  font-size: 17px; color: var(--ink-2); line-height: 1.75; max-width: 500px; margin-bottom: 36px;
   opacity: 0; animation: fadeUp 0.6s 0.35s ease forwards;
 }
 .hero-sub strong { color: var(--ink); font-weight: 700; }
 .hero-cta {
-  display: flex; gap: 14px; flex-wrap: wrap;
+  display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 20px;
   opacity: 0; animation: fadeUp 0.6s 0.5s ease forwards;
+}
+.hero-note {
+  font-size: 13px; color: var(--ink-3);
+  opacity: 0; animation: fadeUp 0.6s 0.6s ease forwards;
 }
 
 /* Hero card */
 .hero-card {
   background: var(--white); border: 1.5px solid var(--border);
   border-radius: 20px; padding: 32px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
 }
 .hero-card .lbl {
   font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
@@ -147,6 +154,11 @@ h2 em { font-style: italic; color: var(--accent); }
 .stat-row:last-child { border-bottom: none; padding-bottom: 0; }
 .stat-row .v { font-size: 30px; font-weight: 900; color: var(--accent); letter-spacing: -1px; line-height: 1; }
 .stat-row .k { font-size: 13px; color: var(--ink-3); max-width: 148px; text-align: right; line-height: 1.4; }
+.hero-card-note {
+  margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border);
+  font-size: 13px; color: var(--ink-3); line-height: 1.5; display: flex; gap: 8px; align-items: flex-start;
+}
+.hero-card-note .checkmark { color: var(--accent); font-weight: 800; flex-shrink: 0; }
 
 /* Partner strip */
 .partner-strip {
@@ -158,6 +170,22 @@ h2 em { font-style: italic; color: var(--accent); }
 .partner-name { font-size: 17px; font-weight: 900; color: var(--accent); display: flex; align-items: center; gap: 7px; }
 .partner-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--yellow); box-shadow: 0 0 10px 2px rgba(255,216,77,0.55); }
 
+/* ── STATS BAR ── */
+.stats-bar {
+  background: var(--accent); padding: 32px 48px;
+  display: flex; gap: 0; align-items: stretch; flex-wrap: wrap;
+}
+.stats-bar .stat-item {
+  flex: 1; min-width: 160px;
+  padding: 0 40px;
+  border-right: 1px solid rgba(255,255,255,0.15);
+  display: flex; flex-direction: column; gap: 6px;
+}
+.stats-bar .stat-item:first-child { padding-left: 0; }
+.stats-bar .stat-item:last-child  { border-right: none; }
+.stats-bar .stat-num  { font-size: 36px; font-weight: 900; color: var(--yellow); letter-spacing: -1px; line-height: 1; }
+.stats-bar .stat-desc { font-size: 13px; color: rgba(255,255,255,0.75); font-weight: 500; line-height: 1.5; }
+
 /* ── PROBLEM ── */
 .problem-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin-top: 56px; }
 .problem-card {
@@ -167,7 +195,7 @@ h2 em { font-style: italic; color: var(--accent); }
 }
 .problem-card:hover { border-color: #b0bcde; box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
 .problem-card:first-child { border-top: 3px solid var(--accent); }
-.problem-card .n { font-size: 11px; font-weight: 700; letter-spacing: 2px; color: var(--accent); margin-bottom: 18px; }
+.problem-card .n { font-size: 11px; font-weight: 700; letter-spacing: 2px; color: var(--accent); margin-bottom: 14px; }
 .problem-card h3 { font-size: 17px; font-weight: 800; letter-spacing: -0.3px; margin-bottom: 10px; }
 .problem-card p { font-size: 14px; color: var(--ink-3); line-height: 1.75; }
 
@@ -187,8 +215,7 @@ h2 em { font-style: italic; color: var(--accent); }
   width: 44px; height: 44px; border-radius: 50%;
   border: 2px solid var(--border);
   display: flex; align-items: center; justify-content: center;
-  font-size: 14px; font-weight: 800; color: var(--ink-3);
-  margin-bottom: 20px;
+  font-size: 14px; font-weight: 800; color: var(--ink-3); margin-bottom: 20px;
   transition: background 0.2s, border-color 0.2s, color 0.2s;
 }
 .step:hover .step-num { background: var(--accent); border-color: var(--accent); color: #fff; }
@@ -250,8 +277,13 @@ h2 em { font-style: italic; color: var(--accent); }
 }
 .reward:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
 .reward .ic { font-size: 26px; color: var(--accent); margin-bottom: 20px; }
-.reward h3 { font-size: 21px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 12px; color: var(--ink); }
+.reward h3 { font-size: 21px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 12px; }
 .reward p { font-size: 15px; color: var(--ink-3); line-height: 1.75; }
+.reward-note {
+  margin-top: 14px; font-size: 13px; color: var(--ink-2);
+  padding: 12px 16px; background: var(--accent-light);
+  border-radius: 10px; line-height: 1.5;
+}
 
 /* ── OFFERS ── */
 .offers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch; margin-top: 56px; }
@@ -263,7 +295,7 @@ h2 em { font-style: italic; color: var(--accent); }
   background: var(--accent); color: white; border-color: var(--accent); position: relative; overflow: hidden;
 }
 .offer.feat::before {
-  content: "MOST POPULAR"; position: absolute; top: -1px; left: 40px;
+  content: "RECOMMENDED"; position: absolute; top: -1px; left: 40px;
   font-size: 10px; font-weight: 800; letter-spacing: 1.5px;
   background: var(--yellow); color: var(--ink); padding: 5px 14px; border-radius: 0 0 8px 8px;
 }
@@ -275,14 +307,20 @@ h2 em { font-style: italic; color: var(--accent); }
 .offer .price s { font-size: 18px; font-weight: 400; color: var(--ink-3); margin-left: 8px; }
 .offer .sub { font-size: 14px; color: var(--ink-3); line-height: 1.6; margin-bottom: 28px; }
 .offer.feat .sub { color: rgba(255,255,255,0.65); }
-.offer ul { list-style: none; margin-bottom: 32px; flex: 1; }
+.offer ul { list-style: none; margin-bottom: 24px; flex: 1; }
 .offer li { font-size: 14px; padding: 10px 0 10px 26px; position: relative; border-bottom: 1px solid var(--border); color: var(--ink-2); }
 .offer.feat li { border-bottom-color: rgba(255,255,255,0.12); color: rgba(255,255,255,0.85); }
 .offer li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
 .offer.feat li::before { color: var(--yellow); }
+.offer .guarantee {
+  background: rgba(255,255,255,0.12); border-radius: 12px;
+  padding: 14px 18px; margin-bottom: 24px;
+  font-size: 13px; color: rgba(255,255,255,0.85); line-height: 1.5;
+}
+.offer .guarantee strong { color: #fff; }
 
 /* ── FOUNDER ── */
-.founder-grid { display: grid; grid-template-columns: 0.9fr 1.4fr; gap: 56px; align-items: center; }
+.founder-grid { display: grid; grid-template-columns: 0.9fr 1.4fr; gap: 56px; align-items: start; }
 .founder-card { border: 1.5px solid var(--border); border-radius: 20px; padding: 40px; background: var(--white); }
 .founder-card .avatar {
   width: 80px; height: 80px; border-radius: 50%;
@@ -295,8 +333,12 @@ h2 em { font-style: italic; color: var(--accent); }
 .creds { list-style: none; }
 .creds li { font-size: 14px; padding: 12px 0; border-top: 1px solid var(--border); display: flex; gap: 10px; color: var(--ink-2); }
 .creds li .b { color: var(--accent); font-weight: 800; flex-shrink: 0; }
-.founder-quote h3 { font-size: clamp(20px, 2.6vw, 32px); font-weight: 900; line-height: 1.2; letter-spacing: -0.8px; margin-bottom: 20px; }
-.founder-quote h3 em { font-style: italic; color: var(--accent); }
+.founder-quote blockquote {
+  font-size: clamp(20px, 2.6vw, 30px); font-weight: 900; line-height: 1.2;
+  letter-spacing: -0.8px; color: var(--ink); margin-bottom: 24px;
+  font-style: italic;
+}
+.founder-quote blockquote em { color: var(--accent); }
 .founder-quote p { font-size: 16px; color: var(--ink-2); line-height: 1.75; margin-bottom: 14px; }
 
 /* ── FAQ ── */
@@ -311,7 +353,7 @@ h2 em { font-style: italic; color: var(--accent); }
 .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
 .faq-a p { font-size: 15px; color: var(--ink-3); padding: 0 60px 24px 0; line-height: 1.75; }
 
-/* ── FINAL CTA (accent section) ── */
+/* ── FINAL CTA ── */
 .final-cta {
   background: var(--accent); padding: 120px 48px;
   text-align: center; position: relative; overflow: hidden;
@@ -343,16 +385,17 @@ footer {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
-  nav, .hero, section, footer { padding-left: 20px; padding-right: 20px; }
-  .wrap { padding: 0 20px; }
   nav { padding: 0 20px; }
-  .final-cta { padding: 72px 20px; }
   .nav-links { display: none; }
   .nav-cta .btn-ghost { display: none; }
   .burger { display: flex; }
-  .hero { padding-top: 88px; }
+  .hero { padding: 88px 20px 56px; }
   .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-  section { padding-top: 64px; padding-bottom: 64px; }
+  section { padding: 64px 20px; }
+  .wrap { padding: 0 20px; }
+  .stats-bar { padding: 28px 20px; flex-direction: column; gap: 24px; }
+  .stats-bar .stat-item { padding: 0; border-right: none; border-bottom: 1px solid rgba(255,255,255,.15); padding-bottom: 20px; }
+  .stats-bar .stat-item:last-child { border-bottom: none; padding-bottom: 0; }
   .problem-grid { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr 1fr; }
   .partner-block { grid-template-columns: 1fr; gap: 36px; }
@@ -363,7 +406,8 @@ footer {
   .reward-grid { grid-template-columns: 1fr; }
   .offers-grid { grid-template-columns: 1fr; }
   .founder-grid { grid-template-columns: 1fr; gap: 32px; }
-  footer { flex-direction: column; text-align: center; }
+  .final-cta { padding: 72px 20px; }
+  footer { flex-direction: column; text-align: center; padding: 24px 20px; }
 }
 @media (max-width: 560px) {
   .steps { grid-template-columns: 1fr; }
@@ -387,83 +431,109 @@ footer {
 <nav>
   <div class="logo">Upwind</div>
   <div class="nav-links">
-    <a href="#problem">The Gap</a>
-    <a href="#experience">Experience</a>
-    <a href="#curriculum">Curriculum</a>
-    <a href="#offers">Join</a>
+    <a href="#problem">The Problem</a>
+    <a href="#experience">How It Works</a>
+    <a href="#curriculum">Week by Week</a>
+    <a href="#offers">Pricing</a>
     <a href="#faq">FAQ</a>
   </div>
   <div class="nav-cta">
-    <a href="#offers" class="btn btn-ghost">Reserve a slot</a>
+    <a href="#offers" class="btn btn-ghost">See pricing</a>
+    <a href="#offers" class="btn btn-primary">Claim your slot →</a>
     <div class="burger" id="burger"><span></span><span></span><span></span></div>
   </div>
 </nav>
 
 <div class="mmenu" id="mmenu">
-  <a href="#problem">The Gap</a>
-  <a href="#experience">Experience</a>
-  <a href="#curriculum">Curriculum</a>
-  <a href="#offers">Join</a>
+  <a href="#problem">The Problem</a>
+  <a href="#experience">How It Works</a>
+  <a href="#curriculum">Week by Week</a>
+  <a href="#offers">Pricing</a>
   <a href="#faq">FAQ</a>
-  <a href="#offers" class="btn btn-primary">Reserve a slot →</a>
+  <a href="#offers" class="btn btn-primary">Claim your slot →</a>
 </div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-grid">
     <div>
-      <div class="hero-eyebrow"><span class="eyebrow-dot"></span>Cohort 1 · Limited seats</div>
-      <h1>For 6 weeks, you are an analyst at a <span class="hl">green investment fund.</span></h1>
-      <p class="hero-sub">Not a course. Not lectures. A simulated job with real tasks and real deliverables — so you walk into the job market with a <strong>portfolio</strong>, not a blank CV.</p>
+      <div class="hero-eyebrow"><span class="eyebrow-dot"></span>Cohort 1 · Only 3 scholarship slots left</div>
+      <h1>Walk into your first finance interview with <span class="hl">something real to show.</span></h1>
+      <p class="hero-sub">Upwind puts you inside a green investment fund for 6 weeks — as an intern analyst. You work on real briefs, build real deliverables, and leave with a portfolio that speaks for itself.</p>
       <div class="hero-cta">
-        <a href="#offers" class="btn btn-yellow btn-lg">Apply for a scholarship · 3 slots</a>
-        <a href="#offers" class="btn btn-ghost btn-lg">Reserve a refundable slot →</a>
+        <a href="#offers" class="btn btn-yellow btn-lg">Apply for a scholarship →</a>
+        <a href="#offers" class="btn btn-ghost btn-lg">Reserve a spot (refundable)</a>
       </div>
+      <p class="hero-note">No finance experience needed · Fits around your uni schedule · 100% online</p>
     </div>
     <div>
       <div class="hero-card">
-        <div class="lbl">The program at a glance</div>
-        <div class="stat-row"><span class="v">6</span><span class="k">weeks as a fund analyst</span></div>
-        <div class="stat-row"><span class="v">4</span><span class="k">portfolio-ready deliverables</span></div>
-        <div class="stat-row"><span class="v">2</span><span class="k">rewards: rec. letter + certificate</span></div>
-        <div class="stat-row"><span class="v">100%</span><span class="k">online · ~4–6h / week</span></div>
+        <div class="lbl">What you get in 6 weeks</div>
+        <div class="stat-row"><span class="v">6</span><span class="k">weeks of real analyst work</span></div>
+        <div class="stat-row"><span class="v">4</span><span class="k">portfolio pieces to show hirers</span></div>
+        <div class="stat-row"><span class="v">1</span><span class="k">personal recommendation letter</span></div>
+        <div class="stat-row"><span class="v">0₫</span><span class="k">net cost if you complete it</span></div>
+        <div class="hero-card-note">
+          <span class="checkmark">✓</span>
+          <span>You get <strong>100% of your deposit back</strong> when you finish all 6 weeks. If you commit, it costs you nothing.</span>
+        </div>
       </div>
     </div>
   </div>
   <div class="partner-strip">
-    <span class="t">Real project briefs in partnership with</span>
+    <span class="t">Real project briefs sourced in partnership with</span>
     <span class="partner-name"><span class="partner-dot"></span>SmartSolar</span>
   </div>
 </section>
+
+<!-- STATS BAR -->
+<div class="stats-bar rev">
+  <div class="stat-item">
+    <div class="stat-num">70%</div>
+    <div class="stat-desc">of graduates feel unprepared for work — not because they're not smart, but because they've never done the real thing</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">3%</div>
+    <div class="stat-desc">of students land internships at top finance firms. For most, the path in looks completely different</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">6 wks</div>
+    <div class="stat-desc">is all it takes to go from a blank CV to four real portfolio pieces you can talk through in any interview</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">Year 1</div>
+    <div class="stat-desc">is the best time to start — not year 3. The earlier you build, the bigger the advantage when it counts</div>
+  </div>
+</div>
 
 <!-- PROBLEM -->
 <section id="problem" style="background: var(--bg);">
   <div class="wrap">
     <div class="rev">
-      <div class="section-label">01 / The Gap</div>
-      <h2>Why do students with great grades still get <em>filtered out</em> at the résumé stage?</h2>
-      <p style="margin-top:16px; max-width:600px; font-size:17px; color:var(--ink-2); line-height:1.75;">Not because of a lack of ability — because of a lack of evidence. A blank CV makes you invisible to recruiters, no matter your potential.</p>
+      <div class="section-label">The Problem</div>
+      <h2>You're not behind because you're not good enough.<br>You're behind because <em>nobody told you this earlier.</em></h2>
+      <p class="section-intro">The hiring system is broken for students. It rewards experience you can only get by already having experience. Here's what that actually looks like — and why it's not your fault.</p>
     </div>
     <div class="problem-grid rev">
       <div class="problem-card">
         <div class="n">→ 01</div>
-        <h3>The experience catch-22</h3>
-        <p>Employers want candidates with experience. You need a job to get experience. That loop traps most students for years.</p>
+        <h3>Nobody hires students without experience. But how do you get experience without being hired?</h3>
+        <p>It's the loop that wastes years. You apply, get filtered out, and don't know why — until you realise the only missing thing was evidence. Not talent. Evidence.</p>
       </div>
       <div class="problem-card">
         <div class="n">→ 02</div>
-        <h3>Classroom vs. reality</h3>
-        <p>University gives you theory. The real job demands analysis, judgment, and delivering under pressure — a gap best closed early.</p>
+        <h3>What you learn in uni and what the job actually needs are two different things.</h3>
+        <p>You can ace every exam and still freeze on day one. Real work requires judgment under pressure — not just knowing the right answer, but finding it when no one hands you the question.</p>
       </div>
       <div class="problem-card">
         <div class="n">→ 03</div>
-        <h3>Starting in year 3–4</h3>
-        <p>By the time most students start looking, others already have 2–3 real projects on their CV. That head start is hard to catch.</p>
+        <h3>By the time most students wake up to this, they're already two years behind.</h3>
+        <p>While you were told to "focus on studies", others were quietly collecting projects, internships, and LinkedIn connections. That head start is very real — and very hard to catch.</p>
       </div>
       <div class="problem-card">
         <div class="n">→ 04</div>
-        <h3>Misaligned internships</h3>
-        <p>Many settle for off-track, unmentored roles — burning time fetching coffee just to put "Intern" on a CV.</p>
+        <h3>Most internships don't actually teach you anything you'd want to show a hirer.</h3>
+        <p>Making coffee. Sitting in meetings. "Helping out." We've all heard the stories. Your time is worth more than an internship you can't talk about in an interview.</p>
       </div>
     </div>
   </div>
@@ -473,34 +543,34 @@ footer {
 <section id="experience" style="background: var(--white);">
   <div class="wrap">
     <div class="rev">
-      <div class="section-label">02 / The Experience</div>
-      <h2>Not a course. <em>A simulated job.</em></h2>
+      <div class="section-label">How It Works</div>
+      <h2>Not another course. <em>Six weeks of actual work.</em></h2>
     </div>
-    <p class="exp-lead rev">You're onboarded as an <em>intern analyst</em> at a green finance fund. You get a real thesis, real constraints, and real projects to assess. Each week: learn it in a live session, then immediately <em>do it</em> on a real deal.</p>
+    <p class="exp-lead rev">You're onboarded as an <em>intern analyst</em> at a green finance fund. You get a real investment thesis, real constraints, and real projects to evaluate. Every week, you learn something in a live session — then immediately apply it to a real deal. No hypotheticals. No "imagine if." Just work.</p>
     <div class="steps rev">
       <div class="step">
         <div class="step-num">01</div>
-        <h3>Real brief</h3>
-        <p>Receive an authentic investment scenario with context, numbers, and a green mandate — no hypothetical case studies.</p>
+        <h3>You receive a real investment brief</h3>
+        <p>An actual scenario — a renewable energy company, real numbers, a green investment mandate. Your job: figure out if it's worth backing.</p>
         <span class="step-tag">Real scenario</span>
       </div>
       <div class="step">
         <div class="step-num">02</div>
-        <h3>Problem solving</h3>
-        <p>Work solo or in a team with direct mentor guidance: assess risk, run the analysis, make the call.</p>
+        <h3>You do the analysis yourself</h3>
+        <p>With mentor support, you assess the risk, run the numbers, and form your own view. Exactly what a real junior analyst does on their first week.</p>
         <span class="step-tag">Real analysis</span>
       </div>
       <div class="step">
         <div class="step-num">03</div>
-        <h3>Deliverable</h3>
-        <p>Each module ends in a tangible output — a report, a deck, a recommendation. Proof you can do the work.</p>
-        <span class="step-tag">Real output</span>
+        <h3>You produce something tangible</h3>
+        <p>A report. A recommendation. A pitch deck. Not a mock assignment — something you can open in an interview and walk someone through, line by line.</p>
+        <span class="step-tag">Real deliverable</span>
       </div>
       <div class="step">
         <div class="step-num">04</div>
-        <h3>Defend it</h3>
-        <p>Pitch your recommendation to a mock investment committee and defend it under real questioning.</p>
-        <span class="step-tag">Real stakes</span>
+        <h3>You defend your thinking</h3>
+        <p>Present to a mock investment committee. Get pushed back on. Refine your argument. This is the part that actually makes you interview-ready.</p>
+        <span class="step-tag">Real pressure</span>
       </div>
     </div>
   </div>
@@ -517,10 +587,10 @@ footer {
         <div class="vis-name">SmartSolar</div>
       </div>
       <div class="partner-copy rev">
-        <div class="section-label">03 / Our Partner</div>
-        <h3>Real briefs from a <em>real company.</em></h3>
-        <p>The projects you scout and evaluate are grounded in real-world green business — built in partnership with <strong>SmartSolar</strong>, a renewable-energy company.</p>
-        <p>This is what separates Upwind from a textbook: you're not solving made-up problems. You're working with the kind of context, constraints, and numbers a real analyst faces — and producing work to the standard a real fund would expect.</p>
+        <div class="section-label">Our Partner</div>
+        <h3>The briefs come from a <em>real company.</em> Not a textbook.</h3>
+        <p>The projects you evaluate are grounded in actual green business — sourced in partnership with <strong>SmartSolar</strong>, a renewable-energy company operating in the real market.</p>
+        <p>This matters because it's the difference between solving a made-up problem and working with the kind of context, constraints, and messy numbers a real analyst faces every day. And producing work to a standard a real fund would expect.</p>
       </div>
     </div>
   </div>
@@ -530,19 +600,20 @@ footer {
 <section id="curriculum" style="background: var(--bg-2);">
   <div class="wrap">
     <div class="rev">
-      <div class="section-label">04 / Curriculum</div>
-      <h2>Six weeks, end to end — from <em>thesis</em> to portfolio.</h2>
+      <div class="section-label">Week by Week</div>
+      <h2>Here's exactly what happens — <em>no surprises.</em></h2>
+      <p class="section-intro">We believe in full transparency. Here's what you'll learn and what you'll produce each week. No filler. No padding.</p>
     </div>
     <div class="rev" style="margin-top:56px;">
-      <div class="curr-row head"><span>Week</span><span>Module</span><span>What you learn</span><span>What you do</span></div>
-      <div class="curr-row"><div class="wk">0</div><div class="mod">Onboarding</div><div class="learn">How a fund operates, key roles, finance fundamentals, the green mandate</div><div class="do">Set up, read the fund brief, finance 101 primer</div></div>
-      <div class="curr-row"><div class="wk">1</div><div class="mod">Investment Thesis</div><div class="learn">What a thesis is, investment criteria, green/ESG screening</div><div class="do">Draft the fund's thesis & screening criteria</div></div>
-      <div class="curr-row"><div class="wk">2</div><div class="mod">Project Scouting</div><div class="learn">Sourcing, market mapping, where deals come from</div><div class="do">Scout & shortlist 2–3 real green projects</div></div>
-      <div class="curr-row"><div class="wk">3</div><div class="mod">Project Evaluation</div><div class="learn">Financial analysis, impact analysis, risk assessment</div><div class="do">Produce a full evaluation report on your top pick</div></div>
-      <div class="curr-row"><div class="wk">4</div><div class="mod">Investment Committee</div><div class="learn">How decisions get made, how to pitch and defend</div><div class="do">Present to a mock IC and get challenged</div></div>
-      <div class="curr-row"><div class="wk">5</div><div class="mod">Optimization</div><div class="learn">Stress-testing assumptions, deal structuring basics</div><div class="do">Revise your recommendation on IC feedback</div></div>
-      <div class="curr-row"><div class="wk">6</div><div class="mod">Portfolio Management</div><div class="learn">Post-investment monitoring, stakeholder reporting</div><div class="do">Build a portfolio monitoring & reporting summary</div></div>
-      <p class="focus-note">Focus areas: renewable energy, sustainable agriculture, clean water, EVs & mobility, waste & circular economy, ESG-driven businesses.</p>
+      <div class="curr-row head"><span>Week</span><span>Module</span><span>What you learn</span><span>What you produce</span></div>
+      <div class="curr-row"><div class="wk">0</div><div class="mod">Onboarding</div><div class="learn">How a fund actually operates, the people involved, finance fundamentals, and the green mandate</div><div class="do">Read the fund brief, complete finance primer, set yourself up</div></div>
+      <div class="curr-row"><div class="wk">1</div><div class="mod">Investment Thesis</div><div class="learn">What makes a good thesis, investment criteria, how green/ESG screening works</div><div class="do">Draft the fund's thesis and screening criteria — your first real deliverable</div></div>
+      <div class="curr-row"><div class="wk">2</div><div class="mod">Project Scouting</div><div class="learn">Where deals come from, how to source them, how to read a market</div><div class="do">Scout and shortlist 2–3 real green projects to evaluate</div></div>
+      <div class="curr-row"><div class="wk">3</div><div class="mod">Project Evaluation</div><div class="learn">Financial modelling basics, impact analysis, how to assess real risk</div><div class="do">Produce a full evaluation report on your top pick</div></div>
+      <div class="curr-row"><div class="wk">4</div><div class="mod">Investment Committee</div><div class="learn">How investment decisions actually get made, how to pitch and handle pushback</div><div class="do">Present to a mock IC — and defend your recommendation live</div></div>
+      <div class="curr-row"><div class="wk">5</div><div class="mod">Stress-Testing</div><div class="learn">Sensitivity analysis, deal structuring basics, what happens when assumptions break</div><div class="do">Revise your recommendation based on IC feedback</div></div>
+      <div class="curr-row"><div class="wk">6</div><div class="mod">Portfolio Monitoring</div><div class="learn">Post-investment life: tracking performance, reporting to stakeholders</div><div class="do">Build a portfolio monitoring and reporting summary</div></div>
+      <p class="focus-note">Focus areas across the program: renewable energy · sustainable agriculture · clean water · EVs & mobility · waste & circular economy · ESG-driven businesses</p>
     </div>
   </div>
 </section>
@@ -551,14 +622,31 @@ footer {
 <section id="deliverables" style="background: var(--white);">
   <div class="wrap">
     <div class="rev">
-      <div class="section-label">05 / Your Portfolio</div>
-      <h2>You finish with <em>four artifacts</em> you can walk through in an interview.</h2>
+      <div class="section-label">Your Portfolio</div>
+      <h2>Most applicants bring their GPA. <em>You'll bring four pieces of real work.</em></h2>
+      <p class="section-intro">Every deliverable is something you can open in an interview, explain your thinking behind, and show as proof you can do the job — not just study it.</p>
     </div>
     <div class="deliv-grid rev">
-      <div class="deliv"><div class="n">01</div><h3>Investment Thesis</h3><p>A sharp 1–2 page statement of what the fund backs and why.</p></div>
-      <div class="deliv"><div class="n">02</div><h3>Evaluation Report</h3><p>Full analysis of your pick — financials and impact metrics.</p></div>
-      <div class="deliv"><div class="n">03</div><h3>IC Deck</h3><p>The pitch presentation you delivered and defended.</p></div>
-      <div class="deliv"><div class="n">04</div><h3>Monitoring Report</h3><p>Post-investment tracking and stakeholder reporting summary.</p></div>
+      <div class="deliv">
+        <div class="n">DELIVERABLE 01</div>
+        <h3>Investment Thesis</h3>
+        <p>A 1–2 page statement of what the fund backs and why. Sharp, clear, and completely yours.</p>
+      </div>
+      <div class="deliv">
+        <div class="n">DELIVERABLE 02</div>
+        <h3>Evaluation Report</h3>
+        <p>A full analysis of your chosen project — financials, impact metrics, risk assessment, recommendation.</p>
+      </div>
+      <div class="deliv">
+        <div class="n">DELIVERABLE 03</div>
+        <h3>IC Pitch Deck</h3>
+        <p>The actual presentation you built and defended in front of a mock investment committee.</p>
+      </div>
+      <div class="deliv">
+        <div class="n">DELIVERABLE 04</div>
+        <h3>Monitoring Report</h3>
+        <p>Post-investment portfolio tracking — how you'd watch the deal after the money goes in.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -567,19 +655,21 @@ footer {
 <section id="rewards" style="background: var(--bg);">
   <div class="wrap">
     <div class="rev">
-      <div class="section-label">06 / Rewards</div>
-      <h2>Proof that <em>opens doors.</em></h2>
+      <div class="section-label">What You Earn</div>
+      <h2>Proof that <em>actually opens doors</em> — not just paper.</h2>
     </div>
     <div class="reward-grid rev">
       <div class="reward">
         <div class="ic">✦</div>
-        <h3>Personal recommendation letter</h3>
-        <p>A signed letter from Nam Khánh — Founding Member & Chief of Staff at a $3M-raised startup. High-signal, because it comes from someone who actually hires.</p>
+        <h3>A personal recommendation letter — from someone who hires</h3>
+        <p>Nam Khánh writes this himself. It's not a template. It reflects what you specifically did, how you showed up, and what he actually thinks of your work.</p>
+        <div class="reward-note">This carries weight because it comes from a Founding Member & Chief of Staff at a startup that raised $3M — not an automated certificate generator.</div>
       </div>
       <div class="reward">
         <div class="ic">❖</div>
-        <h3>Certificate of completion</h3>
-        <p>An official certificate from the program — usable on your CV and, where applicable, toward graduation internship requirements.</p>
+        <h3>A certificate of completion — usable for graduation requirements</h3>
+        <p>An official certificate from Upwind that you can put on your CV, LinkedIn, and — at many universities — use to satisfy graduation internship requirements.</p>
+        <div class="reward-note">Please confirm with your faculty for their specific rules. We'll give you everything you need to make the case.</div>
       </div>
     </div>
   </div>
@@ -589,35 +679,39 @@ footer {
 <section id="offers" style="background: var(--bg-2);">
   <div class="wrap">
     <div class="rev">
-      <div class="section-label">07 / Join Cohort 1</div>
-      <h2>Two ways in. Both <em>limited.</em></h2>
+      <div class="section-label">Pricing</div>
+      <h2>Two ways in. <em>Both limited. Both fair.</em></h2>
+      <p class="section-intro">We deliberately kept Cohort 1 small — close mentorship only works when there's room to give real feedback. Choose the path that fits you.</p>
     </div>
     <div class="offers-grid rev">
       <div class="offer">
-        <div class="kind">Circle 1 · Scholarship</div>
+        <div class="kind">Path 1 · Competitive</div>
         <h3>The Scholarship</h3>
-        <div class="price">Free <s>up to 3 slots</s></div>
-        <p class="sub">A competitive scholarship, not a giveaway. You apply — only three are selected.</p>
+        <div class="price">Free</div>
+        <p class="sub">Not a giveaway — a real selection. Only 3 slots. You apply, we review, we pick who's serious.</p>
         <ul>
-          <li>Full 6-week program, same as everyone</li>
+          <li>Full 6-week program, identical experience</li>
           <li>All four portfolio deliverables</li>
-          <li>Recommendation letter + certificate</li>
-          <li>In return: a testimonial + permission to showcase your work</li>
+          <li>Personal recommendation letter + certificate</li>
+          <li>What we ask in return: a testimonial and permission to share your work as an example</li>
         </ul>
-        <a href="#" class="btn btn-ghost" style="display:block;text-align:center;padding:16px;font-size:15px;font-weight:800;border-radius:100px;">Apply for the scholarship →</a>
+        <a href="#" class="btn btn-ghost" style="display:block;text-align:center;padding:16px;font-size:15px;font-weight:800;border-radius:100px;">Apply for a scholarship →</a>
       </div>
       <div class="offer feat">
-        <div class="kind">Circle 2 · Fully refundable</div>
+        <div class="kind">Path 2 · Guaranteed</div>
         <h3>The Refundable Slot</h3>
         <div class="price">2,000,000₫</div>
-        <p class="sub">Pay upfront — get <strong>100% back when you complete all 6 weeks.</strong> Finish the program, get every dong back.</p>
+        <p class="sub">Pay to hold your place. <strong>Get 100% back the moment you finish.</strong> If you complete all 6 weeks, your net cost is exactly zero.</p>
         <ul>
           <li>Full 6-week simulated analyst experience</li>
           <li>All four portfolio deliverables</li>
-          <li>Recommendation letter + certificate</li>
-          <li>Completion guarantee — zero net cost if you finish</li>
+          <li>Personal recommendation letter + certificate</li>
+          <li>Completion refund — pay upfront, get it all back at the end</li>
         </ul>
-        <a href="#" class="btn btn-yellow" style="display:block;text-align:center;padding:16px;font-size:15px;font-weight:800;border-radius:100px;">Reserve a refundable slot →</a>
+        <div class="guarantee">
+          <strong>Why the deposit?</strong> It keeps everyone committed — including us. When you have skin in the game, you show up. And when you show up, you get the most out of it.
+        </div>
+        <a href="#" class="btn btn-yellow" style="display:block;text-align:center;padding:16px;font-size:15px;font-weight:800;border-radius:100px;">Reserve my refundable slot →</a>
       </div>
     </div>
   </div>
@@ -634,13 +728,14 @@ footer {
         <ul class="creds">
           <li><span class="b">→</span> Founding Member & Chief of Staff at a startup that raised <strong>$3M</strong></li>
           <li><span class="b">→</span> Recipient of <strong>[Scholarship name]</strong></li>
-          <li><span class="b">→</span> Interning since grade 11 — the hard way</li>
+          <li><span class="b">→</span> Started interning in grade 11 — learned the hard way what works and what doesn't</li>
         </ul>
       </div>
       <div class="founder-quote rev">
-        <h3>"I started interning in grade 11. It was rewarding — but the price was <em>steep.</em>"</h3>
-        <p>I learned a huge amount, but I paid for it in friendships, health, and burnout. I don't recommend doing it the way I did.</p>
-        <p>I built Upwind with a few friends who went through the same thing — so you can gain real, finance-specific experience without sacrificing everything to get it. The recommendation letter you earn comes from me, personally. That's the commitment.</p>
+        <blockquote>"I didn't build this because I had a great internship experience. I built it because mine was <em>exhausting</em> — and I got lucky it still worked out."</blockquote>
+        <p>Starting in grade 11 meant I got ahead. But I paid for it in burnout, missed friendships, and a few years of running too hard in the wrong direction. I don't recommend doing it that way.</p>
+        <p>I built Upwind with a few close friends who went through the same thing — so you can get the experience that actually matters, without sacrificing everything else to get it.</p>
+        <p>The recommendation letter isn't automated. I write it myself, and I only write it for people who earned it. That's the commitment I'm making to everyone who joins Cohort 1.</p>
       </div>
     </div>
   </div>
@@ -650,15 +745,16 @@ footer {
 <section id="faq" style="background: var(--bg-2);">
   <div class="wrap">
     <div class="rev">
-      <div class="section-label">08 / FAQ</div>
-      <h2>Questions, answered.</h2>
+      <div class="section-label">FAQ</div>
+      <h2>Honest answers to the questions<br>you're actually thinking.</h2>
     </div>
     <div class="rev" style="margin-top:48px;">
-      <div class="faq-item"><button class="faq-q">What does "fully refundable" mean?</button><div class="faq-a"><p>You pay 2,000,000₫ upfront to hold your slot. When you complete all six weeks, you get 100% of it back. If you finish, your net cost is zero — the deposit simply keeps everyone committed.</p></div></div>
-      <div class="faq-item"><button class="faq-q">Do I need a finance background?</button><div class="faq-a"><p>No. The program is built for people starting from zero. Onboarding covers the fundamentals, and you'll build real fluency by doing the work, week by week.</p></div></div>
-      <div class="faq-item"><button class="faq-q">Can high school students join?</button><div class="faq-a"><p>Yes. High schoolers get early exposure to finance before choosing a major, something impressive for university applications, and a low-risk way to find out if finance is for them.</p></div></div>
-      <div class="faq-item"><button class="faq-q">Is the certificate usable for graduation internship requirements?</button><div class="faq-a"><p>The program issues a certificate of completion that can support graduation internship criteria at many universities. Please confirm with your faculty for their specific rules.</p></div></div>
-      <div class="faq-item"><button class="faq-q">How much time does it take per week?</button><div class="faq-a"><p>Around 4–6 hours a week — one live session plus async project work. It's designed to fit around a full university schedule.</p></div></div>
+      <div class="faq-item"><button class="faq-q">I have zero finance knowledge. Is that going to be a problem?</button><div class="faq-a"><p>Not at all — and honestly, this is the right time to join. Onboarding Week covers the fundamentals from scratch, and you'll build real fluency by actually doing the work week by week. Most of our best participants started knowing very little. What matters is that you show up and engage.</p></div></div>
+      <div class="faq-item"><button class="faq-q">What exactly does "fully refundable" mean? What's the catch?</button><div class="faq-a"><p>There's no catch. You pay 2,000,000₫ upfront to confirm your slot. If you complete all 6 weeks of the program, we refund 100% of it. The deposit isn't revenue — it's a commitment mechanism. It keeps every participant serious, which makes the experience better for everyone. If you finish, your net cost is zero.</p></div></div>
+      <div class="faq-item"><button class="faq-q">How much time does this actually take each week?</button><div class="faq-a"><p>Around 4–6 hours a week — one live session plus async project work you do on your own schedule. The program is built to fit around a full university timetable. You don't need to clear your calendar, just carve out a few consistent hours each week.</p></div></div>
+      <div class="faq-item"><button class="faq-q">I'm studying [X major] — is this right for me?</button><div class="faq-a"><p>If you're in Economics, Finance, Business, Management, or Marketing — yes, absolutely. But the skills we build (structured thinking, financial analysis, presenting a recommendation) are useful across almost any career in business. If you're not sure, reach out and we'll tell you honestly whether it's a fit.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Will the certificate actually count for my graduation internship?</button><div class="faq-a"><p>It can — and we'll give you everything you need to make the case to your faculty. But every university has its own rules, so please confirm with your academic advisor before you join specifically for this reason. We won't promise something we can't guarantee.</p></div></div>
+      <div class="faq-item"><button class="faq-q">What if I fall behind or struggle during the program?</button><div class="faq-a"><p>You'll have direct access to mentors throughout — this isn't a course where you're on your own. If you're stuck, you ask, and we help. Cohort 1 is deliberately small specifically so we can give real support to every participant. That said, you do have to do the work. We can guide you; we can't do it for you.</p></div></div>
     </div>
   </div>
 </section>
@@ -666,41 +762,47 @@ footer {
 <!-- FINAL CTA -->
 <section class="final-cta">
   <div class="final-inner">
-    <div class="section-label rev" style="color:rgba(255,255,255,0.6);display:inline-block;margin-bottom:20px;">Get started</div>
-    <h2 class="rev">Build your edge <em>now</em> —<br>not next year.</h2>
-    <p class="rev">Cohort 1 is intentionally small for close mentorship. Reserve your slot or apply for a scholarship before they're gone.</p>
+    <div class="section-label rev" style="color:rgba(255,255,255,0.6);display:inline-block;margin-bottom:20px;">You've read this far.</div>
+    <h2 class="rev">You already know you need this.<br>The only question is <em>when.</em></h2>
+    <p class="rev">Cohort 1 is small on purpose. When it fills up, it fills up — and the next cohort won't have the same pricing, the same access, or the same early-mover advantage. If you're thinking about it, now is the time.</p>
     <div class="final-btns rev">
-      <a href="#offers" class="btn btn-yellow btn-lg">Reserve a refundable slot →</a>
+      <a href="#offers" class="btn btn-yellow btn-lg">Reserve my refundable slot →</a>
       <a href="#offers" class="btn btn-outline-inv btn-lg">Apply for a scholarship</a>
     </div>
-    <small class="rev">Free to register · No spam · The Upwind team replies within 24 hours</small>
+    <small class="rev">Free to apply for the scholarship · Deposit fully refunded on completion · We reply within 24 hours</small>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">Upwind</div>
-  <p class="footer-text">In partnership with SmartSolar · Green Finance track · © 2025 Upwind</p>
+  <p class="footer-text">In partnership with SmartSolar · Green Finance track · Questions? <a href="mailto:team@upwind.asia" style="color:var(--accent);font-weight:600;">team@upwind.asia</a> · © 2025 Upwind</p>
 </footer>
 
 <script>
+  // Mobile menu
   const burger = document.getElementById('burger');
   const mmenu  = document.getElementById('mmenu');
   burger.addEventListener('click', () => mmenu.classList.toggle('show'));
   mmenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mmenu.classList.remove('show')));
 
+  // FAQ accordion
   document.querySelectorAll('.faq-q').forEach(q => {
     q.addEventListener('click', () => {
       const item = q.parentElement, ans = item.querySelector('.faq-a');
       const open = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight = null; });
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-a').style.maxHeight = null;
+      });
       if (!open) { item.classList.add('open'); ans.style.maxHeight = ans.scrollHeight + 'px'; }
     });
   });
 
+  // Scroll reveal
   const io = new IntersectionObserver(es => {
     es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.08 });
   document.querySelectorAll('.rev').forEach(el => io.observe(el));
 </script>
 </body>
