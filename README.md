@@ -1,6 +1,6 @@
 # upwind.asia
 
-Source for **https://upwind.asia**, hosted on Cloudflare Pages (moved from Replit).
+Source for **https://upwind.asia**, hosted on Cloudflare (moved from Replit).
 
 | Page | URL | Code |
 |---|---|---|
@@ -23,16 +23,12 @@ pnpm preview    # serve dist/ locally
 
 ## Deploy
 
-Cloudflare Pages is connected to this repo. Every push to `main` builds and publishes the site
-(about 1 minute); every other branch or PR gets its own preview URL.
+Hosted on Cloudflare (Workers static assets, configured in `wrangler.jsonc`; no Worker code).
 
-Cloudflare Pages build settings:
-| Setting | Value |
-|---|---|
-| Framework preset | None |
-| Build command | `pnpm build` |
-| Build output directory | `dist` |
-| Node version | from `.node-version` (22) |
+```sh
+pnpm build
+npx wrangler deploy     # needs CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID
+```
 
 `public/404.html` is served for unknown URLs and `public/_headers` sets cache headers.
 
