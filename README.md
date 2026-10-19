@@ -1,6 +1,6 @@
 # upwind.asia
 
-Source for **https://upwind.asia**, hosted on GitHub Pages (moved from Replit).
+Source for **https://upwind.asia**, hosted on Cloudflare Pages (moved from Replit).
 
 | Page | URL | Code |
 |---|---|---|
@@ -9,7 +9,7 @@ Source for **https://upwind.asia**, hosted on GitHub Pages (moved from Replit).
 
 Other folders:
 - `src/assets/` – images imported by the pages
-- `public/` – files copied as-is (favicon, social images, `roadmap.pdf`, `CNAME`, `404.html`)
+- `public/` – files copied as-is (favicon, social images, `roadmap.pdf`, `404.html`, `_headers`)
 - `templates/landing.html` – old standalone HTML template, not deployed
 
 ## Edit & preview
@@ -23,15 +23,18 @@ pnpm preview    # serve dist/ locally
 
 ## Deploy
 
-Every push to `main` runs `.github/workflows/deploy.yml`, which builds the site and
-publishes `dist/` to GitHub Pages (about 1 minute).
+Cloudflare Pages is connected to this repo. Every push to `main` builds and publishes the site
+(about 1 minute); every other branch or PR gets its own preview URL.
 
-One-time setup: **Settings → Pages → Source: GitHub Actions**, custom domain `upwind.asia`,
-then tick **Enforce HTTPS**.
+Cloudflare Pages build settings:
+| Setting | Value |
+|---|---|
+| Framework preset | None |
+| Build command | `pnpm build` |
+| Build output directory | `dist` |
+| Node version | from `.node-version` (22) |
 
-DNS at the domain registrar:
-- `upwind.asia` A records: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-- `www` CNAME: `khanh22092005-svg.github.io`
+`public/404.html` is served for unknown URLs and `public/_headers` sets cache headers.
 
 ## Known issue
 
