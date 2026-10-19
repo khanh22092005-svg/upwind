@@ -1,0 +1,6 @@
+# Only install npm package versions published at least 1 day ago
+# (supply-chain attack defense, carried over from the Replit project).
+minimumReleaseAge: 1440
+
+onlyBuiltDependencies:
+  - esbuild

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-label="UpWind IELTS &amp; Self Study">
+  <rect width="180" height="180" rx="38" fill="#ffffff"/>
+  <circle cx="90" cy="90" r="73" fill="#e5f5fc" stroke="#0b5aa6" stroke-width="8"/>
+  <path d="M89 40v79H43L89 40Z" fill="#0b5aa6"/>
+  <path d="M97 51v68h39L97 51Z" fill="#75c9e8"/>
+  <path d="M48 130c25 13 59 13 84 0" fill="none" stroke="#0b5aa6" stroke-width="9" stroke-linecap="round"/>
+  <path d="M60 145c19 7 41 7 60 0" fill="none" stroke="#75c9e8" stroke-width="7" stroke-linecap="round"/>
+</svg>
