@@ -11,6 +11,7 @@ Other folders:
 - `src/assets/` – images imported by the pages
 - `public/` – files copied as-is (favicon, social images, `roadmap.pdf`, `404.html`, `_headers`)
 - `templates/landing.html` – old standalone HTML template, not deployed
+- `docs/SITEMAP.md` – site map of both pages (sections, CTAs, static files)
 
 ## Edit & preview
 
