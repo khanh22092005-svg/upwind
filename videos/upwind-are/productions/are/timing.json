@@ -1,5 +1,5 @@
 {
- "end": 2055,
+ "end": 1750,
  "rows": [
   {
    "id": "skit",
@@ -70,7 +70,7 @@
    "text": "Trả lời *1 câu* rồi im lặng?",
    "speaker": "narrator",
    "start": 413,
-   "length": 86,
+   "length": 52,
    "extra": {}
   },
   {
@@ -78,8 +78,8 @@
    "kind": "teach",
    "text": "Giám khảo không có gì để chấm *Fluency* cả.",
    "speaker": "narrator",
-   "start": 510,
-   "length": 121,
+   "start": 476,
+   "length": 82,
    "extra": {}
   },
   {
@@ -87,8 +87,8 @@
    "kind": "teach",
    "text": "Kéo dài câu trả lời với công thức *A.R.E*",
    "speaker": "narrator",
-   "start": 642,
-   "length": 102,
+   "start": 569,
+   "length": 71,
    "extra": {
     "stack": "A,R,E"
    }
@@ -98,8 +98,8 @@
    "kind": "teach",
    "text": "*Answer* — trả lời thẳng, đừng vòng vo.",
    "speaker": "narrator",
-   "start": 756,
-   "length": 154,
+   "start": 652,
+   "length": 106,
    "extra": {
     "step": "A|Answer|Trả lời thẳng câu hỏi"
    }
@@ -109,8 +109,8 @@
    "kind": "teach",
    "text": "*Reason* — thêm một lý do cho ý của bạn.",
    "speaker": "narrator",
-   "start": 922,
-   "length": 137,
+   "start": 770,
+   "length": 87,
    "extra": {
     "step": "R|Reason|Nói lý do: vì sao?"
    }
@@ -120,8 +120,8 @@
    "kind": "teach",
    "text": "*Example* — kể một chuyện nhỏ của chính bạn.",
    "speaker": "narrator",
-   "start": 1071,
-   "length": 139,
+   "start": 869,
+   "length": 91,
    "extra": {
     "step": "E|Example|Một ví dụ có thật"
    }
@@ -131,7 +131,7 @@
    "kind": "section",
    "text": "redo",
    "speaker": null,
-   "start": 1234,
+   "start": 984,
    "length": 0,
    "extra": {}
   },
@@ -140,8 +140,8 @@
    "kind": "label",
    "text": "Làm lại với A.R.E",
    "speaker": "narrator",
-   "start": 1237,
-   "length": 65,
+   "start": 987,
+   "length": 35,
    "extra": {}
   },
   {
@@ -149,7 +149,7 @@
    "kind": "examiner",
    "text": "Do you enjoy cooking?",
    "speaker": "examiner",
-   "start": 1314,
+   "start": 1034,
    "length": 66,
    "extra": {}
   },
@@ -158,7 +158,7 @@
    "kind": "candidate",
    "text": "Yes, I really do, especially at weekends.",
    "speaker": "candidate",
-   "start": 1395,
+   "start": 1115,
    "length": 80,
    "extra": {
     "letter": "A"
@@ -169,7 +169,7 @@
    "kind": "candidate",
    "text": "It helps me relax after a long week of studying.",
    "speaker": "candidate",
-   "start": 1488,
+   "start": 1209,
    "length": 94,
    "extra": {
     "letter": "R"
@@ -180,7 +180,7 @@
    "kind": "candidate",
    "text": "Last Sunday I cooked phở for my whole family. It took four hours, but everyone loved it!",
    "speaker": "candidate",
-   "start": 1596,
+   "start": 1316,
    "length": 169,
    "extra": {
     "letter": "E"
@@ -191,7 +191,7 @@
    "kind": "examiner",
    "text": "That sounds wonderful.",
    "speaker": "examiner",
-   "start": 1780,
+   "start": 1500,
    "length": 70,
    "extra": {}
   },
@@ -200,7 +200,7 @@
    "kind": "section",
    "text": "cta",
    "speaker": null,
-   "start": 1877,
+   "start": 1597,
    "length": 0,
    "extra": {}
   },
@@ -209,8 +209,8 @@
    "kind": "cta",
    "text": "Lưu lại để luyện mỗi ngày|Mỗi câu Part 1: Answer, Reason, Example|upwind.asia",
    "speaker": "narrator",
-   "start": 1880,
-   "length": 127,
+   "start": 1600,
+   "length": 102,
    "extra": {}
   }
  ]

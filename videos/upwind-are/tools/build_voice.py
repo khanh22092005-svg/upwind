@@ -2,7 +2,7 @@
 
 Run from the project root: python3 -I tools/build_voice.py
 """
-import asyncio, json, os, ssl, subprocess, sys
+import asyncio, json, os, re, ssl, subprocess, sys
 
 import edge_tts
 import edge_tts.communicate as communicate
@@ -71,9 +71,35 @@ def record_vbee(spoken, path):
     open(path, "wb").write(audio)
 
 
+# A single narration take (e.g. exported from the Vbee website): the narrator lines in order, ~1s apart.
+NARRATION_TAKE = os.path.join(VOICE_DIR, "source", "vbee-narration.mp3")
+
+
+def split_take(line_ids, min_gap=0.8, pad=0.08):
+    """Cut the narration take at its long pauses into one file per narrator line."""
+    probe = subprocess.run(["ffmpeg", "-hide_banner", "-i", NARRATION_TAKE, "-af", f"silencedetect=n=-40dB:d={min_gap}",
+                            "-f", "null", "-"], capture_output=True, text=True).stderr
+    starts = [float(v) for v in re.findall(r"silence_start: ([0-9.]+)", probe)]
+    ends = [float(v) for v in re.findall(r"silence_end: ([0-9.]+)", probe)]
+    total = duration(NARRATION_TAKE)
+    # Drop a trailing silence; the remaining gaps separate the lines.
+    gaps = [(s, e) for s, e in zip(starts, ends) if e < total - 0.05]
+    if len(gaps) != len(line_ids) - 1:
+        raise RuntimeError(f"Narration take has {len(gaps) + 1} lines, expected {len(line_ids)}.")
+    bounds = [0.0] + [b for gap in gaps for b in gap] + [starts[-1] if len(starts) > len(gaps) else total]
+    for line_id, (a, b) in zip(line_ids, zip(bounds[::2], bounds[1::2])):
+        subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", NARRATION_TAKE, "-ss", f"{max(0, a - pad):.3f}",
+                        "-to", f"{min(total, b + pad):.3f}", "-c:a", "libmp3lame", "-q:a", "2",
+                        os.path.join(VOICE_DIR, f"{line_id}.mp3")], check=True)
+
+
 async def record(line_id, speaker, spoken):
     voice, rate = VOICES[speaker]
     path = os.path.join(VOICE_DIR, f"{line_id}.mp3")
+    if speaker == "narrator" and os.path.exists(NARRATION_TAKE):
+        return path  # already cut from the take
+    if speaker != "narrator" and os.path.exists(path) and "--rerecord" not in sys.argv:
+        return path  # keep accepted English takes
     if speaker == "narrator" and VBEE_APP_ID and VBEE_TOKEN:
         await asyncio.to_thread(record_vbee, spoken, path)
         return path
@@ -99,6 +125,8 @@ def frames(seconds):
 async def main():
     os.makedirs(VOICE_DIR, exist_ok=True)
     spoken = [(l[0], l[3], l[4]) for l in LINES if l[3]]
+    if os.path.exists(NARRATION_TAKE):
+        split_take([s[0] for s in spoken if s[1] == "narrator"])
     paths = {s[0]: await record(*s) for s in spoken}
     lengths = {k: duration(p) for k, p in paths.items()}
 
