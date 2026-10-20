@@ -4,19 +4,19 @@ Source for **https://upwind.asia**, hosted on Cloudflare (moved from Replit).
 
 | Page | URL | Code |
 |---|---|---|
-| Upwind Green Finance | `/` | `index.html`, `src/green-finance/` |
-| UpWind IELTS & Self Study | `/ielts-self-study/` | `ielts-self-study/index.html`, `src/ielts/` |
+| UpWind IELTS & Self Study | `/ielts-self-study/` (`/` redirects here) | `ielts-self-study/index.html`, `src/ielts/` |
+| Upwind Green Finance (test, not indexed) | `/test/green-finance/` | `test/green-finance/index.html`, `src/green-finance/` |
 
 Other folders:
 - `src/assets/` – images imported by the pages
-- `public/` – files copied as-is (favicon, social images, `roadmap.pdf`, `404.html`, `_headers`)
+- `public/` – files copied as-is (favicon, social images, `roadmap.pdf`, `404.html`, `_headers`, `_redirects`)
 - `templates/landing.html` – old standalone HTML template, not deployed
 
 ## Edit & preview
 
 ```sh
 pnpm install
-pnpm dev        # http://localhost:5173/ and /ielts-self-study/
+pnpm dev        # http://localhost:5173/ielts-self-study/ and /test/green-finance/
 pnpm build      # typecheck + build into dist/
 pnpm preview    # serve dist/ locally
 ```
