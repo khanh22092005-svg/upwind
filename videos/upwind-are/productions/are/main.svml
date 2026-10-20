@@ -14,30 +14,31 @@
   <import as="look" source="./look.svs"/>
 
   <time:Clock id="clock" frame-rate="30"/>
-  <time:Timeline id="t" clock={clock} end="1750f">
-    <time:Instant id="skit" at="0f"/>
-    <time:Instant id="q1" at="18f"/>
-    <time:Instant id="a1" at="99f"/>
-    <time:Instant id="hush" at="135f"/>
-    <time:Instant id="q2" at="225f"/>
-    <time:Instant id="a2" at="321f"/>
-    <time:Instant id="teach" at="407f"/>
-    <time:Instant id="t1" at="413f"/>
-    <time:Instant id="t2" at="476f"/>
-    <time:Instant id="t3" at="569f"/>
-    <time:Instant id="t3-stack" at="618f"/>
-    <time:Instant id="tA" at="652f"/>
-    <time:Instant id="tR" at="770f"/>
-    <time:Instant id="tE" at="869f"/>
-    <time:Instant id="redo" at="984f"/>
-    <time:Instant id="relabel" at="987f"/>
-    <time:Instant id="q3" at="1034f"/>
-    <time:Instant id="rA" at="1115f"/>
-    <time:Instant id="rR" at="1209f"/>
-    <time:Instant id="rE" at="1316f"/>
-    <time:Instant id="nice" at="1500f"/>
-    <time:Instant id="cta" at="1597f"/>
-    <time:Instant id="ctacard" at="1600f"/>
+  <time:Timeline id="t" clock={clock} end="1824f">
+    <time:Instant id="hook" at="0f"/>
+    <time:Instant id="skit" at="84f"/>
+    <time:Instant id="q1" at="93f"/>
+    <time:Instant id="a1" at="174f"/>
+    <time:Instant id="hush" at="210f"/>
+    <time:Instant id="q2" at="300f"/>
+    <time:Instant id="a2" at="396f"/>
+    <time:Instant id="teach" at="482f"/>
+    <time:Instant id="t1" at="488f"/>
+    <time:Instant id="t2" at="550f"/>
+    <time:Instant id="t3" at="642f"/>
+    <time:Instant id="t3-stack" at="691f"/>
+    <time:Instant id="tA" at="725f"/>
+    <time:Instant id="tR" at="843f"/>
+    <time:Instant id="tE" at="942f"/>
+    <time:Instant id="redo" at="1057f"/>
+    <time:Instant id="relabel" at="1060f"/>
+    <time:Instant id="q3" at="1107f"/>
+    <time:Instant id="rA" at="1188f"/>
+    <time:Instant id="rR" at="1282f"/>
+    <time:Instant id="rE" at="1390f"/>
+    <time:Instant id="nice" at="1574f"/>
+    <time:Instant id="cta" at="1671f"/>
+    <time:Instant id="ctacard" at="1674f"/>
   </time:Timeline>
   <spatial:Canvas id="canvas" width="1080" height="1920"/>
 
@@ -50,6 +51,7 @@
 
   <upwind:Lesson id="lesson" timeline={t.timeline} within={canvas.bounds} during={t.window}
     font={body} heavy={heavy} serif={serif} tag="Speaking · Part 1">
+    <upwind:Beat id="b-hook" kind="hook" text="Mẹo từ UpWind|3 bước để không *'đứng hình'* ở IELTS Speaking Part 1" at={t.hook}/>
     <upwind:Beat id="b-skit" kind="section" text="skit" at={t.skit}/>
     <upwind:Beat id="b-q1" kind="examiner" text="Do you enjoy cooking?" at={t.q1}/>
     <upwind:Beat id="b-a1" kind="candidate" text="Yes." at={t.a1}/>
@@ -78,6 +80,9 @@
     <upwind:Beat id="b-ctacard" kind="cta" text="Lưu lại để luyện mỗi ngày|Mỗi câu Part 1: Answer, Reason, Example|upwind.asia" at={t.ctacard}/>
   </upwind:Lesson>
 
+  <asset:Audio id="vo-hook-file" src="./voice/hook.mp3"/>
+  <mediaop:Normalize id="vo-hook" source={vo-hook-file} clock={clock} video="none" audio="default" span-authority="audio"/>
+  <time:Window id="vo-hook-window" timeline={t.timeline} from={t.hook} for="74f"/>
   <asset:Audio id="vo-q1-file" src="./voice/q1.mp3"/>
   <mediaop:Normalize id="vo-q1" source={vo-q1-file} clock={clock} video="none" audio="default" span-authority="audio"/>
   <time:Window id="vo-q1-window" timeline={t.timeline} from={t.q1} for="66f"/>
@@ -130,6 +135,7 @@
   <mediaop:Normalize id="vo-ctacard" source={vo-ctacard-file} clock={clock} video="none" audio="default" span-authority="audio"/>
   <time:Window id="vo-ctacard-window" timeline={t.timeline} from={t.ctacard} for="102f"/>
   <audio:Track id="voiceover" timeline={t.timeline}>
+    <audio:Clip id="vo-hook-clip" source={vo-hook.media} during={vo-hook-window}/>
     <audio:Clip id="vo-q1-clip" source={vo-q1.media} during={vo-q1-window}/>
     <audio:Clip id="vo-a1-clip" source={vo-a1.media} during={vo-a1-window}/>
     <audio:Clip id="vo-q2-clip" source={vo-q2.media} during={vo-q2-window}/>

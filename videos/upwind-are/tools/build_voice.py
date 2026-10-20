@@ -21,7 +21,9 @@ VOICES = {
 
 # (id, beat kind, on-screen text, speaker, spoken text, pause after, extra)
 LINES = [
-    ("skit", "section", "skit", None, None, 0.6, {}),
+    ("hook", "hook", "Mẹo từ UpWind|3 bước để không *'đứng hình'* ở IELTS Speaking Part 1", "narrator",
+     "Ba bước để không đứng hình ở IELTS Speaking Part 1.", 0.35, {"take": "hook"}),
+    ("skit", "section", "skit", None, None, 0.3, {}),
     ("q1", "examiner", "Do you enjoy cooking?", "examiner", "Do you enjoy cooking?", 0.5, {}),
     ("a1", "candidate", "Yes.", "candidate", "Yes.", 0.4, {}),
     ("hush", "silence", "...im lặng 3 giây", None, None, 3.0, {}),
@@ -96,7 +98,14 @@ def split_take(line_ids, min_gap=0.8, pad=0.08):
 async def record(line_id, speaker, spoken):
     voice, rate = VOICES[speaker]
     path = os.path.join(VOICE_DIR, f"{line_id}.mp3")
-    if speaker == "narrator" and os.path.exists(NARRATION_TAKE):
+    take = dict((l[0], l[6].get("take")) for l in LINES).get(line_id)
+    own = take and os.path.join(VOICE_DIR, "source", f"vbee-{take}.mp3")
+    if own and os.path.exists(own):
+        # Trim leading/trailing silence from a single-line take.
+        trim = "silenceremove=start_periods=1:start_threshold=-40dB,areverse,silenceremove=start_periods=1:start_threshold=-40dB,areverse"
+        subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", own, "-af", trim, "-c:a", "libmp3lame", "-q:a", "2", path], check=True)
+        return path
+    if speaker == "narrator" and os.path.exists(NARRATION_TAKE) and not take:
         return path  # already cut from the take
     if speaker != "narrator" and os.path.exists(path) and "--rerecord" not in sys.argv:
         return path  # keep accepted English takes
@@ -126,7 +135,8 @@ async def main():
     os.makedirs(VOICE_DIR, exist_ok=True)
     spoken = [(l[0], l[3], l[4]) for l in LINES if l[3]]
     if os.path.exists(NARRATION_TAKE):
-        split_take([s[0] for s in spoken if s[1] == "narrator"])
+        own_takes = {l[0] for l in LINES if l[6].get("take")}
+        split_take([s[0] for s in spoken if s[1] == "narrator" and s[0] not in own_takes])
     paths = {s[0]: await record(*s) for s in spoken}
     lengths = {k: duration(p) for k, p in paths.items()}
 

@@ -7,7 +7,7 @@ import type { SpatialFrame } from "@hypit/spatial";
 import { assertTemporalWindowFor } from "@hypit/temporal";
 import type { TemporalInstant, TemporalWindow } from "@hypit/temporal";
 
-export const BEAT_KINDS = ["section", "examiner", "candidate", "silence", "label", "teach", "stack", "step", "cta"] as const;
+export const BEAT_KINDS = ["section", "examiner", "candidate", "silence", "label", "teach", "stack", "step", "cta", "hook"] as const;
 export type BeatKind = typeof BEAT_KINDS[number];
 export type Beat = { id: string; kind: BeatKind; text: string; step: string; at: TemporalInstant };
 export type LessonOptions = { id: string; tag: string };
@@ -69,6 +69,11 @@ export function renderLesson(timeline: Timeline, within: SpatialFrame, window: T
       <div class="words"><div class="word">${text(`word-${i}`, step?.word ?? "", fonts.heavy, 52, ink)}</div>
       <div class="gloss">${text(`gloss-${i}`, step?.gloss ?? "", fonts.font, 32, ink2)}</div></div></div>`;
   }).join("");
+  const hookBeat = beats.find(b => b.kind === "hook");
+  const [hookKicker = "", hookHead = ""] = hookBeat ? hookBeat.text.split("|") : [];
+  const hookHtml = hookBeat ? `<div class="kicker">${text("hook-kicker", hookKicker, fonts.heavy, 34, primary)}</div>
+    <div class="headline">${marked("hook-head", hookHead, 104)}</div>
+    <div class="tiles">${letters.map((letter, i) => `<b class="tile">${text(`hook-letter-${i}`, letter, fonts.serif, 88, "#fff")}</b>`).join("")}</div>` : "";
   const ctaBeat = beats.find(b => b.kind === "cta");
   const [ctaHead = "", ctaSub = "", ctaUrl = ""] = ctaBeat ? ctaBeat.text.split("|") : [];
   const ctaHtml = ctaBeat ? `${logo("logo big", "#fff", softBlue)}
@@ -85,6 +90,7 @@ export function renderLesson(timeline: Timeline, within: SpatialFrame, window: T
       <section class="stack">${stackHtml}</section>
       <section class="chat"><div class="viewport"><div class="list">${chatHtml}</div></div></section>
       <section class="teach">${teachHtml}</section>
+      <section class="hook">${hookHtml}</section>
       <section class="cta">${ctaHtml}</section>`,
     css: `:scope{background:#fff;overflow:hidden}
       .bg,.bg svg{position:absolute;inset:0;width:100%;height:100%}
@@ -118,15 +124,21 @@ export function renderLesson(timeline: Timeline, within: SpatialFrame, window: T
       .teach{position:absolute;left:64px;right:130px;top:700px;height:720px}
       .caption{position:absolute;inset:0;display:flex;flex-wrap:wrap;align-content:center;column-gap:18px;row-gap:10px}
       .caption .key{padding:0 14px;border-radius:16px;background:linear-gradient(transparent 55%,${highlight} 55%)}
+      .hook{position:absolute;left:64px;right:130px;top:290px;bottom:430px;display:flex;flex-direction:column;justify-content:center;gap:44px;background:#fff0}
+      .hook .kicker{align-self:flex-start;padding:12px 28px;border-radius:999px;background:${primaryLight};border:2px solid ${border}}
+      .hook .headline{display:flex;flex-wrap:wrap;column-gap:22px;row-gap:12px}
+      .hook .key{padding:0 14px;border-radius:18px;background:linear-gradient(transparent 52%,${highlight} 52%)}
+      .tiles{display:flex;gap:26px}.tile{width:150px;height:150px;border-radius:40px;background:${primary};display:flex;align-items:center;justify-content:center;
+        box-shadow:0 18px 40px -18px oklch(0.42 0.15 253 / .6)}.tile:nth-child(2){background:${accent}}.tile:nth-child(3){background:${softBlue}}
       .cta{position:absolute;inset:0;background:${primary};display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;padding:0 90px 180px;opacity:0}
       .cta-brand{display:flex;align-items:center;gap:20px}.cta-ielts{padding:8px 20px;border-radius:999px;background:#fff}
       .cta-url{padding:18px 44px;border-radius:999px;background:#fff;margin-top:20px}`,
     data: { sectionStarts, chat: chatBeats.map(b => ({ at: local(b), section: sectionOf(local(b)), step: b.step })),
       teach: teachBeats.map(local), stackAt: stackBeat ? local(stackBeat) : -1, letters, steps: steps.map(s => ({ letter: s.letter, at: s.at })),
-      ctaAt: ctaBeat ? local(ctaBeat) : -1, fps: timeline.frameRate.numerator / timeline.frameRate.denominator },
+      hookAt: hookBeat ? local(hookBeat) : -1, ctaAt: ctaBeat ? local(ctaBeat) : -1, fps: timeline.frameRate.numerator / timeline.frameRate.denominator },
     setup: `const q=s=>root.querySelector(s), qa=s=>[...root.querySelectorAll(s)];
       const cards=qa('article'), list=q('.list'), viewport=q('.viewport'), chat=q('.chat'), stack=q('.stack'), rows=qa('.row'),
-        captions=qa('.caption'), teach=q('.teach'), cta=q('.cta'), F=data.fps;
+        captions=qa('.caption'), teach=q('.teach'), hook=q('.hook'), tiles=qa('.tile'), cta=q('.cta'), F=data.fps;
       const ease=t=>{t=Math.max(0,Math.min(1,t));return 1-Math.pow(1-t,4)};
       const rise=(el,age,len)=>{const p=ease(age/len);el.style.opacity=String(p);el.style.transform='translateY('+(22*(1-p))+'px)';};
       const section=f=>data.sectionStarts.reduce((s,start,i)=>start>=0&&f>=start?i:s,0);
@@ -164,6 +176,13 @@ export function renderLesson(timeline: Timeline, within: SpatialFrame, window: T
         teach.style.top=(stackOn?720:560)+'px';
         let cur=-1; data.teach.forEach((at,i)=>{if(frame>=at)cur=i;});
         captions.forEach((cap,i)=>{if(i!==cur){cap.style.opacity='0';return;} rise(cap,frame-data.teach[i],enter);});
+        // Hook: fully readable on the very first frame, tiles pop in, then it lifts away as the skit starts.
+        if(data.hookAt>=0){const end=data.sectionStarts[0], out=Math.round(F*.35), age=frame-data.hookAt;
+          const on=frame>=data.hookAt&&frame<end; hook.style.display=on?'flex':'none';
+          if(on){const p=data.hookAt===0?1:ease(age/enter), x=ease((frame-(end-out))/out);
+            hook.style.opacity=String(p*(1-x)); hook.style.transform='translateY('+(-40*x)+'px)';
+            tiles.forEach((t,i)=>{const q=ease((age-F*(.25+.18*i))/Math.round(F*.3)); t.style.opacity=String(q); t.style.transform='scale('+(0.6+0.4*q)+')';});}
+        } else hook.style.display='none';
         // CTA card.
         if(data.ctaAt>=0){const p=ease((frame-data.ctaAt)/enter); cta.style.opacity=String(p); cta.style.transform='scale('+(0.96+0.04*p)+')';}
       };`,

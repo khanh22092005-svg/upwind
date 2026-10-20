@@ -1,4 +1,7 @@
 # Progress
+v5 (hook): out/upwind-are-v5-hook.mp4, 60.8s. Opens on "3 bước để không 'đứng hình' ở IELTS Speaking Part 1"
+with A/R/E tiles; spoken by voice/source/vbee-hook.mp3 (own take). Skit starts at 3.2s.
+
 v4 (Vbee narration): out/upwind-are-v4-vbee.mp4 (build bld_20261020T123226471Z_8F244B6440), 58.3s.
 - Vietnamese lines cut from productions/are/voice/source/vbee-narration.mp3 (one take, ~1s pauses); English lines kept.
 - Speech onsets match beats within ~0.1s; peak -6.7 dB.
