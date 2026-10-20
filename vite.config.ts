@@ -4,8 +4,9 @@ import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 
 // Two pages, one build:
-//   index.html                  -> https://upwind.asia/
-//   ielts-self-study/index.html -> https://upwind.asia/ielts-self-study/
+//   ielts-self-study/index.html    -> https://upwind.asia/ielts-self-study/
+//   test/green-finance/index.html  -> https://upwind.asia/test/green-finance/
+// "/" redirects to /ielts-self-study/ (public/_redirects).
 export default defineConfig({
   base: "/",
   plugins: [react(), tailwindcss()],
@@ -20,7 +21,7 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       input: {
-        main: path.resolve(import.meta.dirname, "index.html"),
+        greenFinance: path.resolve(import.meta.dirname, "test/green-finance/index.html"),
         ielts: path.resolve(import.meta.dirname, "ielts-self-study/index.html"),
       },
     },

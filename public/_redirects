@@ -1,0 +1,2 @@
+# Cloudflare redirects. The homepage goes to the IELTS page.
+/  /ielts-self-study/  302
