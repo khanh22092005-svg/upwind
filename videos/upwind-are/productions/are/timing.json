@@ -1,0 +1,217 @@
+{
+ "end": 2055,
+ "rows": [
+  {
+   "id": "skit",
+   "kind": "section",
+   "text": "skit",
+   "speaker": null,
+   "start": 0,
+   "length": 0,
+   "extra": {}
+  },
+  {
+   "id": "q1",
+   "kind": "examiner",
+   "text": "Do you enjoy cooking?",
+   "speaker": "examiner",
+   "start": 18,
+   "length": 66,
+   "extra": {}
+  },
+  {
+   "id": "a1",
+   "kind": "candidate",
+   "text": "Yes.",
+   "speaker": "candidate",
+   "start": 99,
+   "length": 24,
+   "extra": {}
+  },
+  {
+   "id": "hush",
+   "kind": "silence",
+   "text": "...im lặng 3 giây",
+   "speaker": null,
+   "start": 135,
+   "length": 0,
+   "extra": {}
+  },
+  {
+   "id": "q2",
+   "kind": "examiner",
+   "text": "Um... could you tell me why?",
+   "speaker": "examiner",
+   "start": 225,
+   "length": 81,
+   "extra": {}
+  },
+  {
+   "id": "a2",
+   "kind": "candidate",
+   "text": "Because... it's fun.",
+   "speaker": "candidate",
+   "start": 321,
+   "length": 56,
+   "extra": {}
+  },
+  {
+   "id": "teach",
+   "kind": "section",
+   "text": "teach",
+   "speaker": null,
+   "start": 407,
+   "length": 0,
+   "extra": {}
+  },
+  {
+   "id": "t1",
+   "kind": "teach",
+   "text": "Trả lời *1 câu* rồi im lặng?",
+   "speaker": "narrator",
+   "start": 413,
+   "length": 86,
+   "extra": {}
+  },
+  {
+   "id": "t2",
+   "kind": "teach",
+   "text": "Giám khảo không có gì để chấm *Fluency* cả.",
+   "speaker": "narrator",
+   "start": 510,
+   "length": 121,
+   "extra": {}
+  },
+  {
+   "id": "t3",
+   "kind": "teach",
+   "text": "Kéo dài câu trả lời với công thức *A.R.E*",
+   "speaker": "narrator",
+   "start": 642,
+   "length": 102,
+   "extra": {
+    "stack": "A,R,E"
+   }
+  },
+  {
+   "id": "tA",
+   "kind": "teach",
+   "text": "*Answer* — trả lời thẳng, đừng vòng vo.",
+   "speaker": "narrator",
+   "start": 756,
+   "length": 154,
+   "extra": {
+    "step": "A|Answer|Trả lời thẳng câu hỏi"
+   }
+  },
+  {
+   "id": "tR",
+   "kind": "teach",
+   "text": "*Reason* — thêm một lý do cho ý của bạn.",
+   "speaker": "narrator",
+   "start": 922,
+   "length": 137,
+   "extra": {
+    "step": "R|Reason|Nói lý do: vì sao?"
+   }
+  },
+  {
+   "id": "tE",
+   "kind": "teach",
+   "text": "*Example* — kể một chuyện nhỏ của chính bạn.",
+   "speaker": "narrator",
+   "start": 1071,
+   "length": 139,
+   "extra": {
+    "step": "E|Example|Một ví dụ có thật"
+   }
+  },
+  {
+   "id": "redo",
+   "kind": "section",
+   "text": "redo",
+   "speaker": null,
+   "start": 1234,
+   "length": 0,
+   "extra": {}
+  },
+  {
+   "id": "relabel",
+   "kind": "label",
+   "text": "Làm lại với A.R.E",
+   "speaker": "narrator",
+   "start": 1237,
+   "length": 65,
+   "extra": {}
+  },
+  {
+   "id": "q3",
+   "kind": "examiner",
+   "text": "Do you enjoy cooking?",
+   "speaker": "examiner",
+   "start": 1314,
+   "length": 66,
+   "extra": {}
+  },
+  {
+   "id": "rA",
+   "kind": "candidate",
+   "text": "Yes, I really do, especially at weekends.",
+   "speaker": "candidate",
+   "start": 1395,
+   "length": 80,
+   "extra": {
+    "letter": "A"
+   }
+  },
+  {
+   "id": "rR",
+   "kind": "candidate",
+   "text": "It helps me relax after a long week of studying.",
+   "speaker": "candidate",
+   "start": 1488,
+   "length": 94,
+   "extra": {
+    "letter": "R"
+   }
+  },
+  {
+   "id": "rE",
+   "kind": "candidate",
+   "text": "Last Sunday I cooked phở for my whole family. It took four hours, but everyone loved it!",
+   "speaker": "candidate",
+   "start": 1596,
+   "length": 169,
+   "extra": {
+    "letter": "E"
+   }
+  },
+  {
+   "id": "nice",
+   "kind": "examiner",
+   "text": "That sounds wonderful.",
+   "speaker": "examiner",
+   "start": 1780,
+   "length": 70,
+   "extra": {}
+  },
+  {
+   "id": "cta",
+   "kind": "section",
+   "text": "cta",
+   "speaker": null,
+   "start": 1877,
+   "length": 0,
+   "extra": {}
+  },
+  {
+   "id": "ctacard",
+   "kind": "cta",
+   "text": "Lưu lại để luyện mỗi ngày|Mỗi câu Part 1: Answer, Reason, Example|upwind.asia",
+   "speaker": "narrator",
+   "start": 1880,
+   "length": 127,
+   "extra": {}
+  }
+ ]
+}
