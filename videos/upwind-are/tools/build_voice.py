@@ -54,6 +54,7 @@ LINES = [
 VBEE_APP_ID, VBEE_TOKEN = os.environ.get("VBEE_APP_ID"), os.environ.get("VBEE_TOKEN")
 VBEE_VOICE = os.environ.get("VBEE_VOICE", "hn_female_ngochuyen_full_48k-fhg")
 VBEE_SPEED = float(os.environ.get("VBEE_SPEED", "1.05"))
+NARRATOR_TEMPO = float(os.environ.get("NARRATOR_TEMPO", "1.2"))
 
 
 def record_vbee(spoken, path):
@@ -138,6 +139,14 @@ async def main():
         own_takes = {l[0] for l in LINES if l[6].get("take")}
         split_take([s[0] for s in spoken if s[1] == "narrator" and s[0] not in own_takes])
     paths = {s[0]: await record(*s) for s in spoken}
+    # Speed up the Vietnamese narration (pitch preserved). Narrator files are re-cut from their takes each run.
+    if NARRATOR_TEMPO != 1.0:
+        for line_id, speaker, _ in spoken:
+            if speaker == "narrator":
+                fast = paths[line_id] + ".tmp.mp3"
+                subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", paths[line_id], "-af", f"atempo={NARRATOR_TEMPO}",
+                                "-c:a", "libmp3lame", "-q:a", "2", fast], check=True)
+                os.replace(fast, paths[line_id])
     lengths = {k: duration(p) for k, p in paths.items()}
 
     # Lay lines end to end; times are whole frames so Windows land on frame boundaries.

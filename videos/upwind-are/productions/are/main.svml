@@ -14,31 +14,31 @@
   <import as="look" source="./look.svs"/>
 
   <time:Clock id="clock" frame-rate="30"/>
-  <time:Timeline id="t" clock={clock} end="1824f">
+  <time:Timeline id="t" clock={clock} end="1709f">
     <time:Instant id="hook" at="0f"/>
-    <time:Instant id="skit" at="84f"/>
-    <time:Instant id="q1" at="93f"/>
-    <time:Instant id="a1" at="174f"/>
-    <time:Instant id="hush" at="210f"/>
-    <time:Instant id="q2" at="300f"/>
-    <time:Instant id="a2" at="396f"/>
-    <time:Instant id="teach" at="482f"/>
-    <time:Instant id="t1" at="488f"/>
-    <time:Instant id="t2" at="550f"/>
-    <time:Instant id="t3" at="642f"/>
-    <time:Instant id="t3-stack" at="691f"/>
-    <time:Instant id="tA" at="725f"/>
-    <time:Instant id="tR" at="843f"/>
-    <time:Instant id="tE" at="942f"/>
-    <time:Instant id="redo" at="1057f"/>
-    <time:Instant id="relabel" at="1060f"/>
-    <time:Instant id="q3" at="1107f"/>
-    <time:Instant id="rA" at="1188f"/>
-    <time:Instant id="rR" at="1282f"/>
-    <time:Instant id="rE" at="1390f"/>
-    <time:Instant id="nice" at="1574f"/>
-    <time:Instant id="cta" at="1671f"/>
-    <time:Instant id="ctacard" at="1674f"/>
+    <time:Instant id="skit" at="73f"/>
+    <time:Instant id="q1" at="82f"/>
+    <time:Instant id="a1" at="163f"/>
+    <time:Instant id="hush" at="199f"/>
+    <time:Instant id="q2" at="289f"/>
+    <time:Instant id="a2" at="385f"/>
+    <time:Instant id="teach" at="471f"/>
+    <time:Instant id="t1" at="477f"/>
+    <time:Instant id="t2" at="530f"/>
+    <time:Instant id="t3" at="608f"/>
+    <time:Instant id="t3-stack" at="650f"/>
+    <time:Instant id="tA" at="680f"/>
+    <time:Instant id="tR" at="781f"/>
+    <time:Instant id="tE" at="866f"/>
+    <time:Instant id="redo" at="966f"/>
+    <time:Instant id="relabel" at="969f"/>
+    <time:Instant id="q3" at="1010f"/>
+    <time:Instant id="rA" at="1091f"/>
+    <time:Instant id="rR" at="1184f"/>
+    <time:Instant id="rE" at="1292f"/>
+    <time:Instant id="nice" at="1476f"/>
+    <time:Instant id="cta" at="1573f"/>
+    <time:Instant id="ctacard" at="1576f"/>
   </time:Timeline>
   <spatial:Canvas id="canvas" width="1080" height="1920"/>
 
@@ -82,7 +82,7 @@
 
   <asset:Audio id="vo-hook-file" src="./voice/hook.mp3"/>
   <mediaop:Normalize id="vo-hook" source={vo-hook-file} clock={clock} video="none" audio="default" span-authority="audio"/>
-  <time:Window id="vo-hook-window" timeline={t.timeline} from={t.hook} for="74f"/>
+  <time:Window id="vo-hook-window" timeline={t.timeline} from={t.hook} for="62f"/>
   <asset:Audio id="vo-q1-file" src="./voice/q1.mp3"/>
   <mediaop:Normalize id="vo-q1" source={vo-q1-file} clock={clock} video="none" audio="default" span-authority="audio"/>
   <time:Window id="vo-q1-window" timeline={t.timeline} from={t.q1} for="66f"/>
@@ -97,25 +97,25 @@
   <time:Window id="vo-a2-window" timeline={t.timeline} from={t.a2} for="56f"/>
   <asset:Audio id="vo-t1-file" src="./voice/t1.mp3"/>
   <mediaop:Normalize id="vo-t1" source={vo-t1-file} clock={clock} video="none" audio="default" span-authority="audio"/>
-  <time:Window id="vo-t1-window" timeline={t.timeline} from={t.t1} for="52f"/>
+  <time:Window id="vo-t1-window" timeline={t.timeline} from={t.t1} for="43f"/>
   <asset:Audio id="vo-t2-file" src="./voice/t2.mp3"/>
   <mediaop:Normalize id="vo-t2" source={vo-t2-file} clock={clock} video="none" audio="default" span-authority="audio"/>
-  <time:Window id="vo-t2-window" timeline={t.timeline} from={t.t2} for="82f"/>
+  <time:Window id="vo-t2-window" timeline={t.timeline} from={t.t2} for="68f"/>
   <asset:Audio id="vo-t3-file" src="./voice/t3.mp3"/>
   <mediaop:Normalize id="vo-t3" source={vo-t3-file} clock={clock} video="none" audio="default" span-authority="audio"/>
-  <time:Window id="vo-t3-window" timeline={t.timeline} from={t.t3} for="71f"/>
+  <time:Window id="vo-t3-window" timeline={t.timeline} from={t.t3} for="60f"/>
   <asset:Audio id="vo-tA-file" src="./voice/tA.mp3"/>
   <mediaop:Normalize id="vo-tA" source={vo-tA-file} clock={clock} video="none" audio="default" span-authority="audio"/>
-  <time:Window id="vo-tA-window" timeline={t.timeline} from={t.tA} for="106f"/>
+  <time:Window id="vo-tA-window" timeline={t.timeline} from={t.tA} for="89f"/>
   <asset:Audio id="vo-tR-file" src="./voice/tR.mp3"/>
   <mediaop:Normalize id="vo-tR" source={vo-tR-file} clock={clock} video="none" audio="default" span-authority="audio"/>
-  <time:Window id="vo-tR-window" timeline={t.timeline} from={t.tR} for="87f"/>
+  <time:Window id="vo-tR-window" timeline={t.timeline} from={t.tR} for="73f"/>
   <asset:Audio id="vo-tE-file" src="./voice/tE.mp3"/>
   <mediaop:Normalize id="vo-tE" source={vo-tE-file} clock={clock} video="none" audio="default" span-authority="audio"/>
-  <time:Window id="vo-tE-window" timeline={t.timeline} from={t.tE} for="91f"/>
+  <time:Window id="vo-tE-window" timeline={t.timeline} from={t.tE} for="76f"/>
   <asset:Audio id="vo-relabel-file" src="./voice/relabel.mp3"/>
   <mediaop:Normalize id="vo-relabel" source={vo-relabel-file} clock={clock} video="none" audio="default" span-authority="audio"/>
-  <time:Window id="vo-relabel-window" timeline={t.timeline} from={t.relabel} for="35f"/>
+  <time:Window id="vo-relabel-window" timeline={t.timeline} from={t.relabel} for="29f"/>
   <asset:Audio id="vo-q3-file" src="./voice/q3.mp3"/>
   <mediaop:Normalize id="vo-q3" source={vo-q3-file} clock={clock} video="none" audio="default" span-authority="audio"/>
   <time:Window id="vo-q3-window" timeline={t.timeline} from={t.q3} for="66f"/>
@@ -133,7 +133,7 @@
   <time:Window id="vo-nice-window" timeline={t.timeline} from={t.nice} for="70f"/>
   <asset:Audio id="vo-ctacard-file" src="./voice/ctacard.mp3"/>
   <mediaop:Normalize id="vo-ctacard" source={vo-ctacard-file} clock={clock} video="none" audio="default" span-authority="audio"/>
-  <time:Window id="vo-ctacard-window" timeline={t.timeline} from={t.ctacard} for="102f"/>
+  <time:Window id="vo-ctacard-window" timeline={t.timeline} from={t.ctacard} for="85f"/>
   <audio:Track id="voiceover" timeline={t.timeline}>
     <audio:Clip id="vo-hook-clip" source={vo-hook.media} during={vo-hook-window}/>
     <audio:Clip id="vo-q1-clip" source={vo-q1.media} during={vo-q1-window}/>

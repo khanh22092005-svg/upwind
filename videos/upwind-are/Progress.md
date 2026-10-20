@@ -1,4 +1,7 @@
 # Progress
+v6: out/upwind-are-v6.mp4, 57.0s. Vietnamese narration sped up 1.2x (NARRATOR_TEMPO, pitch kept);
+hook lists A Answer / R Reason / E Example.
+
 v5 (hook): out/upwind-are-v5-hook.mp4, 60.8s. Opens on "3 bước để không 'đứng hình' ở IELTS Speaking Part 1"
 with A/R/E tiles; spoken by voice/source/vbee-hook.mp3 (own take). Skit starts at 3.2s.
 
