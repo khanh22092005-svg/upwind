@@ -1,0 +1,52 @@
+# NK Exploring: make a video from GitHub (works from the phone app too).
+# Actions > "NK Exploring video" > Run workflow. Needs repo secret ANTHROPIC_API_KEY.
+name: NK Exploring video
+
+on:
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: Video topic, e.g. "Why Iran can hold the world economy hostage"
+        required: true
+      minutes:
+        description: Target length in minutes
+        default: "9"
+      voice:
+        description: edge-tts voice
+        default: en-US-AndrewNeural
+
+jobs:
+  video:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    defaults:
+      run:
+        working-directory: youtube
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: youtube/requirements.txt
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - run: pip install -r requirements.txt
+      - name: Research, script, voice, render
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TOPIC: ${{ inputs.topic }}
+          MINUTES: ${{ inputs.minutes }}
+          VOICE: ${{ inputs.voice }}
+        run: python -m nk all "$TOPIC" --minutes "$MINUTES" --voice "$VOICE"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nk-exploring-video
+          path: |
+            youtube/episodes/*/video.mp4
+            youtube/episodes/*/thumbnail.png
+            youtube/episodes/*/captions.srt
+            youtube/episodes/*/upload.md
+            youtube/episodes/*/script.json
+            youtube/episodes/*/research.md
+            youtube/episodes/*/shots.md
+          retention-days: 14

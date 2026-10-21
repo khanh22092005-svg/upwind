@@ -1,0 +1,9 @@
+.cache/
+__pycache__/
+.venv/
+# Rendered output is large; keep only the text (research, script, upload notes).
+episodes/*/build/
+episodes/*/video.mp4
+episodes/*/thumbnail.png
+episodes/*/captions.srt
+music/
