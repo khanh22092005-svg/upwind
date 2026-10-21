@@ -130,7 +130,7 @@ def cmd_build(args) -> None:
         print(f"Scene {i + 1}/{len(scenes)}", end="\r", flush=True)
         audio = build / "audio" / f"scene_{i:02}.mp3"
         clip = build / "clips" / f"scene_{i:02}.mp4"
-        if not audio.exists():
+        if not audio.exists() or audio.stat().st_size == 0:  # empty = interrupted run
             media.tts(scene["narration"], audio, args.voice, args.rate)
         source, credit, drawn = _picture(scene, i, ep, build, credits)
         overlay = banner = None

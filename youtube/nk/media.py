@@ -23,6 +23,8 @@ def tts(text: str, out: Path, voice: str, rate: str) -> None:
     for attempt in range(3):
         try:
             asyncio.run(edge_tts.Communicate(text, voice, rate=rate).save(str(out)))
+            if out.stat().st_size == 0:
+                raise edge_tts.exceptions.NoAudioReceived("empty audio file")
             return
         except edge_tts.exceptions.EdgeTTSException:
             out.unlink(missing_ok=True)
