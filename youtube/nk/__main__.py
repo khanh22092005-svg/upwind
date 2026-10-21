@@ -66,14 +66,18 @@ def _gather_footage(scenes: list[dict], ep: Path) -> dict:
         if v["kind"] not in ("footage", "image") or not v["footage_query"] or _asset(ep, i):
             continue
         print(f"Footage for scene {i}: {v['footage_query']!r}")
+        stem = ep / "assets" / f"scene_{i:02}"
         try:
-            got = footage.fetch(v["footage_query"], v["kind"] == "footage",
-                                ep / "assets" / f"scene_{i:02}", used)
+            got = footage.fetch(v["footage_query"], v["kind"] == "footage", stem, used)
+            if got is None and v["kind"] == "footage":  # no video: try a photo
+                got = footage.fetch(v["footage_query"], False, stem, used)
         except OSError as e:
             print(f"  failed ({e}); scene falls back to a map/text card")
+            if getattr(e, "code", None) == 429:
+                print("Wikimedia is rate-limiting this network; skipping the remaining "
+                      "downloads this run. Re-run build later to fill them in.")
+                break
             continue
-        if got is None and v["kind"] == "footage":
-            got = footage.fetch(v["footage_query"], False, ep / "assets" / f"scene_{i:02}", used)
         if got:
             credits[str(i)] = got
             used.add(got["page"])

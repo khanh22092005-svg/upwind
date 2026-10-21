@@ -5,6 +5,7 @@ and the credit line this module returns is the attribution those licences requir
 """
 
 import json
+import platform
 import re
 import time
 import urllib.parse
@@ -12,25 +13,26 @@ import urllib.request
 from pathlib import Path
 
 API = "https://commons.wikimedia.org/w/api.php"
-# Wikimedia asks API clients for a descriptive User-Agent with a contact link.
-USER_AGENT = "NKExploringPipeline/0.1 (https://github.com/khanh22092005-svg/upwind)"
+# Wikimedia's robot policy: "<client>/<version> (<contact>) <library>/<version>".
+USER_AGENT = (f"NKExploringPipeline/0.1 (https://github.com/khanh22092005-svg/upwind) "
+              f"python-urllib/{platform.python_version()}")
+PAUSE = 1.5  # seconds between requests; Wikimedia rate-limits bursts
 VIDEO_EXT = (".webm", ".mp4", ".ogv", ".mov")
 
 
 def _get(url: str, binary: bool = False):
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-    for attempt in range(5):
+    for attempt in range(4):
+        time.sleep(PAUSE)
         try:
             with urllib.request.urlopen(req, timeout=120) as r:
                 body = r.read()
-            if binary:
-                return body
-            return json.loads(body)
-        except (urllib.error.HTTPError, json.JSONDecodeError) as e:
-            # 429 / "too many requests" page: back off and retry.
-            if attempt == 4 or (isinstance(e, urllib.error.HTTPError) and e.code not in (429, 503)):
+            return body if binary else json.loads(body)
+        except urllib.error.HTTPError as e:
+            if attempt == 3 or e.code not in (429, 503):
                 raise
-            time.sleep(5 * 2 ** attempt)
+            wait = e.headers.get("Retry-After", "")
+            time.sleep(int(wait) if wait.isdigit() else 10 * 2 ** attempt)
 
 
 def _clean(html: str) -> str:
@@ -50,7 +52,7 @@ def search(query: str, video: bool, limit: int = 12) -> list[dict]:
         params.update(viprop="url|size|derivatives|extmetadata",
                       viextmetadatafilter="LicenseShortName|Artist")
     else:
-        params.update(iiprop="url|size|extmetadata", iiurlwidth=2560,
+        params.update(iiprop="url|size|extmetadata", iiurlwidth=1920,  # a standard thumbnail width; others get refused
                       iiextmetadatafilter="LicenseShortName|Artist")
     data = _get(f"{API}?{urllib.parse.urlencode(params)}")
     pages = sorted(data.get("query", {}).get("pages", {}).values(), key=lambda p: p["index"])
