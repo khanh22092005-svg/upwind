@@ -7,3 +7,6 @@ episodes/*/video.mp4
 episodes/*/thumbnail.png
 episodes/*/captions.srt
 music/
+# Downloaded/added footage is large; credits.json (who to credit) is kept.
+episodes/*/assets/*
+!episodes/*/assets/credits.json

@@ -45,16 +45,42 @@ Structure that works for this format:
 Rules:
 - Spoken English, short sentences, one idea per scene, 15-45 words per scene.
 - Neutral and fair on contested issues; say "according to" for claims.
-- Every scene gets a visual. Prefer "map": list ISO 3166-1 alpha-3 codes in "highlight"
-  (painted red) and in "focus" (the area to frame; can include neighbours). Use "image"
-  only when a map cannot show it (a person, a ship, a pipeline, a protest) and write an
-  image_prompt for it. Use "text" for a big number or quote. Empty lists/strings when unused.
+- Every scene gets a visual; vary them so no kind runs more than 3 scenes in a row.
+  Aim for roughly: 35% map, 30% footage, 15% chart, 10% image, 10% text.
+  - "map": ISO 3166-1 alpha-3 codes in "highlight" (painted red) and "focus" (the area
+    to frame; can include neighbours).
+  - "footage": real video of people and places (protests, parliament, streets, ports).
+    footage_query is a short Wikimedia Commons search, often best in the local
+    language ("manifestation retraites Paris", "Assemblée nationale hémicycle").
+    Free footage is usually archive: when it is not from the events being described,
+    the caption must say what and when ("PENSION PROTEST, 2019").
+  - "image": a real photo; footage_query is the Commons search for it.
+  - "chart": a number that changes over time or compares countries. Use only numbers
+    from the research. chart.type "bar" or "line", 3-8 labels with matching values,
+    unit like "%" or "bn €", and the source name.
+  - "text": one big number or short quote.
+  Unused fields are empty strings, empty lists, or a chart with type "".
 - "caption" is 1-4 punchy words shown on screen (like "AT WHAT COST?"), or "".
 - "chapter" is the chapter title on the first scene of each chapter, else "".
   The first scene's chapter is "Intro".
 - thumbnail.headline: 1-3 words, ends with "?" or "!". thumbnail.highlight: 1-2 ISO3 codes.
 - title_options: 3 curiosity-gap titles under 70 characters (the "Why X ...?" pattern).
-- description: 2 short paragraphs, then a "Sources:" list with URLs from the research."""
+- description: 2 short paragraphs, then a "Sources:" list with URLs from the research.
+- sources: every source used, as "Publisher - title (URL)"; shown on the end card."""
+
+CHART_SCHEMA = {
+    "type": "object",
+    "additionalProperties": False,
+    "required": ["type", "title", "unit", "labels", "values", "source"],
+    "properties": {
+        "type": {"type": "string", "enum": ["bar", "line", ""]},
+        "title": {"type": "string"},
+        "unit": {"type": "string"},
+        "labels": {"type": "array", "items": {"type": "string"}},
+        "values": {"type": "array", "items": {"type": "number"}},
+        "source": {"type": "string"},
+    },
+}
 
 SCENE_SCHEMA = {
     "type": "object",
@@ -66,13 +92,14 @@ SCENE_SCHEMA = {
         "visual": {
             "type": "object",
             "additionalProperties": False,
-            "required": ["kind", "highlight", "focus", "caption", "image_prompt"],
+            "required": ["kind", "highlight", "focus", "caption", "footage_query", "chart"],
             "properties": {
-                "kind": {"type": "string", "enum": ["map", "image", "text"]},
+                "kind": {"type": "string", "enum": ["map", "footage", "image", "chart", "text"]},
                 "highlight": {"type": "array", "items": {"type": "string"}},
                 "focus": {"type": "array", "items": {"type": "string"}},
                 "caption": {"type": "string"},
-                "image_prompt": {"type": "string"},
+                "footage_query": {"type": "string"},
+                "chart": CHART_SCHEMA,
             },
         },
     },
@@ -81,8 +108,9 @@ SCENE_SCHEMA = {
 SCRIPT_SCHEMA = {
     "type": "object",
     "additionalProperties": False,
-    "required": ["title_options", "description", "tags", "thumbnail", "scenes"],
+    "required": ["title_options", "description", "tags", "thumbnail", "sources", "scenes"],
     "properties": {
+        "sources": {"type": "array", "items": {"type": "string"}},
         "title_options": {"type": "array", "items": {"type": "string"}},
         "description": {"type": "string"},
         "tags": {"type": "array", "items": {"type": "string"}},

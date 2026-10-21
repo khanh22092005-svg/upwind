@@ -1,0 +1,869 @@
+{
+  "topic": "Will France's crisis put the welfare-state model in question?",
+  "title_options": [
+    "Can France Still Afford Its Welfare State?",
+    "Why France Can't Stop Protesting (And Can't Stop Borrowing)",
+    "Is Europe's Most Generous Welfare State Breaking?"
+  ],
+  "description": "France's streets are full again. More than half a million people marched on 17 October 2026 as school protests merged with anger over a €54 billion austerity budget. Behind it is a bigger question: can France still afford the most generous welfare state in Europe, and is the model itself breaking?\n\nWe look at the numbers: public spending, pensions, debt, demography, and how Denmark and Sweden run big welfare states without big deficits.\n\nSources:\n- https://www.aljazeera.com/news/2026/10/18/why-have-frances-school-protests-become-a-wider-political-crisis\n- https://www.france24.com/en/france/20261001-french-pm-to-present-belt-tightening-2027-budget-including-frozen-wages-and-new-taxes\n- https://live.euronext.com/en/financial-news/france-plans-eu54-billion-savings-drive-protests-grow\n- https://www.aa.com.tr/en/europe/we-can-no-longer-finance-everything-french-premier-says-as-government-seeks-spending-cuts/4058337\n- https://www.insee.fr/en/statistiques/8961174\n- https://ec.europa.eu/eurostat/web/products-euro-indicators/w/2-22042026-ap\n- https://www.oecd.org/en/topics/social-spending.html\n- https://www.oecd.org/en/publications/pensions-at-a-glance-2025_e40274c1-en/full-report/public-expenditure-on-pensions_ddc9a2dd.html\n- https://www.kyivpost.com/analysis/87630\n- https://www.france24.com/en/live-news/20251216-french-lawmakers-adopt-social-security-budget-suspend-macron-s-flagship-pension-reform\n- https://www.atterres.org/wp-content/uploads/2025/06/Le-rapport-2025-du-COR-Henri-Sterdyniak.pdf",
+  "tags": [
+    "france",
+    "welfare state",
+    "france protests",
+    "pension reform",
+    "french debt",
+    "geopolitics",
+    "europe",
+    "lecornu",
+    "macron",
+    "economy"
+  ],
+  "thumbnail": {
+    "headline": "Who pays?",
+    "highlight": [
+      "FRA"
+    ]
+  },
+  "sources": [
+    "Al Jazeera - Why have France's school protests become a wider political crisis? (2026-10-18)",
+    "France 24 - French PM presents belt-tightening 2027 budget (2026-10-01)",
+    "Euronext / Reuters - France plans EUR 54 billion savings drive as protests grow",
+    "Anadolu Agency - 'We can no longer finance everything', French premier says",
+    "INSEE - Public deficit and debt, 2025 (March 2026)",
+    "Eurostat - Government debt at 87.8% of GDP in euro area (2026-04-22)",
+    "OECD - Social spending; Pensions at a Glance 2025",
+    "Kyiv Post - Analysis: France Flails (spending, pensions)",
+    "France 24 - Lawmakers suspend Macron's pension reform (2025-12-16)",
+    "COR - Rapport annuel 2025 (via Les Économistes atterrés analysis)"
+  ],
+  "scenes": [
+    {
+      "chapter": "Intro",
+      "narration": "On October 17, about 550,000 people marched across France, according to the Interior Ministry. By nightfall, 1,200 had been arrested.",
+      "visual": {
+        "kind": "map",
+        "highlight": [
+          "FRA"
+        ],
+        "focus": [
+          "FRA"
+        ],
+        "caption": "550,000 marched",
+        "footage_query": "",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    },
+    {
+      "chapter": "",
+      "narration": "In Limoges, a fire largely destroyed the historic town hall.",
+      "visual": {
+        "kind": "image",
+        "highlight": [
+          "FRA"
+        ],
+        "focus": [],
+        "caption": "Limoges town hall",
+        "footage_query": "hôtel de ville Limoges",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    },
+    {
+      "chapter": "",
+      "narration": "It started with teenagers. Last month, high school students in the working-class suburbs north of Paris walked out over missing teachers and crumbling classrooms.",
+      "visual": {
+        "kind": "footage",
+        "highlight": [
+          "FRA"
+        ],
+        "focus": [],
+        "caption": "Student protest, archive",
+        "footage_query": "lycéens manifestation",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    },
+    {
+      "chapter": "",
+      "narration": "Within weeks, it had spread to Bordeaux, Rennes, Nantes, Lyon, Lille and Marseille, and merged with a public sector strike against the government's budget.",
+      "visual": {
+        "kind": "map",
+        "highlight": [
+          "FRA"
+        ],
+        "focus": [
+          "FRA",
+          "ESP",
+          "CHE"
+        ],
+        "caption": "Nationwide",
+        "footage_query": "",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    },
+    {
+      "chapter": "",
+      "narration": "Because the budget for 2027 asks for 54 billion euros in savings and new taxes.",
+      "visual": {
+        "kind": "text",
+        "highlight": [],
+        "focus": [],
+        "caption": "€54 billion in savings and taxes",
+        "footage_query": "",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    },
+    {
+      "chapter": "",
+      "narration": "And that raises a bigger question than one budget. Can France still afford the welfare state it is famous for? Or is the model itself starting to crack?",
+      "visual": {
+        "kind": "map",
+        "highlight": [
+          "FRA"
+        ],
+        "focus": [
+          "FRA",
+          "DEU",
+          "ITA"
+        ],
+        "caption": "At what cost?",
+        "footage_query": "",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    },
+    {
+      "chapter": "The Most Generous State",
+      "narration": "In 2025, French public spending reached 57.2 percent of everything the economy produced. That is about seven points more than the euro area average.",
+      "visual": {
+        "kind": "chart",
+        "highlight": [],
+        "focus": [],
+        "caption": "",
+        "footage_query": "",
+        "chart": {
+          "type": "bar",
+          "title": "Public spending, % of GDP, 2025",
+          "unit": "%",
+          "labels": [
+            "France",
+            "Euro area"
+          ],
+          "values": [
+            57.2,
+            49.8
+          ],
+          "source": "INSEE; euro-area gap per Kyiv Post / Eurostat"
+        }
+      }
+    },
+    {
+      "chapter": "",
+      "narration": "Just over 30 percent of GDP goes on social spending alone: pensions, health, families and unemployment. In the OECD, only Austria and Finland are in the same league.",
+      "visual": {
+        "kind": "map",
+        "highlight": [
+          "FRA",
+          "AUT",
+          "FIN"
+        ],
+        "focus": [
+          "FRA",
+          "FIN",
+          "AUT"
+        ],
+        "caption": "Top 3 in the OECD",
+        "footage_query": "",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    },
+    {
+      "chapter": "",
+      "narration": "In return, the French get a lot. Health care that is cheap at the point of use. Strong protection for workers. And some of the most generous pensions in the world.",
+      "visual": {
+        "kind": "image",
+        "highlight": [
+          "FRA"
+        ],
+        "focus": [],
+        "caption": "Paris hospital",
+        "footage_query": "hôpital Paris",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    },
+    {
+      "chapter": "",
+      "narration": "A French pension replaces about 72 percent of a worker's earnings, compared with around 55 percent in Germany and 50 percent in the United States.",
+      "visual": {
+        "kind": "chart",
+        "highlight": [],
+        "focus": [],
+        "caption": "",
+        "footage_query": "",
+        "chart": {
+          "type": "bar",
+          "title": "Pension as % of previous earnings",
+          "unit": "%",
+          "labels": [
+            "France",
+            "Germany",
+            "USA"
+          ],
+          "values": [
+            72,
+            55,
+            50
+          ],
+          "source": "OECD net replacement rates, via Kyiv Post"
+        }
+      }
+    },
+    {
+      "chapter": "",
+      "narration": "Pensions alone cost around 14 percent of GDP, among the highest in the developed world, according to the OECD.",
+      "visual": {
+        "kind": "text",
+        "highlight": [],
+        "focus": [],
+        "caption": "Pensions: ~14% of GDP",
+        "footage_query": "",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    },
+    {
+      "chapter": "",
+      "narration": "This is the French social model. Built after the Second World War, it is paid for mostly by contributions taken from wages. Today's workers pay for today's retirees.",
+      "visual": {
+        "kind": "map",
+        "highlight": [
+          "FRA"
+        ],
+        "focus": [
+          "FRA"
+        ],
+        "caption": "Pay as you go",
+        "footage_query": "",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    },
+    {
+      "chapter": "The Bill",
+      "narration": "But the money going out has been bigger than the money coming in for a very long time. France has not run a budget surplus since 1974.",
+      "visual": {
+        "kind": "text",
+        "highlight": [],
+        "focus": [],
+        "caption": "No surplus since 1974",
+        "footage_query": "",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    },
+    {
+      "chapter": "",
+      "narration": "In 2025, the deficit was 5.1 percent of GDP, far above the 3 percent limit in the European Union's rules.",
+      "visual": {
+        "kind": "chart",
+        "highlight": [],
+        "focus": [],
+        "caption": "",
+        "footage_query": "",
+        "chart": {
+          "type": "line",
+          "title": "Budget deficit, % of GDP",
+          "unit": "%",
+          "labels": [
+            "2022",
+            "2023",
+            "2024",
+            "2025"
+          ],
+          "values": [
+            4.7,
+            5.4,
+            5.8,
+            5.1
+          ],
+          "source": "INSEE, March 2026"
+        }
+      }
+    },
+    {
+      "chapter": "",
+      "narration": "And every deficit adds to the debt. By the end of 2025, it reached 115.6 percent of GDP.",
+      "visual": {
+        "kind": "chart",
+        "highlight": [],
+        "focus": [],
+        "caption": "",
+        "footage_query": "",
+        "chart": {
+          "type": "line",
+          "title": "Public debt, % of GDP",
+          "unit": "%",
+          "labels": [
+            "2022",
+            "2023",
+            "2024",
+            "2025"
+          ],
+          "values": [
+            111.4,
+            109.5,
+            112.6,
+            115.6
+          ],
+          "source": "INSEE, March 2026"
+        }
+      }
+    },
+    {
+      "chapter": "",
+      "narration": "That is the third highest in the euro zone, behind only Greece and Italy, and almost twice Germany's level.",
+      "visual": {
+        "kind": "chart",
+        "highlight": [],
+        "focus": [],
+        "caption": "",
+        "footage_query": "",
+        "chart": {
+          "type": "bar",
+          "title": "Public debt, % of GDP, end 2025",
+          "unit": "%",
+          "labels": [
+            "Greece",
+            "Italy",
+            "France",
+            "Belgium",
+            "Spain",
+            "Germany"
+          ],
+          "values": [
+            146.1,
+            137.1,
+            115.6,
+            107.9,
+            100.7,
+            63.5
+          ],
+          "source": "Eurostat, April 2026"
+        }
+      }
+    },
+    {
+      "chapter": "",
+      "narration": "And debt is no longer cheap. Prime Minister Sébastien Lecornu says rising interest rates and tension abroad add another 10 billion euros to next year's bill.",
+      "visual": {
+        "kind": "image",
+        "highlight": [
+          "FRA"
+        ],
+        "focus": [],
+        "caption": "PM Sébastien Lecornu",
+        "footage_query": "Sébastien Lecornu",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    },
+    {
+      "chapter": "",
+      "narration": "In his words: we can no longer finance everything.",
+      "visual": {
+        "kind": "text",
+        "highlight": [],
+        "focus": [],
+        "caption": "“We can no longer finance everything”",
+        "footage_query": "",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    },
+    {
+      "chapter": "Why Nobody Can Fix It",
+      "narration": "Every attempt to trim the model has met the street. In 2019, a plan to overhaul pensions brought weeks of strikes and marches.",
+      "visual": {
+        "kind": "footage",
+        "highlight": [
+          "FRA"
+        ],
+        "focus": [],
+        "caption": "Pension protest, 2019",
+        "footage_query": "manifestation retraites Paris 2019",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    },
+    {
+      "chapter": "",
+      "narration": "In 2018, a rise in fuel tax sparked the yellow vest movement, which lasted for months.",
+      "visual": {
+        "kind": "footage",
+        "highlight": [
+          "FRA"
+        ],
+        "focus": [],
+        "caption": "Yellow vests, 2018",
+        "footage_query": "gilets jaunes Paris",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    },
+    {
+      "chapter": "",
+      "narration": "In 2023, President Macron raised the retirement age from 62 to 64, pushing it through without a final vote in parliament.",
+      "visual": {
+        "kind": "footage",
+        "highlight": [
+          "FRA"
+        ],
+        "focus": [],
+        "caption": "Pension protest, 2023",
+        "footage_query": "manifestation réforme des retraites 2023",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    },
+    {
+      "chapter": "",
+      "narration": "Then the 2024 snap election produced a hung parliament. No bloc has a majority.",
+      "visual": {
+        "kind": "map",
+        "highlight": [
+          "FRA"
+        ],
+        "focus": [
+          "FRA"
+        ],
+        "caption": "No majority",
+        "footage_query": "",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    },
+    {
+      "chapter": "",
+      "narration": "Two governments have fallen over budgets since: Michel Barnier's in December 2024, and François Bayrou's in September 2025.",
+      "visual": {
+        "kind": "text",
+        "highlight": [],
+        "focus": [],
+        "caption": "2 governments down",
+        "footage_query": "",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    },
+    {
+      "chapter": "",
+      "narration": "To survive, Lecornu's government suspended the pension reform until after the 2027 presidential election. That costs 400 million euros next year, and 1.8 billion the year after.",
+      "visual": {
+        "kind": "image",
+        "highlight": [
+          "FRA"
+        ],
+        "focus": [],
+        "caption": "National Assembly",
+        "footage_query": "Palais Bourbon Assemblée nationale",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    },
+    {
+      "chapter": "The Demographic Clock",
+      "narration": "Behind the politics is a slower problem. In 2024, France had 2.5 people of working age for every person over 65. By 2070, the projection is 1.76.",
+      "visual": {
+        "kind": "chart",
+        "highlight": [],
+        "focus": [],
+        "caption": "",
+        "footage_query": "",
+        "chart": {
+          "type": "bar",
+          "title": "People aged 20-64 per person 65+",
+          "unit": "",
+          "labels": [
+            "2024",
+            "2070"
+          ],
+          "values": [
+            2.5,
+            1.76
+          ],
+          "source": "COR 2025 report"
+        }
+      }
+    },
+    {
+      "chapter": "",
+      "narration": "In a system where workers pay for retirees, that ratio is the whole equation. Fewer workers per retiree means higher contributions, lower pensions, or later retirement. Every option hurts someone.",
+      "visual": {
+        "kind": "map",
+        "highlight": [
+          "FRA"
+        ],
+        "focus": [
+          "FRA"
+        ],
+        "caption": "Every option hurts",
+        "footage_query": "",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    },
+    {
+      "chapter": "",
+      "narration": "And the cuts have to land somewhere. The 2027 budget freezes civil servants' pay scale, for the fourth year in a row according to unions, and freezes all but the lowest pensions.",
+      "visual": {
+        "kind": "footage",
+        "highlight": [
+          "FRA"
+        ],
+        "focus": [],
+        "caption": "Public sector strike, archive",
+        "footage_query": "grève fonction publique manifestation",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    },
+    {
+      "chapter": "",
+      "narration": "Teachers, nurses and students feel it first. That is exactly what the teenagers marched about: overcrowded classes, missing teachers, ageing schools.",
+      "visual": {
+        "kind": "image",
+        "highlight": [
+          "FRA"
+        ],
+        "focus": [],
+        "caption": "French school",
+        "footage_query": "lycée France",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    },
+    {
+      "chapter": "Is the Model Broken?",
+      "narration": "But here is what most people get wrong. A big welfare state is not the problem on its own. Denmark and Sweden also tax and spend heavily.",
+      "visual": {
+        "kind": "map",
+        "highlight": [
+          "DNK",
+          "SWE"
+        ],
+        "focus": [
+          "DNK",
+          "SWE",
+          "FRA"
+        ],
+        "caption": "Nordic model",
+        "footage_query": "",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    },
+    {
+      "chapter": "",
+      "narration": "Yet in 2025, Denmark ran a budget surplus, and Sweden's debt was just 35 percent of GDP.",
+      "visual": {
+        "kind": "chart",
+        "highlight": [],
+        "focus": [],
+        "caption": "",
+        "footage_query": "",
+        "chart": {
+          "type": "bar",
+          "title": "Public debt, % of GDP, end 2025",
+          "unit": "%",
+          "labels": [
+            "France",
+            "Sweden",
+            "Denmark"
+          ],
+          "values": [
+            115.6,
+            35.1,
+            27.9
+          ],
+          "source": "Eurostat, April 2026"
+        }
+      }
+    },
+    {
+      "chapter": "",
+      "narration": "The difference is not generosity. Sweden's pensions adjust automatically to keep the system in balance, and Denmark links its retirement age to life expectancy.",
+      "visual": {
+        "kind": "map",
+        "highlight": [
+          "SWE",
+          "DNK"
+        ],
+        "focus": [
+          "SWE",
+          "DNK"
+        ],
+        "caption": "",
+        "footage_query": "",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    },
+    {
+      "chapter": "",
+      "narration": "France has kept the benefits, but not the balance. Its taxes are already among the highest in Europe, at 43.6 percent of GDP. Raising them is toxic, and cutting benefits brings people onto the streets. So the gap is filled by borrowing.",
+      "visual": {
+        "kind": "text",
+        "highlight": [],
+        "focus": [],
+        "caption": "Taxes: 43.6% of GDP",
+        "footage_query": "",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    },
+    {
+      "chapter": "What Comes Next",
+      "narration": "The presidential election is due in April 2027, and Marine Le Pen's National Rally, which has promised to undo the pension reform, is strong in the polls.",
+      "visual": {
+        "kind": "map",
+        "highlight": [
+          "FRA"
+        ],
+        "focus": [
+          "FRA"
+        ],
+        "caption": "April 2027",
+        "footage_query": "",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    },
+    {
+      "chapter": "",
+      "narration": "So, is the French welfare model finished? Not quite. Its promise is still hugely popular, and richer countries pay for similar ones.",
+      "visual": {
+        "kind": "footage",
+        "highlight": [
+          "FRA"
+        ],
+        "focus": [],
+        "caption": "Paris, archive",
+        "footage_query": "Paris manifestation foule",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    },
+    {
+      "chapter": "",
+      "narration": "But the numbers say this version cannot last unchanged. The only question is who decides how it changes: parliament, the bond markets, or the street.",
+      "visual": {
+        "kind": "map",
+        "highlight": [
+          "FRA"
+        ],
+        "focus": [
+          "FRA",
+          "DEU",
+          "ITA",
+          "ESP"
+        ],
+        "caption": "",
+        "footage_query": "",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    },
+    {
+      "chapter": "",
+      "narration": "Whoever wins in 2027 will have to answer the question the students are asking right now. Who pays for the French model?",
+      "visual": {
+        "kind": "text",
+        "highlight": [],
+        "focus": [],
+        "caption": "Who pays?",
+        "footage_query": "",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    }
+  ]
+}

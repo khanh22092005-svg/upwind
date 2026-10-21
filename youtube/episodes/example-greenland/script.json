@@ -6,14 +6,167 @@
     "Why Greenland Is Worth More Than You Think"
   ],
   "description": "Example episode for testing the pipeline. Replace with a real script from `python -m nk new`.\n\nSources:\n- (add sources here)",
-  "tags": ["greenland", "geopolitics", "arctic", "usa", "denmark"],
-  "thumbnail": {"headline": "Priceless?", "highlight": ["GRL"]},
+  "tags": [
+    "greenland",
+    "geopolitics",
+    "arctic",
+    "usa",
+    "denmark"
+  ],
+  "thumbnail": {
+    "headline": "Priceless?",
+    "highlight": [
+      "GRL"
+    ]
+  },
   "scenes": [
-    {"chapter": "Intro", "narration": "The biggest island on Earth has fewer people than a small city. So why do the world's great powers keep circling it?", "visual": {"kind": "map", "highlight": ["GRL"], "focus": [], "caption": "Priceless?", "image_prompt": ""}},
-    {"chapter": "", "narration": "Greenland sits between North America and Europe, right on the shortest route between them.", "visual": {"kind": "map", "highlight": ["GRL"], "focus": ["GRL", "CAN", "ISL", "NOR"], "caption": "", "image_prompt": ""}},
-    {"chapter": "The Geography", "narration": "It belongs to the Kingdom of Denmark, thousands of kilometres away.", "visual": {"kind": "map", "highlight": ["GRL", "DNK"], "focus": ["GRL", "DNK"], "caption": "", "image_prompt": ""}},
-    {"chapter": "", "narration": "About fifty six thousand people. Two million square kilometres.", "visual": {"kind": "text", "highlight": [], "focus": [], "caption": "56,000 people. 2 million km²", "image_prompt": ""}},
-    {"chapter": "The Stakes", "narration": "And as the ice retreats, new sea routes and minerals come within reach.", "visual": {"kind": "image", "highlight": [], "focus": [], "caption": "Melting ice", "image_prompt": "Aerial photo of a melting glacier front in Greenland, cinematic"}},
-    {"chapter": "", "narration": "Which is why Washington, Beijing and Moscow are all watching. Very closely.", "visual": {"kind": "map", "highlight": ["USA", "CHN", "RUS"], "focus": ["GRL", "USA", "RUS"], "caption": "Watching", "image_prompt": ""}}
+    {
+      "chapter": "Intro",
+      "narration": "The biggest island on Earth has fewer people than a small city. So why do the world's great powers keep circling it?",
+      "visual": {
+        "kind": "map",
+        "highlight": [
+          "GRL"
+        ],
+        "focus": [],
+        "caption": "Priceless?",
+        "footage_query": "",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    },
+    {
+      "chapter": "",
+      "narration": "Greenland sits between North America and Europe, right on the shortest route between them.",
+      "visual": {
+        "kind": "map",
+        "highlight": [
+          "GRL"
+        ],
+        "focus": [
+          "GRL",
+          "CAN",
+          "ISL",
+          "NOR"
+        ],
+        "caption": "",
+        "footage_query": "",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    },
+    {
+      "chapter": "The Geography",
+      "narration": "It belongs to the Kingdom of Denmark, thousands of kilometres away.",
+      "visual": {
+        "kind": "map",
+        "highlight": [
+          "GRL",
+          "DNK"
+        ],
+        "focus": [
+          "GRL",
+          "DNK"
+        ],
+        "caption": "",
+        "footage_query": "",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    },
+    {
+      "chapter": "",
+      "narration": "About fifty six thousand people. Two million square kilometres.",
+      "visual": {
+        "kind": "chart",
+        "highlight": [],
+        "focus": [],
+        "caption": "",
+        "footage_query": "",
+        "chart": {
+          "type": "bar",
+          "title": "Population (thousands)",
+          "unit": "k",
+          "labels": [
+            "Greenland",
+            "Iceland",
+            "Denmark"
+          ],
+          "values": [
+            56,
+            390,
+            5960
+          ],
+          "source": "Example data"
+        }
+      }
+    },
+    {
+      "chapter": "The Stakes",
+      "narration": "And as the ice retreats, new sea routes and minerals come within reach.",
+      "visual": {
+        "kind": "footage",
+        "highlight": [],
+        "focus": [],
+        "caption": "Greenland ice",
+        "footage_query": "Greenland glacier ice",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    },
+    {
+      "chapter": "",
+      "narration": "Which is why Washington, Beijing and Moscow are all watching. Very closely.",
+      "visual": {
+        "kind": "map",
+        "highlight": [
+          "USA",
+          "CHN",
+          "RUS"
+        ],
+        "focus": [
+          "GRL",
+          "USA",
+          "RUS"
+        ],
+        "caption": "Watching",
+        "footage_query": "",
+        "chart": {
+          "type": "",
+          "title": "",
+          "unit": "",
+          "labels": [],
+          "values": [],
+          "source": ""
+        }
+      }
+    }
+  ],
+  "sources": [
+    "(example) add sources here"
   ]
 }

@@ -1,8 +1,12 @@
 # NK Exploring – video pipeline
 
 Turns a topic into a ready-to-upload YouTube video in the style of
-[STRABO](https://www.youtube.com/@strabomedia): research → script → voiceover → map
-visuals → video, thumbnail, captions and upload notes.
+[STRABO](https://www.youtube.com/@strabomedia): research → script → voiceover → maps,
+animated charts and real footage → video, thumbnail, captions and upload notes, with
+every source and footage credit on screen and in the description.
+
+Sample: [`episodes/france-welfare-state`](episodes/france-welfare-state), *Can France
+Still Afford Its Welfare State?* (about 6 minutes, 36 scenes).
 
 This folder is separate from the website. Vite, Wrangler and `pnpm build` ignore it.
 
@@ -34,10 +38,10 @@ so I could not check the voice itself.
 ## The workflow
 
 ```
-topic ──► research.md ──► script.json ──► [you review/edit] ──► voice + frames ──► video.mp4
-          (Claude +        (Claude,                              (edge-tts,         thumbnail.png
-           web search)      structured)                           map renderer)      captions.srt
-                                                                                     upload.md
+topic ──► research.md ──► script.json ──► [you review/edit] ──► footage + voice + visuals ──► video.mp4
+          (Claude +        (Claude,                              (Commons, edge-tts,            thumbnail.png
+           web search)      structured)                           maps, charts)                 captions.srt
+                                                                                                upload.md
 ```
 
 1. **Pick a topic** (5 min). Use the "Why X…?" pattern. Find topics in the news this
@@ -45,21 +49,61 @@ topic ──► research.md ──► script.json ──► [you review/edit] �
    covered, and in your own comments.
 2. **`python -m nk new "topic"`** (2–4 min). Claude searches the web and writes
    `research.md` with sources, then `script.json`: 3 title options, a description, tags,
-   the thumbnail text, and about 50 scenes. Each scene has narration and a visual (a map
-   with highlighted countries, a text card, or an image prompt).
+   the thumbnail text, a source list, and about 50 scenes. Each scene has narration and
+   one of five visuals (see [Scene visuals](#scene-visuals)).
 3. **Review** (20–30 min, the important part). Check the numbers against the sources,
-   rewrite lines in your own words, and pick a title. For `image` scenes, make the
-   images listed in `shots.md` with any image tool and save them as
-   `assets/scene_NN.png`. Scenes without one fall back to a map or text card.
+   rewrite lines in your own words, and pick a title. To use your own clip or photo for
+   a scene, see [Your own footage](#your-own-footage-social-media-news-clips).
 4. **`python -m nk build episodes/<slug>`** (about 15 min for a 9-minute video). This
-   makes the voiceover, the map frames with slow zoom/pan, the video, the thumbnail and
-   the captions. Re-run it after any edit; finished voice clips are reused.
+   downloads the footage, then makes the voiceover, the scenes, chapter banners, a
+   sources end card, the video, the thumbnail and the captions. Re-run it after any
+   edit; voice clips and footage are reused.
 5. **Upload** with `upload.md`: the title, the description with chapters, the tags, and
    a checklist. Upload `captions.srt` as English subtitles.
 
 You can run steps 2 and 4 together with `python -m nk all "topic"`. You can also run the
 whole thing from GitHub, phone included: **Actions → NK Exploring video → Run workflow**.
 The finished files appear as a downloadable artifact on the run page.
+
+## Scene visuals
+
+| kind | What you see | Where it comes from |
+|---|---|---|
+| `map` | Textured map, countries painted red and labelled, slow zoom | Natural Earth country shapes (public domain) |
+| `footage` | Real video, cropped to 16:9, its own sound kept low under the voice, credit bottom-left | Wikimedia Commons search (`footage_query`), or your own file |
+| `image` | Real photo with slow zoom and a credit | Wikimedia Commons, or your own file |
+| `chart` | Bars that grow, or a line that draws itself, with the source underneath | Numbers in the script (taken from the research) |
+| `text` | One big number or quote | The caption |
+
+Each new chapter also gets a lower-third title banner. The last 6 seconds are an
+end card that lists every source and footage credit.
+
+## Your own footage (social media, news clips)
+
+You can put any clip or photo on any scene. Save it as
+`episodes/<slug>/assets/scene_NN.mp4` (or `.jpg`/`.png`), where NN is the scene number
+counting from 00. Then add its credit to `assets/credits.json`:
+
+```json
+"7": {"credit": "Video: @username on X", "page": "https://x.com/username/status/..."}
+```
+
+The credit appears on screen, on the end card and in the description.
+
+**A credit is not permission.** Commons footage is free to use as long as you credit
+it, which the pipeline does. Clips from X, TikTok, Instagram or TV news belong to
+whoever filmed them. A credit alone does not stop a copyright claim, and three claims
+end a channel. Safe options:
+- **Ask the poster.** Most people say yes to "can I use your video with credit?".
+  Keep a screenshot of the reply.
+- **Fair use.** A few seconds that you comment on (not as background filler) can count
+  as fair use in the US. It is a judgement call, not a guarantee.
+- **Free sources:** Wikimedia Commons (built in), the
+  [EU Audiovisual Service](https://audiovisual.ec.europa.eu/) (free with credit),
+  government press photos, and Pexels or Pixabay for generic city and people shots.
+
+The pipeline automatically downloads from Wikimedia Commons only, where every file's
+licence is known.
 
 ## Setup
 
@@ -92,6 +136,8 @@ Try the render without an API key: `python -m nk build episodes/example-greenlan
 |---|---|
 | `nk/writer.py` | Claude prompts for research and the script, plus the script's JSON schema |
 | `nk/maps.py` | Map, text-card, image and thumbnail renderer |
+| `nk/charts.py` | Animated charts, caption/credit overlays, chapter banners, end card |
+| `nk/footage.py` | Wikimedia Commons search and download, with licence credits |
 | `nk/media.py` | Voiceover, Ken Burns scene clips, final mix and captions |
 | `nk/__main__.py` | The `new` / `build` / `all` commands |
 | `episodes/<slug>/` | One folder per video. Only text files are committed; renders are gitignored |
