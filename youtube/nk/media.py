@@ -3,6 +3,7 @@
 import asyncio
 import re
 import subprocess
+import time
 from pathlib import Path
 
 import edge_tts
@@ -18,7 +19,16 @@ FIT = "scale={w}:{h}:force_original_aspect_ratio=increase,crop={w}:{h},setsar=1"
 
 
 def tts(text: str, out: Path, voice: str, rate: str) -> None:
-    asyncio.run(edge_tts.Communicate(text, voice, rate=rate).save(str(out)))
+    # The free edge-tts service occasionally returns nothing; a retry usually works.
+    for attempt in range(3):
+        try:
+            asyncio.run(edge_tts.Communicate(text, voice, rate=rate).save(str(out)))
+            return
+        except edge_tts.exceptions.EdgeTTSException:
+            out.unlink(missing_ok=True)
+            if attempt == 2:
+                raise
+            time.sleep(3 * (attempt + 1))
 
 
 def _probe(path: Path, *args) -> str:
