@@ -57,7 +57,13 @@ topic ──► research.md ──► script.json ──► [you review/edit] �
 4. **`python -m nk build episodes/<slug>`** (about 15 min for a 9-minute video). This
    downloads the footage, then makes the voiceover, the scenes, chapter banners, a
    sources end card, the video, the thumbnail and the captions. Re-run it after any
-   edit; voice clips and footage are reused.
+   edit. Only changed scenes are rendered again; the rest are reused, so a rebuild
+   takes seconds to a minute.
+
+   A scene that fails (a voice-service glitch, a footage download that is blocked, a
+   broken clip) never stops the build. Failed footage falls back to a map. Any other
+   failure leaves that scene out, and it is listed in `episodes/<slug>/TODO.md`. Run
+   `build` again later to fill the gaps.
 5. **Upload** with `upload.md`: the title, the description with chapters, the tags, and
    a checklist. Upload `captions.srt` as English subtitles.
 

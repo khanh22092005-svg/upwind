@@ -10,6 +10,7 @@ scene, save it as assets/scene_NN.<ext> and put its credit in assets/credits.jso
 """
 
 import argparse
+import hashlib
 import json
 import re
 import sys
@@ -125,26 +126,29 @@ def cmd_build(args) -> None:
         (build / sub).mkdir(parents=True, exist_ok=True)
     credits = _gather_footage(scenes, ep)
 
-    clips, lengths = [], []
+    code = hashlib.sha256(b"".join(
+        f.read_bytes() for f in sorted(Path(__file__).parent.glob("*.py")))).hexdigest()
+    clips, kept, lengths, skipped = [], [], [], []
     for i, scene in enumerate(scenes):
         print(f"Scene {i + 1}/{len(scenes)}", end="\r", flush=True)
-        audio = build / "audio" / f"scene_{i:02}.mp3"
         clip = build / "clips" / f"scene_{i:02}.mp4"
-        if not audio.exists() or audio.stat().st_size == 0:  # empty = interrupted run
-            media.tts(scene["narration"], audio, args.voice, args.rate)
-        source, credit, drawn = _picture(scene, i, ep, build, credits)
-        overlay = banner = None
-        # Map and text frames draw their own caption; everything else gets an overlay.
-        caption = "" if drawn else scene["visual"]["caption"]
-        if caption or credit:
-            overlay = build / "overlays" / f"scene_{i:02}.png"
-            charts.overlay(caption, credit).save(overlay)
-        if scene["chapter"] and i > 0:
-            banner = build / "overlays" / f"chapter_{i:02}.png"
-            charts.chapter_banner(scene["chapter"]).save(banner)
-        lengths.append(media.scene_clip(source, audio, clip, i, overlay, banner))
+        try:
+            length = _scene(scene, i, ep, build, credits, clip, args, code)
+        except Exception as e:  # finish the video; the scene is listed and redone next build
+            skipped.append(f"scene {i:02}: {type(e).__name__}: {str(e)[:200]}")
+            print(f"\n  scene {i} skipped ({type(e).__name__}: {str(e)[:120]})")
+            continue
         clips.append(clip)
+        kept.append(scene)
+        lengths.append(length)
     print()
+    todo = ep / "TODO.md"
+    if skipped:
+        todo.write_text("# Scenes left out of video.mp4\n\nRe-run `python -m nk build` to retry them; "
+                        "finished scenes are reused.\n\n" + "\n".join(f"- {x}" for x in skipped) + "\n")
+    else:
+        todo.unlink(missing_ok=True)
+    scenes = kept
 
     footage_lines = [f"{c['credit']} - {c['page']}" for _, c in sorted(
         credits.items(), key=lambda kv: int(kv[0]))]
@@ -182,6 +186,41 @@ def cmd_build(args) -> None:
     )
     total = t + END_CARD_SECONDS
     print(f"Done: {video} ({total / 60:.1f} min), thumbnail.png, captions.srt, upload.md")
+    if skipped:
+        print(f"{len(skipped)} scene(s) left out, see {todo}. Run build again to fill them in.")
+
+
+def _scene(scene: dict, i: int, ep: Path, build: Path, credits: dict, clip: Path,
+           args, code: str) -> float:
+    """Render one scene's clip, or reuse it if nothing that feeds it has changed."""
+    from nk import charts, media
+
+    audio = build / "audio" / f"scene_{i:02}.mp3"
+    if not audio.exists() or audio.stat().st_size == 0:  # empty = interrupted run
+        media.tts(scene["narration"], audio, args.voice, args.rate)
+    asset = _asset(ep, i)
+    key = hashlib.sha256(json.dumps([
+        scene, args.voice, args.rate, code, credits.get(str(i)),
+        [asset.name, asset.stat().st_size] if asset else None, audio.stat().st_size,
+    ], sort_keys=True).encode()).hexdigest()
+    stamp = clip.with_suffix(".key")
+    if clip.exists() and stamp.exists() and stamp.read_text() == key:
+        return media.duration(clip)
+
+    source, credit, drawn = _picture(scene, i, ep, build, credits)
+    overlay = banner = None
+    # Map and text frames draw their own caption; everything else gets an overlay.
+    caption = "" if drawn else scene["visual"]["caption"]
+    if caption or credit:
+        overlay = build / "overlays" / f"scene_{i:02}.png"
+        charts.overlay(caption, credit).save(overlay)
+    if scene["chapter"] and i > 0:
+        banner = build / "overlays" / f"chapter_{i:02}.png"
+        charts.chapter_banner(scene["chapter"]).save(banner)
+    stamp.unlink(missing_ok=True)
+    length = media.scene_clip(source, audio, clip, i, overlay, banner)
+    stamp.write_text(key)
+    return length
 
 
 def main() -> None:
