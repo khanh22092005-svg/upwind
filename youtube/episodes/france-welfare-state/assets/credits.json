@@ -30,5 +30,37 @@
     "credit": "Video: Jeanne Menjoulet / CC BY 2.0 / Wikimedia Commons",
     "file": "scene_18.webm",
     "query": "manifestation retraites Paris 2019"
+  },
+  "16": {
+    "title": "Portrait Sébastien Lecornu.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Portrait_S%C3%A9bastien_Lecornu.jpg/1920px-Portrait_S%C3%A9bastien_Lecornu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Portrait_S%C3%A9bastien_Lecornu.jpg",
+    "credit": "Photo: GautierGadriot / CC BY-SA 4.0 / Wikimedia Commons",
+    "file": "scene_16.jpg",
+    "query": "Sébastien Lecornu"
+  },
+  "19": {
+    "title": "Manifestation Gilets Jaunes Paris Bastille 17 Novembre 2018 -4 Gilets Jaunes Colère Noire.webm",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/1/13/Manifestation_Gilets_Jaunes_Paris_Bastille_17_Novembre_2018_-4_Gilets_Jaunes_Col%C3%A8re_Noire.webm/Manifestation_Gilets_Jaunes_Paris_Bastille_17_Novembre_2018_-4_Gilets_Jaunes_Col%C3%A8re_Noire.webm.480p.vp9.webm",
+    "page": "https://commons.wikimedia.org/wiki/File:Manifestation_Gilets_Jaunes_Paris_Bastille_17_Novembre_2018_-4_Gilets_Jaunes_Col%C3%A8re_Noire.webm",
+    "credit": "Video: Marie Gendron / CC BY 3.0 / Wikimedia Commons",
+    "file": "scene_19.webm",
+    "query": "gilets jaunes Paris"
+  },
+  "20": {
+    "title": "Manifestation contre la réforme des retraites (Colmar) (2).jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Manifestation_contre_la_r%C3%A9forme_des_retraites_%28Colmar%29_%282%29.jpg/1920px-Manifestation_contre_la_r%C3%A9forme_des_retraites_%28Colmar%29_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Manifestation_contre_la_r%C3%A9forme_des_retraites_(Colmar)_(2).jpg",
+    "credit": "Photo: Gzen92 / CC BY-SA 4.0 / Wikimedia Commons",
+    "file": "scene_20.jpg",
+    "query": "manifestation réforme des retraites 2023"
+  },
+  "23": {
+    "title": "Luxembourg City Chambre des députés Nov 2009.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Luxembourg_City_Chambre_des_d%C3%A9put%C3%A9s_Nov_2009.jpg/1920px-Luxembourg_City_Chambre_des_d%C3%A9put%C3%A9s_Nov_2009.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Luxembourg_City_Chambre_des_d%C3%A9put%C3%A9s_Nov_2009.jpg",
+    "credit": "Photo: Cayambe / CC BY-SA 3.0 / Wikimedia Commons",
+    "file": "scene_23.jpg",
+    "query": "Palais Bourbon Assemblée nationale"
   }
 }

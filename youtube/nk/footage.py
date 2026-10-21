@@ -17,6 +17,7 @@ API = "https://commons.wikimedia.org/w/api.php"
 USER_AGENT = (f"NKExploringPipeline/0.1 (https://github.com/khanh22092005-svg/upwind) "
               f"python-urllib/{platform.python_version()}")
 PAUSE = 1.5  # seconds between requests; Wikimedia rate-limits bursts
+MAX_WAIT = 60  # longest Retry-After we sit through
 VIDEO_EXT = (".webm", ".mp4", ".ogv", ".mov")
 
 
@@ -32,7 +33,10 @@ def _get(url: str, binary: bool = False):
             if attempt == 3 or e.code not in (429, 503):
                 raise
             wait = e.headers.get("Retry-After", "")
-            time.sleep(int(wait) if wait.isdigit() else 10 * 2 ** attempt)
+            wait = int(wait) if wait.isdigit() else 10 * 2 ** attempt
+            if wait > MAX_WAIT:  # a long ban: give up now rather than stall the build
+                raise
+            time.sleep(wait)
 
 
 def _clean(html: str) -> str:
