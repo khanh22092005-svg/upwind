@@ -21,30 +21,40 @@ VOICES = {
 
 # (id, beat kind, on-screen text, speaker, spoken text, pause after, extra)
 LINES = [
+    ("phu-hook", "phu", "squeeze@hook", None, None, 0, {}),
     ("hook", "hook", "Mẹo từ UpWind|3 bước để không *'đứng hình'* ở IELTS Speaking Part 1", "narrator",
      "Ba bước để không đứng hình ở IELTS Speaking Part 1.", 0.35, {"take": "hook"}),
-    ("skit", "section", "skit", None, None, 0.3, {}),
+    ("skit", "section", "skit", None, None, 0, {}),
+    ("phu-off", "phu", "off@off", None, None, 0.3, {}),
     ("q1", "examiner", "Do you enjoy cooking?", "examiner", "Do you enjoy cooking?", 0.5, {}),
     ("a1", "candidate", "Yes.", "candidate", "Yes.", 0.4, {}),
+    ("phu-peek", "phu", "idle@peek", None, None, 0, {}),
+    ("pen-a1", "pen", "quá ngắn!", None, None, 0, {"target": "b-a1"}),
     ("hush", "silence", "...im lặng 3 giây", None, None, 3.0, {}),
     ("q2", "examiner", "Um... could you tell me why?", "examiner", "Um... could you tell me why?", 0.5, {}),
     ("a2", "candidate", "Because... it's fun.", "candidate", "Because... it's fun.", 1.0, {}),
-    ("teach", "section", "teach", None, None, 0.2, {}),
+    ("teach", "section", "teach", None, None, 0, {}),
+    ("phu-teach", "phu", "focus@teach", None, None, 0.2, {}),
     ("t1", "teach", "Trả lời *1 câu* rồi im lặng?", "narrator", "Trả lời một câu, rồi im lặng?", 0.35, {}),
     ("t2", "teach", "Giám khảo không có gì để chấm *Fluency* cả.", "narrator", "Như vậy, giám khảo không có gì để chấm Fluency cả.", 0.35, {}),
     ("t3", "teach", "Kéo dài câu trả lời với công thức *A.R.E*", "narrator", "Hãy kéo dài câu trả lời với công thức ba bước.", 0.4, {"stack": "A,R,E"}),
     ("tA", "teach", "*Answer* — trả lời thẳng, đừng vòng vo.", "narrator", "Một. Answer: trả lời thẳng vào câu hỏi, đừng vòng vo.", 0.4, {"step": "A|Answer|Trả lời thẳng câu hỏi"}),
     ("tR", "teach", "*Reason* — thêm một lý do cho ý của bạn.", "narrator", "Hai. Reason: thêm một lý do cho ý của bạn.", 0.4, {"step": "R|Reason|Nói lý do: vì sao?"}),
-    ("tE", "teach", "*Example* — kể một chuyện nhỏ của chính bạn.", "narrator", "Ba. Example: kể một chuyện nhỏ của chính bạn.", 0.8, {"step": "E|Example|Một ví dụ có thật"}),
-    ("redo", "section", "redo", None, None, 0.1, {}),
+    ("tE", "teach", "*Example* — kể một chuyện nhỏ của chính bạn.", "narrator", "Ba. Example: kể một chuyện nhỏ của chính bạn.", 0.3, {"step": "E|Example|Một ví dụ có thật"}),
+    ("goal", "note", "Mục tiêu mỗi câu Part 1|2–3 câu · 15–20 giây", None, None, 2.6, {}),
+    ("redo", "section", "redo", None, None, 0, {}),
+    ("phu-redo", "phu", "focus@redo", None, None, 0.1, {}),
     ("relabel", "label", "Làm lại với A.R.E", "narrator", "Giờ mình làm lại nhé!", 0.4, {}),
     ("q3", "examiner", "Do you enjoy cooking?", "examiner", "Do you enjoy cooking?", 0.5, {}),
     ("rA", "candidate", "Yes, I really do, especially at weekends.", "candidate", "Yes, I really do, especially at weekends.", 0.45, {"letter": "A"}),
     ("rR", "candidate", "It helps me relax after a long week of studying.", "candidate", "It helps me relax after a long week of studying.", 0.45, {"letter": "R"}),
     ("rE", "candidate", "Last Sunday I cooked phở for my whole family. It took four hours, but everyone loved it!",
      "candidate", "Last Sunday, I cooked pho for my whole family. It took four hours, but everyone loved it!", 0.5, {"letter": "E"}),
-    ("nice", "examiner", "That sounds wonderful.", "examiner", "That sounds wonderful.", 0.9, {}),
-    ("cta", "section", "cta", None, None, 0.1, {}),
+    ("ticks", "ticks", "Tự nhiên hơn hẳn!", None, None, 0, {}),
+    ("phu-wave", "phu", "wave@redo", None, None, 0, {}),
+    ("nice", "examiner", "That sounds wonderful.", "examiner", "That sounds wonderful.", 1.4, {}),
+    ("cta", "section", "cta", None, None, 0, {}),
+    ("phu-cta", "phu", "wave@cta", None, None, 0.1, {}),
     ("ctacard", "cta", "Lưu lại để luyện mỗi ngày|Mỗi câu Part 1: Answer, Reason, Example|upwind.asia",
      "narrator", "Lưu video này lại, và luyện mỗi ngày cùng UpWind nhé!", 1.6, {}),
 ]
@@ -174,7 +184,7 @@ def write_svml(rows, end):
         if r["extra"].get("stack"):
             stack_at = r["start"] + int(r["length"] * 0.7)
             instants.append(f'    <time:Instant id="{r["id"]}-stack" at="{sec(stack_at)}"/>')
-        step = r["extra"].get("letter")
+        step = r["extra"].get("letter") or r["extra"].get("target")
         step_attr = f' step="{step}"' if step else ""
         if r["extra"].get("step"):
             beats.append(f'    <upwind:Beat id="b-{r["id"]}-step" kind="step" text="{esc(r["extra"]["step"])}" at={{t.{r["id"]}}}/>')
@@ -210,14 +220,16 @@ def write_svml(rows, end):
   <spatial:Canvas id="canvas" width="1080" height="1920"/>
 
   <fonts:Face id="nunito-700" package="@fontsource-variable/nunito" weight="700" style="normal"/>
-  <fonts:Face id="nunito-900" package="@fontsource-variable/nunito" weight="900" style="normal"/>
-  <fonts:Face id="lora-700" package="@fontsource-variable/lora" weight="700" style="normal"/>
+  <fonts:Face id="nunito-800" package="@fontsource-variable/nunito" weight="800" style="normal"/>
+  <fonts:Face id="lora-600" package="@fontsource-variable/lora" weight="600" style="normal"/>
+  <fonts:Face id="patrick-hand" package="@fontsource/patrick-hand" weight="400" style="normal"/>
   <media:FontStack id="body" primary={{nunito-700}}/>
-  <media:FontStack id="heavy" primary={{nunito-900}}/>
-  <media:FontStack id="serif" primary={{lora-700}}/>
+  <media:FontStack id="heavy" primary={{nunito-800}}/>
+  <media:FontStack id="serif" primary={{lora-600}}/>
+  <media:FontStack id="hand" primary={{patrick-hand}}/>
 
   <upwind:Lesson id="lesson" timeline={{t.timeline}} within={{canvas.bounds}} during={{t.window}}
-    font={{body}} heavy={{heavy}} serif={{serif}} tag="Speaking · Part 1">
+    font={{body}} heavy={{heavy}} serif={{serif}} hand={{hand}} tag="Speaking · Part 1">
 {chr(10).join(beats)}
   </upwind:Lesson>
 

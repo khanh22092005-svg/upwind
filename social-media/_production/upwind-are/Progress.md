@@ -1,5 +1,8 @@
 # Progress
-Final posted file lives in ../../tiktok/01-are-speaking-part1/ (rendered MP4s are not kept here).
+v7 (mascot): Phu from the UpWind mascot guide v1 (assets/phu/, embedded by tools/embed_phu.py into
+packages/lesson-scene/src/phu.ts). 59.6s. Design-system pass: Lora 600 headlines, squiggle, flat cards,
+red pen + Patrick Hand marks, sticky note goal (2-3 cau, 15-20 giay), sky CTA. Narration unchanged.
+Phu cues are `phu` rows in tools/build_voice.py LINES: "pose@slot" (poses squeeze/focus/wave/idle; slots hook/peek/teach/redo/cta, or off@off).
 
 v6: out/upwind-are-v6.mp4, 57.0s. Vietnamese narration sped up 1.2x (NARRATOR_TEMPO, pitch kept);
 hook lists A Answer / R Reason / E Example.
@@ -17,14 +20,3 @@ v3 (voiced): out/upwind-are-v3-voice.mp4 (build bld_20261020T110211143Z_93992EF4
 - Timing is generated from the recordings: edit LINES in tools/build_voice.py, run `python3 -I tools/build_voice.py`,
   then `hypit build productions/are/main.svrun --runtime hypit.runtime.json --follow`.
 Checked: speech onsets match beats within ~0.2s; peak -6.2 dB. Not yet checked by a human listener.
-
-## Continue in a new session
-```bash
-npm install -g @hypit/hypit@0.3.1 && pip install edge-tts
-cd social-media/_production/upwind-are && npm install && (cd packages/lesson-scene && npm install && npx tsc -p tsconfig.json) && npm install
-python3 -I tools/build_voice.py      # cut Vbee takes in voice/source/, speed narration (NARRATOR_TEMPO=1.2), re-time
-hypit build productions/are/main.svrun --runtime hypit.runtime.json --follow
-hypit get <build-id> --output final.video --to ../../tiktok/<post-folder>/<name>.mp4
-```
-`hypit.runtime.json` points at the cloud container's Chromium (/opt/pw-browsers); remove `chromePath` on another machine.
-Vietnamese narration: one Vbee take of the 8 lines (~1s pauses) at voice/source/vbee-narration.mp3; the hook is its own take, voice/source/vbee-hook.mp3.

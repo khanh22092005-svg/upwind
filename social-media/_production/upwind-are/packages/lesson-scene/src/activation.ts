@@ -26,7 +26,7 @@ import type { Beat, BeatKind, LessonFonts, LessonOptions } from "./render.js";
 const module = { name: "@upwind/lesson-scene", version: "1" } as const;
 const types = Object.fromEntries(["Options", "Beat", "Beats"].map(name => [name, { module, name }])) as Record<"Options" | "Beat" | "Beats", TypeRef>;
 const producers = Object.fromEntries(["empty", "append", "render"].map(name => [name, { module, name }])) as Record<"empty" | "append" | "render", { module: typeof module; name: string }>;
-const FONT_INPUTS = ["font", "heavy", "serif"] as const;
+const FONT_INPUTS = ["font", "heavy", "serif", "hand"] as const;
 export const manifest: ModuleManifest = { format: "hypit.module@1", ...module,
   dependencies: [compositionTypes.visualTrack, mediaTypes.fontStack, timelineTypes.timeline, spatialTypes.frame, temporalTypes.instant].map(type => ({ module: type.module })),
   types: Object.values(types).map(type => ({ name: type.name })), capabilities: [], producers: [
@@ -113,10 +113,10 @@ const declaration = { name: "lesson", tag: "Lesson", mode: "structured" as const
     { name: "tag", kind: "literal" as const, required: true, summary: "Header pill text, e.g. the IELTS part." },
   ], children: [{ tag: "Beat", cardinality: "many" as const, summary: `One authored event. kind: ${BEAT_KINDS.join(" | ")}.`, attributes: [
     ...["id", "kind", "text"].map(name => ({ name, kind: "literal" as const, required: true, summary: name })),
-    { name: "step", kind: "literal" as const, required: false, summary: "For candidate beats: the acronym letter this answer line demonstrates." },
+    { name: "step", kind: "literal" as const, required: false, summary: "Candidate beats: the acronym letter this line demonstrates. Pen beats: the id of the Beat to mark." },
     ...temporalInstantAttributeVocabulary,
   ] }], ports: [{ name: "visual", type: compositionTypes.visualTrack, summary: "The complete lesson picture." }],
-    example: '<upwind:Lesson id="lesson" timeline={t.timeline} within={canvas.bounds} font={body} heavy={heavy} serif={serif} during={t.window} tag="Speaking Part 1"><upwind:Beat id="q" kind="examiner" text="Do you enjoy cooking?" at={t.q}/></upwind:Lesson>',
+    example: '<upwind:Lesson id="lesson" timeline={t.timeline} within={canvas.bounds} font={body} heavy={heavy} serif={serif} hand={hand} during={t.window} tag="Speaking Part 1"><upwind:Beat id="q" kind="examiner" text="Do you enjoy cooking?" at={t.q}/></upwind:Lesson>',
   },
 };
 export const hypitPackage = { format: "hypit.package@1" as const, modules: [{ manifest }],

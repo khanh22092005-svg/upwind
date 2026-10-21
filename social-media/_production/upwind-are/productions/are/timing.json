@@ -1,6 +1,15 @@
 {
- "end": 1709,
+ "end": 1788,
  "rows": [
+  {
+   "id": "phu-hook",
+   "kind": "phu",
+   "text": "squeeze@hook",
+   "speaker": null,
+   "start": 0,
+   "length": 0,
+   "extra": {}
+  },
   {
    "id": "hook",
    "kind": "hook",
@@ -16,6 +25,15 @@
    "id": "skit",
    "kind": "section",
    "text": "skit",
+   "speaker": null,
+   "start": 73,
+   "length": 0,
+   "extra": {}
+  },
+  {
+   "id": "phu-off",
+   "kind": "phu",
+   "text": "off@off",
    "speaker": null,
    "start": 73,
    "length": 0,
@@ -38,6 +56,26 @@
    "start": 163,
    "length": 24,
    "extra": {}
+  },
+  {
+   "id": "phu-peek",
+   "kind": "phu",
+   "text": "idle@peek",
+   "speaker": null,
+   "start": 199,
+   "length": 0,
+   "extra": {}
+  },
+  {
+   "id": "pen-a1",
+   "kind": "pen",
+   "text": "quá ngắn!",
+   "speaker": null,
+   "start": 199,
+   "length": 0,
+   "extra": {
+    "target": "b-a1"
+   }
   },
   {
    "id": "hush",
@@ -70,6 +108,15 @@
    "id": "teach",
    "kind": "section",
    "text": "teach",
+   "speaker": null,
+   "start": 471,
+   "length": 0,
+   "extra": {}
+  },
+  {
+   "id": "phu-teach",
+   "kind": "phu",
+   "text": "focus@teach",
    "speaker": null,
    "start": 471,
    "length": 0,
@@ -138,11 +185,29 @@
    }
   },
   {
+   "id": "goal",
+   "kind": "note",
+   "text": "Mục tiêu mỗi câu Part 1|2–3 câu · 15–20 giây",
+   "speaker": null,
+   "start": 951,
+   "length": 0,
+   "extra": {}
+  },
+  {
    "id": "redo",
    "kind": "section",
    "text": "redo",
    "speaker": null,
-   "start": 966,
+   "start": 1029,
+   "length": 0,
+   "extra": {}
+  },
+  {
+   "id": "phu-redo",
+   "kind": "phu",
+   "text": "focus@redo",
+   "speaker": null,
+   "start": 1029,
    "length": 0,
    "extra": {}
   },
@@ -151,7 +216,7 @@
    "kind": "label",
    "text": "Làm lại với A.R.E",
    "speaker": "narrator",
-   "start": 969,
+   "start": 1032,
    "length": 29,
    "extra": {}
   },
@@ -160,7 +225,7 @@
    "kind": "examiner",
    "text": "Do you enjoy cooking?",
    "speaker": "examiner",
-   "start": 1010,
+   "start": 1073,
    "length": 66,
    "extra": {}
   },
@@ -169,7 +234,7 @@
    "kind": "candidate",
    "text": "Yes, I really do, especially at weekends.",
    "speaker": "candidate",
-   "start": 1091,
+   "start": 1154,
    "length": 80,
    "extra": {
     "letter": "A"
@@ -180,7 +245,7 @@
    "kind": "candidate",
    "text": "It helps me relax after a long week of studying.",
    "speaker": "candidate",
-   "start": 1184,
+   "start": 1248,
    "length": 94,
    "extra": {
     "letter": "R"
@@ -191,18 +256,36 @@
    "kind": "candidate",
    "text": "Last Sunday I cooked phở for my whole family. It took four hours, but everyone loved it!",
    "speaker": "candidate",
-   "start": 1292,
+   "start": 1356,
    "length": 169,
    "extra": {
     "letter": "E"
    }
   },
   {
+   "id": "ticks",
+   "kind": "ticks",
+   "text": "Tự nhiên hơn hẳn!",
+   "speaker": null,
+   "start": 1540,
+   "length": 0,
+   "extra": {}
+  },
+  {
+   "id": "phu-wave",
+   "kind": "phu",
+   "text": "wave@redo",
+   "speaker": null,
+   "start": 1540,
+   "length": 0,
+   "extra": {}
+  },
+  {
    "id": "nice",
    "kind": "examiner",
    "text": "That sounds wonderful.",
    "speaker": "examiner",
-   "start": 1476,
+   "start": 1540,
    "length": 70,
    "extra": {}
   },
@@ -211,7 +294,16 @@
    "kind": "section",
    "text": "cta",
    "speaker": null,
-   "start": 1573,
+   "start": 1652,
+   "length": 0,
+   "extra": {}
+  },
+  {
+   "id": "phu-cta",
+   "kind": "phu",
+   "text": "wave@cta",
+   "speaker": null,
+   "start": 1652,
    "length": 0,
    "extra": {}
   },
@@ -220,7 +312,7 @@
    "kind": "cta",
    "text": "Lưu lại để luyện mỗi ngày|Mỗi câu Part 1: Answer, Reason, Example|upwind.asia",
    "speaker": "narrator",
-   "start": 1576,
+   "start": 1655,
    "length": 85,
    "extra": {}
   }

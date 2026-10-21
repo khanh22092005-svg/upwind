@@ -14,15 +14,20 @@
   <import as="look" source="./look.svs"/>
 
   <time:Clock id="clock" frame-rate="30"/>
-  <time:Timeline id="t" clock={clock} end="1709f">
+  <time:Timeline id="t" clock={clock} end="1788f">
+    <time:Instant id="phu-hook" at="0f"/>
     <time:Instant id="hook" at="0f"/>
     <time:Instant id="skit" at="73f"/>
+    <time:Instant id="phu-off" at="73f"/>
     <time:Instant id="q1" at="82f"/>
     <time:Instant id="a1" at="163f"/>
+    <time:Instant id="phu-peek" at="199f"/>
+    <time:Instant id="pen-a1" at="199f"/>
     <time:Instant id="hush" at="199f"/>
     <time:Instant id="q2" at="289f"/>
     <time:Instant id="a2" at="385f"/>
     <time:Instant id="teach" at="471f"/>
+    <time:Instant id="phu-teach" at="471f"/>
     <time:Instant id="t1" at="477f"/>
     <time:Instant id="t2" at="530f"/>
     <time:Instant id="t3" at="608f"/>
@@ -30,35 +35,47 @@
     <time:Instant id="tA" at="680f"/>
     <time:Instant id="tR" at="781f"/>
     <time:Instant id="tE" at="866f"/>
-    <time:Instant id="redo" at="966f"/>
-    <time:Instant id="relabel" at="969f"/>
-    <time:Instant id="q3" at="1010f"/>
-    <time:Instant id="rA" at="1091f"/>
-    <time:Instant id="rR" at="1184f"/>
-    <time:Instant id="rE" at="1292f"/>
-    <time:Instant id="nice" at="1476f"/>
-    <time:Instant id="cta" at="1573f"/>
-    <time:Instant id="ctacard" at="1576f"/>
+    <time:Instant id="goal" at="951f"/>
+    <time:Instant id="redo" at="1029f"/>
+    <time:Instant id="phu-redo" at="1029f"/>
+    <time:Instant id="relabel" at="1032f"/>
+    <time:Instant id="q3" at="1073f"/>
+    <time:Instant id="rA" at="1154f"/>
+    <time:Instant id="rR" at="1248f"/>
+    <time:Instant id="rE" at="1356f"/>
+    <time:Instant id="ticks" at="1540f"/>
+    <time:Instant id="phu-wave" at="1540f"/>
+    <time:Instant id="nice" at="1540f"/>
+    <time:Instant id="cta" at="1652f"/>
+    <time:Instant id="phu-cta" at="1652f"/>
+    <time:Instant id="ctacard" at="1655f"/>
   </time:Timeline>
   <spatial:Canvas id="canvas" width="1080" height="1920"/>
 
   <fonts:Face id="nunito-700" package="@fontsource-variable/nunito" weight="700" style="normal"/>
-  <fonts:Face id="nunito-900" package="@fontsource-variable/nunito" weight="900" style="normal"/>
-  <fonts:Face id="lora-700" package="@fontsource-variable/lora" weight="700" style="normal"/>
+  <fonts:Face id="nunito-800" package="@fontsource-variable/nunito" weight="800" style="normal"/>
+  <fonts:Face id="lora-600" package="@fontsource-variable/lora" weight="600" style="normal"/>
+  <fonts:Face id="patrick-hand" package="@fontsource/patrick-hand" weight="400" style="normal"/>
   <media:FontStack id="body" primary={nunito-700}/>
-  <media:FontStack id="heavy" primary={nunito-900}/>
-  <media:FontStack id="serif" primary={lora-700}/>
+  <media:FontStack id="heavy" primary={nunito-800}/>
+  <media:FontStack id="serif" primary={lora-600}/>
+  <media:FontStack id="hand" primary={patrick-hand}/>
 
   <upwind:Lesson id="lesson" timeline={t.timeline} within={canvas.bounds} during={t.window}
-    font={body} heavy={heavy} serif={serif} tag="Speaking · Part 1">
+    font={body} heavy={heavy} serif={serif} hand={hand} tag="Speaking · Part 1">
+    <upwind:Beat id="b-phu-hook" kind="phu" text="squeeze@hook" at={t.phu-hook}/>
     <upwind:Beat id="b-hook" kind="hook" text="Mẹo từ UpWind|3 bước để không *'đứng hình'* ở IELTS Speaking Part 1" at={t.hook}/>
     <upwind:Beat id="b-skit" kind="section" text="skit" at={t.skit}/>
+    <upwind:Beat id="b-phu-off" kind="phu" text="off@off" at={t.phu-off}/>
     <upwind:Beat id="b-q1" kind="examiner" text="Do you enjoy cooking?" at={t.q1}/>
     <upwind:Beat id="b-a1" kind="candidate" text="Yes." at={t.a1}/>
+    <upwind:Beat id="b-phu-peek" kind="phu" text="idle@peek" at={t.phu-peek}/>
+    <upwind:Beat id="b-pen-a1" kind="pen" step="b-a1" text="quá ngắn!" at={t.pen-a1}/>
     <upwind:Beat id="b-hush" kind="silence" text="...im lặng 3 giây" at={t.hush}/>
     <upwind:Beat id="b-q2" kind="examiner" text="Um... could you tell me why?" at={t.q2}/>
     <upwind:Beat id="b-a2" kind="candidate" text="Because... it's fun." at={t.a2}/>
     <upwind:Beat id="b-teach" kind="section" text="teach" at={t.teach}/>
+    <upwind:Beat id="b-phu-teach" kind="phu" text="focus@teach" at={t.phu-teach}/>
     <upwind:Beat id="b-t1" kind="teach" text="Trả lời *1 câu* rồi im lặng?" at={t.t1}/>
     <upwind:Beat id="b-t2" kind="teach" text="Giám khảo không có gì để chấm *Fluency* cả." at={t.t2}/>
     <upwind:Beat id="b-t3" kind="teach" text="Kéo dài câu trả lời với công thức *A.R.E*" at={t.t3}/>
@@ -69,14 +86,19 @@
     <upwind:Beat id="b-tR" kind="teach" text="*Reason* — thêm một lý do cho ý của bạn." at={t.tR}/>
     <upwind:Beat id="b-tE-step" kind="step" text="E|Example|Một ví dụ có thật" at={t.tE}/>
     <upwind:Beat id="b-tE" kind="teach" text="*Example* — kể một chuyện nhỏ của chính bạn." at={t.tE}/>
+    <upwind:Beat id="b-goal" kind="note" text="Mục tiêu mỗi câu Part 1|2–3 câu · 15–20 giây" at={t.goal}/>
     <upwind:Beat id="b-redo" kind="section" text="redo" at={t.redo}/>
+    <upwind:Beat id="b-phu-redo" kind="phu" text="focus@redo" at={t.phu-redo}/>
     <upwind:Beat id="b-relabel" kind="label" text="Làm lại với A.R.E" at={t.relabel}/>
     <upwind:Beat id="b-q3" kind="examiner" text="Do you enjoy cooking?" at={t.q3}/>
     <upwind:Beat id="b-rA" kind="candidate" step="A" text="Yes, I really do, especially at weekends." at={t.rA}/>
     <upwind:Beat id="b-rR" kind="candidate" step="R" text="It helps me relax after a long week of studying." at={t.rR}/>
     <upwind:Beat id="b-rE" kind="candidate" step="E" text="Last Sunday I cooked phở for my whole family. It took four hours, but everyone loved it!" at={t.rE}/>
+    <upwind:Beat id="b-ticks" kind="ticks" text="Tự nhiên hơn hẳn!" at={t.ticks}/>
+    <upwind:Beat id="b-phu-wave" kind="phu" text="wave@redo" at={t.phu-wave}/>
     <upwind:Beat id="b-nice" kind="examiner" text="That sounds wonderful." at={t.nice}/>
     <upwind:Beat id="b-cta" kind="section" text="cta" at={t.cta}/>
+    <upwind:Beat id="b-phu-cta" kind="phu" text="wave@cta" at={t.phu-cta}/>
     <upwind:Beat id="b-ctacard" kind="cta" text="Lưu lại để luyện mỗi ngày|Mỗi câu Part 1: Answer, Reason, Example|upwind.asia" at={t.ctacard}/>
   </upwind:Lesson>
 
