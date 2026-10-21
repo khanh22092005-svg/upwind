@@ -33,14 +33,13 @@ Chapters:
 4:51 What Comes Next
 
 Footage and photos (free licences, attribution required):
-- Photo: User:Aratar / CC BY-SA 3.0 / Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Limoges_Mairie.jpg
-- Video: Sauvageot Camille / CC BY-SA 4.0 / Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Manifestation_de_lyc%C3%A9ens_place_de_la_Concorde_%C3%A0_l%27annonce_de_la_Paix_-_AI90793.webm
-- Photo: Chabe01 / CC BY-SA 4.0 / Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Station_Montreuil_H%C3%B4pital_M%C3%A9tro_Paris_Ligne_11_-_Montreuil_(FR93)_-_2024-06-13_-_10.jpg
-- Photo: GautierGadriot / CC BY-SA 4.0 / Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Portrait_S%C3%A9bastien_Lecornu.jpg
-- Video: Jeanne Menjoulet / CC BY 2.0 / Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Manifestation_du_17_d%C3%A9cembre_2019_contre_la_r%C3%A9forme_des_retraites_(49234135163).webm
-- Video: Marie Gendron / CC BY 3.0 / Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Manifestation_Gilets_Jaunes_Paris_Bastille_17_Novembre_2018_-4_Gilets_Jaunes_Col%C3%A8re_Noire.webm
+- Photo: Lucas Destrem / CC BY-SA 4.0 / Wikimedia Commons - https://commons.wikimedia.org/wiki/File:H%C3%B4tel_de_ville_de_Limoges,_campanile.jpg
+- Video: Pradana Aumars (talk · contribs) / CC BY-SA 4.0 / Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Picketing_Lyc%C3%A9e_Evariste_Galois_2018-12-08.webm
+- Photo: Marie-Lan Nguyen / CC BY 2.5 / Wikimedia Commons - https://commons.wikimedia.org/wiki/File:La_Pitie-Salpetriere_under_snow_2013-03-12.jpg
+- Photo: © Patrice Normand/Leextra via opale / CC BY-SA 4.0 / Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Portrait_officiel_de_S%C3%A9bastien_Lecornu_-_Ministre_des_Arm%C3%A9es.jpg
+- Video: Jeanne Menjoulet / CC BY 2.0 / Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Manifestation_du_17_d%C3%A9cembre_2019_contre_la_r%C3%A9forme_des_retraites_(49234135978).webm
+- Video: Marie Gendron / CC BY 3.0 / Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Manifestation_Gilets_Jaunes_Paris_R%C3%A9publique_22_d%C3%A9cembre_2018_-22_Acte6_Tous_Gilets_Jaunes.webm
 - Photo: Gzen92 / CC BY-SA 4.0 / Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Manifestation_contre_la_r%C3%A9forme_des_retraites_(Colmar)_(2).jpg
-- Photo: Cayambe / CC BY-SA 3.0 / Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Luxembourg_City_Chambre_des_d%C3%A9put%C3%A9s_Nov_2009.jpg
 
 ## Tags
 france, welfare state, france protests, pension reform, french debt, geopolitics, europe, lecornu, macron, economy
