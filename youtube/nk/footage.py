@@ -8,6 +8,7 @@ import json
 import platform
 import re
 import time
+import unicodedata
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -43,6 +44,11 @@ def _clean(html: str) -> str:
     return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", html or "")).strip()
 
 
+def _words(text: str) -> set[str]:
+    plain = unicodedata.normalize("NFKD", text.lower()).encode("ascii", "ignore").decode()
+    return {w for w in re.findall(r"[a-z0-9]+", plain) if len(w) > 3}
+
+
 def search(query: str, video: bool, limit: int = 12) -> list[dict]:
     """Candidates as {"title", "url", "page", "credit"}, best first."""
     kind = "video" if video else "bitmap"
@@ -67,7 +73,7 @@ def search(query: str, video: bool, limit: int = 12) -> list[dict]:
         artist = _clean(meta.get("Artist", {}).get("value", "")) or "Unknown author"
         licence = meta.get("LicenseShortName", {}).get("value", "see file page")
         if video:
-            if (info.get("height") or 0) < 360 or (info.get("duration") or 0) < 4:
+            if (info.get("height") or 0) < 360 or (info.get("duration") or 0) < 10:
                 continue
             # Prefer a 720p (or smaller) transcode: originals can be gigabytes.
             derived = [d for d in info.get("derivatives", [])
@@ -80,6 +86,13 @@ def search(query: str, video: bool, limit: int = 12) -> list[dict]:
                 continue
             url = info.get("thumburl") or info["url"]
         title = p["title"].removeprefix("File:")
+        # Search also matches description text, which lets in near misses (the
+        # Luxembourg parliament for "Assemblée nationale"). Require at least half
+        # the query's words in the file name itself.
+        wanted = _words(query)
+        hits = len(wanted & _words(title))
+        if wanted and hits < max(1, len(wanted) / 2):
+            continue
         out.append({
             "title": title,
             "url": url,

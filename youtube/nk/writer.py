@@ -50,8 +50,10 @@ Rules:
   - "map": ISO 3166-1 alpha-3 codes in "highlight" (painted red) and "focus" (the area
     to frame; can include neighbours).
   - "footage": real video of people and places (protests, parliament, streets, ports).
-    footage_query is a short Wikimedia Commons search, often best in the local
-    language ("manifestation retraites Paris", "Assemblée nationale hémicycle").
+    footage_query is a short Wikimedia Commons search that names something specific,
+    often in the local language: a landmark, event or person ("Palais Bourbon",
+    "manifestation retraites Paris 2023", "Sébastien Lecornu"), not a generic word
+    like "hospital". Files are matched on their names.
     Free footage is usually archive: when it is not from the events being described,
     the caption must say what and when ("PENSION PROTEST, 2019").
   - "image": a real photo; footage_query is the Commons search for it.

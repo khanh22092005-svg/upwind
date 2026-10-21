@@ -90,8 +90,8 @@
           "FRA"
         ],
         "focus": [],
-        "caption": "Student protest, archive",
-        "footage_query": "lycéens manifestation",
+        "caption": "Student blockade, archive",
+        "footage_query": "blocus lycée",
         "chart": {
           "type": "",
           "title": "",
@@ -232,8 +232,8 @@
           "FRA"
         ],
         "focus": [],
-        "caption": "Paris hospital",
-        "footage_query": "hôpital Paris",
+        "caption": "Pitié-Salpêtrière hospital, Paris",
+        "footage_query": "Hôpital de la Pitié-Salpêtrière",
         "chart": {
           "type": "",
           "title": "",
@@ -514,7 +514,7 @@
           "FRA"
         ],
         "focus": [],
-        "caption": "Pension protest, 2023",
+        "caption": "Pension protest, Colmar",
         "footage_query": "manifestation réforme des retraites 2023",
         "chart": {
           "type": "",
@@ -577,8 +577,8 @@
           "FRA"
         ],
         "focus": [],
-        "caption": "National Assembly",
-        "footage_query": "Palais Bourbon Assemblée nationale",
+        "caption": "National Assembly, Paris",
+        "footage_query": "Palais Bourbon",
         "chart": {
           "type": "",
           "title": "",
@@ -647,7 +647,7 @@
         ],
         "focus": [],
         "caption": "Public sector strike, archive",
-        "footage_query": "grève fonction publique manifestation",
+        "footage_query": "grève fonction publique",
         "chart": {
           "type": "",
           "title": "",
@@ -668,7 +668,7 @@
         ],
         "focus": [],
         "caption": "French school",
-        "footage_query": "lycée France",
+        "footage_query": "lycée France façade",
         "chart": {
           "type": "",
           "title": "",

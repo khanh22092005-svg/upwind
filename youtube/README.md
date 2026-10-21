@@ -64,7 +64,11 @@ topic ──► research.md ──► script.json ──► [you review/edit] �
    broken clip) never stops the build. Failed footage falls back to a map. Any other
    failure leaves that scene out, and it is listed in `episodes/<slug>/TODO.md`. Run
    `build` again later to fill the gaps.
-5. **Upload** with `upload.md`: the title, the description with chapters, the tags, and
+5. **Check the footage** in `footage_review.md` (2 minutes). It lists each scene's line
+   next to the file the search picked, with a link. Search can match the right words in
+   the wrong place or year (a metro station called "Hôpital", another country's
+   parliament), so open each one. That file explains how to swap a bad pick.
+6. **Upload** with `upload.md`: the title, the description with chapters, the tags, and
    a checklist. Upload `captions.srt` as English subtitles.
 
 You can run steps 2 and 4 together with `python -m nk all "topic"`. You can also run the

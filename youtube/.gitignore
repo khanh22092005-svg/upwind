@@ -11,3 +11,4 @@ music/
 episodes/*/assets/*
 !episodes/*/assets/credits.json
 episodes/*/TODO.md
+episodes/*/footage_review.md

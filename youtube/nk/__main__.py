@@ -85,7 +85,25 @@ def _gather_footage(scenes: list[dict], ep: Path) -> dict:
             path.write_text(json.dumps(credits, indent=2, ensure_ascii=False) + "\n")
         else:
             print("  nothing found; scene falls back to a map/text card")
+    _review(scenes, credits, ep)
     return credits
+
+
+def _review(scenes: list[dict], credits: dict, ep: Path) -> None:
+    """footage_review.md: what was picked for each scene, to check before upload."""
+    rows = []
+    for i, scene in enumerate(scenes):
+        if scene["visual"]["kind"] not in ("footage", "image"):
+            continue
+        c = credits.get(str(i))
+        pick = f"[{c['title']}]({c['page']})" if c else "_none: shows a map/text card_"
+        rows.append(f"| {i:02} | {scene['narration'][:70]}... | {pick} |")
+    (ep / "footage_review.md").write_text(
+        "# Footage check\n\nSearch picks can be wrong (right words, wrong place or year). "
+        "Open each link; to replace one, delete `assets/scene_NN.*` and its entry in "
+        "`assets/credits.json`, change `footage_query` in script.json (or drop in your own "
+        "file), and run build again.\n\n| Scene | Line | Picked |\n|---|---|---|\n"
+        + "\n".join(rows) + "\n")
 
 
 def _picture(scene: dict, index: int, ep: Path, build: Path, credits: dict):
