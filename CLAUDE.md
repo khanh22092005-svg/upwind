@@ -10,8 +10,10 @@ Pushing to `main` deploys automatically (Cloudflare Workers Builds). There is no
    `og:image` (absolute `https://upwind.asia/...` URL), `og:image:secure_url`, `og:image:type`,
    `og:image:width` 1200, `og:image:height` 630, `og:image:alt`, `twitter:card` = `summary_large_image`,
    `twitter:image`, `twitter:image:alt`.
-2. **Correct browser-tab icon**: `<link rel="icon" type="image/svg+xml" href="/ielts-self-study/favicon.svg?v=2" />`
-   (the UpWind sailboat logo).
+2. **Correct browser-tab icon**: `<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3" />`.
+   `public/favicon.svg` is the official UpWind mark from the design system (ring, one sail, mast, deep-blue
+   wave + sky wave), the same drawing as the nav logo. Never draw a different version.
+   `public/ielts-self-study/favicon.svg` is a copy kept for old links; keep the two identical, and if the
+   mark ever changes, bump `?v=` on every page.
 
-Do **not** use `/favicon.svg` (an orange placeholder square) or `/opengraph.jpg` (a screenshot of a build
-error) for anything.
+Do **not** use `/opengraph.jpg` (a screenshot of a build error) for anything.
