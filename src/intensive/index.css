@@ -1,0 +1,77 @@
+/* UpWind design system tokens (from the Claude Design export), trimmed to what this page uses. */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --font-serif: "Lora", Georgia, serif;
+  --font-sans: "Nunito", system-ui, sans-serif;
+
+  --uw-white: oklch(1 0 0);
+  --uw-ink: oklch(0.24 0.02 260);
+  --uw-ink-2: oklch(0.38 0.02 260);
+  --uw-ink-3: oklch(0.55 0.02 260);
+  --uw-blue-900: oklch(0.32 0.13 253);
+  --uw-blue-700: oklch(0.42 0.15 253);
+  --uw-blue-500: oklch(0.60 0.13 240);
+  --uw-blue-400: oklch(0.78 0.10 225);
+  --uw-blue-300: oklch(0.84 0.05 230);
+  --uw-blue-250: oklch(0.86 0.075 228);
+  --uw-blue-200: oklch(0.92 0.04 230);
+  --uw-blue-150: oklch(0.94 0.03 230);
+  --uw-blue-100: oklch(0.96 0.022 235);
+  --uw-line: oklch(0.9 0.02 235);
+
+  --status-danger: oklch(0.56 0.17 25);
+
+  --shadow-sticker: 0 3px 12px -6px oklch(0.42 0.15 253 / 0.6);
+  --shadow-cta: 0 16px 34px -20px oklch(0.42 0.15 253 / 0.9);
+  --shadow-float: 0 18px 40px -18px oklch(0.24 0.02 260 / 0.7);
+  --shadow-pop: 0 24px 60px -24px oklch(0.24 0.02 260 / 0.45);
+  --nav-glass: oklch(1 0 0 / 0.92);
+  --ghost-on-brand: rgba(255, 255, 255, 0.15);
+  --scrim: oklch(0.24 0.02 260 / 0.45);
+  --ease-sail: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--uw-white);
+  color: var(--uw-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4, p { text-wrap: pretty; }
+a { color: var(--uw-blue-700); text-underline-offset: 3px; }
+a:hover { color: var(--uw-blue-900); }
+:focus-visible { outline: 2px solid var(--uw-blue-500); outline-offset: 3px; border-radius: 6px; }
+::selection { background: oklch(0.78 0.10 225 / 0.4); }
+summary::-webkit-details-marker { display: none; }
+main > section[id] { scroll-margin-top: 72px; }
+
+.uw-cta { transition: transform 400ms var(--ease-sail), background 400ms var(--ease-sail), color 400ms var(--ease-sail), box-shadow 400ms var(--ease-sail); }
+.uw-cta:hover { transform: translateY(-2px); }
+.uw-cta:active { transform: translateY(1px) scale(0.985); }
+.uw-tilt { transition: transform 600ms var(--ease-sail); }
+.uw-tilt:hover { transform: translateY(-4px); }
+.uw-sign { transition: transform 320ms var(--ease-sail); }
+details[open] .uw-sign { transform: rotate(45deg); }
+.uw-field { transition: border-color 300ms var(--ease-sail), box-shadow 300ms var(--ease-sail); }
+.uw-field:hover { border-color: var(--uw-blue-400); }
+.uw-field:focus { outline: none; border-color: var(--uw-blue-500); box-shadow: 0 0 0 4px oklch(0.78 0.10 225 / 0.3); }
+
+@keyframes uw-drift { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes uw-pop { from { opacity: 0; transform: translateY(12px) scale(.97); } to { opacity: 1; transform: none; } }
+@keyframes uw-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes uw-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+.uw-drift { animation: uw-drift 26s linear infinite; }
+.uw-drift2 { animation: uw-drift 34s linear infinite reverse; }
+.uw-bob { animation: uw-bob 4s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .uw-drift, .uw-drift2, .uw-bob { animation: none !important; }
+}
+
+/* Keep the nav on one line on small phones. */
+@media (max-width: 440px) { .brand-detail { display: none; } }
