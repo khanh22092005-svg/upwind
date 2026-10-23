@@ -1,7 +1,21 @@
 // UpWind design system components used by the Intensive page (ported from the Claude Design bundle).
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 type Css = React.CSSProperties;
+
+const NARROW = "(max-width: 759px)";
+
+// True on phones. Inline styles can't use media queries, so components switch on this.
+export function useNarrow() {
+  const [narrow, setNarrow] = useState(() => typeof window !== "undefined" && window.matchMedia(NARROW).matches);
+  useEffect(() => {
+    const mq = window.matchMedia(NARROW);
+    const onChange = () => setNarrow(mq.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+  return narrow;
+}
 
 const BTN_SIZES: Record<string, Css> = {
   sm: { fontSize: 14, padding: "10px 18px" },
@@ -159,15 +173,16 @@ export function TeacherCard({ name, role, photo, badges, bullets, tone = "light"
   name: string; role: string; photo: string; badges: string[]; bullets: string[]; tone?: "light" | "brand";
 }) {
   const brand = tone === "brand";
+  const narrow = useNarrow();
   return (
     <article className="uw-tilt" style={{
       background: brand ? "var(--uw-blue-700)" : "var(--uw-white)", color: brand ? "var(--uw-white)" : "var(--uw-ink)",
-      border: brand ? undefined : "1.5px solid var(--uw-line)", borderRadius: 28, padding: 28,
-      display: "flex", flexWrap: "wrap", gap: 28, alignItems: "flex-start",
+      border: brand ? undefined : "1.5px solid var(--uw-line)", borderRadius: narrow ? 24 : 28, padding: narrow ? 20 : 28,
+      display: "flex", flexWrap: "wrap", gap: narrow ? 20 : 28, alignItems: "flex-start",
     }}>
-      <div style={{ flex: "1 1 180px", maxWidth: 230, minWidth: 0 }}>
+      <div style={{ flex: "1 1 180px", maxWidth: narrow ? 180 : 230, minWidth: 0 }}>
         <div style={{ borderRadius: "20px 20px 110px 20px", overflow: "hidden", aspectRatio: "4 / 5", background: brand ? "var(--uw-blue-500)" : "var(--uw-blue-100)" }}>
-          <img src={photo} alt={name} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+          <img src={photo} alt={name} loading="lazy" decoding="async" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
         </div>
       </div>
       <div style={{ flex: "3 1 300px", minWidth: 0 }}>
@@ -190,8 +205,8 @@ export function Accordion({ items, defaultOpen = -1 }: { items: { q: string; a: 
   return (
     <div style={{ display: "grid", borderTop: "1px solid var(--uw-line)", marginTop: 32 }}>
       {items.map((it, i) => (
-        <details key={it.q} open={i === defaultOpen} style={{ borderBottom: "1px solid var(--uw-line)", padding: "24px 4px" }}>
-          <summary style={{ fontFamily: "var(--font-serif)", fontWeight: 600, fontSize: 20, lineHeight: "30px", cursor: "pointer", listStyle: "none", display: "flex", justifyContent: "space-between", gap: 20, alignItems: "baseline" }}>
+        <details key={it.q} open={i === defaultOpen} style={{ borderBottom: "1px solid var(--uw-line)", padding: "clamp(18px, 5vw, 24px) 4px" }}>
+          <summary style={{ fontFamily: "var(--font-serif)", fontWeight: 600, fontSize: "clamp(18px, 4.8vw, 20px)", lineHeight: 1.45, cursor: "pointer", listStyle: "none", display: "flex", justifyContent: "space-between", gap: 20, alignItems: "baseline" }}>
             {it.q}
             <span className="uw-sign" aria-hidden="true" style={{ flex: "0 0 auto", color: "var(--uw-blue-500)", fontSize: 24, lineHeight: 1, display: "inline-block" }}>+</span>
           </summary>
@@ -203,18 +218,25 @@ export function Accordion({ items, defaultOpen = -1 }: { items: { q: string; a: 
 }
 
 export function Dialog({ open, title, onClose, children }: { open: boolean; title: string; onClose: () => void; children: React.ReactNode }) {
+  const narrow = useNarrow();
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [open, onClose]);
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = prev; };
+  }, [open]);
   if (!open) return null;
   return (
-    <div onClick={onClose} style={{ position: "fixed", inset: 0, zIndex: 100, background: "var(--scrim)", display: "grid", placeItems: "center", padding: 20, overflowY: "auto", animation: "uw-fade 300ms var(--ease-sail)" }}>
-      <div role="dialog" aria-modal="true" aria-label={title} onClick={(e) => e.stopPropagation()} style={{ position: "relative", width: "100%", maxWidth: 520, boxSizing: "border-box", background: "var(--uw-white)", borderRadius: 28, padding: "36px 32px 30px", boxShadow: "var(--shadow-pop)", animation: "uw-pop 400ms var(--ease-sail)" }}>
+    <div onClick={onClose} style={{ position: "fixed", inset: 0, zIndex: 100, background: "var(--scrim)", display: "grid", placeItems: narrow ? "end center" : "center", padding: narrow ? 10 : 20, overflowY: "auto", overscrollBehavior: "contain", animation: "uw-fade 300ms var(--ease-sail)" }}>
+      <div role="dialog" aria-modal="true" aria-label={title} onClick={(e) => e.stopPropagation()} style={{ position: "relative", width: "100%", maxWidth: 520, boxSizing: "border-box", background: "var(--uw-white)", borderRadius: narrow ? 24 : 28, padding: narrow ? "28px 20px 22px" : "36px 32px 30px", boxShadow: "var(--shadow-pop)", animation: "uw-pop 400ms var(--ease-sail)" }}>
         <button aria-label="Đóng" onClick={onClose} className="uw-cta" style={{ position: "absolute", top: 16, right: 16, width: 40, height: 40, borderRadius: 999, border: "none", background: "var(--uw-blue-100)", color: "var(--uw-blue-900)", fontSize: 16, fontWeight: 700, cursor: "pointer" }}>✕</button>
-        <h3 style={{ fontFamily: "var(--font-serif)", fontWeight: 600, fontSize: 28, lineHeight: 1.16, margin: "0 40px 0 0", color: "var(--uw-ink)" }}>{title}</h3>
+        <h3 style={{ fontFamily: "var(--font-serif)", fontWeight: 600, fontSize: narrow ? 24 : 28, lineHeight: 1.16, margin: "0 44px 0 0", color: "var(--uw-ink)" }}>{title}</h3>
         <div style={{ fontSize: 16, lineHeight: "26px", color: "var(--uw-ink-2)", marginTop: 12 }}>{children}</div>
       </div>
     </div>
@@ -289,8 +311,9 @@ export function NavBar({ detail, ctaLabel, ctaHref, onCta }: { detail: string; c
 
 export function Footer({ links }: { links: { label: string; href: string; external?: boolean }[] }) {
   const name = "UpWind - IELTS & Self Study";
+  const narrow = useNarrow();
   return (
-    <footer style={{ position: "relative", padding: "88px 0 96px", background: "var(--uw-white)" }}>
+    <footer style={{ position: "relative", padding: narrow ? "56px 0 40px" : "88px 0 96px", background: "var(--uw-white)" }}>
       <div style={{ maxWidth: 1240, margin: "0 auto", padding: "0 clamp(20px,4vw,32px)", display: "flex", flexWrap: "wrap", alignItems: "center", gap: "20px 48px", fontSize: 14, color: "var(--uw-ink-2)" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <Logo tone="ink" size={28} wordmark={false} />
@@ -311,7 +334,7 @@ export function Footer({ links }: { links: { label: string; href: string; extern
 
 export function StickyBar({ title, subtitle, ctaLabel, onCta }: { title: string; subtitle: string; ctaLabel: string; onCta: (e: React.MouseEvent) => void }) {
   return (
-    <div style={{ position: "fixed", left: 12, right: 12, bottom: 12, zIndex: 60 }}>
+    <div style={{ position: "fixed", left: 12, right: 12, bottom: "calc(12px + env(safe-area-inset-bottom))", zIndex: 60 }}>
       <div style={{ background: "var(--uw-blue-700)", borderRadius: 20, padding: "12px 14px", display: "flex", alignItems: "center", gap: 12, boxShadow: "var(--shadow-float)" }}>
         <div style={{ flex: 1, minWidth: 0, color: "var(--uw-white)" }}>
           <div style={{ fontSize: 13, fontWeight: 800 }}>{title}</div>

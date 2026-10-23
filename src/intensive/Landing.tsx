@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import teacherThuImg from "@assets/teacher-1.jpg";
 import teacherPhuongImg from "@assets/teacher-2.jpg";
 import markReversed from "@assets/mark-reversed.svg";
 import {
   Accordion, Button, Checkbox, Dialog, Doodle, Eyebrow, Footer, Highlight, Input, NavBar, Pill, Select,
-  Squiggle, Sticker, StickyBar, TeacherCard, WaveDivider,
+  Squiggle, Sticker, StickyBar, TeacherCard, WaveDivider, useNarrow,
 } from "./ui";
 
 const ZALO_URL = "https://zalo.me/84375810412";
@@ -106,7 +106,7 @@ function Num({ n, size, light }: { n: string; size: number; light?: boolean }) {
     <span style={{
       flex: "0 0 auto", width: size, height: size, borderRadius: 999,
       background: light ? "var(--uw-white)" : "var(--uw-blue-700)", color: light ? "var(--uw-blue-700)" : "var(--uw-white)",
-      fontWeight: 800, fontSize: size >= 36 ? 15 : size >= 32 ? 14 : 12, display: "inline-flex", alignItems: "center", justifyContent: "center",
+      fontWeight: 800, fontSize: size >= 34 ? 15 : size >= 28 ? 14 : 12, display: "inline-flex", alignItems: "center", justifyContent: "center",
     }}>{n}</span>
   );
 }
@@ -115,15 +115,16 @@ type Step = { k: string; t: string; d: string };
 
 // Vertical 4-step timeline. "dark" sits on the blue Intensive card, the default sits on a tinted panel.
 function Timeline({ title, steps, dark }: { title: string; steps: Step[]; dark?: boolean }) {
-  const size = dark ? 36 : 32;
+  const narrow = useNarrow();
+  const size = dark ? (narrow ? 32 : 36) : narrow ? 28 : 32;
   return (
-    <div style={{ background: dark ? GLASS : "var(--uw-blue-100)", borderRadius: dark ? 22 : 20, padding: dark ? "22px 20px" : "18px 16px" }}>
+    <div style={{ background: dark ? GLASS : "var(--uw-blue-100)", borderRadius: dark ? 22 : 20, padding: dark ? (narrow ? "18px 14px" : "22px 20px") : narrow ? "16px 12px" : "18px 16px" }}>
       <div style={{ fontSize: 13, fontWeight: 800, color: dark ? "var(--uw-blue-250)" : "var(--uw-ink-3)", marginBottom: dark ? 16 : 14 }}>{title}</div>
       <ol style={{ listStyle: "none", margin: 0, padding: 0 }}>
         {steps.map((s, i) => {
           const last = i === steps.length - 1;
           return (
-            <li key={s.t} style={{ display: "grid", gridTemplateColumns: `${size}px minmax(0,1fr)`, gap: dark ? 14 : 12 }}>
+            <li key={s.t} style={{ display: "grid", gridTemplateColumns: `${size}px minmax(0,1fr)`, gap: narrow ? 10 : dark ? 14 : 12 }}>
               <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                 <Num n={String(i + 1)} size={size} light={dark} />
                 {!last && <span style={{ flex: 1, width: 2, background: dark ? "oklch(1 0 0 / 0.22)" : "var(--uw-blue-250)", margin: "6px 0" }} />}
@@ -131,7 +132,7 @@ function Timeline({ title, steps, dark }: { title: string; steps: Step[]; dark?:
               <div style={{ padding: dark ? `4px 0 ${last ? 0 : 18}px` : `3px 0 ${last ? 0 : 16}px` }}>
                 <div style={{ fontSize: 12, fontWeight: 800, letterSpacing: "0.06em", textTransform: "uppercase", color: dark ? "var(--uw-blue-250)" : "var(--uw-blue-500)" }}>{s.k}</div>
                 {dark
-                  ? <div style={{ ...SERIF, fontSize: 20, lineHeight: 1.3, marginTop: 2 }}>{s.t}</div>
+                  ? <div style={{ ...SERIF, fontSize: narrow ? 18 : 20, lineHeight: 1.3, marginTop: 2 }}>{s.t}</div>
                   : <div style={{ fontWeight: 800, fontSize: 16, lineHeight: "22px", marginTop: 2 }}>{s.t}</div>}
                 <p style={dark
                   ? { fontSize: 15, lineHeight: "23px", margin: "4px 0 0", color: "var(--uw-blue-150)" }
@@ -147,7 +148,7 @@ function Timeline({ title, steps, dark }: { title: string; steps: Step[]; dark?:
 
 function RowLabel({ n, title, note }: { n: string; title: string; note: string }) {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 16 }}>
+    <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "2px 8px", marginTop: 16 }}>
       <Num n={n} size={22} />
       <span style={{ fontSize: 14, fontWeight: 800 }}>{title}</span>
       <span style={{ fontSize: 12, fontWeight: 700, color: "var(--uw-ink-3)" }}>· {note}</span>
@@ -156,17 +157,20 @@ function RowLabel({ n, title, note }: { n: string; title: string; note: string }
 }
 
 function PlanCard() {
-  const grid3: React.CSSProperties = { display: "grid", gridTemplateColumns: "repeat(3,minmax(0,1fr))", gap: 6 };
+  const narrow = useNarrow();
+  const grid3: React.CSSProperties = { display: "grid", gridTemplateColumns: "repeat(3,minmax(0,1fr))", gap: narrow ? 5 : 6 };
+  const cell = narrow ? 12 : 13;
+  const cellLh = narrow ? "16px" : "17px";
   const months = ["var(--uw-blue-150)", "var(--uw-blue-250)", "var(--uw-blue-500)"];
   return (
-    <div style={{ position: "relative", background: "var(--uw-white)", borderRadius: 28, padding: "24px 22px 20px", boxShadow: "var(--shadow-pop)" }}>
+    <div style={{ position: "relative", background: "var(--uw-white)", borderRadius: narrow ? 24 : 28, padding: narrow ? "20px 14px 16px" : "24px 22px 20px", boxShadow: "var(--shadow-pop)" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 12, flexWrap: "wrap" }}>
         <span style={{ ...SERIF, fontSize: 22 }}>3 tháng của bạn</span>
         <span style={{ ...LABEL, color: "var(--uw-blue-500)" }}>3 học phần chính</span>
       </div>
       <div style={{ ...grid3, marginTop: 16 }}>
         {months.map((c, i) => (
-          <div key={c} style={{ textAlign: "center", fontSize: 13, fontWeight: 800, letterSpacing: "0.05em", textTransform: "uppercase", color: "var(--uw-ink-3)", paddingBottom: 6, borderBottom: `2px solid ${c}` }}>Tháng {i + 1}</div>
+          <div key={c} style={{ textAlign: "center", fontSize: cell, fontWeight: 800, letterSpacing: "0.05em", textTransform: "uppercase", color: "var(--uw-ink-3)", paddingBottom: 6, borderBottom: `2px solid ${c}` }}>Tháng {i + 1}</div>
         ))}
       </div>
 
@@ -175,9 +179,9 @@ function PlanCard() {
         {sessions.map((s, i) => {
           const writing = i < 3;
           return (
-            <div key={s.s} style={{ background: writing ? "var(--uw-blue-700)" : "var(--uw-blue-500)", color: "var(--uw-white)", borderRadius: 12, padding: "8px 9px" }}>
+            <div key={s.s} style={{ background: writing ? "var(--uw-blue-700)" : "var(--uw-blue-500)", color: "var(--uw-white)", borderRadius: 12, padding: narrow ? "7px 7px" : "8px 9px", hyphens: "auto" }}>
               <div style={{ fontSize: 11, fontWeight: 800, color: writing ? "var(--uw-blue-250)" : "var(--uw-blue-150)" }}>{s.s}</div>
-              <div style={{ fontSize: 13, lineHeight: "17px", fontWeight: 700, marginTop: 2 }}>{s.t}</div>
+              <div style={{ fontSize: cell, lineHeight: cellLh, fontWeight: 700, marginTop: 2 }}>{s.t}</div>
             </div>
           );
         })}
@@ -187,7 +191,7 @@ function PlanCard() {
       <div style={{ marginTop: 8, background: "var(--uw-blue-100)", borderRadius: 14, padding: 6 }}>
         <div style={grid3}>
           {dailyFocus.map((t) => (
-            <div key={t} style={{ fontSize: 13, lineHeight: "17px", fontWeight: 700, padding: "6px 7px", color: "var(--uw-blue-900)" }}>{t}</div>
+            <div key={t} style={{ fontSize: cell, lineHeight: cellLh, fontWeight: 700, padding: narrow ? "6px 5px" : "6px 7px", color: "var(--uw-blue-900)" }}>{t}</div>
           ))}
         </div>
         <div style={{ height: 6, borderRadius: 999, background: "var(--uw-blue-500)", margin: "2px 6px 4px" }} />
@@ -197,9 +201,9 @@ function PlanCard() {
       <RowLabel n="3" title="Diagnosis & Re-assess" note="đo lại cả chặng" />
       <div style={{ ...grid3, marginTop: 8 }}>
         {diagnosis.map((d) => (
-          <div key={d.k} style={{ background: "var(--uw-white)", color: "var(--uw-ink)", borderRadius: 12, padding: "7px 8px", border: "1.5px solid var(--uw-line)" }}>
+          <div key={d.k} style={{ background: "var(--uw-white)", color: "var(--uw-ink)", borderRadius: 12, padding: narrow ? "7px 6px" : "7px 8px", border: "1.5px solid var(--uw-line)" }}>
             <div style={{ fontSize: 11, fontWeight: 800, color: "var(--uw-blue-500)" }}>{d.k}</div>
-            <div style={{ fontSize: 13, lineHeight: "17px", fontWeight: 700, marginTop: 2 }}>{d.t}</div>
+            <div style={{ fontSize: cell, lineHeight: cellLh, fontWeight: 700, marginTop: 2 }}>{d.t}</div>
           </div>
         ))}
       </div>
@@ -219,14 +223,26 @@ function ArrowList({ items, mark, muted, size = 17 }: { items: string[]; mark: s
   );
 }
 
-function useNarrow() {
-  const [narrow, setNarrow] = useState(() => typeof window !== "undefined" && window.innerWidth < 760);
-  useEffect(() => {
-    const onResize = () => setNarrow(window.innerWidth < 760);
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, []);
-  return narrow;
+// A row of short facts. Desktop separates them with "·"; phones stack them so no dot is left hanging.
+function MetaRow({ items, dot, style }: { items: string[]; dot: string; style: React.CSSProperties }) {
+  const narrow = useNarrow();
+  if (narrow) {
+    return (
+      <ul style={{ ...style, display: "grid", gap: 6, listStyle: "none", padding: 0 }}>
+        {items.map((t) => <li key={t} style={{ display: "flex", gap: 8 }}><span aria-hidden="true" style={{ color: dot }}>✓</span>{t}</li>)}
+      </ul>
+    );
+  }
+  return (
+    <div style={{ ...style, display: "flex", flexWrap: "wrap", gap: "8px 18px" }}>
+      {items.map((t, i) => (
+        <React.Fragment key={t}>
+          {i > 0 && <span aria-hidden="true" style={{ color: dot }}>·</span>}
+          <span>{t}</span>
+        </React.Fragment>
+      ))}
+    </div>
+  );
 }
 
 function BookingForm({ onClose }: { onClose: () => void }) {
@@ -307,7 +323,7 @@ export default function Landing() {
                 <strong style={{ color: "var(--uw-ink)" }}>6 buổi Intensive</strong> nhóm 3 người, soạn riêng theo lộ trình và Error log của từng bạn. Giữa các buổi, chấm chữa <strong style={{ color: "var(--uw-ink)" }}>không giới hạn</strong> trong <strong style={{ color: "var(--uw-ink)" }}>48 giờ</strong>. Chỉ <strong style={{ color: "var(--uw-ink)" }}>5 triệu</strong> cho 3 tháng, thay vì 30–60 triệu cho một khóa full.
               </p>
               <div style={{ display: "flex", gap: "16px 24px", flexWrap: "wrap", alignItems: "center", marginTop: 32 }}>
-                <Button size="lg" onClick={openBook}>Test đầu vào miễn phí</Button>
+                <Button size="lg" onClick={openBook} style={narrow ? { width: "100%" } : undefined}>Test đầu vào miễn phí</Button>
                 <a href={ZALO_URL} target="_blank" rel="noreferrer" style={{ fontWeight: 700, fontSize: 16 }}>hoặc chat Zalo tư vấn →</a>
               </div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 28 }}>
@@ -319,7 +335,7 @@ export default function Landing() {
 
             <div style={{ position: "relative", maxWidth: 500, width: "100%", justifySelf: "center", padding: "20px 0 28px" }}>
               <PlanCard />
-              <Doodle kind="gust" size={60} color="var(--uw-blue-500)" style={{ position: "absolute", left: -18, top: -4 }} />
+              <Doodle kind="gust" size={narrow ? 44 : 60} color="var(--uw-blue-500)" style={{ position: "absolute", left: narrow ? -4 : -18, top: narrow ? 2 : -4 }} />
             </div>
           </div>
         </section>
@@ -396,14 +412,12 @@ export default function Landing() {
             <h2 style={{ ...H2, maxWidth: "22ch", textWrap: "balance" }}>Ba phần, mỗi phần gỡ <Squiggle>một nút thắt</Squiggle>.</h2>
             <p style={{ fontSize: 18, lineHeight: "30px", margin: "20px 0 0", maxWidth: 620, color: "var(--uw-ink-2)" }}>Khóa học được thiết kế theo 3 trụ cột của Summit Learning và phương pháp Diagnostic–Prescriptive Teaching, chỉnh lại cho Writing và Speaking.</p>
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,420px),1fr))", gap: "28px 40px", alignItems: "center", marginTop: 40, background: "var(--uw-blue-700)", color: "var(--uw-white)", borderRadius: 28, padding: "clamp(26px,4vw,40px)", position: "relative", overflow: "hidden" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,420px),1fr))", gap: "28px 40px", alignItems: "center", marginTop: 40, background: "var(--uw-blue-700)", color: "var(--uw-white)", borderRadius: 28, padding: "clamp(20px,4vw,40px) clamp(16px,4vw,40px)", position: "relative", overflow: "hidden" }}>
               <div style={{ display: "flex", flexDirection: "column" }}>
                 <span style={{ ...LABEL, color: "var(--uw-blue-250)" }}>01 · Intensive sessions</span>
                 <h3 style={{ ...SERIF, fontSize: "clamp(26px,3vw,36px)", lineHeight: 1.2, margin: "12px 0 0" }}>6 buổi Intensive, soạn riêng cho <Squiggle color="var(--uw-blue-250)">từng bạn</Squiggle>.</h3>
                 <p style={{ fontSize: 17, lineHeight: "28px", margin: "14px 0 0", color: "var(--uw-blue-150)" }}>Không có giáo án chung. Trước mỗi buổi, giảng viên đọc lại lộ trình và Error log của từng người trong nhóm, rồi soạn phần kiến thức, phần chữa lỗi và bài luyện nhắm đúng lỗi của bạn.</p>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "8px 18px", marginTop: 18, fontSize: 15, fontWeight: 800 }}>
-                  <span>3 Writing + 3 Speaking</span><span style={{ color: "var(--uw-blue-250)" }}>·</span><span>Nhóm 3 người</span><span style={{ color: "var(--uw-blue-250)" }}>·</span><span>Khoảng 2 tuần một buổi</span>
-                </div>
+                <MetaRow items={["3 Writing + 3 Speaking", "Nhóm 3 người", "Khoảng 2 tuần một buổi"]} dot="var(--uw-blue-250)" style={{ margin: "18px 0 0", fontSize: 15, fontWeight: 800 }} />
               </div>
               <Timeline dark title="Một buổi Intensive diễn ra thế nào" steps={intensiveSteps} />
             </div>
@@ -413,7 +427,7 @@ export default function Landing() {
                 { k: "02 · Mentoring", t: "Giảng viên 8.0 chấm từng bài, trả trong 48 giờ.", d: "Chấm chữa không giới hạn cho cả Writing và Speaking, theo đủ 4 tiêu chí IELTS, có ghi chú tới từng câu.", tl: "Một bài được chấm như thế nào", steps: mentoringSteps },
                 { k: "03 · Active learning", t: "Mỗi ngày một bài, kê đúng lỗi của bạn.", d: "Lộ trình 90 ngày riêng, có tài liệu và phần mềm đi kèm. Giờ làm do bạn chọn.", tl: "Một ngày học diễn ra thế nào", steps: activeSteps },
               ].map((c) => (
-                <div key={c.k} style={{ background: "var(--uw-white)", borderRadius: 28, padding: "26px 24px 24px", display: "flex", flexDirection: "column" }}>
+                <div key={c.k} style={{ background: "var(--uw-white)", borderRadius: 28, padding: "clamp(22px,5vw,26px) clamp(16px,4vw,24px) clamp(16px,4vw,24px)", display: "flex", flexDirection: "column" }}>
                   <span style={{ ...LABEL, color: "var(--uw-blue-500)" }}>{c.k}</span>
                   <h3 style={{ ...SERIF, fontSize: 24, lineHeight: 1.25, margin: "10px 0 0" }}>{c.t}</h3>
                   <p style={{ fontSize: 16, lineHeight: "26px", margin: "10px 0 0", color: "var(--uw-ink-2)" }}>{c.d}</p>
@@ -457,7 +471,7 @@ export default function Landing() {
         <section id="hocphi" style={{ position: "relative", background: "var(--uw-white)", padding: "clamp(48px,6vw,64px) 0 clamp(80px,10vw,112px)" }}>
           <div style={WRAP}>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,340px),1fr))", gap: 16, alignItems: "stretch" }}>
-              <div style={{ border: "1.5px solid var(--uw-line)", borderRadius: 28, padding: "clamp(26px,4vw,36px)" }}>
+              <div style={{ border: "1.5px solid var(--uw-line)", borderRadius: 28, padding: "clamp(22px,4vw,36px) clamp(18px,4vw,36px)" }}>
                 <span style={{ ...LABEL, color: "var(--uw-blue-500)" }}>Học phí trọn khóa</span>
                 <div style={{ marginTop: 14, fontSize: 16, fontWeight: 700, color: "var(--uw-ink-3)" }}>Khóa full: <span style={{ textDecoration: "line-through" }}>30–60 triệu</span></div>
                 <div style={{ display: "flex", alignItems: "baseline", gap: 6, marginTop: 4, flexWrap: "wrap" }}>
@@ -471,13 +485,13 @@ export default function Landing() {
                   <span style={{ fontSize: 14, color: "var(--uw-ink-3)" }}>Giảng viên 8.0 · Chấm trong 48h · Chỉ 3 học viên/lớp</span>
                 </div>
               </div>
-              <div style={{ position: "relative", background: "var(--uw-blue-700)", color: "var(--uw-white)", borderRadius: 28, padding: "clamp(26px,4vw,36px)", overflow: "hidden" }}>
+              <div style={{ position: "relative", background: "var(--uw-blue-700)", color: "var(--uw-white)", borderRadius: 28, padding: "clamp(22px,4vw,36px) clamp(18px,4vw,36px)", overflow: "hidden" }}>
                 <Doodle kind="boat" size={44} color="var(--uw-blue-250)" className="uw-bob" style={{ position: "absolute", top: 24, right: 24 }} />
                 <span style={{ ...LABEL, color: "var(--uw-blue-250)", display: "block", paddingRight: 56 }}>Trả trước 50% · 50% còn lại sau 1 tháng học thử</span>
                 <h3 style={{ ...SERIF, fontSize: "clamp(28px,3.2vw,38px)", lineHeight: 1.15, margin: "14px 0 0", maxWidth: "15ch" }}>Học thử một tháng. Thấy chưa hợp thì mình <Squiggle color="var(--uw-blue-250)">dừng</Squiggle>.</h3>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginTop: 24 }}>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,180px),1fr))", gap: 12, marginTop: 24 }}>
                   {["Trước khi học", "Sau tháng 1"].map((k) => (
-                    <div key={k} style={{ background: "oklch(1 0 0 / 0.1)", borderRadius: 20, padding: "16px 18px" }}>
+                    <div key={k} style={{ background: "oklch(1 0 0 / 0.1)", borderRadius: 20, padding: "16px 18px", display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "baseline", columnGap: 12 }}>
                       <div style={{ fontSize: 13, fontWeight: 800, color: "var(--uw-blue-250)" }}>{k}</div>
                       <div style={{ ...SERIF, fontSize: 26, marginTop: 4 }}>2.500.000đ</div>
                     </div>
@@ -507,18 +521,16 @@ export default function Landing() {
             <h2 style={{ ...SERIF, fontSize: "clamp(32px,4.6vw,54px)", lineHeight: 1.12, letterSpacing: "-0.02em", margin: 0, maxWidth: "20ch", textWrap: "balance" }}>Mình bắt đầu bằng một bài test nhỏ nhé, miễn phí.</h2>
             <p style={{ fontSize: "clamp(17px,2vw,20px)", lineHeight: 1.6, margin: "20px 0 0", maxWidth: 600, color: "var(--uw-blue-150)" }}>Bạn làm 1 bài Writing và gửi 1 bản ghi Speaking. Trong 48 giờ, tụi mình gửi lại bài chấm cùng 3 lỗi đang kéo điểm bạn xuống, dù sau đó bạn có học cùng tụi mình hay không.</p>
             <div id="zalo" style={{ display: "flex", flexWrap: "wrap", gap: "12px 16px", marginTop: 32, alignItems: "center" }}>
-              <Button variant="inverse" size="lg" onClick={openBook}>Test đầu vào miễn phí</Button>
-              <Button variant="ghost" size="lg" href={ZALO_URL} target="_blank">Chat Zalo tư vấn</Button>
+              <Button variant="inverse" size="lg" onClick={openBook} style={narrow ? { width: "100%" } : undefined}>Test đầu vào miễn phí</Button>
+              <Button variant="ghost" size="lg" href={ZALO_URL} target="_blank" style={narrow ? { width: "100%" } : undefined}>Chat Zalo tư vấn</Button>
             </div>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "8px 20px", marginTop: 28, fontSize: 15, fontWeight: 700, color: "var(--uw-blue-150)" }}>
-              <span>Giảng viên 8.0</span><span>·</span><span>Chấm trong 48h</span><span>·</span><span>Chỉ 3 học viên/lớp</span>
-            </div>
+            <MetaRow items={["Giảng viên 8.0", "Chấm trong 48h", "Chỉ 3 học viên/lớp"]} dot="var(--uw-blue-250)" style={{ margin: "28px 0 0", fontSize: 15, fontWeight: 700, color: "var(--uw-blue-150)" }} />
           </div>
         </section>
       </main>
 
       <Footer links={footerLinks} />
-      {narrow && <div style={{ height: 96 }} />}
+      {narrow && <div style={{ height: 72 }} />}
 
       {narrow && !open && (
         <StickyBar title="Intensive Mastery · 5 triệu · 3 tháng" subtitle="Test đầu vào miễn phí, online" ctaLabel="Làm test" onCta={openBook} />
