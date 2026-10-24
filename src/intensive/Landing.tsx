@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import teacherThuImg from "@assets/teacher-1.jpg";
 import teacherPhuongImg from "@assets/teacher-2.jpg";
 import markReversed from "@assets/mark-reversed.svg";
 import {
-  Accordion, Button, Checkbox, Dialog, Doodle, Eyebrow, Footer, Highlight, Input, NavBar, Pill, Select,
-  Squiggle, Sticker, StickyBar, TeacherCard, WaveDivider, useNarrow,
+  Accordion, Button, Doodle, Eyebrow, Footer, NavBar, Squiggle, Sticker, StickyBar, TeacherCard, WaveDivider, useNarrow,
 } from "./ui";
 
+// Same Google Calendar booking page as the IELTS Self Study landing page.
+const BOOKING_URL = "https://calendar.app.google/HNkKfyyWocDxwiE3A";
 const ZALO_URL = "https://zalo.me/84375810412";
 const SEATS_LEFT = 2;
 
@@ -15,8 +16,14 @@ const SERIF: React.CSSProperties = { fontFamily: "var(--font-serif)", fontWeight
 const H2: React.CSSProperties = { ...SERIF, fontSize: "clamp(30px,4.2vw,50px)", lineHeight: 1.1, letterSpacing: "-0.015em", margin: "20px 0 0" };
 const LABEL: React.CSSProperties = { fontSize: 13, fontWeight: 800, letterSpacing: "0.06em", textTransform: "uppercase" };
 const GLASS = "oklch(1 0 0 / 0.08)";
+const CARD: React.CSSProperties = { background: "var(--uw-white)", borderRadius: 28, padding: "clamp(22px,5vw,26px) clamp(16px,4vw,24px) clamp(16px,4vw,24px)", display: "flex", flexDirection: "column" };
 
-const bands = ["Chưa thi bao giờ", "Dưới 5.0", "5.0", "5.5", "6.0", "6.5", "Trên 6.5"];
+const heroFeatures = [
+  { t: "Lộ trình cá nhân hóa", d: "Điều chỉnh hàng tuần theo lỗi của bạn" },
+  { t: "6 buổi Intensive", d: "Nhóm 3 người, giảng viên 8.0" },
+  { t: "Office hour 1-1", d: "Hỏi thẳng những chỗ còn vướng" },
+  { t: "Chấm chữa", d: "Không giới hạn, trả bài trong 48h" },
+];
 
 const pains = [
   { tag: "Writing", q: "\"Viết xong không biết mình sai ở đâu.\"" },
@@ -27,7 +34,7 @@ const pains = [
 const loop = [
   { n: "1", t: "Diagnose", d: "Giảng viên đọc bài và tìm ra lỗi đang kéo điểm bạn xuống nhiều nhất.", who: "Giảng viên · trong 48 giờ" },
   { n: "2", t: "Prescribe", d: "Bài hôm sau được chọn để gỡ đúng lỗi đó, không phải một đề ngẫu nhiên.", who: "Giảng viên" },
-  { n: "3", t: "Practise", d: "Bạn làm bài lúc nào tiện, nhớ liếc lại Error log trước khi nộp.", who: "Bạn · mỗi ngày" },
+  { n: "3", t: "Practise", d: "Bạn làm bài lúc nào tiện, rà lại Error log trước khi nộp để tự kiểm soát lỗi cũ.", who: "Bạn · mỗi ngày" },
   { n: "4", t: "Re-assess", d: "Lỗi đó còn quay lại không? Nếu hết, mình cùng chuyển sang lỗi tiếp theo.", who: "Giảng viên và bạn" },
 ];
 
@@ -42,31 +49,28 @@ const sessions = [
 
 const dailyFocus = ["Gỡ 3 lỗi từ test đầu vào", "Lỗi mới trong sổ, đề khó hơn", "Bài trọn vẹn, bấm giờ thật"];
 
-const diagnosis = [
-  { k: "Tuần 0", t: "Test đầu vào, lập lộ trình riêng" },
-  { k: "Giữa khóa", t: "Xem lại Error log, chỉnh lộ trình" },
-  { k: "Cuối khóa", t: "Test lại, so với tuần 0" },
-];
+const loopSteps = ["Diagnose", "Prescribe", "Practise", "Re-assess"];
 
 const intensiveSteps = [
-  { k: "Trước buổi · 1 tuần", t: "Đọc lại Error log", d: "Giảng viên xem lại lỗi lặp nhiều nhất của từng bạn trong 2 tuần qua." },
+  { k: "Trước buổi · 1 tuần", t: "Review tiến độ và Error log", d: "Giảng viên tổng hợp bài làm 2 tuần qua của từng bạn: lỗi nào đã khắc phục, lỗi nào còn lặp lại, và tiêu chí nào đang kéo band xuống nhiều nhất." },
   { k: "Trước buổi · 2 ngày", t: "Soạn session plan riêng", d: "Chọn kiến thức cần bổ sung, lỗi cần break down và bài luyện cho từng bạn. Không dùng giáo án chung." },
   { k: "Trong buổi", t: "Bổ sung kiến thức, break down lỗi, luyện tập", d: "Giảng viên dạy phần kiến thức bạn còn thiếu, cùng bạn break down từng lỗi để hiểu vì sao sai, rồi luyện lại ngay dưới áp lực thời gian." },
-  { k: "Sau buổi", t: "Cập nhật Error log và lộ trình", d: "Lỗi đã sửa được gạch đi, bài mỗi ngày của 2 tuần tới được kê lại theo kết quả buổi học." },
+  { k: "Sau buổi", t: "Cập nhật Error log và lộ trình", d: "Lỗi đã sửa được gạch đi, bài mỗi ngày của 2 tuần tới được cá nhân hóa lại theo kết quả buổi học." },
 ];
 
 const mentoringSteps = [
   { k: "Bất kỳ lúc nào", t: "Bạn nộp bài", d: "Một bài Writing hoặc một bản ghi Speaking." },
   { k: "Trong 48 giờ", t: "Giảng viên chấm", d: "Điểm theo 4 tiêu chí, ghi chú tới từng câu, chỉ ra từng lỗi từ nhỏ đến lớn." },
   { k: "Ngay sau khi chấm", t: "Lỗi vào Error log", d: "Các lỗi được theo dõi kỹ trong từng bài, để thiết kế bài học và bài tập." },
-  { k: "Khi lỗi hết lặp", t: "Gạch khỏi Error log", d: "Bạn thấy rõ mình đã tiến bộ thế nào." },
+  { k: "Khi lỗi hết lặp", t: "Cập nhật Error log", d: "Bạn biết rõ mình đã tiến bộ thế nào." },
 ];
 
-const activeSteps = [
-  { k: "Tuần 0", t: "Placement test", d: "Kết quả test thành lộ trình 90 ngày của riêng bạn." },
-  { k: "Mỗi tuần", t: "Nhận bài của từng ngày", d: "Bài được cá nhân hóa theo các lỗi trong Error log." },
-  { k: "Lúc nào tiện", t: "Làm bài 30–45 phút", d: "Đọc lại Error log trước khi nộp, dùng tài liệu và phần mềm khi cần." },
-  { k: "Sau khi chấm", t: "Bài hôm sau được kê lại", d: "Lỗi còn lặp thì luyện tiếp, hết thì chuyển sang lỗi khác." },
+// The 2×2 loop on the Diagnosis card, listed in reading order (1, 2 on top; 4, 3 below).
+const cycle = [
+  { n: "1", t: "Diagnose", k: "Tuần 0, rồi mỗi bài", d: "Placement test và từng bài chấm chỉ ra lỗi đang kéo điểm xuống nhiều nhất." },
+  { n: "2", t: "Prescribe", k: "Mỗi tuần", d: "Bài luyện cá nhân hóa theo đúng lỗi trong Error log." },
+  { n: "4", t: "Re-assess", k: "Sau khi chấm", d: "Lỗi còn lặp thì luyện tiếp, hết thì chuyển sang lỗi khác." },
+  { n: "3", t: "Practise", k: "Lúc nào tiện", d: "Làm bài 30–45 phút, rà Error log trước khi nộp." },
 ];
 
 const t1Badges = ["IELTS 8.0", "Đội tuyển Quốc gia 2022"];
@@ -82,6 +86,7 @@ const priceItems = [
   "6 buổi Intensive nhóm 3 người: 3 Writing, 3 Speaking",
   "Chấm chữa không giới hạn, giảng viên 8.0 trả bài trong 48 giờ",
   "Error log cá nhân cho Writing và Speaking",
+  "Office hour 1-1 với giảng viên và group study cùng các bạn trong khóa",
   "Tài liệu và phần mềm luyện phản xạ ở nhà",
 ];
 
@@ -98,7 +103,6 @@ const footerLinks = [
   { label: "Zalo", href: ZALO_URL, external: true },
   { label: "Facebook", href: "#" },
   { label: "Threads", href: "#" },
-  { label: "Chính sách bảo mật", href: "#chinh-sach-bao-mat" },
 ];
 
 function Num({ n, size, light }: { n: string; size: number; light?: boolean }) {
@@ -195,17 +199,22 @@ function PlanCard() {
           ))}
         </div>
         <div style={{ height: 6, borderRadius: 999, background: "var(--uw-blue-500)", margin: "2px 6px 4px" }} />
-        <div style={{ fontSize: 12, fontWeight: 700, color: "var(--uw-ink-2)", padding: "0 6px 2px" }}>Active learning · nộp lúc nào tiện, giảng viên chấm trong 48 giờ</div>
+        <div style={{ fontSize: 12, fontWeight: 700, color: "var(--uw-ink-2)", padding: "0 6px 2px" }}>Active learning · nộp bất cứ lúc nào, giảng viên chấm trong 48 giờ</div>
       </div>
 
-      <RowLabel n="3" title="Diagnosis & Re-assess" note="đo lại cả chặng" />
-      <div style={{ ...grid3, marginTop: 8 }}>
-        {diagnosis.map((d) => (
-          <div key={d.k} style={{ background: "var(--uw-white)", color: "var(--uw-ink)", borderRadius: 12, padding: narrow ? "7px 6px" : "7px 8px", border: "1.5px solid var(--uw-line)" }}>
-            <div style={{ fontSize: 11, fontWeight: 800, color: "var(--uw-blue-500)" }}>{d.k}</div>
-            <div style={{ fontSize: cell, lineHeight: cellLh, fontWeight: 700, marginTop: 2 }}>{d.t}</div>
-          </div>
-        ))}
+      <RowLabel n="3" title="Diagnosis & Re-assess" note="vòng lặp sau mỗi bài" />
+      <div style={{ marginTop: 8, border: "1.5px dashed var(--uw-blue-250)", borderRadius: 14, padding: narrow ? 6 : 8 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr)", gap: narrow ? 2 : 4, alignItems: "center" }}>
+          {loopSteps.map((s, i) => (
+            <React.Fragment key={s}>
+              {i > 0 && <span aria-hidden="true" style={{ fontSize: narrow ? 11 : 13, fontWeight: 800, color: "var(--uw-blue-500)" }}>→</span>}
+              <div style={{ background: "var(--uw-white)", border: "1.5px solid var(--uw-line)", borderRadius: 10, padding: narrow ? "6px 2px" : "6px 4px", textAlign: "center", fontSize: narrow ? 11 : 12, lineHeight: "16px", fontWeight: 800 }}>{s}</div>
+            </React.Fragment>
+          ))}
+        </div>
+        <div style={{ display: "flex", alignItems: "center", gap: 6, margin: "6px 4px 0", fontSize: 12, fontWeight: 700, color: "var(--uw-blue-700)" }}>
+          <span aria-hidden="true" style={{ fontSize: 14, fontWeight: 800 }}>↺</span>Re-assess xong, quay lại Diagnose
+        </div>
       </div>
     </div>
   );
@@ -245,96 +254,102 @@ function MetaRow({ items, dot, style }: { items: string[]; dot: string; style: R
   );
 }
 
-function BookingForm({ onClose }: { onClose: () => void }) {
-  const [name, setName] = useState("");
-  const [zalo, setZalo] = useState("");
-  const [band, setBand] = useState("");
-  const [consent, setConsent] = useState(false);
-  const [err, setErr] = useState("");
-  const [consentErr, setConsentErr] = useState("");
-  const [done, setDone] = useState(false);
-
-  const submit = () => {
-    const zaloErr = zalo.replace(/\D/g, "").length < 10 ? "Số Zalo cần đủ 10 chữ số." : "";
-    const cErr = consent ? "" : "Bạn cần đồng ý để tụi mình gửi đề test qua Zalo.";
-    setErr(zaloErr);
-    setConsentErr(cErr);
-    if (zaloErr || cErr) return;
-    // TODO: send to a real backend. For now the registration is only logged, like the Green Finance form.
-    console.log("Intensive placement test signup", { name, zalo, band });
-    setDone(true);
-  };
-
-  if (done) {
-    return (
-      <div style={{ display: "grid", gap: 14 }}>
-        <p style={{ margin: 0, ...SERIF, fontSize: 24, lineHeight: 1.3, color: "var(--uw-ink)" }}>Xong rồi, {name || "bạn"}.</p>
-        <p style={{ margin: 0, fontSize: 16, lineHeight: "26px", color: "var(--uw-ink-2)" }}>Tụi mình sẽ nhắn đề test qua Zalo trong 24 giờ.</p>
-        <div><Button onClick={onClose}>Đóng</Button></div>
+// The 2×2 Diagnose → Prescribe → Practise → Re-assess loop on the Diagnosis card.
+function CycleGrid() {
+  const narrow = useNarrow();
+  const arrow: React.CSSProperties = { display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18, fontWeight: 800, color: "var(--uw-blue-500)" };
+  const box = (c: (typeof cycle)[number]) => (
+    <li style={{ background: "var(--uw-white)", borderRadius: 16, padding: narrow ? "10px 10px 12px" : "12px 12px 14px", minWidth: 0 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: narrow ? 6 : 8 }}>
+        <Num n={c.n} size={narrow ? 24 : 28} />
+        <span style={{ ...SERIF, fontSize: narrow ? 15 : 16 }}>{c.t}</span>
       </div>
-    );
-  }
-
+      <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--uw-blue-500)", marginTop: 8 }}>{c.k}</div>
+      <p style={{ fontSize: narrow ? 13 : 14, lineHeight: "20px", margin: "2px 0 0", color: "var(--uw-ink-2)" }}>{c.d}</p>
+    </li>
+  );
   return (
-    <div style={{ display: "grid", gap: 14 }}>
-      <p style={{ margin: 0, fontSize: 16, lineHeight: "26px", color: "var(--uw-ink-2)" }}>Để lại Zalo, tụi mình gửi đề trong 24 giờ. Bạn làm 1 bài Writing và gửi 1 bản ghi Speaking, nhận bài chấm trong 48 giờ. Không gọi điện chèo kéo.</p>
-      <Input label="Tên bạn" placeholder="Minh Anh" value={name} onChange={setName} autoComplete="name" />
-      <Input label="Số Zalo" placeholder="09xx xxx xxx" type="tel" autoComplete="tel" value={zalo} onChange={(v) => { setZalo(v); setErr(""); }} error={err} />
-      <Select label="Band Writing/Speaking gần nhất" placeholder="Chọn band" options={bands} value={band} onChange={setBand} />
-      <div style={{ display: "grid", gap: 6 }}>
-        <Checkbox label="Mình đồng ý để UpWind dùng tên và số Zalo này để gửi đề test, trả bài chấm và tư vấn về khóa học." checked={consent} onChange={(v) => { setConsent(v); setConsentErr(""); }} />
-        <p style={{ margin: "0 0 0 30px", fontSize: 13, lineHeight: "20px", color: "var(--uw-ink-3)" }}>Xem <a href="#chinh-sach-bao-mat">Chính sách bảo mật</a>. Bạn có thể nhắn Zalo yêu cầu xóa thông tin bất cứ lúc nào. Tụi mình không chia sẻ cho bên thứ ba.</p>
-        {consentErr && <p style={{ margin: "0 0 0 30px", fontSize: 13, fontWeight: 700, color: "var(--status-danger)" }}>{consentErr}</p>}
-      </div>
-      <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 6 }}>
-        <Button onClick={submit}>Gửi đề cho mình</Button>
-        <Button variant="outline" onClick={onClose}>Để sau</Button>
-      </div>
-    </div>
+    <ol aria-label="Vòng lặp: Diagnose, Prescribe, Practise, Re-assess" style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gridTemplateColumns: `minmax(0,1fr) ${narrow ? 14 : 22}px minmax(0,1fr)`, gridTemplateRows: "auto 28px auto", gap: 4 }}>
+      {box(cycle[0])}
+      <li aria-hidden="true" style={arrow}>→</li>
+      {box(cycle[1])}
+      <li aria-hidden="true" style={arrow}>↑</li>
+      <li aria-hidden="true" style={{ ...arrow, fontSize: 12, color: "var(--uw-blue-700)" }}>↻</li>
+      <li aria-hidden="true" style={arrow}>↓</li>
+      {box(cycle[2])}
+      <li aria-hidden="true" style={arrow}>←</li>
+      {box(cycle[3])}
+    </ol>
   );
 }
 
-export default function Landing() {
-  const [open, setOpen] = useState(false);
-  const [formKey, setFormKey] = useState(0);
-  const narrow = useNarrow();
+// True once the hero's own booking button has scrolled out of view, so the sticky bar never covers it.
+function usePastHero() {
+  const [past, setPast] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setPast(window.scrollY > 700);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  return past;
+}
 
-  const openBook = (e?: React.MouseEvent) => {
-    e?.preventDefault();
-    setFormKey((k) => k + 1);
-    setOpen(true);
-  };
-  const closeBook = () => setOpen(false);
+export default function Landing() {
+  const narrow = useNarrow();
+  const pastHero = usePastHero();
 
   return (
     <>
-      <NavBar detail="· Intensive Mastery" ctaLabel="Làm test miễn phí" ctaHref="#dangky" onCta={openBook} />
+      <NavBar detail="· Intensive Mastery" ctaLabel="Đặt lịch test" ctaHref={BOOKING_URL} />
 
       <main>
         {/* 1 HERO */}
-        <section id="top" style={{ position: "relative", overflow: "hidden", background: "var(--uw-blue-100)", padding: "clamp(40px,7vw,80px) 0 clamp(64px,9vw,104px)" }}>
-          <div style={{ ...WRAP, display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,440px),1fr))", gap: "56px 48px", alignItems: "center" }}>
+        <section id="top" style={{ position: "relative", overflow: "hidden", background: "var(--uw-blue-100)", padding: "clamp(32px,5vw,64px) 0 clamp(64px,8vw,96px)" }}>
+          <div style={{ ...WRAP, display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,500px),1fr))", gap: "40px clamp(32px,4vw,56px)", alignItems: "center" }}>
             <div style={{ minWidth: 0 }}>
               <Sticker>Intensive Mastery · Writing &amp; Speaking · 3 tháng</Sticker>
-              <h1 style={{ ...SERIF, fontSize: "clamp(38px,6vw,68px)", lineHeight: 1.08, letterSpacing: "-0.022em", margin: "24px 0 0", maxWidth: "17ch", textWrap: "balance", position: "relative" }}>
+              <h1 style={{ ...SERIF, fontSize: "clamp(36px,5vw,60px)", lineHeight: 1.08, letterSpacing: "-0.022em", margin: "20px 0 0", maxWidth: "16ch", textWrap: "balance", position: "relative" }}>
                 Khóa Writing &amp; Speaking <Squiggle>cuối cùng</Squiggle> bạn cần học.
               </h1>
-              <p style={{ fontSize: "clamp(17px,2vw,20px)", lineHeight: 1.6, maxWidth: 560, margin: "24px 0 0", color: "var(--uw-ink-2)" }}>
-                <strong style={{ color: "var(--uw-ink)" }}>6 buổi Intensive</strong> nhóm 3 người, soạn riêng theo lộ trình và Error log của từng bạn. Giữa các buổi, chấm chữa <strong style={{ color: "var(--uw-ink)" }}>không giới hạn</strong> trong <strong style={{ color: "var(--uw-ink)" }}>48 giờ</strong>. Chỉ <strong style={{ color: "var(--uw-ink)" }}>5 triệu</strong> cho 3 tháng, thay vì 30–60 triệu cho một khóa full.
+              <p style={{ fontSize: "clamp(17px,1.8vw,20px)", lineHeight: 1.5, maxWidth: 540, margin: "18px 0 0", fontWeight: 700 }}>
+                Dành cho những bạn chững band Speaking &amp; Writing mà không muốn học full khóa.
               </p>
-              <div style={{ display: "flex", gap: "16px 24px", flexWrap: "wrap", alignItems: "center", marginTop: 32 }}>
-                <Button size="lg" onClick={openBook} style={narrow ? { width: "100%" } : undefined}>Test đầu vào miễn phí</Button>
-                <a href={ZALO_URL} target="_blank" rel="noreferrer" style={{ fontWeight: 700, fontSize: 16 }}>hoặc chat Zalo tư vấn →</a>
+              <div style={{ maxWidth: 520, marginTop: 20, background: "var(--uw-white)", borderRadius: 22, padding: narrow ? "14px 16px" : "16px 20px" }}>
+                <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gridTemplateColumns: "repeat(2,minmax(0,1fr))", gap: narrow ? "12px 14px" : "14px 20px" }}>
+                  {heroFeatures.map((f) => (
+                    <li key={f.t} style={{ minWidth: 0 }}>
+                      <div style={{ fontWeight: 800, fontSize: 15, lineHeight: "21px" }}>{f.t}</div>
+                      <div style={{ fontSize: 14, lineHeight: "20px", color: "var(--uw-ink-2)" }}>{f.d}</div>
+                    </li>
+                  ))}
+                </ul>
+                <div style={{ display: "flex", flexWrap: "wrap", alignItems: "baseline", gap: "2px 10px", marginTop: 14, paddingTop: 12, borderTop: "1px solid var(--uw-line)" }}>
+                  <span style={{ ...SERIF, fontSize: 24, lineHeight: 1.15, whiteSpace: "nowrap" }}>5 triệu / 3 tháng</span>
+                  <span style={{ fontSize: 14, color: "var(--uw-ink-3)" }}>thay vì <s>30–60 triệu</s> cho một khóa full</span>
+                </div>
               </div>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 28 }}>
-                <Pill tone="white">Giảng viên 8.0</Pill>
-                <Pill tone="white">Chấm trong 48h</Pill>
-                <Pill tone="primary">Chỉ 3 học viên/lớp</Pill>
+              <div style={{ display: "flex", gap: "12px 24px", flexWrap: "wrap", alignItems: "center", marginTop: 24 }}>
+                <Button size="lg" href={BOOKING_URL} target="_blank" style={narrow ? { width: "100%" } : undefined}>Đặt lịch test miễn phí</Button>
+                <a href={ZALO_URL} target="_blank" rel="noreferrer" style={{ fontWeight: 700, fontSize: 16, whiteSpace: "nowrap" }}>hoặc chat Zalo tư vấn →</a>
               </div>
+              <p style={{ fontSize: 15, lineHeight: "22px", margin: "12px 0 0", color: "var(--uw-ink-2)" }}>Trả trước 50%, học thử 1 tháng. Chưa hợp thì dừng, không trả nửa còn lại.</p>
             </div>
 
-            <div style={{ position: "relative", maxWidth: 500, width: "100%", justifySelf: "center", padding: "20px 0 28px" }}>
+            <div style={{ position: "relative", maxWidth: 520, width: "100%", justifySelf: narrow ? "center" : "start", padding: "20px 0 0" }}>
               <PlanCard />
+              <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 18, padding: "0 8px" }}>
+                <div style={{ display: "flex", flex: "0 0 auto" }}>
+                  {[teacherThuImg, teacherPhuongImg].map((src, i) => (
+                    <img key={src} src={src} alt="" width={44} height={44} decoding="async"
+                      style={{ width: 44, height: 44, borderRadius: 999, objectFit: "cover", border: "3px solid var(--uw-blue-100)", background: "var(--uw-blue-150)", marginLeft: i ? -12 : 0 }} />
+                  ))}
+                </div>
+                <div style={{ flex: 1, fontSize: 14, lineHeight: "20px", color: "var(--uw-ink-2)", minWidth: 0 }}>
+                  <strong style={{ color: "var(--uw-ink)" }}>2 giảng viên IELTS 8.0</strong>, cựu chuyên Anh, đọc từng bài của bạn<br />
+                  <span style={{ fontWeight: 800, color: "var(--uw-blue-700)" }}>Lớp 3 người · còn {SEATS_LEFT} chỗ</span>
+                </div>
+              </div>
               <Doodle kind="gust" size={narrow ? 44 : 60} color="var(--uw-blue-500)" style={{ position: "absolute", left: narrow ? -4 : -18, top: narrow ? 2 : -4 }} />
             </div>
           </div>
@@ -345,8 +360,8 @@ export default function Landing() {
           <WaveDivider fill="var(--uw-blue-100)" />
           <div style={WRAP}>
             <Eyebrow>Có thấy mình trong này không</Eyebrow>
-            <h2 style={H2}>Bạn có đang ở đây?</h2>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,280px),1fr))", gap: 16, marginTop: 36 }}>
+            <h2 style={H2}>Bạn có thấy mình đang ở đây?</h2>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,240px),1fr))", gap: 16, marginTop: 36 }}>
               {pains.map((p) => (
                 <div key={p.tag} style={{ background: "var(--uw-blue-100)", borderRadius: 22, padding: "26px 24px" }}>
                   <span style={{ fontWeight: 700, fontSize: 19, color: "var(--uw-blue-500)" }}>{p.tag}</span>
@@ -354,9 +369,9 @@ export default function Landing() {
                 </div>
               ))}
             </div>
-            <p style={{ fontSize: 14, margin: "14px 0 0", color: "var(--uw-ink-3)" }}>Câu nói thật của người học IELTS trên Threads.</p>
+            <p style={{ fontSize: 15, lineHeight: "22px", margin: "14px 0 0", color: "var(--uw-ink-3)" }}>Các bạn học viên của chúng mình, và cả chúng mình, cũng từng như vậy.</p>
             <p style={{ ...SERIF, fontSize: "clamp(22px,2.6vw,30px)", lineHeight: 1.4, margin: "40px 0 0", maxWidth: 820 }}>
-              Thường thì bạn không thiếu tài liệu đâu. Cái bạn cần là một người <Highlight>nhìn ra đúng chỗ</Highlight> mình đang vấp, rồi cùng bạn gỡ từng chỗ một.
+              Thường thì bạn không thiếu tài liệu đâu. Cái bạn cần là một người <span style={{ background: "linear-gradient(transparent 62%, var(--uw-blue-150) 62%)", padding: "0 2px", WebkitBoxDecorationBreak: "clone", boxDecorationBreak: "clone" }}>nhìn ra đúng chỗ</span> mình đang vấp, rồi cùng bạn gỡ từng chỗ một.
             </p>
           </div>
         </section>
@@ -367,8 +382,8 @@ export default function Landing() {
             <Eyebrow tone="plain">Khóa học được thiết kế theo</Eyebrow>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,360px),1fr))", gap: "32px 48px", marginTop: 28 }}>
               {[
-                { k: "Cấu trúc khóa học", t: "Summit Learning", d: "Mô hình của Summit Public Schools (Mỹ): Mentoring, lộ trình cá nhân, áp dụng vào bài thật." },
-                { k: "Mỗi ngày học", t: "Diagnostic–Prescriptive", d: "Chẩn đoán đúng lỗi của bạn trước, rồi mới kê bài để sửa lỗi đó." },
+                { k: "Cấu trúc khóa học", t: "Summit Learning", d: "Mô hình của Summit Public Schools (Mỹ), giữ nguyên 3 cấu phần chính: lộ trình cá nhân, chấm chữa sát sao mỗi ngày, đo lại tiến bộ qua từng chặng." },
+                { k: "Mỗi ngày học", t: "Diagnostic–Prescriptive", d: "Chẩn đoán và theo dõi các lỗi sai để tạo lộ trình phù hợp nhất cho bạn. Lộ trình và bài giảng được cá nhân hóa theo những lỗi bạn hay gặp và theo cách học của bạn." },
               ].map((f) => (
                 <div key={f.t} style={{ paddingTop: 20, borderTop: "2px solid var(--uw-blue-700)" }}>
                   <div style={{ ...LABEL, color: "var(--uw-blue-500)" }}>{f.k}</div>
@@ -387,8 +402,8 @@ export default function Landing() {
           <div style={WRAP}>
             <span style={{ ...LABEL, color: "var(--uw-blue-250)" }}>Cách khóa học vận hành</span>
             <h2 style={{ ...SERIF, fontSize: "clamp(32px,4.8vw,58px)", lineHeight: 1.12, letterSpacing: "-0.02em", margin: "16px 0 0", maxWidth: "22ch", textWrap: "balance" }}>Giảng viên chỉ hướng. Bạn chủ động cầm lái.</h2>
-            <p style={{ fontSize: "clamp(17px,2vw,20px)", lineHeight: 1.6, margin: "20px 0 0", maxWidth: 640, color: "var(--uw-blue-150)" }}>Mỗi ngày chạy qua một vòng 4 bước Diagnostic–Prescriptive. Giảng viên chẩn đoán và kê bài, bạn chủ động luyện. Sau 3 tháng, bạn biết tự tìm lỗi và tự sửa, không cần học thêm khóa nào nữa.</p>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,220px),1fr))", gap: 12, marginTop: 44 }}>
+            <p style={{ fontSize: "clamp(17px,2vw,20px)", lineHeight: 1.6, margin: "20px 0 0", maxWidth: 640, color: "var(--uw-blue-150)" }}>Mỗi ngày, bạn sẽ lặp lại 4 bước Diagnostic–Prescriptive. Giảng viên chẩn đoán và cá nhân hóa bài luyện, bạn chủ động luyện. Sau 3 tháng, bạn biết tự tìm lỗi và tự sửa, không cần học thêm khóa nào nữa.</p>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,190px),1fr))", gap: 12, marginTop: 44 }}>
               {loop.map((s) => (
                 <div key={s.n} style={{ background: GLASS, borderRadius: 22, padding: "22px 20px 20px" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
@@ -410,32 +425,44 @@ export default function Landing() {
           <div style={WRAP}>
             <Eyebrow tone="plain">Bạn nhận được gì</Eyebrow>
             <h2 style={{ ...H2, maxWidth: "22ch", textWrap: "balance" }}>Ba phần, mỗi phần gỡ <Squiggle>một nút thắt</Squiggle>.</h2>
-            <p style={{ fontSize: 18, lineHeight: "30px", margin: "20px 0 0", maxWidth: 620, color: "var(--uw-ink-2)" }}>Khóa học được thiết kế theo 3 trụ cột của Summit Learning và phương pháp Diagnostic–Prescriptive Teaching, chỉnh lại cho Writing và Speaking.</p>
+            <p style={{ fontSize: 18, lineHeight: "30px", margin: "20px 0 0", maxWidth: 620, color: "var(--uw-ink-2)" }}>Khóa học được thiết kế theo 3 trụ cột của Summit Learning và phương pháp Diagnostic–Prescriptive Teaching, ứng dụng cho Writing và Speaking.</p>
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,420px),1fr))", gap: "28px 40px", alignItems: "center", marginTop: 40, background: "var(--uw-blue-700)", color: "var(--uw-white)", borderRadius: 28, padding: "clamp(20px,4vw,40px) clamp(16px,4vw,40px)", position: "relative", overflow: "hidden" }}>
               <div style={{ display: "flex", flexDirection: "column" }}>
                 <span style={{ ...LABEL, color: "var(--uw-blue-250)" }}>01 · Intensive sessions</span>
                 <h3 style={{ ...SERIF, fontSize: "clamp(26px,3vw,36px)", lineHeight: 1.2, margin: "12px 0 0" }}>6 buổi Intensive, soạn riêng cho <Squiggle color="var(--uw-blue-250)">từng bạn</Squiggle>.</h3>
-                <p style={{ fontSize: 17, lineHeight: "28px", margin: "14px 0 0", color: "var(--uw-blue-150)" }}>Không có giáo án chung. Trước mỗi buổi, giảng viên đọc lại lộ trình và Error log của từng người trong nhóm, rồi soạn phần kiến thức, phần chữa lỗi và bài luyện nhắm đúng lỗi của bạn.</p>
+                <p style={{ fontSize: 17, lineHeight: "28px", margin: "14px 0 0", color: "var(--uw-blue-150)" }}>Không có giáo án chung. Trước mỗi buổi, giảng viên review tiến độ và Error log của từng người trong nhóm, rồi soạn phần kiến thức, phần chữa lỗi và bài luyện nhắm đúng lỗi của bạn.</p>
                 <MetaRow items={["3 Writing + 3 Speaking", "Nhóm 3 người", "Khoảng 2 tuần một buổi"]} dot="var(--uw-blue-250)" style={{ margin: "18px 0 0", fontSize: 15, fontWeight: 800 }} />
               </div>
               <Timeline dark title="Một buổi Intensive diễn ra thế nào" steps={intensiveSteps} />
             </div>
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,340px),1fr))", gap: 16, marginTop: 16 }}>
-              {[
-                { k: "02 · Mentoring", t: "Giảng viên 8.0 chấm từng bài, trả trong 48 giờ.", d: "Chấm chữa không giới hạn cho cả Writing và Speaking, theo đủ 4 tiêu chí IELTS, có ghi chú tới từng câu.", tl: "Một bài được chấm như thế nào", steps: mentoringSteps },
-                { k: "03 · Active learning", t: "Mỗi ngày một bài, kê đúng lỗi của bạn.", d: "Lộ trình 90 ngày riêng, có tài liệu và phần mềm đi kèm. Giờ làm do bạn chọn.", tl: "Một ngày học diễn ra thế nào", steps: activeSteps },
-              ].map((c) => (
-                <div key={c.k} style={{ background: "var(--uw-white)", borderRadius: 28, padding: "clamp(22px,5vw,26px) clamp(16px,4vw,24px) clamp(16px,4vw,24px)", display: "flex", flexDirection: "column" }}>
-                  <span style={{ ...LABEL, color: "var(--uw-blue-500)" }}>{c.k}</span>
-                  <h3 style={{ ...SERIF, fontSize: 24, lineHeight: 1.25, margin: "10px 0 0" }}>{c.t}</h3>
-                  <p style={{ fontSize: 16, lineHeight: "26px", margin: "10px 0 0", color: "var(--uw-ink-2)" }}>{c.d}</p>
-                  <div style={{ marginTop: "auto", paddingTop: 20 }}>
-                    <Timeline title={c.tl} steps={c.steps} />
+              <div style={CARD}>
+                <span style={{ ...LABEL, color: "var(--uw-blue-500)" }}>02 · Daily practice &amp; feedback</span>
+                <h3 style={{ ...SERIF, fontSize: 24, lineHeight: 1.25, margin: "10px 0 0" }}>Giảng viên 8.0 chấm từng bài, trả trong 48 giờ.</h3>
+                <p style={{ fontSize: 16, lineHeight: "26px", margin: "10px 0 0", color: "var(--uw-ink-2)" }}>Chấm chữa không giới hạn cho cả Writing và Speaking, theo đủ 4 tiêu chí IELTS, có ghi chú chi tiết tới từng câu.</p>
+                <div style={{ marginTop: "auto", paddingTop: 20 }}>
+                  <Timeline title="Một bài được chấm như thế nào" steps={mentoringSteps} />
+                </div>
+              </div>
+              <div style={CARD}>
+                <span style={{ ...LABEL, color: "var(--uw-blue-500)" }}>03 · Diagnosis &amp; Re-assess</span>
+                <h3 style={{ ...SERIF, fontSize: 24, lineHeight: 1.25, margin: "10px 0 0" }}>Chẩn đoán, cá nhân hóa, đo lại. Lặp sau mỗi bài.</h3>
+                <p style={{ fontSize: 16, lineHeight: "26px", margin: "10px 0 0", color: "var(--uw-ink-2)" }}>Lộ trình 90 ngày được lập từ placement test, rồi chỉnh lại sau mỗi bài theo Error log. Giờ làm do bạn chọn.</p>
+                <div style={{ marginTop: "auto", paddingTop: 20 }}>
+                  <div style={{ background: "var(--uw-blue-100)", borderRadius: 20, padding: narrow ? "16px 10px" : "18px 14px" }}>
+                    <div style={{ fontSize: 13, fontWeight: 800, color: "var(--uw-ink-3)", marginBottom: 12 }}>Vòng lặp của bạn</div>
+                    <CycleGrid />
                   </div>
                 </div>
-              ))}
+              </div>
+            </div>
+            <div style={{ marginTop: 16, background: "var(--uw-white)", borderRadius: 22, padding: narrow ? "16px 18px" : "18px 24px", display: "grid", gap: 4 }}>
+              <span style={{ ...LABEL, color: "var(--uw-blue-500)" }}>Ngoài bài mỗi ngày</span>
+              <span style={{ fontSize: 16, lineHeight: "25px", color: "var(--uw-ink-2)" }}>
+                <strong style={{ color: "var(--uw-ink)" }}>Office hour 1-1</strong> với giảng viên · <strong style={{ color: "var(--uw-ink)" }}>Group study</strong> cùng các bạn trong khóa · <strong style={{ color: "var(--uw-ink)" }}>Self study</strong> với tài liệu và phần mềm
+              </span>
             </div>
           </div>
         </section>
@@ -481,7 +508,7 @@ export default function Landing() {
                 <p style={{ fontSize: 15, lineHeight: "24px", margin: "12px 0 0", color: "var(--uw-ink-2)" }}>Tính ra chưa đến 56.000đ một ngày, cỡ một ly trà sữa.</p>
                 <div style={{ marginTop: 4 }}><ArrowList items={priceItems} mark="→" size={16} /></div>
                 <div style={{ marginTop: 24, display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center" }}>
-                  <Button onClick={openBook}>Test đầu vào miễn phí</Button>
+                  <Button href={BOOKING_URL} target="_blank">Đặt lịch test miễn phí</Button>
                   <span style={{ fontSize: 14, color: "var(--uw-ink-3)" }}>Giảng viên 8.0 · Chấm trong 48h · Chỉ 3 học viên/lớp</span>
                 </div>
               </div>
@@ -489,11 +516,11 @@ export default function Landing() {
                 <Doodle kind="boat" size={44} color="var(--uw-blue-250)" className="uw-bob" style={{ position: "absolute", top: 24, right: 24 }} />
                 <span style={{ ...LABEL, color: "var(--uw-blue-250)", display: "block", paddingRight: 56 }}>Trả trước 50% · 50% còn lại sau 1 tháng học thử</span>
                 <h3 style={{ ...SERIF, fontSize: "clamp(28px,3.2vw,38px)", lineHeight: 1.15, margin: "14px 0 0", maxWidth: "15ch" }}>Học thử một tháng. Thấy chưa hợp thì mình <Squiggle color="var(--uw-blue-250)">dừng</Squiggle>.</h3>
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,180px),1fr))", gap: 12, marginTop: 24 }}>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(2,minmax(0,1fr))", gap: 12, marginTop: 24 }}>
                   {["Trước khi học", "Sau tháng 1"].map((k) => (
-                    <div key={k} style={{ background: "oklch(1 0 0 / 0.1)", borderRadius: 20, padding: "16px 18px", display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "baseline", columnGap: 12 }}>
+                    <div key={k} style={{ background: "oklch(1 0 0 / 0.1)", borderRadius: 20, padding: narrow ? "14px 14px" : "16px 18px" }}>
                       <div style={{ fontSize: 13, fontWeight: 800, color: "var(--uw-blue-250)" }}>{k}</div>
-                      <div style={{ ...SERIF, fontSize: 26, marginTop: 4 }}>2.500.000đ</div>
+                      <div style={{ ...SERIF, fontSize: "clamp(20px,2.4vw,26px)", lineHeight: 1.2, marginTop: 4 }}>2.500.000đ</div>
                     </div>
                   ))}
                 </div>
@@ -521,7 +548,7 @@ export default function Landing() {
             <h2 style={{ ...SERIF, fontSize: "clamp(32px,4.6vw,54px)", lineHeight: 1.12, letterSpacing: "-0.02em", margin: 0, maxWidth: "20ch", textWrap: "balance" }}>Mình bắt đầu bằng một bài test nhỏ nhé, miễn phí.</h2>
             <p style={{ fontSize: "clamp(17px,2vw,20px)", lineHeight: 1.6, margin: "20px 0 0", maxWidth: 600, color: "var(--uw-blue-150)" }}>Bạn làm 1 bài Writing và gửi 1 bản ghi Speaking. Trong 48 giờ, tụi mình gửi lại bài chấm cùng 3 lỗi đang kéo điểm bạn xuống, dù sau đó bạn có học cùng tụi mình hay không.</p>
             <div id="zalo" style={{ display: "flex", flexWrap: "wrap", gap: "12px 16px", marginTop: 32, alignItems: "center" }}>
-              <Button variant="inverse" size="lg" onClick={openBook} style={narrow ? { width: "100%" } : undefined}>Test đầu vào miễn phí</Button>
+              <Button variant="inverse" size="lg" href={BOOKING_URL} target="_blank" style={narrow ? { width: "100%" } : undefined}>Đặt lịch test miễn phí</Button>
               <Button variant="ghost" size="lg" href={ZALO_URL} target="_blank" style={narrow ? { width: "100%" } : undefined}>Chat Zalo tư vấn</Button>
             </div>
             <MetaRow items={["Giảng viên 8.0", "Chấm trong 48h", "Chỉ 3 học viên/lớp"]} dot="var(--uw-blue-250)" style={{ margin: "28px 0 0", fontSize: 15, fontWeight: 700, color: "var(--uw-blue-150)" }} />
@@ -532,13 +559,9 @@ export default function Landing() {
       <Footer links={footerLinks} />
       {narrow && <div style={{ height: 72 }} />}
 
-      {narrow && !open && (
-        <StickyBar title="Intensive Mastery · 5 triệu · 3 tháng" subtitle="Test đầu vào miễn phí, online" ctaLabel="Làm test" onCta={openBook} />
+      {narrow && pastHero && (
+        <StickyBar title="Intensive Mastery · 5 triệu · 3 tháng" subtitle="Test đầu vào miễn phí, online" ctaLabel="Đặt lịch test" ctaHref={BOOKING_URL} />
       )}
-
-      <Dialog open={open} onClose={closeBook} title="Đăng ký test đầu vào miễn phí">
-        <BookingForm key={formKey} onClose={closeBook} />
-      </Dialog>
     </>
   );
 }

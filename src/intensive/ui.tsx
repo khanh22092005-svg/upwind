@@ -70,10 +70,6 @@ export function Doodle({ kind, size = 40, color = "var(--uw-blue-400)", classNam
   );
 }
 
-export function Highlight({ children }: { children: React.ReactNode }) {
-  return <mark style={{ background: "var(--uw-blue-250)", color: "inherit", padding: "1px 6px", borderRadius: 5, fontWeight: 700 }}>{children}</mark>;
-}
-
 export function Squiggle({ children, color = "var(--uw-blue-400)" }: { children: React.ReactNode; color?: string }) {
   return (
     <span style={{ position: "relative", whiteSpace: "nowrap" }}>
@@ -217,85 +213,7 @@ export function Accordion({ items, defaultOpen = -1 }: { items: { q: string; a: 
   );
 }
 
-export function Dialog({ open, title, onClose, children }: { open: boolean; title: string; onClose: () => void; children: React.ReactNode }) {
-  const narrow = useNarrow();
-  useEffect(() => {
-    if (!open) return;
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [open, onClose]);
-  useEffect(() => {
-    if (!open) return;
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => { document.body.style.overflow = prev; };
-  }, [open]);
-  if (!open) return null;
-  return (
-    <div onClick={onClose} style={{ position: "fixed", inset: 0, zIndex: 100, background: "var(--scrim)", display: "grid", placeItems: narrow ? "end center" : "center", padding: narrow ? 10 : 20, overflowY: "auto", overscrollBehavior: "contain", animation: "uw-fade 300ms var(--ease-sail)" }}>
-      <div role="dialog" aria-modal="true" aria-label={title} onClick={(e) => e.stopPropagation()} style={{ position: "relative", width: "100%", maxWidth: 520, boxSizing: "border-box", background: "var(--uw-white)", borderRadius: narrow ? 24 : 28, padding: narrow ? "28px 20px 22px" : "36px 32px 30px", boxShadow: "var(--shadow-pop)", animation: "uw-pop 400ms var(--ease-sail)" }}>
-        <button aria-label="Đóng" onClick={onClose} className="uw-cta" style={{ position: "absolute", top: 16, right: 16, width: 40, height: 40, borderRadius: 999, border: "none", background: "var(--uw-blue-100)", color: "var(--uw-blue-900)", fontSize: 16, fontWeight: 700, cursor: "pointer" }}>✕</button>
-        <h3 style={{ fontFamily: "var(--font-serif)", fontWeight: 600, fontSize: narrow ? 24 : 28, lineHeight: 1.16, margin: "0 44px 0 0", color: "var(--uw-ink)" }}>{title}</h3>
-        <div style={{ fontSize: 16, lineHeight: "26px", color: "var(--uw-ink-2)", marginTop: 12 }}>{children}</div>
-      </div>
-    </div>
-  );
-}
-
-const FIELD: Css = {
-  width: "100%", boxSizing: "border-box", fontFamily: "var(--font-sans)", fontSize: 16, color: "var(--uw-ink)",
-  background: "var(--uw-white)", border: "1.5px solid var(--uw-line)", borderRadius: 14, padding: "13px 16px", outline: "none", lineHeight: "24px",
-};
-const LABEL: Css = { fontSize: 14, fontWeight: 700, color: "var(--uw-ink)" };
-
-export function Input({ label, placeholder, value, onChange, error, type = "text", autoComplete }: {
-  label: string; placeholder?: string; value: string; onChange: (v: string) => void; error?: string; type?: string; autoComplete?: string;
-}) {
-  return (
-    <label style={{ display: "grid", gap: 7 }}>
-      <span style={LABEL}>{label}</span>
-      <input className="uw-field" type={type} placeholder={placeholder} value={value} autoComplete={autoComplete}
-        onChange={(e) => onChange(e.target.value)} aria-invalid={error ? true : undefined}
-        style={{ ...FIELD, borderColor: error ? "var(--status-danger)" : undefined }} />
-      {error && <span style={{ fontSize: 13, color: "var(--status-danger)" }}>{error}</span>}
-    </label>
-  );
-}
-
-export function Select({ label, placeholder, options, value, onChange }: {
-  label: string; placeholder: string; options: string[]; value: string; onChange: (v: string) => void;
-}) {
-  return (
-    <label style={{ display: "grid", gap: 7 }}>
-      <span style={LABEL}>{label}</span>
-      <span style={{ position: "relative", display: "block" }}>
-        <select className="uw-field" value={value} onChange={(e) => onChange(e.target.value)}
-          style={{ ...FIELD, appearance: "none", WebkitAppearance: "none", paddingRight: 42, cursor: "pointer" }}>
-          <option value="" disabled>{placeholder}</option>
-          {options.map((o) => <option key={o} value={o}>{o}</option>)}
-        </select>
-        <span aria-hidden="true" style={{ position: "absolute", right: 16, top: "50%", transform: "translateY(-50%)", color: "var(--uw-blue-500)", fontSize: 12, pointerEvents: "none" }}>▾</span>
-      </span>
-    </label>
-  );
-}
-
-export function Checkbox({ label, checked, onChange }: { label: string; checked: boolean; onChange: (v: boolean) => void }) {
-  return (
-    <label style={{ display: "inline-flex", alignItems: "center", gap: 10, cursor: "pointer", fontSize: 16, color: "var(--uw-ink)", position: "relative" }}>
-      <input type="checkbox" checked={checked} onChange={(e) => onChange(e.target.checked)} style={{ position: "absolute", opacity: 0, width: 0, height: 0 }} />
-      <span aria-hidden="true" style={{
-        width: 22, height: 22, flex: "0 0 22px", boxSizing: "border-box", borderRadius: 7,
-        border: checked ? "none" : "1.5px solid var(--uw-blue-400)", background: checked ? "var(--uw-blue-700)" : "var(--uw-white)",
-        display: "grid", placeItems: "center", color: "var(--uw-white)", fontSize: 13, fontWeight: 800, transition: "background 300ms var(--ease-sail)",
-      }}>{checked && "✓"}</span>
-      {label}
-    </label>
-  );
-}
-
-export function NavBar({ detail, ctaLabel, ctaHref, onCta }: { detail: string; ctaLabel: string; ctaHref: string; onCta: (e: React.MouseEvent) => void }) {
+export function NavBar({ detail, ctaLabel, ctaHref }: { detail: string; ctaLabel: string; ctaHref: string }) {
   return (
     <nav style={{ position: "sticky", top: 0, zIndex: 50, background: "var(--nav-glass)", backdropFilter: "blur(14px)", WebkitBackdropFilter: "blur(14px)", borderBottom: "1px solid var(--uw-line)" }}>
       <div style={{ maxWidth: 1240, margin: "0 auto", padding: "14px clamp(20px,4vw,32px)", display: "flex", alignItems: "center", gap: 16 }}>
@@ -303,7 +221,7 @@ export function NavBar({ detail, ctaLabel, ctaHref, onCta }: { detail: string; c
           <Logo size={34} detail={detail} />
         </a>
         <div style={{ flex: 1 }} />
-        <Button size="sm" href={ctaHref} onClick={onCta} style={{ flex: "0 0 auto" }}>{ctaLabel}</Button>
+        <Button size="sm" href={ctaHref} target="_blank" style={{ flex: "0 0 auto" }}>{ctaLabel}</Button>
       </div>
     </nav>
   );
@@ -332,15 +250,15 @@ export function Footer({ links }: { links: { label: string; href: string; extern
   );
 }
 
-export function StickyBar({ title, subtitle, ctaLabel, onCta }: { title: string; subtitle: string; ctaLabel: string; onCta: (e: React.MouseEvent) => void }) {
+export function StickyBar({ title, subtitle, ctaLabel, ctaHref }: { title: string; subtitle: string; ctaLabel: string; ctaHref: string }) {
   return (
-    <div style={{ position: "fixed", left: 12, right: 12, bottom: "calc(12px + env(safe-area-inset-bottom))", zIndex: 60 }}>
+    <div style={{ position: "fixed", left: 12, right: 12, bottom: "calc(12px + env(safe-area-inset-bottom))", zIndex: 60, animation: "uw-pop 400ms var(--ease-sail)" }}>
       <div style={{ background: "var(--uw-blue-700)", borderRadius: 20, padding: "12px 14px", display: "flex", alignItems: "center", gap: 12, boxShadow: "var(--shadow-float)" }}>
         <div style={{ flex: 1, minWidth: 0, color: "var(--uw-white)" }}>
           <div style={{ fontSize: 13, fontWeight: 800 }}>{title}</div>
           <div style={{ fontSize: 12, color: "var(--uw-blue-200)" }}>{subtitle}</div>
         </div>
-        <a className="uw-cta" href="#dangky" onClick={onCta} style={{ background: "var(--uw-white)", color: "var(--uw-blue-700)", textDecoration: "none", fontSize: 14, fontWeight: 700, padding: "12px 16px", borderRadius: 999, whiteSpace: "nowrap", cursor: "pointer" }}>{ctaLabel}</a>
+        <a className="uw-cta" href={ctaHref} target="_blank" rel="noreferrer" style={{ background: "var(--uw-white)", color: "var(--uw-blue-700)", textDecoration: "none", fontSize: 14, fontWeight: 700, padding: "12px 16px", borderRadius: 999, whiteSpace: "nowrap", cursor: "pointer" }}>{ctaLabel}</a>
       </div>
     </div>
   );

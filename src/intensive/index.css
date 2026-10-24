@@ -1,5 +1,5 @@
-/* UpWind design system tokens (from the Claude Design export), trimmed to what this page uses. */
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap');
+/* UpWind design system tokens (from the Claude Design export), trimmed to what this page uses.
+   Fonts load from a <link> in Intensive-Writing-Speaking/index.html so they start downloading before this CSS. */
 
 :root {
   --font-serif: "Lora", Georgia, serif;
