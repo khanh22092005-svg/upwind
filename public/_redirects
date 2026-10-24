@@ -1,2 +1,5 @@
 # Cloudflare redirects. The homepage goes to the IELTS page.
 /  /ielts-self-study/  302
+# opengraph.jpg was a screenshot of a build error. Old links and cached previews get a real UpWind preview instead.
+/opengraph.jpg  /ielts-self-study/social-preview.jpg  301
+/ielts-self-study/opengraph.jpg  /ielts-self-study/social-preview.jpg  301

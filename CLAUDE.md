@@ -16,4 +16,4 @@ Pushing to `main` deploys automatically (Cloudflare Workers Builds). There is no
    `public/ielts-self-study/favicon.svg` is a copy kept for old links; keep the two identical, and if the
    mark ever changes, bump `?v=` on every page.
 
-Do **not** use `/opengraph.jpg` (a screenshot of a build error) for anything.
+`/opengraph.jpg` (a screenshot of a build error) was deleted; `public/_redirects` sends it to the IELTS preview. Do **not** use it for anything.
