@@ -3,8 +3,9 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 
-// Three pages, one build:
+// Four pages, one build:
 //   ielts-self-study/index.html            -> https://upwind.asia/ielts-self-study/
+//   ielts-foundation/index.html            -> https://upwind.asia/ielts-foundation/ (4.0 -> 5.5)
 //   Intensive-Writing-Speaking/index.html  -> https://upwind.asia/Intensive-Writing-Speaking/
 //   test/green-finance/index.html          -> https://upwind.asia/test/green-finance/
 // "/" redirects to /ielts-self-study/ (public/_redirects).
@@ -24,6 +25,7 @@ export default defineConfig({
       input: {
         greenFinance: path.resolve(import.meta.dirname, "test/green-finance/index.html"),
         ielts: path.resolve(import.meta.dirname, "ielts-self-study/index.html"),
+        ieltsFoundation: path.resolve(import.meta.dirname, "ielts-foundation/index.html"),
         intensive: path.resolve(import.meta.dirname, "Intensive-Writing-Speaking/index.html"),
       },
     },

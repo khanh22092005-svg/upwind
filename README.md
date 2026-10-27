@@ -5,6 +5,7 @@ Source for **https://upwind.asia**, hosted on Cloudflare (moved from Replit).
 | Page | URL | Code |
 |---|---|---|
 | UpWind IELTS & Self Study | `/ielts-self-study/` (`/` redirects here) | `ielts-self-study/index.html`, `src/ielts/` |
+| UpWind IELTS & Self Study · 4.0 → 5.5 | `/ielts-foundation/` | `ielts-foundation/index.html`, `src/ielts-foundation/` (shares `src/ielts/index.css`) |
 | Intensive Mastery · Writing & Speaking | `/Intensive-Writing-Speaking/` | `Intensive-Writing-Speaking/index.html`, `src/intensive/` |
 | Upwind Green Finance (test, not indexed) | `/test/green-finance/` | `test/green-finance/index.html`, `src/green-finance/` |
 
@@ -17,7 +18,7 @@ Other folders:
 
 ```sh
 pnpm install
-pnpm dev        # http://localhost:5173/ielts-self-study/, /Intensive-Writing-Speaking/ and /test/green-finance/
+pnpm dev        # http://localhost:5173/ielts-self-study/, /ielts-foundation/, /Intensive-Writing-Speaking/ and /test/green-finance/
 pnpm build      # typecheck + build into dist/
 pnpm preview    # serve dist/ locally
 ```
