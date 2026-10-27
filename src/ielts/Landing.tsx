@@ -74,7 +74,7 @@ export default function Landing() {
           <div className="pad" style={{ position: "relative", maxWidth: 1240, margin: "0 auto", padding: "88px 32px 104px" }}>
             <span className="sticker" style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "var(--color-upwind-bg)", color: "oklch(0.32 0.13 253)", fontSize: 13, fontWeight: 800, lineHeight: 1.45, padding: "11px 18px", borderRadius: 999, boxShadow: "0 3px 12px -6px oklch(0.42 0.15 253 / 0.6)" }}>
               <span style={{ width: 7, height: 7, borderRadius: 999, background: "var(--color-upwind-accent)", flex: "0 0 7px" }}></span>
-              <span>Lớp thí điểm duy nhất · tối đa 8 chỗ · khai giảng 02/10</span>
+              <span>Lớp nhỏ · tối đa 8 học viên · khai giảng định kỳ</span>
             </span>
             <h1 className="reveal" style={{ fontFamily: "var(--font-serif)", fontWeight: 600, fontSize: "clamp(42px, 6.8vw, 84px)", lineHeight: 1.03, letterSpacing: "-0.022em", margin: "26px 0 0", maxWidth: 940 }}>
               Khóa IELTS
@@ -515,7 +515,7 @@ export default function Landing() {
                 <span style={{ fontSize: 13, fontWeight: 800, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-upwind-accent)" }}>Học phí</span>
                 <h2 style={{ fontFamily: "var(--font-serif)", fontWeight: 600, fontSize: "clamp(40px, 5.4vw, 62px)", lineHeight: 1.02, letterSpacing: "-0.02em", margin: "14px 0 0" }}>6.750.000 ₫</h2>
                 <p style={{ fontSize: 15, lineHeight: "24px", margin: "12px 0 0", color: "var(--color-upwind-ink-2)" }}>
-                  <s style={{ opacity: 0.7 }}>7.750.000 ₫</s> · Mức dành riêng cho lớp đầu tiên, chốt trước <strong>22/9</strong>
+                  <s style={{ opacity: 0.7 }}>7.750.000 ₫</s> · Ưu đãi đăng ký sớm, hạn chốt thông báo theo từng khóa
                 </p>
                 <p style={{ fontSize: 17, lineHeight: "28px", margin: "18px 0 0", maxWidth: "34ch" }}>
                   Tính ra khoảng <strong style={{ fontWeight: 700 }}>128.500 ₫/giờ</strong> cho 52.5 giờ tương tác trực tiếp ở lớp 8 người.
@@ -546,7 +546,7 @@ export default function Landing() {
               Học thử 4 tuần. Thấy không hợp, bạn có thể học tiếp đến giữa khóa và <span style={{ position: "relative", whiteSpace: "nowrap" }}>dừng lại<svg viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true" style={{ position: "absolute", left: 0, right: 0, bottom: "-0.05em", width: "100%", height: "0.16em" }}><path d="M2 9 Q 60 2 100 7 T 198 5" fill="none" stroke="var(--color-upwind-yellow)" strokeWidth="4" strokeLinecap="round"></path></svg></span>.
             </h2>
             <p style={{ fontSize: 18, lineHeight: "30px", maxWidth: "50ch", margin: "24px 0 0", color: "var(--color-upwind-yellow)" }}>
-              UpWind là những lớp đầu tiên, tụi mình hiểu bạn chưa có lý do gì để tin ngay. Vì vậy, thay vì giống những trung tâm khác, tụi mình không thu toàn bộ học phí một lần. Bạn chỉ cần đóng nốt phần còn lại sau khi đã học thử 4 tuần. Hết 4 tuần nếu thấy không hợp lộ trình, bạn hoàn toàn có thể chọn học hết nửa khóa rồi nghỉ mà không cần đóng thêm.
+              UpWind còn là một lớp học mới, tụi mình hiểu bạn chưa có lý do gì để tin ngay. Vì vậy, thay vì giống những trung tâm khác, tụi mình không thu toàn bộ học phí một lần. Bạn chỉ cần đóng nốt phần còn lại sau khi đã học thử 4 tuần. Hết 4 tuần nếu thấy không hợp lộ trình, bạn hoàn toàn có thể chọn học hết nửa khóa rồi nghỉ mà không cần đóng thêm.
             </p>
           </div>
         </section>
@@ -614,7 +614,7 @@ export default function Landing() {
           </svg>
           <div className="reveal pad" style={{ maxWidth: 1240, margin: "0 auto", padding: "0 32px", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 64, alignItems: "center" }}>
             <div>
-              <h2 style={{ fontFamily: "var(--font-serif)", fontWeight: 600, fontSize: "clamp(34px, 4.4vw, 54px)", lineHeight: 1.1, letterSpacing: "-0.02em", margin: 0, color: "var(--color-upwind-bg)" }}>Còn <span style={{ color: "var(--color-upwind-yellow)" }}>7 chỗ</span> cho lớp thí điểm duy nhất, khai giảng dự kiến 02/10</h2>
+              <h2 style={{ fontFamily: "var(--font-serif)", fontWeight: 600, fontSize: "clamp(34px, 4.4vw, 54px)", lineHeight: 1.1, letterSpacing: "-0.02em", margin: 0, color: "var(--color-upwind-bg)" }}>Mỗi khóa tối đa <span style={{ color: "var(--color-upwind-yellow)" }}>8 chỗ</span>. Đặt lịch để giữ chỗ cho khóa gần nhất</h2>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 14, marginTop: 36 }}>
                 <a className="cta" href="https://calendar.app.google/HNkKfyyWocDxwiE3A" target="_blank" rel="noreferrer" style={{ display: "inline-block", background: "var(--color-upwind-bg)", color: "var(--color-upwind-primary)", textDecoration: "none", fontSize: 16, fontWeight: 700, padding: "16px 28px", borderRadius: 999 }}>Đặt lịch thi thử miễn phí</a>
                 <a className="cta" href="https://zalo.me/84375810412" target="_blank" rel="noreferrer" style={{ display: "inline-block", background: "rgba(255,255,255,0.15)", color: "var(--color-upwind-bg)", textDecoration: "none", fontSize: 16, fontWeight: 700, padding: "16px 28px", borderRadius: 999 }}>Nhắn tin Zalo</a>
@@ -655,7 +655,7 @@ export default function Landing() {
       <div className="bar" id="stickybar">
         <div style={{ background: "var(--color-upwind-primary)", borderRadius: 20, padding: "12px 14px", display: "flex", alignItems: "center", gap: 12, boxShadow: "0 18px 40px -18px oklch(0.24 0.02 260 / 0.7)" }}>
           <div style={{ flex: 1, minWidth: 0, color: "var(--color-upwind-bg)" }}>
-            <div style={{ fontSize: 13, fontWeight: 800 }}>Còn 7 chỗ · khai giảng 02/10</div>
+            <div style={{ fontSize: 13, fontWeight: 800 }}>Tối đa 8 chỗ · khai giảng định kỳ</div>
             <div style={{ fontSize: 12, color: "var(--color-upwind-highlight)" }}>Test chẩn đoán 20 phút, miễn phí</div>
           </div>
           <a className="cta" href="https://calendar.app.google/HNkKfyyWocDxwiE3A" target="_blank" rel="noreferrer" style={{ background: "var(--color-upwind-bg)", color: "var(--color-upwind-primary)", textDecoration: "none", fontSize: 14, fontWeight: 700, padding: "12px 16px", borderRadius: 999, whiteSpace: "nowrap" }}>Đặt lịch thi thử</a>
