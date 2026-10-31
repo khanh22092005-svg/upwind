@@ -41,7 +41,8 @@
             "pos": "adj.",
             "vi": "giàu sức gợi"
           }
-        ]
+        ],
+        "icon": "music"
       },
       {
         "word": "invoke",
@@ -70,7 +71,8 @@
             "pos": "n.",
             "vi": "sự viện dẫn, lời cầu khẩn"
           }
-        ]
+        ],
+        "icon": "scale"
       },
       {
         "word": "provoke",
@@ -104,7 +106,8 @@
             "pos": "n.",
             "vi": "sự khiêu khích"
           }
-        ]
+        ],
+        "icon": "mood-angry"
       },
       {
         "word": "revoke",
@@ -133,7 +136,8 @@
             "pos": "adj.",
             "vi": "không thể thay đổi, không thể hủy"
           }
-        ]
+        ],
+        "icon": "id-badge-2"
       },
       {
         "word": "advocate",
@@ -167,7 +171,8 @@
             "pos": "n.",
             "vi": "sự vận động, ủng hộ"
           }
-        ]
+        ],
+        "icon": "speakerphone"
       },
       {
         "word": "vocal",
@@ -196,7 +201,8 @@
             "pos": "n.",
             "vi": "ca sĩ"
           }
-        ]
+        ],
+        "icon": "microphone-2"
       },
       {
         "word": "equivocal",
@@ -230,7 +236,8 @@
             "pos": "v.",
             "vi": "nói nước đôi, né tránh"
           }
-        ]
+        ],
+        "icon": "help-circle"
       },
       {
         "word": "vocation",
@@ -260,9 +267,11 @@
             "vi": "thuộc dạy nghề"
           }
         ],
-        "trap": "Đừng nhầm với {{vacation}}: kỳ nghỉ."
+        "trap": "Đừng nhầm với {{vacation}}: kỳ nghỉ.",
+        "icon": "stethoscope"
       }
-    ]
+    ],
+    "icon": "speakerphone"
   },
   {
     "id": "spect",
@@ -310,7 +319,8 @@
             "pos": "n.",
             "vi": "thanh tra viên"
           }
-        ]
+        ],
+        "icon": "search"
       },
       {
         "word": "respect",
@@ -339,7 +349,8 @@
             "pos": "adj.",
             "vi": "lễ phép, tôn trọng"
           }
-        ]
+        ],
+        "icon": "heart-handshake"
       },
       {
         "word": "suspect",
@@ -368,7 +379,8 @@
             "pos": "adj.",
             "vi": "đáng ngờ"
           }
-        ]
+        ],
+        "icon": "user-search"
       },
       {
         "word": "prospect",
@@ -397,7 +409,8 @@
             "pos": "adj.",
             "vi": "tương lai, tiềm năng"
           }
-        ]
+        ],
+        "icon": "sunrise"
       },
       {
         "word": "retrospect",
@@ -426,7 +439,8 @@
             "pos": "adj.",
             "vi": "hồi tưởng"
           }
-        ]
+        ],
+        "icon": "history"
       },
       {
         "word": "perspective",
@@ -454,7 +468,8 @@
         "emoji": "🖼️",
         "example": "Travel gives young people a broader perspective on life.",
         "example_vi": "Du lịch cho người trẻ góc nhìn rộng hơn về cuộc sống.",
-        "related": []
+        "related": [],
+        "icon": "frame"
       },
       {
         "word": "spectator",
@@ -483,7 +498,8 @@
             "pos": "adj.",
             "vi": "ngoạn mục"
           }
-        ]
+        ],
+        "icon": "building-stadium"
       },
       {
         "word": "conspicuous",
@@ -517,9 +533,11 @@
             "pos": "adj.",
             "vi": "không gây chú ý"
           }
-        ]
+        ],
+        "icon": "eye-search"
       }
-    ]
+    ],
+    "icon": "eye"
   },
   {
     "id": "dict",
@@ -567,7 +585,8 @@
             "pos": "adj.",
             "vi": "khó đoán"
           }
-        ]
+        ],
+        "icon": "crystal-ball"
       },
       {
         "word": "contradict",
@@ -601,7 +620,8 @@
             "pos": "adj.",
             "vi": "trái ngược"
           }
-        ]
+        ],
+        "icon": "arrows-split"
       },
       {
         "word": "dictate",
@@ -635,7 +655,8 @@
             "pos": "n.",
             "vi": "bài chính tả"
           }
-        ]
+        ],
+        "icon": "crown"
       },
       {
         "word": "verdict",
@@ -658,7 +679,8 @@
         "emoji": "🧑‍⚖️",
         "example": "The jury reached a guilty verdict after two days.",
         "example_vi": "Bồi thẩm đoàn đưa ra phán quyết có tội sau hai ngày.",
-        "related": []
+        "related": [],
+        "icon": "gavel"
       },
       {
         "word": "indicate",
@@ -692,7 +714,8 @@
             "pos": "n.",
             "vi": "chỉ số, dấu hiệu"
           }
-        ]
+        ],
+        "icon": "hand-finger-right"
       },
       {
         "word": "addict",
@@ -726,7 +749,8 @@
             "pos": "adj.",
             "vi": "gây nghiện"
           }
-        ]
+        ],
+        "icon": "device-mobile"
       },
       {
         "word": "jurisdiction",
@@ -754,9 +778,11 @@
         "emoji": "🗺️",
         "example": "The case falls outside the court's jurisdiction.",
         "example_vi": "Vụ án nằm ngoài thẩm quyền của tòa.",
-        "related": []
+        "related": [],
+        "icon": "map-2"
       }
-    ]
+    ],
+    "icon": "message-circle"
   },
   {
     "id": "port",
@@ -793,7 +819,8 @@
         "emoji": "🚢",
         "example": "Vietnam imports most of its cotton.",
         "example_vi": "Việt Nam nhập khẩu phần lớn bông.",
-        "related": []
+        "related": [],
+        "icon": "ship"
       },
       {
         "word": "export",
@@ -816,7 +843,8 @@
         "emoji": "☕",
         "example": "Coffee is one of Vietnam's main exports.",
         "example_vi": "Cà phê là một trong những mặt hàng xuất khẩu chính của Việt Nam.",
-        "related": []
+        "related": [],
+        "icon": "coffee"
       },
       {
         "word": "transport",
@@ -845,7 +873,8 @@
             "pos": "n.",
             "vi": "sự vận tải"
           }
-        ]
+        ],
+        "icon": "train"
       },
       {
         "word": "support",
@@ -874,7 +903,8 @@
             "pos": "adj.",
             "vi": "hay giúp đỡ"
           }
-        ]
+        ],
+        "icon": "heart-handshake"
       },
       {
         "word": "portable",
@@ -897,7 +927,8 @@
         "emoji": "💻",
         "example": "Portable devices have changed the way we study.",
         "example_vi": "Thiết bị di động đã thay đổi cách chúng ta học.",
-        "related": []
+        "related": [],
+        "icon": "device-laptop"
       },
       {
         "word": "deport",
@@ -926,7 +957,8 @@
             "pos": "n.",
             "vi": "sự trục xuất"
           }
-        ]
+        ],
+        "icon": "plane-departure"
       },
       {
         "word": "portfolio",
@@ -949,9 +981,11 @@
         "emoji": "💼",
         "example": "Designers need a strong portfolio to get hired.",
         "example_vi": "Nhà thiết kế cần hồ sơ năng lực tốt để được tuyển.",
-        "related": []
+        "related": [],
+        "icon": "briefcase"
       }
-    ]
+    ],
+    "icon": "package"
   },
   {
     "id": "ject",
@@ -994,7 +1028,8 @@
             "pos": "n.",
             "vi": "sự từ chối"
           }
-        ]
+        ],
+        "icon": "hand-off"
       },
       {
         "word": "inject",
@@ -1023,7 +1058,8 @@
             "pos": "n.",
             "vi": "mũi tiêm"
           }
-        ]
+        ],
+        "icon": "vaccine"
       },
       {
         "word": "project",
@@ -1052,7 +1088,8 @@
             "pos": "n.",
             "vi": "dự báo; sự chiếu"
           }
-        ]
+        ],
+        "icon": "presentation"
       },
       {
         "word": "object",
@@ -1086,7 +1123,8 @@
             "pos": "adj. / n.",
             "vi": "khách quan; mục tiêu"
           }
-        ]
+        ],
+        "icon": "hand-stop"
       },
       {
         "word": "eject",
@@ -1109,7 +1147,8 @@
         "emoji": "💿",
         "example": "The pilot ejected seconds before the crash.",
         "example_vi": "Phi công bật ghế thoát ra vài giây trước khi máy bay rơi.",
-        "related": []
+        "related": [],
+        "icon": "disc"
       },
       {
         "word": "subject",
@@ -1138,7 +1177,8 @@
             "pos": "adj.",
             "vi": "chủ quan"
           }
-        ]
+        ],
+        "icon": "books"
       },
       {
         "word": "trajectory",
@@ -1166,9 +1206,11 @@
         "emoji": "📈",
         "example": "The company's growth trajectory looks promising.",
         "example_vi": "Đà tăng trưởng của công ty trông đầy hứa hẹn.",
-        "related": []
+        "related": [],
+        "icon": "chart-line"
       }
-    ]
+    ],
+    "icon": "arrow-badge-right"
   },
   {
     "id": "mit",
@@ -1211,7 +1253,8 @@
             "pos": "n.",
             "vi": "sự nộp; sự phục tùng"
           }
-        ]
+        ],
+        "icon": "mail-forward"
       },
       {
         "word": "admit",
@@ -1240,7 +1283,8 @@
             "pos": "n.",
             "vi": "sự nhận vào; lời thú nhận"
           }
-        ]
+        ],
+        "icon": "door-enter"
       },
       {
         "word": "permit",
@@ -1269,7 +1313,8 @@
             "pos": "n.",
             "vi": "sự cho phép"
           }
-        ]
+        ],
+        "icon": "ticket"
       },
       {
         "word": "omit",
@@ -1298,7 +1343,8 @@
             "pos": "n.",
             "vi": "sự bỏ sót"
           }
-        ]
+        ],
+        "icon": "scissors"
       },
       {
         "word": "emit",
@@ -1327,7 +1373,8 @@
             "pos": "n.",
             "vi": "khí thải"
           }
-        ]
+        ],
+        "icon": "building-factory"
       },
       {
         "word": "transmit",
@@ -1356,7 +1403,8 @@
             "pos": "n.",
             "vi": "sự truyền"
           }
-        ]
+        ],
+        "icon": "antenna"
       },
       {
         "word": "intermittent",
@@ -1384,7 +1432,8 @@
         "emoji": "🌦️",
         "example": "There will be intermittent rain this afternoon.",
         "example_vi": "Chiều nay sẽ có mưa rải rác.",
-        "related": []
+        "related": [],
+        "icon": "cloud-rain"
       },
       {
         "word": "mission",
@@ -1413,9 +1462,11 @@
             "pos": "v.",
             "vi": "gạt bỏ; sa thải"
           }
-        ]
+        ],
+        "icon": "rocket"
       }
-    ]
+    ],
+    "icon": "mail-forward"
   },
   {
     "id": "tract",
@@ -1463,7 +1514,8 @@
             "pos": "adj.",
             "vi": "hấp dẫn"
           }
-        ]
+        ],
+        "icon": "magnet"
       },
       {
         "word": "distract",
@@ -1492,7 +1544,8 @@
             "pos": "n.",
             "vi": "thứ gây xao nhãng"
           }
-        ]
+        ],
+        "icon": "device-mobile-message"
       },
       {
         "word": "extract",
@@ -1521,7 +1574,8 @@
             "pos": "n.",
             "vi": "sự khai thác"
           }
-        ]
+        ],
+        "icon": "dental"
       },
       {
         "word": "contract",
@@ -1550,7 +1604,8 @@
             "pos": "n.",
             "vi": "sự co lại"
           }
-        ]
+        ],
+        "icon": "file-text"
       },
       {
         "word": "subtract",
@@ -1573,7 +1628,8 @@
         "emoji": "➖",
         "example": "Subtract your expenses from your income.",
         "example_vi": "Lấy thu nhập trừ đi chi phí.",
-        "related": []
+        "related": [],
+        "icon": "minus"
       },
       {
         "word": "retract",
@@ -1596,7 +1652,8 @@
         "emoji": "↩️",
         "example": "The newspaper retracted the false story.",
         "example_vi": "Tờ báo rút lại bài viết sai sự thật.",
-        "related": []
+        "related": [],
+        "icon": "arrow-back-up"
       },
       {
         "word": "traction",
@@ -1619,9 +1676,11 @@
         "emoji": "🛞",
         "example": "The idea of remote work gained traction during the pandemic.",
         "example_vi": "Ý tưởng làm việc từ xa được ủng hộ mạnh trong đại dịch.",
-        "related": []
+        "related": [],
+        "icon": "wheel"
       }
-    ]
+    ],
+    "icon": "magnet"
   },
   {
     "id": "rupt",
@@ -1664,7 +1723,8 @@
             "pos": "n.",
             "vi": "sự phun trào"
           }
-        ]
+        ],
+        "icon": "volcano"
       },
       {
         "word": "interrupt",
@@ -1693,7 +1753,8 @@
             "pos": "n.",
             "vi": "sự gián đoạn"
           }
-        ]
+        ],
+        "icon": "hand-stop"
       },
       {
         "word": "disrupt",
@@ -1727,7 +1788,8 @@
             "pos": "adj.",
             "vi": "gây xáo trộn"
           }
-        ]
+        ],
+        "icon": "barrier-block"
       },
       {
         "word": "corrupt",
@@ -1756,7 +1818,8 @@
             "pos": "n.",
             "vi": "sự tham nhũng"
           }
-        ]
+        ],
+        "icon": "cash"
       },
       {
         "word": "bankrupt",
@@ -1785,7 +1848,8 @@
             "pos": "n.",
             "vi": "sự phá sản"
           }
-        ]
+        ],
+        "icon": "trending-down"
       },
       {
         "word": "abrupt",
@@ -1814,9 +1878,11 @@
             "pos": "adv.",
             "vi": "một cách đột ngột"
           }
-        ]
+        ],
+        "icon": "player-stop"
       }
-    ]
+    ],
+    "icon": "bomb"
   },
   {
     "id": "vert",
@@ -1859,7 +1925,8 @@
             "pos": "n.",
             "vi": "sự chuyển đổi"
           }
-        ]
+        ],
+        "icon": "recycle"
       },
       {
         "word": "divert",
@@ -1888,7 +1955,8 @@
             "pos": "n.",
             "vi": "sự chuyển hướng"
           }
-        ]
+        ],
+        "icon": "arrows-split"
       },
       {
         "word": "reverse",
@@ -1917,7 +1985,8 @@
             "pos": "adj.",
             "vi": "không thể đảo ngược"
           }
-        ]
+        ],
+        "icon": "arrow-back"
       },
       {
         "word": "diverse",
@@ -1946,7 +2015,8 @@
             "pos": "n.",
             "vi": "sự đa dạng"
           }
-        ]
+        ],
+        "icon": "rainbow"
       },
       {
         "word": "introvert",
@@ -1975,7 +2045,8 @@
             "pos": "n.",
             "vi": "người hướng ngoại"
           }
-        ]
+        ],
+        "icon": "yoga"
       },
       {
         "word": "controversy",
@@ -2009,7 +2080,8 @@
             "pos": "adj.",
             "vi": "gây tranh cãi"
           }
-        ]
+        ],
+        "icon": "swords"
       },
       {
         "word": "versatile",
@@ -2032,9 +2104,11 @@
         "emoji": "🧰",
         "example": "Bamboo is a versatile building material.",
         "example_vi": "Tre là vật liệu xây dựng đa năng.",
-        "related": []
+        "related": [],
+        "icon": "tool"
       }
-    ]
+    ],
+    "icon": "arrows-exchange"
   },
   {
     "id": "duc",
@@ -2078,7 +2152,8 @@
             "pos": "n.",
             "vi": "sự giảm"
           }
-        ]
+        ],
+        "icon": "trending-down"
       },
       {
         "word": "produce",
@@ -2112,7 +2187,8 @@
             "pos": "n.",
             "vi": "năng suất"
           }
-        ]
+        ],
+        "icon": "building-factory-2"
       },
       {
         "word": "introduce",
@@ -2141,7 +2217,8 @@
             "pos": "n.",
             "vi": "sự giới thiệu"
           }
-        ]
+        ],
+        "icon": "users-group"
       },
       {
         "word": "educate",
@@ -2175,7 +2252,8 @@
             "pos": "n.",
             "vi": "nền giáo dục"
           }
-        ]
+        ],
+        "icon": "school"
       },
       {
         "word": "induce",
@@ -2198,7 +2276,8 @@
         "emoji": "😴",
         "example": "Some medicines can induce sleep.",
         "example_vi": "Một số loại thuốc có thể gây buồn ngủ.",
-        "related": []
+        "related": [],
+        "icon": "zzz"
       },
       {
         "word": "deduce",
@@ -2227,7 +2306,8 @@
             "pos": "n.",
             "vi": "sự suy luận; khoản khấu trừ"
           }
-        ]
+        ],
+        "icon": "brain"
       },
       {
         "word": "conduct",
@@ -2256,9 +2336,11 @@
             "pos": "n.",
             "vi": "nhạc trưởng; chất dẫn"
           }
-        ]
+        ],
+        "icon": "music"
       }
-    ]
+    ],
+    "icon": "compass"
   },
   {
     "id": "ced",
@@ -2307,7 +2389,8 @@
             "pos": "n.",
             "vi": "người tiền nhiệm"
           }
-        ]
+        ],
+        "icon": "medal"
       },
       {
         "word": "proceed",
@@ -2341,7 +2424,8 @@
             "pos": "n.",
             "vi": "quá trình"
           }
-        ]
+        ],
+        "icon": "arrow-right"
       },
       {
         "word": "exceed",
@@ -2375,7 +2459,8 @@
             "pos": "adj.",
             "vi": "quá mức"
           }
-        ]
+        ],
+        "icon": "alarm"
       },
       {
         "word": "recede",
@@ -2404,7 +2489,8 @@
             "pos": "n.",
             "vi": "suy thoái kinh tế"
           }
-        ]
+        ],
+        "icon": "ripple"
       },
       {
         "word": "concede",
@@ -2433,7 +2519,8 @@
             "pos": "n.",
             "vi": "sự nhượng bộ"
           }
-        ]
+        ],
+        "icon": "flag-off"
       },
       {
         "word": "access",
@@ -2462,9 +2549,11 @@
             "pos": "adj.",
             "vi": "dễ tiếp cận"
           }
-        ]
+        ],
+        "icon": "key"
       }
-    ]
+    ],
+    "icon": "walk"
   },
   {
     "id": "cred",
@@ -2507,7 +2596,8 @@
             "pos": "n.",
             "vi": "độ tin cậy"
           }
-        ]
+        ],
+        "icon": "circle-check"
       },
       {
         "word": "incredible",
@@ -2535,7 +2625,8 @@
         "emoji": "🤩",
         "example": "The view from the top was incredible.",
         "example_vi": "Khung cảnh từ đỉnh núi thật phi thường.",
-        "related": []
+        "related": [],
+        "icon": "mood-surprised"
       },
       {
         "word": "credit",
@@ -2564,7 +2655,8 @@
             "pos": "v.",
             "vi": "làm mất uy tín"
           }
-        ]
+        ],
+        "icon": "credit-card"
       },
       {
         "word": "credentials",
@@ -2587,7 +2679,8 @@
         "emoji": "📜",
         "example": "Applicants must have strong academic credentials.",
         "example_vi": "Ứng viên phải có bằng cấp học thuật tốt.",
-        "related": []
+        "related": [],
+        "icon": "certificate"
       },
       {
         "word": "credulous",
@@ -2616,9 +2709,11 @@
             "pos": "adj.",
             "vi": "hoài nghi"
           }
-        ]
+        ],
+        "icon": "user-question"
       }
-    ]
+    ],
+    "icon": "heart-handshake"
   },
   {
     "id": "tain",
@@ -2661,7 +2756,8 @@
             "pos": "n.",
             "vi": "thùng chứa"
           }
-        ]
+        ],
+        "icon": "bottle"
       },
       {
         "word": "maintain",
@@ -2690,7 +2786,8 @@
             "pos": "n.",
             "vi": "sự bảo trì"
           }
-        ]
+        ],
+        "icon": "tool"
       },
       {
         "word": "obtain",
@@ -2713,7 +2810,8 @@
         "emoji": "🏆",
         "example": "You need to obtain a visa before you travel.",
         "example_vi": "Bạn cần xin thị thực trước khi đi.",
-        "related": []
+        "related": [],
+        "icon": "trophy"
       },
       {
         "word": "retain",
@@ -2742,7 +2840,8 @@
             "pos": "n.",
             "vi": "sự giữ lại"
           }
-        ]
+        ],
+        "icon": "brain"
       },
       {
         "word": "sustain",
@@ -2776,7 +2875,8 @@
             "pos": "n.",
             "vi": "tính bền vững"
           }
-        ]
+        ],
+        "icon": "plant-2"
       },
       {
         "word": "detain",
@@ -2805,7 +2905,8 @@
             "pos": "n.",
             "vi": "sự giam giữ"
           }
-        ]
+        ],
+        "icon": "lock"
       },
       {
         "word": "tenant",
@@ -2834,8 +2935,10 @@
             "pos": "adj.",
             "vi": "bền bỉ, kiên trì"
           }
-        ]
+        ],
+        "icon": "home"
       }
-    ]
+    ],
+    "icon": "hand-grab"
   }
 ]

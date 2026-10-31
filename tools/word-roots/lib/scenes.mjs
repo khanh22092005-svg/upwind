@@ -3,6 +3,7 @@
 // Narration is written so English always sits at a clean boundary ("Vì vậy, {{erupt}} nghĩa là ..."),
 // never glued mid-syllable, so the spliced audio sounds natural.
 import { COLORS, KIND_VI, esc, plain, coloredWord, highlight, blank } from "./common.mjs";
+import { icon, badge, iconOf, UI_ICONS as UI } from "./icons.mjs";
 
 const POS_VI = { "n.": "danh từ", "v.": "động từ", "adj.": "tính từ", "adv.": "trạng từ" };
 export const posVi = (pos) => pos.split("/").map((p) => POS_VI[p.trim()] ?? p.trim()).join(" và ");
@@ -16,14 +17,14 @@ function splitSay(w) {
   const root = w.parts.find((p) => p.k === "root");
   const suf = w.parts.filter((p) => p.k === "suf");
   const s = pre
-    ? `Tiền tố {{${clean(pre.t)}}} nghĩa là ${pre.vi}. Ghép với gốc {{${clean(root.t)}}}, ${root.vi}.`
-    : `Gốc {{${clean(root.t)}}} là ${root.vi}, thêm hậu tố {{${suf[0].t}}}, ${suf[0].vi}.`;
+    ? `Tiền tố {{${clean(pre.t)}}} nghĩa là ${pre.vi}. {{${clean(root.t)}}} là gốc từ, nghĩa là ${root.vi}.`
+    : `{{${clean(root.t)}}} là gốc từ, nghĩa là ${root.vi}. Thêm hậu tố {{${suf[0].t}}}, chỉ ${suf[0].vi}.`;
   return `${s} Hãy tưởng tượng: ${w.story}.`;
 }
 
 function meaningSay(w) {
   let s = `Vì vậy, {{${w.word}}} nghĩa là ${w.meaning}.`;
-  for (const r of (w.related ?? []).slice(0, 2)) s += ` Còn {{${r.w}}} là ${posVi(r.pos)}: ${r.vi}.`;
+  for (const r of (w.related ?? []).slice(0, 2)) s += ` {{${r.w}}} là ${posVi(r.pos)}, nghĩa là ${r.vi}.`;
   if (w.trap) s += ` ${w.trap}`;
   return s;
 }
@@ -82,11 +83,11 @@ export function buildScenes(f, opts = {}) {
       say: f.bait.say,
       hold: 0.2,
       html: `<div class="bait">
-        <div class="tag a-stamp">NGHĨA ĐEN 🤯</div>
+        <div class="tag a-stamp">${icon(UI.literal, 44)} NGHĨA ĐEN</div>
         <div class="bword a-slam" style="--d:150ms">${esc(f.bait.word)}</div>
         <div class="eq a-pop" style="--d:550ms">=</div>
         <div class="a-pop" style="--d:700ms"><span class="lit a-sweep" style="--d:950ms">${esc(f.bait.literal)}</span></div>
-        <div><span class="emoji a-drop" style="--d:1150ms">${emo(f.emoji)}</span></div>
+        <div class="a-drop" style="--d:1150ms">${badge(iconOf(f), 220)}</div>
       </div>`,
     });
   }
@@ -103,7 +104,7 @@ export function buildScenes(f, opts = {}) {
     html: `<div class="hook">
       <div class="q a-up">${esc(plain(f.hook))}</div>
       <div class="cloud">${cloud}</div>
-      <div class="tease a-stamp" style="--d:1700ms">🧠 Thử thách ở cuối video</div>
+      <div class="tease a-stamp" style="--d:1700ms">${icon(UI.challenge, 44)} Thử thách ở cuối video</div>
     </div>`,
   });
 
@@ -112,7 +113,7 @@ export function buildScenes(f, opts = {}) {
     kind: "root",
     say: `Tất cả đều có chung gốc {{${f.say_root ?? root}}}, từ tiếng La-tinh {{${f.origin.replace(/^(Latin|Greek)\s*/, "")}}}, nghĩa là ${f.core}. Hãy tưởng tượng ${f.image}.`,
     html: `<div class="rootcard">
-      <div class="emoji big a-drop">${emo(f.emoji)}</div>
+      <div class="a-drop">${badge(iconOf(f), 230)}</div>
       <div class="rootword a-slam" style="color:${COLORS.root};--d:200ms">${esc(f.root)}</div>
       <div class="origin a-up" style="--d:500ms">${esc(f.origin)}</div>
       <div class="core a-wipe" style="--d:650ms">= ${esc(f.core)}</div>
@@ -128,7 +129,7 @@ export function buildScenes(f, opts = {}) {
       say: splitSay(w),
       html: `${counter(n)}<div class="split">
         ${partsBlocks(w)}
-        <div><span class="emoji a-drop" style="--d:700ms">${emo(w.emoji ?? f.emoji)}</span></div>
+        <div class="a-drop" style="--d:700ms">${badge(iconOf(w, iconOf(f)), 220)}</div>
         <div class="story a-up" style="--d:900ms">${esc(w.story)}</div>
       </div>`,
     });
@@ -143,18 +144,18 @@ export function buildScenes(f, opts = {}) {
         <div class="ipa a-up" style="--d:350ms">${esc(w.ipa)} · <i>${esc(w.pos)}</i></div>
         <div class="a-pop" style="--d:450ms"><span class="mean a-sweep" style="--d:700ms">${esc(w.meaning)}</span></div>
         ${rel ? `<div class="rels">${rel}</div>` : ""}
-        ${w.trap ? `<div class="trap a-shake" style="--d:1100ms">⚠️ ${esc(plain(w.trap))}</div>` : ""}
+        ${w.trap ? `<div class="trap a-shake" style="--d:1100ms">${icon(UI.trap, 44)} ${esc(plain(w.trap))}</div>` : ""}
       </div>`,
     });
     scenes.push({
       kind: "example",
-      say: `{{${w.example}}}`,
+      say: `{{${w.example}}} ${w.example_vi}`,
       hold: 0.7,
       caption: w.example_vi,
       html: `${counter(n)}<div class="example">
         <div class="label a-up">Ví dụ · ${esc(w.word)}</div>
         <div class="en">“${wordByWord(w.example, w.word)}”</div>
-        <div class="vi a-up" style="--d:1000ms">${esc(w.example_vi)}</div>
+        <div class="vi a-up" style="--d:1400ms">${esc(w.example_vi)}</div>
       </div>`,
     });
   });
@@ -181,10 +182,10 @@ export function buildScenes(f, opts = {}) {
     quizAnswer: `${String.fromCharCode(65 + options.indexOf(q))}. ${q.word}`,
     quiz: { sentence: blank(q.example, q.word), options: options.map((o) => o.word) },
     html: `<div class="quiz">
-      <div class="label a-stamp">Thử thách 🧠</div>
+      <div class="label a-stamp">${icon(UI.challenge, 40)} Thử thách</div>
       <div class="en a-up" style="--d:200ms">“${esc(blank(q.example, q.word))}”</div>
       <div class="opts">${options.map((o, i) => `<div class="opt a-pop" style="--i:${i};--d:500ms"><b>${"ABC"[i]}</b> ${esc(o.word)}</div>`).join("")}</div>
-      <div class="hint a-shake" style="--d:1000ms">Bình luận đáp án của bạn 👇</div>
+      <div class="hint a-shake" style="--d:1000ms">${icon(UI.comment, 46)} Bình luận đáp án của bạn</div>
     </div>`,
   });
 
@@ -201,7 +202,7 @@ export function buildScenes(f, opts = {}) {
     const nr = mainRoot(next);
     const nw = next.words.slice(0, 3);
     teaseSay = `Video tiếp theo: gốc {{${next.say_root ?? nr}}}, nghĩa là ${next.core}, với ${nw.map((w) => `{{${w.word}}}`).join(", ")}. Theo dõi {{UpWind}} để mỗi ngày học trọn một họ từ nhé!`;
-    teaseHtml = `<div class="nextroot a-slam" style="--d:350ms;color:${COLORS.root}">${esc(next.root)} <span class="emoji">${emo(next.emoji)}</span></div>
+    teaseHtml = `<div class="nextroot a-slam" style="--d:350ms;color:${COLORS.root}">${esc(next.root)} ${icon(iconOf(next), 110, 1.8)}</div>
       <div class="nextcore a-wipe" style="--d:650ms">= ${esc(next.core)}</div>
       <div class="nextwords">${nw.map((w, k) => `<span class="cw a-pop" style="--i:${k};--d:850ms">${esc(w.word)}</span>`).join("")}<span class="cw a-pop" style="--i:3;--d:850ms">…</span></div>`;
   } else {
@@ -214,8 +215,8 @@ export function buildScenes(f, opts = {}) {
     hold: 1,
     html: `<div class="cta">
       <img src="__LOGO__" class="ctalogo a-drop" alt="">
-      ${teaseHtml ? `<div><span class="nexttag a-stamp" style="--d:200ms">${nextPart ? "PHẦN SAU" : "TẬP SAU"} 👉</span></div>${teaseHtml}` : ""}
-      <div class="follow a-up" style="--d:1300ms">🔔 Theo dõi <b>UpWind</b><br>mỗi ngày 1 họ từ</div>
+      ${teaseHtml ? `<div><span class="nexttag a-stamp" style="--d:200ms">${nextPart ? "PHẦN SAU" : "TẬP SAU"} ${icon(UI.next, 44, 2.4)}</span></div>${teaseHtml}` : ""}
+      <div class="follow a-up" style="--d:1300ms">${icon(UI.follow, 56)} Theo dõi <b>UpWind</b><br>mỗi ngày 1 họ từ</div>
     </div>`,
   });
 

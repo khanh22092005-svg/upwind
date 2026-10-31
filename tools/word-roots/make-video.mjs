@@ -36,10 +36,17 @@ const opt = (name, def) => {
   return i >= 0 ? args[i + 1] : def;
 };
 const flag = (name) => args.includes(`--${name}`);
-const VALUED = new Set(["tts", "en-tts", "voice", "en-voice", "speed", "max", "bgm"]);
+const VALUED = new Set(["tts", "en-tts", "voice", "en-voice", "speed", "max", "bgm", "one-voice"]);
 const target = args.find((a, i) => !a.startsWith("--") && !VALUED.has(args[i - 1]?.slice(2))) ?? "all";
 let VI_TTS = opt("tts", "vieneu");
 let EN_TTS = opt("en-tts", "auto");
+// --one-voice [name]: one Microsoft multilingual voice for both languages (needs edge-tts + internet).
+const ONE_VOICE_I = args.indexOf("--one-voice");
+const ONE_VOICE = ONE_VOICE_I < 0 ? "" : args[ONE_VOICE_I + 1] && !args[ONE_VOICE_I + 1].startsWith("--") ? args[ONE_VOICE_I + 1] : "en-US-EmmaMultilingualNeural";
+if (ONE_VOICE && VI_TTS !== "none") {
+  VI_TTS = "edge-multi";
+  EN_TTS = "edge-multi";
+}
 const SPEED = Number(opt("speed", 1.2)) || 1.2;
 const MAX = Number(opt("max", 0)) || 0;
 const BGM = opt("bgm", "");
@@ -57,7 +64,8 @@ const duration = (f) => Number(run("ffprobe", ["-v", "error", "-show_entries", "
 const CACHE = path.join(OUT_DIR, ".tts-cache");
 ensureDir(CACHE);
 const engineFor = (lang) => (lang === "en" ? EN_TTS : VI_TTS);
-const voiceFor = (engine, lang) => (engine === "vieneu" ? VIENEU_VOICE : engine === "edge" ? EDGE_VOICE[lang] : lang);
+const voiceFor = (engine, lang) =>
+  engine === "vieneu" ? VIENEU_VOICE : engine === "edge" ? EDGE_VOICE[lang] : engine === "edge-multi" ? ONE_VOICE : lang;
 const cachePath = (text, lang) => {
   const engine = engineFor(lang);
   const key = crypto.createHash("sha1").update(`${engine}|${lang}|${voiceFor(engine, lang)}|${text}`).digest("hex").slice(0, 16);
@@ -69,7 +77,7 @@ const cached = (f) => fs.existsSync(f) && fs.statSync(f).size > 0;
 function prefetchVieneu(scenes) {
   const jobs = [];
   for (const s of scenes)
-    for (const c of chunks(s.say)) {
+    for (const c of speakable(s.say)) {
       if (engineFor(c.lang) !== "vieneu") continue;
       const out = cachePath(c.text, c.lang);
       if (!cached(out) && !jobs.some((j) => j.out === out)) jobs.push({ text: c.text, out });
@@ -88,7 +96,9 @@ function ttsChunk(text, lang) {
   if (engine === "vieneu") throw new Error(`VieNeu did not produce audio for "${text}"`);
   for (let attempt = 1; ; attempt++) {
     try {
-      if (engine === "edge") {
+      if (engine === "edge-multi") {
+        run("edge-tts", ["--voice", ONE_VOICE, "--text", text, "--write-media", out]);
+      } else if (engine === "edge") {
         run("edge-tts", ["--voice", EDGE_VOICE[lang], "--rate", lang === "en" ? "-5%" : "+0%", "--text", text, "--write-media", out]);
       } else {
         run("gtts-cli", ["-l", lang, ...(lang === "en" ? ["--tld", "co.uk"] : []), "-o", out, text]);
@@ -115,6 +125,16 @@ function resolveEnglishEngine() {
   console.log(`English voice: ${EN_TTS === "edge" ? `edge-tts ${EDGE_VOICE.en}` : "gTTS (British)"}`);
 }
 
+/** Chunks to voice. A lone one-word Vietnamese chunk between two English ones ("evoke, invoke và provoke")
+ *  makes VieNeu stutter or repeat the word, so it becomes a short pause; the caption still shows it. */
+function speakable(say) {
+  const cs = chunks(say);
+  return cs.filter((c, i) => {
+    const lone = c.lang === "vi" && c.text.split(/\s+/).length === 1 && cs[i - 1]?.lang === "en" && cs[i + 1]?.lang === "en";
+    return !(lone && VI_TTS === "vieneu");
+  });
+}
+
 const TRIM =
   "silenceremove=start_periods=1:start_threshold=-45dB,areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse";
 
@@ -126,7 +146,7 @@ function sceneAudio(scene, file) {
     run("ffmpeg", ["-y", "-v", "error", "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo", "-t", secs.toFixed(2), file]);
     return file;
   }
-  const parts = chunks(scene.say).map((c) => ({ ...c, file: ttsChunk(c.text, c.lang) }));
+  const parts = speakable(scene.say).map((c) => ({ ...c, file: ttsChunk(c.text, c.lang) }));
   const inputs = parts.flatMap((p) => ["-i", p.file]);
   // Each clip: same format, edges trimmed, loudness matched so the two voices sit at the same level.
   const filt =

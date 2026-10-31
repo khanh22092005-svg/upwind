@@ -10,7 +10,7 @@ export const W = 1080;
 export const H = 1920;
 
 export function css(w = W, h = H, { video = true } = {}) {
-  const mainH = video ? 1130 : h - 230 - 130;
+  const mainH = video ? 1130 : h - 230 - 200;
   return `
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:${w}px;height:${h}px;overflow:hidden}
@@ -20,6 +20,9 @@ body:before{content:"";position:absolute;inset:0;background:
   repeating-linear-gradient(0deg,transparent 0 59px,rgba(0,75,155,.05) 59px 60px),
   repeating-linear-gradient(90deg,transparent 0 59px,rgba(0,75,155,.05) 59px 60px)}
 .emoji{font-family:"Noto Color Emoji","Apple Color Emoji",sans-serif}
+.ico{display:inline-block;vertical-align:-0.14em;flex:none}
+.badge{display:inline-flex;align-items:center;justify-content:center;border-radius:50%;color:#004b9b;
+  background:radial-gradient(circle at 35% 30%,#ffffff 0%,#e8f6fc 70%);box-shadow:0 0 0 8px #cfe9f7,0 18px 40px rgba(0,75,155,.18)}
 header{position:absolute;top:70px;left:70px;right:70px;display:flex;align-items:center;gap:22px}
 header img{width:92px;height:92px}
 header .brand{font-weight:800;font-size:40px;color:#004b9b;letter-spacing:.5px}
@@ -30,7 +33,7 @@ main{position:absolute;top:230px;left:70px;right:70px;height:${mainH}px;display:
 .caption{position:absolute;left:70px;right:70px;top:1400px;min-height:150px;background:#0b2545;color:#fff;
   border-radius:28px;padding:30px 40px;font-size:42px;line-height:1.35;font-weight:600;text-align:center}
 .caption b{color:#ffd166}
-.wave{position:absolute;left:0;right:0;bottom:0;height:${video ? 320 : 180}px}
+.wave{position:absolute;left:0;bottom:0;width:100%;height:${video ? 320 : 210}px;display:block}
 
 /* ---------- animations ---------- */
 .a-pop,.a-up,.a-left,.a-right,.a-slam,.a-stamp,.a-drop,.a-wipe,.a-merge,.a-shake,.a-sweep,.a-word{
@@ -68,7 +71,7 @@ main{position:absolute;top:230px;left:70px;right:70px;height:${mainH}px;display:
 .bait .bword{font-size:140px;font-weight:800;color:#004b9b;letter-spacing:-2px;line-height:1.05;margin-top:50px}
 .bait .eq{font-size:80px;font-weight:800;color:#9fb3c8;margin:24px 0 10px}
 .bait .lit{font-size:80px;font-weight:800;line-height:1.2;color:#0b2545;padding:10px 24px;border-radius:20px;display:inline-block}
-.bait .emoji{font-size:200px;margin-top:40px;line-height:1.1;display:inline-block}
+.bait .badge{margin-top:40px}
 
 /* hook */
 .hook{text-align:center;width:100%}
@@ -80,7 +83,7 @@ main{position:absolute;top:230px;left:70px;right:70px;height:${mainH}px;display:
 
 /* root */
 .rootcard{text-align:center}
-.rootcard .big{font-size:240px;line-height:1.1;display:inline-block}
+.rootcard .badge{margin-bottom:30px}
 .rootword{white-space:nowrap;font-size:150px;font-weight:800;letter-spacing:-2px;line-height:1.1}
 .origin{font-size:44px;color:#4a6b8a;font-style:italic;margin-top:10px}
 .core{font-size:90px;font-weight:800;color:#f2711c;margin-top:30px}
@@ -95,7 +98,7 @@ main{position:absolute;top:230px;left:70px;right:70px;height:${mainH}px;display:
 .kind{font-size:30px;font-weight:700;color:#4a6b8a;margin-top:26px;text-transform:uppercase;letter-spacing:2px}
 .gloss{font-size:44px;font-weight:800;margin-top:6px;max-width:300px;line-height:1.2}
 .plus{font-size:90px;font-weight:800;color:#9fb3c8;margin-top:28px}
-.split .emoji{font-size:230px;margin-top:70px;line-height:1.1;display:inline-block}
+.split .badge{margin-top:60px}
 .story{font-size:48px;font-weight:600;line-height:1.35;margin-top:30px;color:#0b2545}
 
 /* meaning */
@@ -138,15 +141,15 @@ mark{background:#ffd166;color:#0b2545;padding:0 10px;border-radius:12px}
 .cta .ctalogo{width:200px;height:200px}
 .nexttag{display:inline-block;margin-top:30px;font-size:44px;font-weight:800;color:#fff;background:#f2711c;border-radius:16px;padding:10px 26px}
 .nextroot{font-size:130px;font-weight:800;letter-spacing:-2px;line-height:1.1;margin-top:30px;white-space:nowrap}
-.nextroot .emoji{font-size:110px}
+.nextroot .ico{color:#004b9b;margin-left:10px;vertical-align:-0.1em}
 .nextcore{font-size:72px;font-weight:800;color:#f2711c;margin-top:10px}
 .nextwords{display:flex;flex-wrap:wrap;justify-content:center;gap:16px 20px;margin-top:36px}
 .follow{margin-top:50px;font-size:58px;font-weight:800;line-height:1.3;color:#0b2545;background:#fff3b0;border-radius:24px;padding:20px 36px;display:inline-block}
 .follow b{color:#004b9b}
 
 /* carousel extras */
-.swipe{position:absolute;right:70px;bottom:50px;font-size:40px;font-weight:800;color:#fff;background:#f2711c;border-radius:999px;padding:12px 30px}
-.dots{position:absolute;left:70px;bottom:62px;font-size:34px;font-weight:800;color:#004b9b}
+.swipe{position:absolute;right:70px;bottom:16px;z-index:2;display:flex;align-items:center;gap:10px;font-size:40px;font-weight:800;color:#fff;background:#f2711c;border-radius:999px;padding:12px 30px}
+.dots{position:absolute;left:70px;bottom:22px;z-index:2;font-size:34px;font-weight:800;color:#004b9b}
 .card{width:100%}
 .card .head{display:flex;align-items:baseline;gap:24px;flex-wrap:wrap}
 .card .word{font-size:120px;font-weight:800;letter-spacing:-2px;line-height:1.05}
@@ -162,16 +165,23 @@ mark{background:#ffd166;color:#0b2545;padding:0 10px;border-radius:12px}
 .card .ex .en{font-size:42px;font-weight:700;line-height:1.3}
 .card .ex .vi{font-size:34px;color:#4a6b8a;margin-top:10px}
 .card .rel{font-size:34px;padding:10px 20px;margin-top:16px}
-.card .emoji{position:absolute;right:0;top:0;font-size:150px}
+.card .badge{position:absolute;right:6px;top:6px}
 .card .trap{font-size:36px}
 `;
 }
 
-export function wave() {
-  return `<svg class="wave" viewBox="0 0 1080 320" preserveAspectRatio="none" aria-hidden="true">
+export function wave(video = true) {
+  if (video)
+    return `<svg class="wave" viewBox="0 0 1080 320" preserveAspectRatio="none" aria-hidden="true">
 <path d="M0 120 Q270 60 540 120 T1080 120 V320 H0Z" fill="#e8f6fc"/>
 <path d="M0 170 Q270 120 540 170 T1080 170" fill="none" stroke="#6ac5e8" stroke-width="10"/>
 <path d="M0 215 Q270 165 540 215 T1080 215" fill="none" stroke="#004b9b" stroke-width="10"/></svg>`;
+  // Carousel footer: drawn at its real size (no stretching), lines on top, a calm band below for the pills.
+  return `<svg class="wave wave-c" viewBox="0 0 1080 210" aria-hidden="true">
+<path d="M0 62 C180 22 360 22 540 62 S900 102 1080 62 V210 H0Z" fill="#e8f6fc"/>
+<path d="M0 62 C180 22 360 22 540 62 S900 102 1080 62" fill="none" stroke="#6ac5e8" stroke-width="9"/>
+<path d="M0 98 C180 58 360 58 540 98 S900 138 1080 98" fill="none" stroke="#004b9b" stroke-width="9"/>
+<rect x="0" y="128" width="1080" height="82" fill="#e8f6fc"/></svg>`;
 }
 
 export const FONT_LINK = `<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

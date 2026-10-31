@@ -11,7 +11,8 @@ import fs from "node:fs";
 import path from "node:path";
 import { createRequire } from "node:module";
 import { ROOT_DIR, OUT_DIR, COLORS, loadFamilies, esc, plain, coloredWord, highlight, ensureDir, captionText, nextFamily } from "./lib/common.mjs";
-import { buildScenes, partsBlocks, posVi, emo } from "./lib/scenes.mjs";
+import { buildScenes, partsBlocks, posVi } from "./lib/scenes.mjs";
+import { icon, badge, iconOf, UI_ICONS as UI } from "./lib/icons.mjs";
 import { css, wave, header, FONT_LINK } from "./lib/template.mjs";
 
 const require = createRequire(import.meta.url);
@@ -42,12 +43,15 @@ const EXTRA = `
 .static *{animation:none!important}
 .counter{top:-10px}
 ${tall ? "" : `
-.bait .bword{font-size:120px;margin-top:30px}.bait .lit{font-size:68px}.bait .emoji{font-size:150px;margin-top:20px}
+.bait .bword{font-size:120px;margin-top:30px}.bait .lit{font-size:68px}.bait .badge{margin-top:24px}.rootcard .badge{margin-bottom:20px}
 .hook .q{font-size:56px;margin-bottom:36px}.cw{font-size:40px}
 .rootcard .big{font-size:180px}.rootword{font-size:130px}.core{font-size:76px}
 .recap .row{padding:14px 22px;font-size:38px}.recap .w{font-size:46px}.recap .title{font-size:50px;margin-bottom:22px}
 .quiz .en{font-size:58px}.opt{font-size:52px}.cta .ctalogo{width:220px;height:220px}.cta .big{font-size:84px}`}
 .card .word{font-size:${tall ? 130 : 110}px}
+header{top:46px} main{top:180px;height:${CH - 180 - 190}px}
+.cta .ctalogo{width:170px;height:170px}.nextroot{font-size:110px;margin-top:20px}.nextcore{font-size:62px}
+.nextwords{margin-top:24px}.follow{margin-top:32px;font-size:48px;padding:16px 30px}.nexttag{margin-top:20px}
 .card .ex{margin-top:22px}.card .rel{margin-top:10px;padding:8px 18px}.card .story{margin-top:14px}.card .mean{margin-top:26px}
 .dots{background:#fff;border-radius:999px;padding:4px 18px}
 `;
@@ -55,25 +59,25 @@ ${tall ? "" : `
 function page(family, logo, body, n, total, { swipe = false } = {}) {
   return `<!doctype html><html lang="vi"><head><meta charset="utf-8">${FONT_LINK}
 <style>${css(CW, CH, { video: false })}${EXTRA}</style></head><body class="static">
-${wave()}${header(family, logo)}
+${wave(false)}${header(family, logo)}
 <main>${body.replaceAll("__LOGO__", logo)}</main>
 <div class="dots">${n}/${total}</div>
-${swipe ? `<div class="swipe">Lướt để xem →</div>` : ""}
+${swipe ? `<div class="swipe">Lướt để xem ${icon(UI.swipe, 40, 2.6)}</div>` : ""}
 </body></html>`;
 }
 
 function wordCard(f, w, n, total) {
   const rel = (w.related ?? []).map((r) => `<div class="rel"><b>${esc(r.w)}</b> <i>${esc(r.pos)}</i> ${esc(r.vi)}</div>`).join("");
   return `<div class="card" style="position:relative">
-    <div class="emoji">${emo(w.emoji ?? f.emoji)}</div>
+    ${badge(iconOf(w, iconOf(f)), 150)}
     <div class="head"><div class="word">${coloredWord(w)}</div></div>
     <div class="ipa">${esc(w.ipa)} · <i>${esc(w.pos)}</i> (${esc(posVi(w.pos))})</div>
     ${partsBlocks(w, false)}
     <div><span class="mean a-sweep">${esc(w.meaning)}</span></div>
-    <div class="story">💡 ${esc(w.story)}</div>
+    <div class="story">${icon(UI.story, 40)} ${esc(w.story)}</div>
     <div class="ex"><div class="en">“${highlight(w.example, w.word)}”</div><div class="vi">${esc(w.example_vi)}</div></div>
     ${rel}
-    ${w.trap ? `<div class="trap">⚠️ ${esc(plain(w.trap))}</div>` : ""}
+    ${w.trap ? `<div class="trap">${icon(UI.trap, 38)} ${esc(plain(w.trap))}</div>` : ""}
   </div>`;
 }
 
@@ -87,7 +91,7 @@ async function makeOne(browser, family, logo, part) {
 
   const bodies = [];
   if (byKind("bait")) bodies.push({ html: byKind("bait"), swipe: true });
-  bodies.push({ html: byKind("hook").replace(/<div class="tease[^]*?<\/div>/, `<div class="tease">👉 ${words.length} từ IELTS cùng một gốc</div>`), swipe: !byKind("bait") });
+  bodies.push({ html: byKind("hook").replace(/<div class="tease[^]*?<\/div>/, `<div class="tease">${icon(UI.next, 40, 2.6)} ${words.length} từ IELTS cùng một gốc</div>`), swipe: !byKind("bait") });
   bodies.push({ html: byKind("root") });
   words.forEach((w, i) => bodies.push({ html: wordCard(family, w, i + 1, words.length) }));
   bodies.push({ html: byKind("recap") });

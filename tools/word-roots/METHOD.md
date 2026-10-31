@@ -109,7 +109,7 @@ Return ONE JSON object (no prose) with this shape:
 {
   "id": "<slug>", "root": "<root forms>", "say_root": "<how an English voice should say it, optional>",
   "origin": "<Latin/Greek source word>", "core": "<Vietnamese core meaning, 2-4 words>",
-  "emoji": "<one emoji>", "image": "<Vietnamese: one concrete scene that shows the core meaning>",
+  "emoji": "<one emoji>", "icon": "<Tabler icon name, see tabler.io/icons>", "image": "<Vietnamese: one concrete scene that shows the core meaning>",
   "hook": "<Vietnamese curiosity question naming 3 familiar words wrapped in {{ }}>",
   "bait": {"word": "<one word of the family>", "literal": "<its surprising literal meaning, Vietnamese, max 6 words>",
            "say": "<Vietnamese line: {{Word}} nghĩa đen là... <literal>!>"},
@@ -118,7 +118,7 @@ Return ONE JSON object (no prose) with this shape:
       "parts": [{"t": "<letters exactly as in the word>", "k": "pre|root|suf", "vi": "<Vietnamese meaning>"}],
       "meaning": "<Vietnamese, short>",
       "story": "<Vietnamese, ONE sentence: literal parts -> picture -> real meaning, no 'tưởng tượng' prefix>",
-      "emoji": "", "example": "<natural IELTS-style English sentence, max 14 words>",
+      "emoji": "", "icon": "<Tabler icon name>", "example": "<natural IELTS-style English sentence, max 14 words>",
       "example_vi": "<Vietnamese translation>",
       "related": [{"w": "", "pos": "", "vi": ""}],  // 0-2 useful derived forms
       "trap": "<optional Vietnamese warning, English words in {{ }}>" } ]

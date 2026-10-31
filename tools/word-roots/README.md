@@ -27,6 +27,8 @@ node make-video.mjs spect --max 4           # split into ~60 s parts: out/spect-
 node make-video.mjs rupt --speed 1.3        # pace (default 1.2, pitch preserved)
 node make-video.mjs rupt --voice "Hải Đăng" # VieNeu voice (list: python3 lib/vieneu_tts.py --voices)
 node make-video.mjs rupt --en-tts gtts      # English voice: auto (edge-tts if reachable, else gTTS) | edge | gtts
+node make-video.mjs rupt --one-voice        # ONE voice for both languages (Microsoft en-US-EmmaMultilingualNeural, needs internet)
+node make-video.mjs rupt --one-voice en-US-AvaMultilingualNeural
 node make-video.mjs rupt --tts none         # silent draft to check the visuals quickly
 node make-video.mjs rupt --no-sfx           # no pop sounds
 node make-video.mjs rupt --bgm lofi.mp3     # quiet background music (use music you own the rights to)
@@ -43,6 +45,13 @@ sentences, the brand name) is spoken by a separate English voice. VieNeu reads E
 (the same word can come out right in one scene and wrong in the next), so each English word is rendered
 once and that same clip is reused everywhere: correct and identical every time.
 All clips are cached in `out/.tts-cache`, so re-rendering after a visual tweak is fast.
+Example sentences are read in English, then their Vietnamese translation.
+
+`--one-voice` swaps both voices for a single Microsoft multilingual voice: same voice throughout and
+perfect English, but the Vietnamese can sound slightly accented. Try it and compare with the default.
+
+The narration is written so an English word always starts its own sentence ("{{eruption}} là danh từ…");
+VieNeu tends to repeat a dangling Vietnamese word ("Còn") right before an English one.
 
 Output folder: `video.mp4` (1080×1920, 30 fps), `caption.txt` (post text, next-video line,
 **pinned comment** with the quiz answer), and one PNG per scene.
@@ -59,6 +68,16 @@ Slides: bait cover with "Lướt để xem →" → hook + word wall → root �
 meaning, story, example, related forms) → recap → quiz → next-family teaser. The script warns if any
 slide's text overflows.
 
+## Icons
+
+Visuals use [Tabler Icons](https://tabler.io/icons) (MIT), not emoji. Each family and word has an `icon`
+name in the data; only the icons in use are copied into `assets/icons/`. After adding families or
+changing icon names, run:
+
+```bash
+node fetch-icons.mjs
+```
+
 ## Make the handbook
 
 ```bash
@@ -74,11 +93,11 @@ Copy any object in `data/families.json`, or generate one with the prompt in `MET
 | `id` | short slug, used for the folder name and the CLI |
 | `root`, `origin`, `core` | `"voc / voke"`, `"Latin vocare"`, `"gọi, cất tiếng"` |
 | `say_root` | optional: how the English voice should say the root (`"voke"` reads better than `"voc"`) |
-| `emoji`, `image` | the one picture every word in the family hangs on |
+| `icon`, `image` | the Tabler icon name and the one picture every word in the family hangs on (`emoji` is kept for captions) |
 | `hook` | opening question; wrap English in `{{ }}` |
 | `bait` | `{word, literal, say}`: the surprising literal meaning that opens the video and the carousel |
 | `next` | optional id of the family to tease at the end; default is the next one in the file |
-| `words[]` | `word, pos, ipa, parts[{t, k: pre/root/suf, vi}], meaning, story, emoji, example, example_vi, related[{w,pos,vi}], trap?` |
+| `words[]` | `word, pos, ipa, parts[{t, k: pre/root/suf, vi}], meaning, story, icon, example, example_vi, related[{w,pos,vi}], trap?` |
 
 `parts` must join to spell the word (the script warns if not). Keep `story` to one sentence
 that starts from the literal parts and ends at the real meaning. The family order in the file is the

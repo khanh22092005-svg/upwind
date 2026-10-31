@@ -4,6 +4,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { createRequire } from "node:module";
+import { icon, iconOf } from "./lib/icons.mjs";
 import { ROOT_DIR, OUT_DIR, COLORS, loadFamilies, esc, plain, coloredWord, highlight, blank, ensureDir } from "./lib/common.mjs";
 
 const require = createRequire(import.meta.url);
@@ -62,7 +63,7 @@ const familyPages = families
     answers.push(`<div class="ans"><b>${fi + 1}. ${esc(f.root)}</b>: ${qs.map((q, i) => `${i + 1}) ${esc(q.example.match(new RegExp(`\\b${q.word.replace(/e$/, "").slice(0, Math.max(4, q.word.length - 2))}[a-z]*`, "i"))?.[0] ?? q.word)}`).join(" · ")}</div>`);
     return `<section class="family">
       <div class="fhead"><div class="num">${fi + 1}</div>
-        <div><div class="root" style="color:${COLORS.root}">${esc(f.root)} <span class="emo">${f.emoji}</span></div>
+        <div><div class="root" style="color:${COLORS.root}">${esc(f.root)} <span class="emo">${icon(iconOf(f), 30, 1.8)}</span></div>
         <div class="origin">${esc(f.origin)} · <b>${esc(f.core)}</b> · Hình dung: ${esc(f.image)}</div></div></div>
       <table class="words"><tr><th>Từ</th><th>Loại</th><th>Phân tích → hình dung</th><th>Nghĩa & từ liên quan</th></tr>${rows}</table>
       <div class="exercise"><h4>Luyện tập: điền dạng đúng của từ</h4>
@@ -103,7 +104,7 @@ td{border-bottom:1px solid #e3edf5;padding:5px 7px;vertical-align:top}
 .fhead{display:flex;gap:14px;align-items:center;margin-bottom:8px}
 .fhead .num{background:#004b9b;color:#fff;font-weight:800;font-size:18pt;border-radius:12px;width:46px;height:46px;display:flex;align-items:center;justify-content:center}
 .fhead .root{font-size:22pt;font-weight:800}
-.emo{font-family:"Noto Color Emoji",sans-serif;font-size:18pt}
+.emo{color:#004b9b;vertical-align:-4px}.ico{display:inline-block}
 .origin{color:#4a6b8a}
 .words .w{font-weight:800;font-size:12.5pt;white-space:nowrap}
 .ipa{font-weight:400;font-size:9pt;color:#4a6b8a}
