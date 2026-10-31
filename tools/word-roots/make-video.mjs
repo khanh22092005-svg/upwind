@@ -39,7 +39,9 @@ const opt = (name, def) => {
 const flag = (name) => args.includes(`--${name}`);
 const VALUED = new Set(["tts", "en-tts", "voice", "en-voice", "speed", "max", "bgm", "one-voice"]);
 const target = args.find((a, i) => !a.startsWith("--") && !VALUED.has(args[i - 1]?.slice(2))) ?? "all";
-let VI_TTS = opt("tts", "vieneu");
+// VieNeu V4 (the model on vieneu.io) via its cloud API when VIENEU_API_KEY is set; else VieNeu v3 Turbo locally.
+const CLOUD_KEY = process.env.VIENEU_API_KEY || "";
+let VI_TTS = opt("tts", CLOUD_KEY ? "vieneu-cloud" : "vieneu");
 let EN_TTS = opt("en-tts", "vieneu"); // one VieNeu voice for both languages; "auto" = separate English voice
 // --one-voice [name]: one Microsoft multilingual voice for both languages (needs edge-tts + internet).
 const ONE_VOICE_I = args.indexOf("--one-voice");
@@ -53,7 +55,8 @@ const MAX = Number(opt("max", 0)) || 0;
 const BGM = opt("bgm", "");
 const SFX = !flag("no-sfx");
 const FPS = 30;
-const VIENEU_VOICE = opt("voice", "Mai Anh"); // best English of the 10 recommended voices in our test
+const VIENEU_VOICE = opt("voice", "Mai Anh"); // local v3 Turbo: best English of the 10 recommended voices in our test
+const CLOUD_VOICE = opt("voice", "Ban Mai"); // V4 catalogue: curl "https://api.vieneu.io/api/v1/voices?engine=v4"
 const EDGE_VOICE = { vi: "vi-VN-HoaiMyNeural", en: opt("en-voice", "en-GB-SoniaNeural") };
 const PY = process.env.VIENEU_PYTHON || "python3";
 const VIENEU_SCRIPT = path.join(ROOT_DIR, "lib", "vieneu_tts.py");
@@ -66,7 +69,7 @@ const CACHE = path.join(OUT_DIR, ".tts-cache");
 ensureDir(CACHE);
 const engineFor = (lang) => (lang === "en" ? EN_TTS : VI_TTS);
 const voiceFor = (engine, lang) =>
-  engine === "vieneu" ? VIENEU_VOICE : engine === "edge" ? EDGE_VOICE[lang] : engine === "edge-multi" ? ONE_VOICE : lang;
+  engine === "vieneu" ? VIENEU_VOICE : engine === "vieneu-cloud" ? CLOUD_VOICE : engine === "edge" ? EDGE_VOICE[lang] : engine === "edge-multi" ? ONE_VOICE : lang;
 const cachePath = (text, lang) => {
   const engine = engineFor(lang);
   const key = crypto.createHash("sha1").update(`${engine}|${lang}|${voiceFor(engine, lang)}|${text}`).digest("hex").slice(0, 16);
@@ -97,7 +100,19 @@ function ttsChunk(text, lang) {
   if (engine === "vieneu") throw new Error(`VieNeu did not produce audio for "${text}"`);
   for (let attempt = 1; ; attempt++) {
     try {
-      if (engine === "edge-multi") {
+      if (engine === "vieneu-cloud") {
+        const r = spawnSync("curl", ["-sS", "-m", "180", "-w", "%{http_code}", "-X", "POST", "https://api.vieneu.io/api/v1/audio/speech",
+          "-H", `Authorization: Bearer ${CLOUD_KEY}`, "-H", "Content-Type: application/json",
+          "-d", JSON.stringify({ input: text, voice: CLOUD_VOICE, response_format: "mp3" }), "-o", out]);
+        const code = r.stdout.toString().trim();
+        if (code !== "200") {
+          const body = fs.existsSync(out) ? fs.readFileSync(out, "utf8").slice(0, 300) : r.stderr.toString();
+          fs.rmSync(out, { force: true });
+          if (code === "429") throw new Error(`VieNeu API limit reached (HTTP 429): ${body}`);
+          if (code === "401" || code === "403" || code === "400") { attempt = 99; }
+          throw new Error(`VieNeu API HTTP ${code}: ${body}`);
+        }
+      } else if (engine === "edge-multi") {
         run("edge-tts", ["--voice", ONE_VOICE, "--text", text, "--write-media", out]);
       } else if (engine === "edge") {
         run("edge-tts", ["--voice", EDGE_VOICE[lang], "--rate", lang === "en" ? "-5%" : "+0%", "--text", text, "--write-media", out]);
@@ -129,7 +144,7 @@ function resolveEnglishEngine() {
 /** Chunks to voice. A lone one-word Vietnamese chunk between two English ones ("evoke, invoke và provoke")
  *  makes VieNeu stutter or repeat the word, so it becomes a short pause; the caption still shows it. */
 function speakable(say) {
-  if (VI_TTS === "vieneu" && EN_TTS === "vieneu") return unifiedLines(say);
+  if (VI_TTS === EN_TTS && /^vieneu/.test(VI_TTS)) return unifiedLines(say);
   const cs = chunks(say);
   return cs
     .filter((c, i) => {
@@ -285,7 +300,9 @@ function segment(framesDir, frames, wav, mp4) {
 
 async function makeOne(browser, family, logo, part) {
   const id = part ? `${family.id}-p${part.n}` : family.id;
-  const dir = path.join(OUT_DIR, id);
+  // Build in a scratch folder; the previous output is only replaced once the new video is finished.
+  const finalDir = path.join(OUT_DIR, id);
+  const dir = path.join(OUT_DIR, `.building-${id}`);
   fs.rmSync(dir, { recursive: true, force: true });
   const tmp = path.join(dir, ".tmp");
   ensureDir(tmp);
@@ -323,10 +340,16 @@ async function makeOne(browser, family, logo, part) {
   fs.rmSync(tmp, { recursive: true, force: true });
 
   fs.writeFileSync(path.join(dir, "caption.txt"), captionText(family, words, quizAnswer, part, nextFamily(families, family)) + "\n");
-  console.log(`  ✓ ${path.relative(ROOT_DIR, path.join(dir, "video.mp4"))} (${duration(path.join(dir, "video.mp4")).toFixed(0)}s)`);
+  fs.rmSync(finalDir, { recursive: true, force: true });
+  fs.renameSync(dir, finalDir);
+  console.log(`  ✓ ${path.relative(ROOT_DIR, path.join(finalDir, "video.mp4"))} (${duration(path.join(finalDir, "video.mp4")).toFixed(0)}s)`);
 }
 
 /* ---------- main ---------- */
+if (VI_TTS === "vieneu-cloud") {
+  EN_TTS = "vieneu-cloud";
+  console.log(`Voice: VieNeu V4 cloud "${CLOUD_VOICE}" for both Vietnamese and English`);
+}
 if (VI_TTS === "vieneu" || EN_TTS === "vieneu") {
   try {
     execFileSync(PY, [VIENEU_SCRIPT, "--check"], { stdio: "ignore" });
@@ -336,7 +359,7 @@ if (VI_TTS === "vieneu" || EN_TTS === "vieneu") {
     if (EN_TTS === "vieneu") EN_TTS = "auto";
   }
 }
-if (VI_TTS !== "none" && EN_TTS !== "vieneu") resolveEnglishEngine();
+if (VI_TTS !== "none" && !/^vieneu/.test(EN_TTS)) resolveEnglishEngine();
 if (VI_TTS === "vieneu" && EN_TTS === "vieneu") console.log(`Voice: VieNeu "${VIENEU_VOICE}" for both Vietnamese and English`);
 
 const families = loadFamilies();
