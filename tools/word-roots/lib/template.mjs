@@ -74,13 +74,16 @@ main{position:absolute;top:230px;left:70px;right:70px;height:${mainH}px;display:
 .bait{text-align:center;width:100%}
 .bait .tag{display:inline-block;font-size:44px;font-weight:800;color:#fff;background:#f2711c;border-radius:16px;padding:10px 26px}
 .bait .bword{font-size:140px;font-weight:800;color:#004b9b;letter-spacing:-2px;line-height:1.05;margin-top:50px}
+.bait .nl{font-size:56px;font-weight:700;color:#4a6b8a;margin:24px 0 16px}
 .bait .eq{font-size:80px;font-weight:800;color:#9fb3c8;margin:24px 0 10px}
-.bait .lit{font-size:80px;font-weight:800;line-height:1.2;color:#0b2545;padding:10px 24px;border-radius:20px;display:inline-block}
+.bait .lit{font-size:92px;font-weight:800;line-height:1.2;color:#0b2545;padding:10px 24px;border-radius:20px;display:inline-block}
 .bait .badge{margin-top:40px}
 
 /* hook */
 .hook{text-align:center;width:100%}
-.hook .q{font-size:64px;font-weight:800;line-height:1.25;margin-bottom:50px}
+.hook .big1{font-size:110px;font-weight:800;line-height:1.05;letter-spacing:-1px}
+.hook .big2{font-size:150px;font-weight:800;line-height:1.05;color:#f2711c;letter-spacing:-2px}
+.hook .q{font-size:44px;font-weight:700;line-height:1.3;margin:24px 0 34px;color:#4a6b8a}
 .cloud{display:flex;flex-wrap:wrap;justify-content:center;gap:18px 26px}
 .cw{font-size:48px;font-weight:800;color:#004b9b;background:#fff;border:4px solid #cfe9f7;border-radius:20px;padding:8px 22px}
 .cw:nth-child(3n){color:#f2711c}.cw:nth-child(4n){color:#1a9c5b}

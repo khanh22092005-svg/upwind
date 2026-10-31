@@ -4,7 +4,7 @@
 //   node make-video.mjs voc                     # one family  -> out/voc/video.mp4
 //   node make-video.mjs all                     # every family
 //   node make-video.mjs spect --max 4           # split long families into ~60 s parts (spect-p1, spect-p2)
-//   node make-video.mjs voc --speed 1.3         # pace (default 1.2; pitch is preserved)
+//   node make-video.mjs voc --speed 1.2         # pace (default 1.1; pitch is preserved)
 //   node make-video.mjs voc --voice "Hải Đăng"  # VieNeu voice for the Vietnamese narration
 //   node make-video.mjs voc --en-tts gtts       # English voice engine: auto (edge, else gtts) | edge | gtts | vieneu
 //   node make-video.mjs voc --tts none          # silent draft to check visuals quickly
@@ -48,12 +48,12 @@ if (ONE_VOICE && VI_TTS !== "none") {
   VI_TTS = "edge-multi";
   EN_TTS = "edge-multi";
 }
-const SPEED = Number(opt("speed", 1.2)) || 1.2;
+const SPEED = Number(opt("speed", 1.1)) || 1.1;
 const MAX = Number(opt("max", 0)) || 0;
 const BGM = opt("bgm", "");
 const SFX = !flag("no-sfx");
 const FPS = 30;
-const VIENEU_VOICE = opt("voice", "Ngọc Huyền");
+const VIENEU_VOICE = opt("voice", "Mai Anh"); // best English of the 10 recommended voices in our test
 const EDGE_VOICE = { vi: "vi-VN-HoaiMyNeural", en: opt("en-voice", "en-GB-SoniaNeural") };
 const PY = process.env.VIENEU_PYTHON || "python3";
 const VIENEU_SCRIPT = path.join(ROOT_DIR, "lib", "vieneu_tts.py");

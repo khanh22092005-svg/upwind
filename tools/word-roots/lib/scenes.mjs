@@ -77,35 +77,38 @@ export function buildScenes(f, opts = {}) {
   const scenes = [];
   const counter = (n) => `<div class="counter a-pop">${n}/${total}</div>`;
 
-  // 0. Bait: a surprising literal meaning, slammed on screen in the first second
+  // Every form counts: main words + their related forms (what the word wall shows).
+  const forms = words.flatMap((w) => [w.word, ...(w.related ?? []).map((r) => r.w)]);
+  const nForms = forms.length;
+
+  // 0. Bait: "Ít ai biết" + a surprising literal meaning, slammed on screen in the first second
   if (f.bait) {
     scenes.push({
       kind: "bait",
-      say: f.bait.say,
+      say: `Ít ai biết: ${f.bait.say}`,
       hold: 0.2,
       html: `<div class="bait">
-        <div class="tag a-stamp">${icon(UI.literal, 44)} NGHĨA ĐEN</div>
+        <div class="tag a-stamp">${icon(UI.literal, 44)} ÍT AI BIẾT</div>
         <div class="bword a-slam" style="--d:150ms">${esc(f.bait.word)}</div>
-        <div class="eq a-pop" style="--d:550ms">=</div>
-        <div class="a-pop" style="--d:700ms"><span class="lit a-sweep" style="--d:950ms">${esc(f.bait.literal)}</span></div>
-        <div class="a-drop" style="--d:1150ms">${animEmoji(f, 230)}</div>
+        <div class="nl a-up" style="--d:500ms">nghĩa đen là...</div>
+        <div class="a-pop" style="--d:900ms"><span class="lit a-sweep a-shake" style="--d:1100ms">${esc(f.bait.literal)}</span></div>
+        <div class="a-pop" style="--d:1250ms">${animEmoji(f, 230)}</div>
       </div>`,
     });
   }
 
-  // 1. Hook: the question + the word cloud + tease of the end-of-video challenge
-  const cloud = f.words
-    .flatMap((w) => [w.word, ...(w.related ?? []).map((r) => r.w)])
-    .slice(0, 16)
-    .map((x, i) => `<span class="cw a-pop" style="--i:${i};--d:250ms">${esc(x)}</span>`)
-    .join("");
+  // 1. Hook: "1 gốc = N từ" + the full word wall + tease of the end-of-video challenge
+  const cloud = forms.map((x, i) => `<span class="cw a-pop" style="--i:${i};--d:700ms">${esc(x)}</span>`).join("");
   scenes.push({
     kind: "hook",
-    say: `${f.hook} Học một gốc, nhớ cả ${total} từ. Cuối video có thử thách cho bạn đấy!`,
+    say: `${f.hook} Chỉ một gốc từ, bạn nhớ luôn ${nForms} từ. Xem hết video, có thử thách cho bạn đấy!`,
+    nForms,
     html: `<div class="hook">
-      <div class="q a-up">${esc(plain(f.hook))}</div>
+      <div class="big1 a-slam">1 gốc <span style="color:${COLORS.root}">${esc(root)}</span></div>
+      <div class="big2 a-pop" style="--d:350ms">= ${nForms} từ</div>
+      <div class="q a-up" style="--d:550ms">${esc(plain(f.hook))}</div>
       <div class="cloud">${cloud}</div>
-      <div class="tease a-stamp" style="--d:1700ms">${icon(UI.challenge, 44)} Thử thách ở cuối video</div>
+      <div class="tease a-stamp" style="--d:2000ms">${icon(UI.challenge, 44)} Xem hết: thử thách cuối video</div>
     </div>`,
   });
 
@@ -202,7 +205,7 @@ export function buildScenes(f, opts = {}) {
   } else if (next) {
     const nr = mainRoot(next);
     const nw = next.words.slice(0, 3);
-    teaseSay = `Video tiếp theo: một gốc từ mang nghĩa ${next.core}, mở khóa thêm ${next.words.length} từ mới. Theo dõi kênh để mỗi ngày học trọn một họ từ nhé!`;
+    teaseSay = `Video tiếp theo: một gốc từ mang nghĩa ${next.core}, mở khóa thêm ${next.words.reduce((n, w) => n + 1 + (w.related?.length ?? 0), 0)} từ mới. Theo dõi kênh để mỗi ngày học trọn một họ từ nhé!`;
     teaseHtml = `<div class="nextroot a-slam" style="--d:350ms;color:${COLORS.root}">${esc(next.root)} ${animEmoji(next, 120)}</div>
       <div class="nextcore a-wipe" style="--d:650ms">= ${esc(next.core)}</div>
       <div class="nextwords">${nw.map((w, k) => `<span class="cw a-pop" style="--i:${k};--d:850ms">${esc(w.word)}</span>`).join("")}<span class="cw a-pop" style="--i:3;--d:850ms">…</span></div>`;

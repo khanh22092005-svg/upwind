@@ -24,8 +24,8 @@ cd tools/word-roots
 node make-video.mjs rupt                    # one family -> out/rupt/video.mp4
 node make-video.mjs rupt,vert               # several
 node make-video.mjs spect --max 4           # split into ~60 s parts: out/spect-p1, spect-p2
-node make-video.mjs rupt --speed 1.3        # pace (default 1.2, pitch preserved)
-node make-video.mjs rupt --voice "Hải Đăng" # VieNeu voice (list: python3 lib/vieneu_tts.py --voices)
+node make-video.mjs rupt --speed 1.2        # pace (default 1.1, pitch preserved)
+node make-video.mjs rupt --voice "Thiền Tâm Đức" # VieNeu voice (default "Mai Anh"; list: python3 lib/vieneu_tts.py --voices)
 node make-video.mjs rupt --en-tts auto      # separate English voice: auto (edge-tts if reachable, else gTTS) | edge | gtts
 node make-video.mjs rupt --one-voice        # ONE voice for both languages (Microsoft en-US-EmmaMultilingualNeural, needs internet)
 node make-video.mjs rupt --one-voice en-US-AvaMultilingualNeural
@@ -43,6 +43,10 @@ with a progress bar across the top.
 **Voices.** By default ONE VieNeu-TTS voice reads everything, Vietnamese and English, so the video sounds
 unified. Each line is read in one pass; full English example sentences get their own pass (VieNeu reads clean
 English sentences best). English words can occasionally come out imperfect; re-render that video if one does.
+Default voice is "Mai Anh": in a test of the 10 recommended VieNeu voices (English words inside Vietnamese
+lines + English sentences, scored by speech recognition), Mai Anh and Thiền Tâm Đức (male) read English best
+(0.85), the previous default Ngọc Huyền scored 0.69. VieNeu v3 Turbo is the newest open VieNeu model and the best
+one for English; the older "VieNeu-TTS-140h/1000h" checkpoints are weaker.
 For guaranteed English pronunciation use `--en-tts auto`: English is then voiced by a separate English voice
 (edge-tts en-GB, else gTTS), rendered once per word and reused everywhere.
 All clips are cached in `out/.tts-cache`, so re-rendering after a visual tweak is fast.

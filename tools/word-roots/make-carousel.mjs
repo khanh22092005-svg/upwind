@@ -45,7 +45,8 @@ const EXTRA = `
 .counter{top:-10px}
 ${tall ? "" : `
 .bait .bword{font-size:120px;margin-top:30px}.bait .lit{font-size:68px}.bait .badge{margin-top:24px}.rootcard .badge{margin-bottom:20px}
-.hook .q{font-size:56px;margin-bottom:36px}.cw{font-size:40px}
+.hook .q{font-size:38px;margin:16px 0 24px}.cw{font-size:36px;padding:6px 18px}.hook .big1{font-size:96px}.hook .big2{font-size:124px}
+.bait .nl{font-size:48px;margin:14px 0 10px}.bait .lit{font-size:80px}
 .rootcard .big{font-size:180px}.rootword{font-size:130px}.core{font-size:76px}
 .recap .row{padding:14px 22px;font-size:38px}.recap .w{font-size:46px}.recap .title{font-size:50px;margin-bottom:22px}
 .quiz .en{font-size:58px}.opt{font-size:52px}.cta .ctalogo{width:220px;height:220px}.cta .big{font-size:84px}`}
@@ -58,13 +59,14 @@ header{top:46px} main{top:180px;height:${CH - 180 - 190}px}
 `;
 
 function page(family, logo, body, n, total, { swipe = false } = {}) {
+  const label = typeof swipe === "string" ? swipe : "Lướt để xem";
   return `<!doctype html><html lang="vi"><head><meta charset="utf-8">${FONT_LINK}
 <style>${css(CW, CH, { video: false })}${EXTRA}</style></head><body class="static">
 ${wave(false)}${header(family, logo)}
 <main>${body.replaceAll("__LOGO__", logo)}</main>
 <div class="dots">${n}/${total}</div>
 ${lottieScripts(body, { freezeAt: 0 })}
-${swipe ? `<div class="swipe">Lướt để xem ${icon(UI.swipe, 40, 2.6)}</div>` : ""}
+${swipe ? `<div class="swipe">${label} ${icon(UI.swipe, 40, 2.6)}</div>` : ""}
 </body></html>`;
 }
 
@@ -92,8 +94,8 @@ async function makeOne(browser, family, logo, part) {
   const byKind = (k) => scenes.find((s) => s.kind === k)?.html;
 
   const bodies = [];
-  if (byKind("bait")) bodies.push({ html: byKind("bait"), swipe: true });
-  bodies.push({ html: byKind("hook").replace(/<div class="tease[^]*?<\/div>/, `<div class="tease">${icon(UI.next, 40, 2.6)} ${words.length} từ IELTS cùng một gốc</div>`), swipe: !byKind("bait") });
+  if (byKind("bait")) bodies.push({ html: byKind("bait"), swipe: "Lướt để biết vì sao" });
+  bodies.push({ html: byKind("hook").replace(/<div class="tease[^]*?<\/div>/, ""), swipe: "Cùng học nào" });
   bodies.push({ html: byKind("root") });
   words.forEach((w, i) => bodies.push({ html: wordCard(family, w, i + 1, words.length) }));
   bodies.push({ html: byKind("recap") });

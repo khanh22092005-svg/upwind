@@ -1751,8 +1751,8 @@
     "hook": "{{erupt}}, {{interrupt}}, {{disrupt}}: ba kiểu “vỡ” khác nhau trong tiếng Anh.",
     "bait": {
       "word": "bankrupt",
-      "literal": "cái bàn bị đập gãy",
-      "say": "{{Bankrupt}} nghĩa đen là... cái bàn bị đập gãy!"
+      "literal": "cái bàn bị gãy",
+      "say": "{{Bankrupt}}, phá sản, nghĩa đen là... cái bàn bị gãy!"
     },
     "words": [
       {

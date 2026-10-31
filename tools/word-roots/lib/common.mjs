@@ -85,14 +85,15 @@ export function nextLine(next, part) {
 
 export function captionText(family, words, quizAnswer, part, next) {
   const partLabel = part ? ` (Phần ${part.n})` : "";
-  const bait = family.bait ? `🤯 ${family.bait.word} nghĩa đen là... ${family.bait.literal}\n` : "";
+  const nForms = words.reduce((n, w) => n + 1 + (w.related?.length ?? 0), 0);
+  const bait = family.bait ? `🤯 Ít ai biết: ${family.bait.word} nghĩa đen là... ${family.bait.literal}!\n` : "";
   return [
     `📚 Học từ từ gốc | ${family.root.split("/")[0].trim()}${partLabel}`,
     "",
-    `${bait}${plain(family.hook)}`,
+    `${bait}👉 1 gốc ${family.root.split("/")[0].trim()} = ${nForms} từ IELTS. ${plain(family.hook)}`,
     "",
     `Gốc "${family.root}" (${family.origin}) = ${family.core}`,
-    ...words.map((w) => `• ${w.word} (${w.pos}): ${w.meaning}`),
+    ...words.map((w) => `• ${w.word} (${w.pos}): ${w.meaning}${(w.related ?? []).map((r) => ` | ${r.w} (${r.pos}): ${r.vi}`).join("")}`),
     "",
     "💾 Lưu lại để ôn · Theo dõi UpWind: mỗi ngày 1 họ từ",
     nextLine(next, part),
