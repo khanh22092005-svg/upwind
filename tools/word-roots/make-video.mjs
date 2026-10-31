@@ -40,7 +40,7 @@ const flag = (name) => args.includes(`--${name}`);
 const VALUED = new Set(["tts", "en-tts", "voice", "en-voice", "speed", "max", "bgm", "one-voice"]);
 const target = args.find((a, i) => !a.startsWith("--") && !VALUED.has(args[i - 1]?.slice(2))) ?? "all";
 let VI_TTS = opt("tts", "vieneu");
-let EN_TTS = opt("en-tts", "auto");
+let EN_TTS = opt("en-tts", "vieneu"); // one VieNeu voice for both languages; "auto" = separate English voice
 // --one-voice [name]: one Microsoft multilingual voice for both languages (needs edge-tts + internet).
 const ONE_VOICE_I = args.indexOf("--one-voice");
 const ONE_VOICE = ONE_VOICE_I < 0 ? "" : args[ONE_VOICE_I + 1] && !args[ONE_VOICE_I + 1].startsWith("--") ? args[ONE_VOICE_I + 1] : "en-US-EmmaMultilingualNeural";
@@ -129,6 +129,7 @@ function resolveEnglishEngine() {
 /** Chunks to voice. A lone one-word Vietnamese chunk between two English ones ("evoke, invoke và provoke")
  *  makes VieNeu stutter or repeat the word, so it becomes a short pause; the caption still shows it. */
 function speakable(say) {
+  if (VI_TTS === "vieneu" && EN_TTS === "vieneu") return unifiedLines(say);
   const cs = chunks(say);
   return cs
     .filter((c, i) => {
@@ -149,6 +150,23 @@ function speakable(say) {
     });
 }
 const WARNED = new Set();
+
+/** One voice for both languages: read each line in one pass (natural flow, no splicing), except that a full
+ *  English sentence (an example) gets its own pass, since VieNeu reads clean English sentences best. */
+function unifiedLines(say) {
+  const out = [];
+  let buf = "";
+  for (const c of chunks(say)) {
+    const fullSentence = c.lang === "en" && /[.!?]$/.test(c.text) && c.text.split(/\s+/).length >= 3;
+    if (fullSentence) {
+      if (buf.trim()) out.push({ lang: "vi", text: buf.trim() });
+      out.push({ lang: "en", text: c.text });
+      buf = "";
+    } else buf += (buf && !/^[,.:;!?]/.test(c.text) ? " " : "") + c.text;
+  }
+  if (buf.trim()) out.push({ lang: "vi", text: buf.trim() });
+  return out;
+}
 
 /** Integrated loudness (LUFS) of a clip after trimming silence, cached next to the clip. */
 function loudness(file) {
@@ -318,7 +336,8 @@ if (VI_TTS === "vieneu" || EN_TTS === "vieneu") {
     if (EN_TTS === "vieneu") EN_TTS = "auto";
   }
 }
-if (VI_TTS !== "none") resolveEnglishEngine();
+if (VI_TTS !== "none" && EN_TTS !== "vieneu") resolveEnglishEngine();
+if (VI_TTS === "vieneu" && EN_TTS === "vieneu") console.log(`Voice: VieNeu "${VIENEU_VOICE}" for both Vietnamese and English`);
 
 const families = loadFamilies();
 ensureEmojiAssets(families);

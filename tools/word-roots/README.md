@@ -26,7 +26,7 @@ node make-video.mjs rupt,vert               # several
 node make-video.mjs spect --max 4           # split into ~60 s parts: out/spect-p1, spect-p2
 node make-video.mjs rupt --speed 1.3        # pace (default 1.2, pitch preserved)
 node make-video.mjs rupt --voice "Hải Đăng" # VieNeu voice (list: python3 lib/vieneu_tts.py --voices)
-node make-video.mjs rupt --en-tts gtts      # English voice: auto (edge-tts if reachable, else gTTS) | edge | gtts
+node make-video.mjs rupt --en-tts auto      # separate English voice: auto (edge-tts if reachable, else gTTS) | edge | gtts
 node make-video.mjs rupt --one-voice        # ONE voice for both languages (Microsoft en-US-EmmaMultilingualNeural, needs internet)
 node make-video.mjs rupt --one-voice en-US-AvaMultilingualNeural
 node make-video.mjs rupt --tts none         # silent draft to check the visuals quickly
@@ -40,10 +40,11 @@ split / meaning / example → recap → quiz → **next-video teaser** ("Tập s
 Every scene animates in (slams, fly-ins, parts snapping into the word, word-by-word sentences),
 with a progress bar across the top.
 
-**Voices.** Vietnamese narration is VieNeu-TTS. Everything inside `{{ }}` (English words, example
-sentences, the brand name) is spoken by a separate English voice. VieNeu reads English inconsistently
-(the same word can come out right in one scene and wrong in the next), so each English word is rendered
-once and that same clip is reused everywhere: correct and identical every time.
+**Voices.** By default ONE VieNeu-TTS voice reads everything, Vietnamese and English, so the video sounds
+unified. Each line is read in one pass; full English example sentences get their own pass (VieNeu reads clean
+English sentences best). English words can occasionally come out imperfect; re-render that video if one does.
+For guaranteed English pronunciation use `--en-tts auto`: English is then voiced by a separate English voice
+(edge-tts en-GB, else gTTS), rendered once per word and reused everywhere.
 All clips are cached in `out/.tts-cache`, so re-rendering after a visual tweak is fast.
 Example sentences are read in English, then their Vietnamese translation. The last scene (next-video teaser)
 is Vietnamese only. Every clip is measured (EBU R128) and gained to the same loudness, so the English and
