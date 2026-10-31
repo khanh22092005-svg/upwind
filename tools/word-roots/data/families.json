@@ -1,0 +1,2776 @@
+[
+  {
+    "id": "voc",
+    "root": "voc / voke",
+    "say_root": "voke",
+    "origin": "Latin vocare",
+    "core": "gọi, cất tiếng",
+    "emoji": "📣",
+    "image": "một người mở miệng cất tiếng gọi để người khác nghe thấy mình",
+    "hook": "Tại sao {{evoke}}, {{invoke}} và {{provoke}} đều có “voke”, mà nghĩa lại khác hẳn nhau?",
+    "words": [
+      {
+        "word": "evoke",
+        "pos": "v.",
+        "ipa": "/ɪˈvəʊk/",
+        "parts": [
+          {
+            "t": "e",
+            "k": "pre",
+            "vi": "ra ngoài"
+          },
+          {
+            "t": "voke",
+            "k": "root",
+            "vi": "gọi"
+          }
+        ],
+        "meaning": "khơi gợi, gợi lên (ký ức, cảm xúc)",
+        "story": "gọi một thứ đang nằm sâu bên trong ra ngoài, làm nó hiện lên",
+        "emoji": "🎶",
+        "example": "The old song evoked memories of my childhood.",
+        "example_vi": "Bài hát cũ gợi lại ký ức tuổi thơ của tôi.",
+        "related": [
+          {
+            "w": "evocative",
+            "pos": "adj.",
+            "vi": "giàu sức gợi"
+          }
+        ]
+      },
+      {
+        "word": "invoke",
+        "pos": "v.",
+        "ipa": "/ɪnˈvəʊk/",
+        "parts": [
+          {
+            "t": "in",
+            "k": "pre",
+            "vi": "vào, hướng tới"
+          },
+          {
+            "t": "voke",
+            "k": "root",
+            "vi": "gọi"
+          }
+        ],
+        "meaning": "viện dẫn (luật, quyền); cầu khẩn",
+        "story": "cất tiếng gọi một thế lực, một điều luật, để nó đứng ra giúp mình",
+        "emoji": "⚖️",
+        "example": "The minister invoked emergency powers to close the borders.",
+        "example_vi": "Bộ trưởng viện dẫn quyền hạn khẩn cấp để đóng cửa biên giới.",
+        "related": [
+          {
+            "w": "invocation",
+            "pos": "n.",
+            "vi": "sự viện dẫn, lời cầu khẩn"
+          }
+        ]
+      },
+      {
+        "word": "provoke",
+        "pos": "v.",
+        "ipa": "/prəˈvəʊk/",
+        "parts": [
+          {
+            "t": "pro",
+            "k": "pre",
+            "vi": "ra phía trước"
+          },
+          {
+            "t": "voke",
+            "k": "root",
+            "vi": "gọi"
+          }
+        ],
+        "meaning": "khiêu khích; gây ra (phản ứng)",
+        "story": "xông ra trước mặt người khác mà gọi to, cố tình làm họ phản ứng",
+        "emoji": "😤",
+        "example": "The new tax provoked angry protests across the country.",
+        "example_vi": "Loại thuế mới gây ra các cuộc biểu tình giận dữ khắp cả nước.",
+        "related": [
+          {
+            "w": "provocative",
+            "pos": "adj.",
+            "vi": "mang tính khiêu khích"
+          },
+          {
+            "w": "provocation",
+            "pos": "n.",
+            "vi": "sự khiêu khích"
+          }
+        ]
+      },
+      {
+        "word": "revoke",
+        "pos": "v.",
+        "ipa": "/rɪˈvəʊk/",
+        "parts": [
+          {
+            "t": "re",
+            "k": "pre",
+            "vi": "trở lại"
+          },
+          {
+            "t": "voke",
+            "k": "root",
+            "vi": "gọi"
+          }
+        ],
+        "meaning": "thu hồi, hủy bỏ (giấy phép, quyết định)",
+        "story": "gọi lại một mệnh lệnh đã ban ra, coi như nó chưa từng có",
+        "emoji": "🪪",
+        "example": "His driving licence was revoked after the accident.",
+        "example_vi": "Bằng lái của anh ấy bị thu hồi sau vụ tai nạn.",
+        "related": [
+          {
+            "w": "irrevocable",
+            "pos": "adj.",
+            "vi": "không thể thay đổi, không thể hủy"
+          }
+        ]
+      },
+      {
+        "word": "advocate",
+        "pos": "v. / n.",
+        "ipa": "/ˈædvəkeɪt/",
+        "parts": [
+          {
+            "t": "ad",
+            "k": "pre",
+            "vi": "hướng về"
+          },
+          {
+            "t": "voc",
+            "k": "root",
+            "vi": "gọi, nói"
+          },
+          {
+            "t": "ate",
+            "k": "suf",
+            "vi": "động từ / người"
+          }
+        ],
+        "meaning": "ủng hộ, bênh vực; người ủng hộ",
+        "story": "lên tiếng hướng về phía một người hay một ý tưởng để bảo vệ nó",
+        "emoji": "📢",
+        "example": "Many experts advocate a four-day working week.",
+        "example_vi": "Nhiều chuyên gia ủng hộ tuần làm việc bốn ngày.",
+        "related": [
+          {
+            "w": "advocacy",
+            "pos": "n.",
+            "vi": "sự vận động, ủng hộ"
+          }
+        ]
+      },
+      {
+        "word": "vocal",
+        "pos": "adj.",
+        "ipa": "/ˈvəʊkl/",
+        "parts": [
+          {
+            "t": "voc",
+            "k": "root",
+            "vi": "giọng, tiếng"
+          },
+          {
+            "t": "al",
+            "k": "suf",
+            "vi": "tính từ"
+          }
+        ],
+        "meaning": "thuộc về giọng nói; lên tiếng mạnh mẽ",
+        "story": "liên quan tới tiếng nói, hoặc người hay lên tiếng công khai",
+        "emoji": "🎤",
+        "example": "She has been a vocal critic of the new policy.",
+        "example_vi": "Cô ấy luôn lên tiếng chỉ trích chính sách mới.",
+        "related": [
+          {
+            "w": "vocalist",
+            "pos": "n.",
+            "vi": "ca sĩ"
+          }
+        ]
+      },
+      {
+        "word": "equivocal",
+        "pos": "adj.",
+        "ipa": "/ɪˈkwɪvəkl/",
+        "parts": [
+          {
+            "t": "equi",
+            "k": "pre",
+            "vi": "ngang bằng"
+          },
+          {
+            "t": "voc",
+            "k": "root",
+            "vi": "tiếng nói"
+          },
+          {
+            "t": "al",
+            "k": "suf",
+            "vi": "tính từ"
+          }
+        ],
+        "meaning": "mập mờ, nước đôi",
+        "story": "một câu nói mà hai cách hiểu nặng ngang nhau, nghe xong không biết đâu là thật",
+        "emoji": "🤷",
+        "example": "The results of the study were equivocal.",
+        "example_vi": "Kết quả của nghiên cứu còn mập mờ.",
+        "related": [
+          {
+            "w": "equivocate",
+            "pos": "v.",
+            "vi": "nói nước đôi, né tránh"
+          }
+        ]
+      },
+      {
+        "word": "vocation",
+        "pos": "n.",
+        "ipa": "/vəʊˈkeɪʃn/",
+        "parts": [
+          {
+            "t": "voc",
+            "k": "root",
+            "vi": "gọi"
+          },
+          {
+            "t": "ation",
+            "k": "suf",
+            "vi": "danh từ"
+          }
+        ],
+        "meaning": "thiên hướng nghề nghiệp, sứ mệnh",
+        "story": "“tiếng gọi” kéo một người đến với công việc họ sinh ra để làm",
+        "emoji": "🩺",
+        "example": "Teaching is not just a job for her; it is a vocation.",
+        "example_vi": "Dạy học không chỉ là công việc với cô ấy, mà là sứ mệnh.",
+        "related": [
+          {
+            "w": "vocational",
+            "pos": "adj.",
+            "vi": "thuộc dạy nghề"
+          }
+        ],
+        "trap": "Đừng nhầm với {{vacation}}: kỳ nghỉ."
+      }
+    ]
+  },
+  {
+    "id": "spect",
+    "root": "spect / spic",
+    "origin": "Latin specere",
+    "core": "nhìn",
+    "emoji": "👀",
+    "image": "một đôi mắt đang chăm chú nhìn",
+    "hook": "{{inspect}}, {{respect}}, {{suspect}}: cùng là “nhìn”, sao lại thành kiểm tra, tôn trọng và nghi ngờ?",
+    "words": [
+      {
+        "word": "inspect",
+        "pos": "v.",
+        "ipa": "/ɪnˈspekt/",
+        "parts": [
+          {
+            "t": "in",
+            "k": "pre",
+            "vi": "vào trong"
+          },
+          {
+            "t": "spect",
+            "k": "root",
+            "vi": "nhìn"
+          }
+        ],
+        "meaning": "kiểm tra kỹ",
+        "story": "nhìn sâu vào bên trong một thứ để tìm lỗi",
+        "emoji": "🔍",
+        "example": "Officials inspect every restaurant twice a year.",
+        "example_vi": "Cán bộ kiểm tra mọi nhà hàng hai lần mỗi năm.",
+        "related": [
+          {
+            "w": "inspection",
+            "pos": "n.",
+            "vi": "sự kiểm tra"
+          },
+          {
+            "w": "inspector",
+            "pos": "n.",
+            "vi": "thanh tra viên"
+          }
+        ]
+      },
+      {
+        "word": "respect",
+        "pos": "v. / n.",
+        "ipa": "/rɪˈspekt/",
+        "parts": [
+          {
+            "t": "re",
+            "k": "pre",
+            "vi": "lại"
+          },
+          {
+            "t": "spect",
+            "k": "root",
+            "vi": "nhìn"
+          }
+        ],
+        "meaning": "tôn trọng",
+        "story": "đi qua rồi vẫn quay lại nhìn thêm lần nữa, vì người đó đáng để nhìn",
+        "emoji": "🙇",
+        "example": "Children should learn to respect other cultures.",
+        "example_vi": "Trẻ em nên học cách tôn trọng các nền văn hóa khác.",
+        "related": [
+          {
+            "w": "respectful",
+            "pos": "adj.",
+            "vi": "lễ phép, tôn trọng"
+          }
+        ]
+      },
+      {
+        "word": "suspect",
+        "pos": "v. / n.",
+        "ipa": "/səˈspekt/",
+        "parts": [
+          {
+            "t": "su",
+            "k": "pre",
+            "vi": "từ dưới lên"
+          },
+          {
+            "t": "spect",
+            "k": "root",
+            "vi": "nhìn"
+          }
+        ],
+        "meaning": "nghi ngờ; nghi phạm",
+        "story": "liếc nhìn từ dưới lên, ánh mắt dò xét, không tin tưởng",
+        "emoji": "🕵️",
+        "example": "Police suspect that the fire was started deliberately.",
+        "example_vi": "Cảnh sát nghi ngờ đám cháy là do cố ý.",
+        "related": [
+          {
+            "w": "suspicious",
+            "pos": "adj.",
+            "vi": "đáng ngờ"
+          }
+        ]
+      },
+      {
+        "word": "prospect",
+        "pos": "n.",
+        "ipa": "/ˈprɒspekt/",
+        "parts": [
+          {
+            "t": "pro",
+            "k": "pre",
+            "vi": "phía trước"
+          },
+          {
+            "t": "spect",
+            "k": "root",
+            "vi": "nhìn"
+          }
+        ],
+        "meaning": "triển vọng, khả năng sắp tới",
+        "story": "nhìn về phía trước, thấy điều có thể xảy ra trong tương lai",
+        "emoji": "🌅",
+        "example": "Graduates face poor job prospects in some fields.",
+        "example_vi": "Sinh viên mới ra trường gặp triển vọng việc làm kém ở một số ngành.",
+        "related": [
+          {
+            "w": "prospective",
+            "pos": "adj.",
+            "vi": "tương lai, tiềm năng"
+          }
+        ]
+      },
+      {
+        "word": "retrospect",
+        "pos": "n.",
+        "ipa": "/ˈretrəspekt/",
+        "parts": [
+          {
+            "t": "retro",
+            "k": "pre",
+            "vi": "về phía sau"
+          },
+          {
+            "t": "spect",
+            "k": "root",
+            "vi": "nhìn"
+          }
+        ],
+        "meaning": "sự nhìn lại quá khứ",
+        "story": "quay đầu nhìn lại con đường đã đi qua",
+        "emoji": "🔙",
+        "example": "In retrospect, moving abroad was the best decision I made.",
+        "example_vi": "Nhìn lại, ra nước ngoài là quyết định đúng nhất của tôi.",
+        "related": [
+          {
+            "w": "retrospective",
+            "pos": "adj.",
+            "vi": "hồi tưởng"
+          }
+        ]
+      },
+      {
+        "word": "perspective",
+        "pos": "n.",
+        "ipa": "/pəˈspektɪv/",
+        "parts": [
+          {
+            "t": "per",
+            "k": "pre",
+            "vi": "xuyên qua"
+          },
+          {
+            "t": "spect",
+            "k": "root",
+            "vi": "nhìn"
+          },
+          {
+            "t": "ive",
+            "k": "suf",
+            "vi": "tính chất"
+          }
+        ],
+        "meaning": "góc nhìn, quan điểm",
+        "story": "nhìn xuyên qua một khung cửa của riêng mình, mỗi người một khung",
+        "emoji": "🖼️",
+        "example": "Travel gives young people a broader perspective on life.",
+        "example_vi": "Du lịch cho người trẻ góc nhìn rộng hơn về cuộc sống.",
+        "related": []
+      },
+      {
+        "word": "spectator",
+        "pos": "n.",
+        "ipa": "/spekˈteɪtə/",
+        "parts": [
+          {
+            "t": "spect",
+            "k": "root",
+            "vi": "nhìn"
+          },
+          {
+            "t": "ator",
+            "k": "suf",
+            "vi": "người"
+          }
+        ],
+        "meaning": "khán giả (xem thể thao, sự kiện)",
+        "story": "người ngồi trên khán đài chỉ để nhìn",
+        "emoji": "🏟️",
+        "example": "Over 80,000 spectators watched the final.",
+        "example_vi": "Hơn 80.000 khán giả đã xem trận chung kết.",
+        "related": [
+          {
+            "w": "spectacular",
+            "pos": "adj.",
+            "vi": "ngoạn mục"
+          }
+        ]
+      },
+      {
+        "word": "conspicuous",
+        "pos": "adj.",
+        "ipa": "/kənˈspɪkjuəs/",
+        "parts": [
+          {
+            "t": "con",
+            "k": "pre",
+            "vi": "tất cả, cùng"
+          },
+          {
+            "t": "spic",
+            "k": "root",
+            "vi": "nhìn"
+          },
+          {
+            "t": "uous",
+            "k": "suf",
+            "vi": "tính từ"
+          }
+        ],
+        "meaning": "dễ thấy, nổi bật",
+        "story": "thứ mà ai cũng cùng nhìn thấy ngay",
+        "emoji": "🦩",
+        "example": "Conspicuous consumption is common among the newly rich.",
+        "example_vi": "Tiêu dùng phô trương phổ biến ở giới mới giàu.",
+        "related": [
+          {
+            "w": "inconspicuous",
+            "pos": "adj.",
+            "vi": "không gây chú ý"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dict",
+    "root": "dict / dic",
+    "origin": "Latin dicere",
+    "core": "nói",
+    "emoji": "🗣️",
+    "image": "một cái miệng đang nói rõ ràng từng chữ",
+    "hook": "{{predict}} và {{contradict}} khác nhau ở đâu, khi cả hai đều có “dict”?",
+    "words": [
+      {
+        "word": "predict",
+        "pos": "v.",
+        "ipa": "/prɪˈdɪkt/",
+        "parts": [
+          {
+            "t": "pre",
+            "k": "pre",
+            "vi": "trước"
+          },
+          {
+            "t": "dict",
+            "k": "root",
+            "vi": "nói"
+          }
+        ],
+        "meaning": "dự đoán",
+        "story": "nói ra điều gì đó trước khi nó xảy ra",
+        "emoji": "🔮",
+        "example": "Experts predict that house prices will fall next year.",
+        "example_vi": "Chuyên gia dự đoán giá nhà sẽ giảm năm sau.",
+        "related": [
+          {
+            "w": "prediction",
+            "pos": "n.",
+            "vi": "lời dự đoán"
+          },
+          {
+            "w": "unpredictable",
+            "pos": "adj.",
+            "vi": "khó đoán"
+          }
+        ]
+      },
+      {
+        "word": "contradict",
+        "pos": "v.",
+        "ipa": "/ˌkɒntrəˈdɪkt/",
+        "parts": [
+          {
+            "t": "contra",
+            "k": "pre",
+            "vi": "ngược lại"
+          },
+          {
+            "t": "dict",
+            "k": "root",
+            "vi": "nói"
+          }
+        ],
+        "meaning": "mâu thuẫn, nói ngược lại",
+        "story": "người này nói A, người kia nói ngược lại thành B",
+        "emoji": "🙅",
+        "example": "The new evidence contradicts earlier research.",
+        "example_vi": "Bằng chứng mới mâu thuẫn với nghiên cứu trước đó.",
+        "related": [
+          {
+            "w": "contradiction",
+            "pos": "n.",
+            "vi": "sự mâu thuẫn"
+          },
+          {
+            "w": "contradictory",
+            "pos": "adj.",
+            "vi": "trái ngược"
+          }
+        ]
+      },
+      {
+        "word": "dictate",
+        "pos": "v.",
+        "ipa": "/dɪkˈteɪt/",
+        "parts": [
+          {
+            "t": "dict",
+            "k": "root",
+            "vi": "nói"
+          },
+          {
+            "t": "ate",
+            "k": "suf",
+            "vi": "động từ"
+          }
+        ],
+        "meaning": "ra lệnh; chi phối; đọc cho viết",
+        "story": "nói ra và người khác phải làm theo đúng từng chữ",
+        "emoji": "👑",
+        "example": "Fashion trends are often dictated by social media.",
+        "example_vi": "Xu hướng thời trang thường bị mạng xã hội chi phối.",
+        "related": [
+          {
+            "w": "dictator",
+            "pos": "n.",
+            "vi": "kẻ độc tài"
+          },
+          {
+            "w": "dictation",
+            "pos": "n.",
+            "vi": "bài chính tả"
+          }
+        ]
+      },
+      {
+        "word": "verdict",
+        "pos": "n.",
+        "ipa": "/ˈvɜːdɪkt/",
+        "parts": [
+          {
+            "t": "ver",
+            "k": "pre",
+            "vi": "sự thật"
+          },
+          {
+            "t": "dict",
+            "k": "root",
+            "vi": "nói"
+          }
+        ],
+        "meaning": "phán quyết; kết luận",
+        "story": "lời nói ra sự thật cuối cùng của bồi thẩm đoàn",
+        "emoji": "🧑‍⚖️",
+        "example": "The jury reached a guilty verdict after two days.",
+        "example_vi": "Bồi thẩm đoàn đưa ra phán quyết có tội sau hai ngày.",
+        "related": []
+      },
+      {
+        "word": "indicate",
+        "pos": "v.",
+        "ipa": "/ˈɪndɪkeɪt/",
+        "parts": [
+          {
+            "t": "in",
+            "k": "pre",
+            "vi": "hướng vào"
+          },
+          {
+            "t": "dic",
+            "k": "root",
+            "vi": "nói, chỉ"
+          },
+          {
+            "t": "ate",
+            "k": "suf",
+            "vi": "động từ"
+          }
+        ],
+        "meaning": "cho thấy, chỉ ra",
+        "story": "chỉ tay vào một điểm và nói: nhìn đây này",
+        "emoji": "👉",
+        "example": "Recent figures indicate a rise in youth unemployment.",
+        "example_vi": "Số liệu gần đây cho thấy thất nghiệp ở người trẻ tăng.",
+        "related": [
+          {
+            "w": "indicator",
+            "pos": "n.",
+            "vi": "chỉ số, dấu hiệu"
+          }
+        ]
+      },
+      {
+        "word": "addict",
+        "pos": "n. / v.",
+        "ipa": "/ˈædɪkt/",
+        "parts": [
+          {
+            "t": "ad",
+            "k": "pre",
+            "vi": "hướng tới"
+          },
+          {
+            "t": "dict",
+            "k": "root",
+            "vi": "nói (tuyên bố)"
+          }
+        ],
+        "meaning": "người nghiện; làm cho nghiện",
+        "story": "bị “tuyên bố” thuộc về một thứ, không rời ra được",
+        "emoji": "📱",
+        "example": "Many teenagers are addicted to their phones.",
+        "example_vi": "Nhiều thiếu niên nghiện điện thoại.",
+        "related": [
+          {
+            "w": "addiction",
+            "pos": "n.",
+            "vi": "sự nghiện"
+          },
+          {
+            "w": "addictive",
+            "pos": "adj.",
+            "vi": "gây nghiện"
+          }
+        ]
+      },
+      {
+        "word": "jurisdiction",
+        "pos": "n.",
+        "ipa": "/ˌdʒʊərɪsˈdɪkʃn/",
+        "parts": [
+          {
+            "t": "juris",
+            "k": "pre",
+            "vi": "luật"
+          },
+          {
+            "t": "dict",
+            "k": "root",
+            "vi": "nói"
+          },
+          {
+            "t": "ion",
+            "k": "suf",
+            "vi": "danh từ"
+          }
+        ],
+        "meaning": "quyền tài phán, thẩm quyền",
+        "story": "vùng mà ở đó lời nói về luật của bạn có hiệu lực",
+        "emoji": "🗺️",
+        "example": "The case falls outside the court's jurisdiction.",
+        "example_vi": "Vụ án nằm ngoài thẩm quyền của tòa.",
+        "related": []
+      }
+    ]
+  },
+  {
+    "id": "port",
+    "root": "port",
+    "origin": "Latin portare",
+    "core": "mang, vác",
+    "emoji": "📦",
+    "image": "một người đang khuân một chiếc thùng",
+    "hook": "Chỉ một gốc “port” mà mở ra cả chục từ IELTS: {{import}}, {{export}}, {{support}}...",
+    "words": [
+      {
+        "word": "import",
+        "pos": "v. / n.",
+        "ipa": "/ɪmˈpɔːt/",
+        "parts": [
+          {
+            "t": "im",
+            "k": "pre",
+            "vi": "vào"
+          },
+          {
+            "t": "port",
+            "k": "root",
+            "vi": "mang"
+          }
+        ],
+        "meaning": "nhập khẩu",
+        "story": "mang hàng từ nước ngoài vào trong nước",
+        "emoji": "🚢",
+        "example": "Vietnam imports most of its cotton.",
+        "example_vi": "Việt Nam nhập khẩu phần lớn bông.",
+        "related": []
+      },
+      {
+        "word": "export",
+        "pos": "v. / n.",
+        "ipa": "/ɪkˈspɔːt/",
+        "parts": [
+          {
+            "t": "ex",
+            "k": "pre",
+            "vi": "ra ngoài"
+          },
+          {
+            "t": "port",
+            "k": "root",
+            "vi": "mang"
+          }
+        ],
+        "meaning": "xuất khẩu",
+        "story": "mang hàng ra khỏi đất nước để bán",
+        "emoji": "☕",
+        "example": "Coffee is one of Vietnam's main exports.",
+        "example_vi": "Cà phê là một trong những mặt hàng xuất khẩu chính của Việt Nam.",
+        "related": []
+      },
+      {
+        "word": "transport",
+        "pos": "v. / n.",
+        "ipa": "/trænˈspɔːt/",
+        "parts": [
+          {
+            "t": "trans",
+            "k": "pre",
+            "vi": "băng qua"
+          },
+          {
+            "t": "port",
+            "k": "root",
+            "vi": "mang"
+          }
+        ],
+        "meaning": "vận chuyển; giao thông",
+        "story": "mang người hay hàng hóa băng qua từ nơi này sang nơi khác",
+        "emoji": "🚆",
+        "example": "Public transport should be cheaper to reduce traffic.",
+        "example_vi": "Giao thông công cộng nên rẻ hơn để giảm ùn tắc.",
+        "related": [
+          {
+            "w": "transportation",
+            "pos": "n.",
+            "vi": "sự vận tải"
+          }
+        ]
+      },
+      {
+        "word": "support",
+        "pos": "v. / n.",
+        "ipa": "/səˈpɔːt/",
+        "parts": [
+          {
+            "t": "sup",
+            "k": "pre",
+            "vi": "từ bên dưới"
+          },
+          {
+            "t": "port",
+            "k": "root",
+            "vi": "mang"
+          }
+        ],
+        "meaning": "ủng hộ, nâng đỡ",
+        "story": "đứng bên dưới mà gánh đỡ một thứ cho nó không đổ",
+        "emoji": "🤝",
+        "example": "The government should support small businesses.",
+        "example_vi": "Chính phủ nên hỗ trợ doanh nghiệp nhỏ.",
+        "related": [
+          {
+            "w": "supportive",
+            "pos": "adj.",
+            "vi": "hay giúp đỡ"
+          }
+        ]
+      },
+      {
+        "word": "portable",
+        "pos": "adj.",
+        "ipa": "/ˈpɔːtəbl/",
+        "parts": [
+          {
+            "t": "port",
+            "k": "root",
+            "vi": "mang"
+          },
+          {
+            "t": "able",
+            "k": "suf",
+            "vi": "có thể"
+          }
+        ],
+        "meaning": "xách tay, dễ mang theo",
+        "story": "thứ đủ nhẹ để bạn mang theo khắp nơi",
+        "emoji": "💻",
+        "example": "Portable devices have changed the way we study.",
+        "example_vi": "Thiết bị di động đã thay đổi cách chúng ta học.",
+        "related": []
+      },
+      {
+        "word": "deport",
+        "pos": "v.",
+        "ipa": "/dɪˈpɔːt/",
+        "parts": [
+          {
+            "t": "de",
+            "k": "pre",
+            "vi": "rời khỏi"
+          },
+          {
+            "t": "port",
+            "k": "root",
+            "vi": "mang"
+          }
+        ],
+        "meaning": "trục xuất",
+        "story": "mang một người rời khỏi đất nước, buộc họ đi",
+        "emoji": "✈️",
+        "example": "He was deported for working without a visa.",
+        "example_vi": "Anh ta bị trục xuất vì làm việc không có thị thực.",
+        "related": [
+          {
+            "w": "deportation",
+            "pos": "n.",
+            "vi": "sự trục xuất"
+          }
+        ]
+      },
+      {
+        "word": "portfolio",
+        "pos": "n.",
+        "ipa": "/pɔːtˈfəʊliəʊ/",
+        "parts": [
+          {
+            "t": "port",
+            "k": "root",
+            "vi": "mang"
+          },
+          {
+            "t": "folio",
+            "k": "suf",
+            "vi": "tờ giấy"
+          }
+        ],
+        "meaning": "hồ sơ năng lực; danh mục đầu tư",
+        "story": "cặp đựng những tờ giấy quan trọng bạn mang đi gặp người khác",
+        "emoji": "💼",
+        "example": "Designers need a strong portfolio to get hired.",
+        "example_vi": "Nhà thiết kế cần hồ sơ năng lực tốt để được tuyển.",
+        "related": []
+      }
+    ]
+  },
+  {
+    "id": "ject",
+    "root": "ject",
+    "origin": "Latin iacere",
+    "core": "ném",
+    "emoji": "🥏",
+    "image": "một bàn tay đang ném mạnh một vật đi",
+    "hook": "{{reject}}, {{inject}}, {{project}}: cùng là “ném”, nhưng ném theo hướng nào?",
+    "words": [
+      {
+        "word": "reject",
+        "pos": "v.",
+        "ipa": "/rɪˈdʒekt/",
+        "parts": [
+          {
+            "t": "re",
+            "k": "pre",
+            "vi": "trở lại"
+          },
+          {
+            "t": "ject",
+            "k": "root",
+            "vi": "ném"
+          }
+        ],
+        "meaning": "từ chối, bác bỏ",
+        "story": "người ta đưa cho bạn, bạn ném trả lại",
+        "emoji": "🙅",
+        "example": "The council rejected the plan for a new airport.",
+        "example_vi": "Hội đồng bác bỏ kế hoạch xây sân bay mới.",
+        "related": [
+          {
+            "w": "rejection",
+            "pos": "n.",
+            "vi": "sự từ chối"
+          }
+        ]
+      },
+      {
+        "word": "inject",
+        "pos": "v.",
+        "ipa": "/ɪnˈdʒekt/",
+        "parts": [
+          {
+            "t": "in",
+            "k": "pre",
+            "vi": "vào"
+          },
+          {
+            "t": "ject",
+            "k": "root",
+            "vi": "ném"
+          }
+        ],
+        "meaning": "tiêm; bơm (tiền, năng lượng) vào",
+        "story": "“ném” thuốc vào trong cơ thể, hay ném tiền vào nền kinh tế",
+        "emoji": "💉",
+        "example": "The government injected billions into the economy.",
+        "example_vi": "Chính phủ bơm hàng tỷ vào nền kinh tế.",
+        "related": [
+          {
+            "w": "injection",
+            "pos": "n.",
+            "vi": "mũi tiêm"
+          }
+        ]
+      },
+      {
+        "word": "project",
+        "pos": "n. / v.",
+        "ipa": "/ˈprɒdʒekt/  /prəˈdʒekt/",
+        "parts": [
+          {
+            "t": "pro",
+            "k": "pre",
+            "vi": "ra phía trước"
+          },
+          {
+            "t": "ject",
+            "k": "root",
+            "vi": "ném"
+          }
+        ],
+        "meaning": "dự án; dự báo; chiếu (lên màn)",
+        "story": "ném một kế hoạch hay một hình ảnh ra phía trước",
+        "emoji": "📽️",
+        "example": "Sales are projected to double by 2030.",
+        "example_vi": "Doanh số được dự báo tăng gấp đôi vào năm 2030.",
+        "related": [
+          {
+            "w": "projection",
+            "pos": "n.",
+            "vi": "dự báo; sự chiếu"
+          }
+        ]
+      },
+      {
+        "word": "object",
+        "pos": "v.",
+        "ipa": "/əbˈdʒekt/",
+        "parts": [
+          {
+            "t": "ob",
+            "k": "pre",
+            "vi": "chống lại"
+          },
+          {
+            "t": "ject",
+            "k": "root",
+            "vi": "ném"
+          }
+        ],
+        "meaning": "phản đối",
+        "story": "ném lời nói chắn ngang, chống lại một ý kiến",
+        "emoji": "✋",
+        "example": "Local residents objected to the new factory.",
+        "example_vi": "Cư dân địa phương phản đối nhà máy mới.",
+        "related": [
+          {
+            "w": "objection",
+            "pos": "n.",
+            "vi": "sự phản đối"
+          },
+          {
+            "w": "objective",
+            "pos": "adj. / n.",
+            "vi": "khách quan; mục tiêu"
+          }
+        ]
+      },
+      {
+        "word": "eject",
+        "pos": "v.",
+        "ipa": "/ɪˈdʒekt/",
+        "parts": [
+          {
+            "t": "e",
+            "k": "pre",
+            "vi": "ra ngoài"
+          },
+          {
+            "t": "ject",
+            "k": "root",
+            "vi": "ném"
+          }
+        ],
+        "meaning": "tống ra, đẩy ra",
+        "story": "ném mạnh một thứ ra khỏi chỗ của nó",
+        "emoji": "💿",
+        "example": "The pilot ejected seconds before the crash.",
+        "example_vi": "Phi công bật ghế thoát ra vài giây trước khi máy bay rơi.",
+        "related": []
+      },
+      {
+        "word": "subject",
+        "pos": "n. / adj.",
+        "ipa": "/ˈsʌbdʒɪkt/",
+        "parts": [
+          {
+            "t": "sub",
+            "k": "pre",
+            "vi": "bên dưới"
+          },
+          {
+            "t": "ject",
+            "k": "root",
+            "vi": "ném"
+          }
+        ],
+        "meaning": "môn học, chủ đề; phải chịu (subject to)",
+        "story": "bị ném xuống bên dưới, phải chịu sự chi phối của cái khác",
+        "emoji": "📚",
+        "example": "All flights are subject to delays in bad weather.",
+        "example_vi": "Mọi chuyến bay đều có thể bị hoãn khi thời tiết xấu.",
+        "related": [
+          {
+            "w": "subjective",
+            "pos": "adj.",
+            "vi": "chủ quan"
+          }
+        ]
+      },
+      {
+        "word": "trajectory",
+        "pos": "n.",
+        "ipa": "/trəˈdʒektəri/",
+        "parts": [
+          {
+            "t": "tra",
+            "k": "pre",
+            "vi": "băng qua"
+          },
+          {
+            "t": "ject",
+            "k": "root",
+            "vi": "ném"
+          },
+          {
+            "t": "ory",
+            "k": "suf",
+            "vi": "danh từ"
+          }
+        ],
+        "meaning": "quỹ đạo; xu hướng phát triển",
+        "story": "đường bay của một vật được ném băng qua không trung",
+        "emoji": "📈",
+        "example": "The company's growth trajectory looks promising.",
+        "example_vi": "Đà tăng trưởng của công ty trông đầy hứa hẹn.",
+        "related": []
+      }
+    ]
+  },
+  {
+    "id": "mit",
+    "root": "mit / miss",
+    "origin": "Latin mittere",
+    "core": "gửi, thả đi",
+    "emoji": "📨",
+    "image": "một lá thư được gửi bay đi",
+    "hook": "{{admit}}, {{submit}}, {{permit}}, {{omit}}: một gốc “mit” mà tách ra bốn nghĩa rất khác.",
+    "words": [
+      {
+        "word": "submit",
+        "pos": "v.",
+        "ipa": "/səbˈmɪt/",
+        "parts": [
+          {
+            "t": "sub",
+            "k": "pre",
+            "vi": "bên dưới"
+          },
+          {
+            "t": "mit",
+            "k": "root",
+            "vi": "gửi"
+          }
+        ],
+        "meaning": "nộp; chịu khuất phục",
+        "story": "gửi bài lên từ vị trí thấp hơn, để người trên xét duyệt",
+        "emoji": "📤",
+        "example": "Applications must be submitted by Friday.",
+        "example_vi": "Hồ sơ phải được nộp trước thứ Sáu.",
+        "related": [
+          {
+            "w": "submission",
+            "pos": "n.",
+            "vi": "sự nộp; sự phục tùng"
+          }
+        ]
+      },
+      {
+        "word": "admit",
+        "pos": "v.",
+        "ipa": "/ədˈmɪt/",
+        "parts": [
+          {
+            "t": "ad",
+            "k": "pre",
+            "vi": "hướng vào"
+          },
+          {
+            "t": "mit",
+            "k": "root",
+            "vi": "thả, cho đi"
+          }
+        ],
+        "meaning": "thừa nhận; cho vào",
+        "story": "thả cho đi vào cửa, hoặc thả sự thật ra khỏi miệng",
+        "emoji": "🚪",
+        "example": "He admitted that he had made a mistake.",
+        "example_vi": "Anh ấy thừa nhận đã mắc lỗi.",
+        "related": [
+          {
+            "w": "admission",
+            "pos": "n.",
+            "vi": "sự nhận vào; lời thú nhận"
+          }
+        ]
+      },
+      {
+        "word": "permit",
+        "pos": "v. / n.",
+        "ipa": "/pəˈmɪt/",
+        "parts": [
+          {
+            "t": "per",
+            "k": "pre",
+            "vi": "xuyên qua"
+          },
+          {
+            "t": "mit",
+            "k": "root",
+            "vi": "thả đi"
+          }
+        ],
+        "meaning": "cho phép; giấy phép",
+        "story": "thả cho đi xuyên qua cổng kiểm soát",
+        "emoji": "🎫",
+        "example": "Smoking is not permitted inside the building.",
+        "example_vi": "Không được phép hút thuốc trong tòa nhà.",
+        "related": [
+          {
+            "w": "permission",
+            "pos": "n.",
+            "vi": "sự cho phép"
+          }
+        ]
+      },
+      {
+        "word": "omit",
+        "pos": "v.",
+        "ipa": "/əˈmɪt/",
+        "parts": [
+          {
+            "t": "o(b)",
+            "k": "pre",
+            "vi": "bỏ qua"
+          },
+          {
+            "t": "mit",
+            "k": "root",
+            "vi": "thả đi"
+          }
+        ],
+        "meaning": "bỏ sót, lược bỏ",
+        "story": "thả một chi tiết rơi đi, không đưa vào",
+        "emoji": "✂️",
+        "example": "Some important details were omitted from the report.",
+        "example_vi": "Một số chi tiết quan trọng bị lược khỏi báo cáo.",
+        "related": [
+          {
+            "w": "omission",
+            "pos": "n.",
+            "vi": "sự bỏ sót"
+          }
+        ]
+      },
+      {
+        "word": "emit",
+        "pos": "v.",
+        "ipa": "/iˈmɪt/",
+        "parts": [
+          {
+            "t": "e",
+            "k": "pre",
+            "vi": "ra ngoài"
+          },
+          {
+            "t": "mit",
+            "k": "root",
+            "vi": "gửi"
+          }
+        ],
+        "meaning": "thải ra, phát ra",
+        "story": "gửi khói, ánh sáng hay âm thanh ra bên ngoài",
+        "emoji": "🏭",
+        "example": "Cars emit large amounts of carbon dioxide.",
+        "example_vi": "Ô tô thải ra lượng lớn khí CO2.",
+        "related": [
+          {
+            "w": "emission",
+            "pos": "n.",
+            "vi": "khí thải"
+          }
+        ]
+      },
+      {
+        "word": "transmit",
+        "pos": "v.",
+        "ipa": "/trænzˈmɪt/",
+        "parts": [
+          {
+            "t": "trans",
+            "k": "pre",
+            "vi": "băng qua"
+          },
+          {
+            "t": "mit",
+            "k": "root",
+            "vi": "gửi"
+          }
+        ],
+        "meaning": "truyền (tín hiệu, bệnh)",
+        "story": "gửi một thứ băng qua từ người này sang người khác",
+        "emoji": "📡",
+        "example": "The virus is transmitted through the air.",
+        "example_vi": "Virus lây truyền qua không khí.",
+        "related": [
+          {
+            "w": "transmission",
+            "pos": "n.",
+            "vi": "sự truyền"
+          }
+        ]
+      },
+      {
+        "word": "intermittent",
+        "pos": "adj.",
+        "ipa": "/ˌɪntəˈmɪtənt/",
+        "parts": [
+          {
+            "t": "inter",
+            "k": "pre",
+            "vi": "ở giữa"
+          },
+          {
+            "t": "mitt",
+            "k": "root",
+            "vi": "thả"
+          },
+          {
+            "t": "ent",
+            "k": "suf",
+            "vi": "tính từ"
+          }
+        ],
+        "meaning": "lúc có lúc không, gián đoạn",
+        "story": "thả ra những khoảng trống ở giữa, nên cứ đứt quãng",
+        "emoji": "🌦️",
+        "example": "There will be intermittent rain this afternoon.",
+        "example_vi": "Chiều nay sẽ có mưa rải rác.",
+        "related": []
+      },
+      {
+        "word": "mission",
+        "pos": "n.",
+        "ipa": "/ˈmɪʃn/",
+        "parts": [
+          {
+            "t": "miss",
+            "k": "root",
+            "vi": "gửi đi"
+          },
+          {
+            "t": "ion",
+            "k": "suf",
+            "vi": "danh từ"
+          }
+        ],
+        "meaning": "nhiệm vụ, sứ mệnh",
+        "story": "việc mà bạn được gửi đi để hoàn thành",
+        "emoji": "🚀",
+        "example": "The school's mission is to make learning accessible to all.",
+        "example_vi": "Sứ mệnh của trường là đưa việc học đến với mọi người.",
+        "related": [
+          {
+            "w": "dismiss",
+            "pos": "v.",
+            "vi": "gạt bỏ; sa thải"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tract",
+    "root": "tract",
+    "origin": "Latin trahere",
+    "core": "kéo",
+    "emoji": "🧲",
+    "image": "một sợi dây đang bị kéo căng",
+    "hook": "{{attract}} và {{distract}}: cùng là “kéo”, một bên kéo về, một bên kéo đi.",
+    "words": [
+      {
+        "word": "attract",
+        "pos": "v.",
+        "ipa": "/əˈtrækt/",
+        "parts": [
+          {
+            "t": "at",
+            "k": "pre",
+            "vi": "về phía"
+          },
+          {
+            "t": "tract",
+            "k": "root",
+            "vi": "kéo"
+          }
+        ],
+        "meaning": "thu hút",
+        "story": "kéo người hay vật về phía mình như nam châm",
+        "emoji": "🧲",
+        "example": "Big cities attract young workers from rural areas.",
+        "example_vi": "Thành phố lớn thu hút lao động trẻ từ nông thôn.",
+        "related": [
+          {
+            "w": "attraction",
+            "pos": "n.",
+            "vi": "sức hút; điểm tham quan"
+          },
+          {
+            "w": "attractive",
+            "pos": "adj.",
+            "vi": "hấp dẫn"
+          }
+        ]
+      },
+      {
+        "word": "distract",
+        "pos": "v.",
+        "ipa": "/dɪˈstrækt/",
+        "parts": [
+          {
+            "t": "dis",
+            "k": "pre",
+            "vi": "ra xa"
+          },
+          {
+            "t": "tract",
+            "k": "root",
+            "vi": "kéo"
+          }
+        ],
+        "meaning": "làm xao nhãng",
+        "story": "kéo sự chú ý của bạn ra xa khỏi việc đang làm",
+        "emoji": "📲",
+        "example": "Phones distract students during lessons.",
+        "example_vi": "Điện thoại làm học sinh xao nhãng trong giờ học.",
+        "related": [
+          {
+            "w": "distraction",
+            "pos": "n.",
+            "vi": "thứ gây xao nhãng"
+          }
+        ]
+      },
+      {
+        "word": "extract",
+        "pos": "v. / n.",
+        "ipa": "/ɪkˈstrækt/",
+        "parts": [
+          {
+            "t": "ex",
+            "k": "pre",
+            "vi": "ra ngoài"
+          },
+          {
+            "t": "tract",
+            "k": "root",
+            "vi": "kéo"
+          }
+        ],
+        "meaning": "chiết xuất, trích ra; đoạn trích",
+        "story": "kéo một thứ ra khỏi bên trong",
+        "emoji": "🦷",
+        "example": "Oil is extracted from the seabed.",
+        "example_vi": "Dầu được khai thác từ đáy biển.",
+        "related": [
+          {
+            "w": "extraction",
+            "pos": "n.",
+            "vi": "sự khai thác"
+          }
+        ]
+      },
+      {
+        "word": "contract",
+        "pos": "n. / v.",
+        "ipa": "/ˈkɒntrækt/",
+        "parts": [
+          {
+            "t": "con",
+            "k": "pre",
+            "vi": "cùng nhau"
+          },
+          {
+            "t": "tract",
+            "k": "root",
+            "vi": "kéo"
+          }
+        ],
+        "meaning": "hợp đồng; co lại; mắc (bệnh)",
+        "story": "hai bên cùng kéo về một điểm chung: ký kết",
+        "emoji": "📝",
+        "example": "She signed a two-year contract with the company.",
+        "example_vi": "Cô ấy ký hợp đồng hai năm với công ty.",
+        "related": [
+          {
+            "w": "contraction",
+            "pos": "n.",
+            "vi": "sự co lại"
+          }
+        ]
+      },
+      {
+        "word": "subtract",
+        "pos": "v.",
+        "ipa": "/səbˈtrækt/",
+        "parts": [
+          {
+            "t": "sub",
+            "k": "pre",
+            "vi": "xuống dưới"
+          },
+          {
+            "t": "tract",
+            "k": "root",
+            "vi": "kéo"
+          }
+        ],
+        "meaning": "trừ đi",
+        "story": "kéo bớt xuống một phần",
+        "emoji": "➖",
+        "example": "Subtract your expenses from your income.",
+        "example_vi": "Lấy thu nhập trừ đi chi phí.",
+        "related": []
+      },
+      {
+        "word": "retract",
+        "pos": "v.",
+        "ipa": "/rɪˈtrækt/",
+        "parts": [
+          {
+            "t": "re",
+            "k": "pre",
+            "vi": "trở lại"
+          },
+          {
+            "t": "tract",
+            "k": "root",
+            "vi": "kéo"
+          }
+        ],
+        "meaning": "rút lại (lời nói, tuyên bố)",
+        "story": "kéo lời nói đã thốt ra quay trở lại",
+        "emoji": "↩️",
+        "example": "The newspaper retracted the false story.",
+        "example_vi": "Tờ báo rút lại bài viết sai sự thật.",
+        "related": []
+      },
+      {
+        "word": "traction",
+        "pos": "n.",
+        "ipa": "/ˈtrækʃn/",
+        "parts": [
+          {
+            "t": "tract",
+            "k": "root",
+            "vi": "kéo"
+          },
+          {
+            "t": "ion",
+            "k": "suf",
+            "vi": "danh từ"
+          }
+        ],
+        "meaning": "lực bám; sự ủng hộ ngày càng lớn",
+        "story": "lực kéo giúp bánh xe, hay một ý tưởng, tiến lên được",
+        "emoji": "🛞",
+        "example": "The idea of remote work gained traction during the pandemic.",
+        "example_vi": "Ý tưởng làm việc từ xa được ủng hộ mạnh trong đại dịch.",
+        "related": []
+      }
+    ]
+  },
+  {
+    "id": "rupt",
+    "root": "rupt",
+    "origin": "Latin rumpere",
+    "core": "vỡ, bẻ gãy",
+    "emoji": "💥",
+    "image": "một cành cây gãy rắc làm đôi",
+    "hook": "{{erupt}}, {{interrupt}}, {{disrupt}}: ba kiểu “vỡ” khác nhau trong tiếng Anh.",
+    "words": [
+      {
+        "word": "erupt",
+        "pos": "v.",
+        "ipa": "/ɪˈrʌpt/",
+        "parts": [
+          {
+            "t": "e",
+            "k": "pre",
+            "vi": "ra ngoài"
+          },
+          {
+            "t": "rupt",
+            "k": "root",
+            "vi": "vỡ"
+          }
+        ],
+        "meaning": "phun trào; bùng nổ",
+        "story": "vỡ toang ra ngoài như núi lửa",
+        "emoji": "🌋",
+        "example": "Violence erupted after the election.",
+        "example_vi": "Bạo lực bùng phát sau cuộc bầu cử.",
+        "related": [
+          {
+            "w": "eruption",
+            "pos": "n.",
+            "vi": "sự phun trào"
+          }
+        ]
+      },
+      {
+        "word": "interrupt",
+        "pos": "v.",
+        "ipa": "/ˌɪntəˈrʌpt/",
+        "parts": [
+          {
+            "t": "inter",
+            "k": "pre",
+            "vi": "ở giữa"
+          },
+          {
+            "t": "rupt",
+            "k": "root",
+            "vi": "bẻ gãy"
+          }
+        ],
+        "meaning": "ngắt lời, làm gián đoạn",
+        "story": "bẻ gãy câu chuyện ngay ở giữa",
+        "emoji": "✋",
+        "example": "Please don't interrupt me while I'm speaking.",
+        "example_vi": "Làm ơn đừng ngắt lời khi tôi đang nói.",
+        "related": [
+          {
+            "w": "interruption",
+            "pos": "n.",
+            "vi": "sự gián đoạn"
+          }
+        ]
+      },
+      {
+        "word": "disrupt",
+        "pos": "v.",
+        "ipa": "/dɪsˈrʌpt/",
+        "parts": [
+          {
+            "t": "dis",
+            "k": "pre",
+            "vi": "tách rời"
+          },
+          {
+            "t": "rupt",
+            "k": "root",
+            "vi": "vỡ"
+          }
+        ],
+        "meaning": "làm gián đoạn, đảo lộn",
+        "story": "làm một hệ thống vỡ tách ra từng mảnh",
+        "emoji": "🚧",
+        "example": "The strike disrupted train services nationwide.",
+        "example_vi": "Cuộc đình công làm gián đoạn tàu hỏa trên toàn quốc.",
+        "related": [
+          {
+            "w": "disruption",
+            "pos": "n.",
+            "vi": "sự gián đoạn"
+          },
+          {
+            "w": "disruptive",
+            "pos": "adj.",
+            "vi": "gây xáo trộn"
+          }
+        ]
+      },
+      {
+        "word": "corrupt",
+        "pos": "adj. / v.",
+        "ipa": "/kəˈrʌpt/",
+        "parts": [
+          {
+            "t": "cor",
+            "k": "pre",
+            "vi": "hoàn toàn"
+          },
+          {
+            "t": "rupt",
+            "k": "root",
+            "vi": "vỡ"
+          }
+        ],
+        "meaning": "tham nhũng, thối nát; làm hỏng",
+        "story": "đạo đức bị vỡ nát hoàn toàn",
+        "emoji": "💰",
+        "example": "Corrupt officials should be punished severely.",
+        "example_vi": "Quan chức tham nhũng cần bị trừng phạt nặng.",
+        "related": [
+          {
+            "w": "corruption",
+            "pos": "n.",
+            "vi": "sự tham nhũng"
+          }
+        ]
+      },
+      {
+        "word": "bankrupt",
+        "pos": "adj.",
+        "ipa": "/ˈbæŋkrʌpt/",
+        "parts": [
+          {
+            "t": "bank",
+            "k": "pre",
+            "vi": "bàn, quầy tiền"
+          },
+          {
+            "t": "rupt",
+            "k": "root",
+            "vi": "gãy"
+          }
+        ],
+        "meaning": "phá sản",
+        "story": "quầy tiền bị đập gãy: hết khả năng trả nợ",
+        "emoji": "📉",
+        "example": "Many small shops went bankrupt during the crisis.",
+        "example_vi": "Nhiều cửa hàng nhỏ phá sản trong khủng hoảng.",
+        "related": [
+          {
+            "w": "bankruptcy",
+            "pos": "n.",
+            "vi": "sự phá sản"
+          }
+        ]
+      },
+      {
+        "word": "abrupt",
+        "pos": "adj.",
+        "ipa": "/əˈbrʌpt/",
+        "parts": [
+          {
+            "t": "ab",
+            "k": "pre",
+            "vi": "rời khỏi"
+          },
+          {
+            "t": "rupt",
+            "k": "root",
+            "vi": "gãy"
+          }
+        ],
+        "meaning": "đột ngột; cộc lốc",
+        "story": "gãy rời ra bất thình lình, không báo trước",
+        "emoji": "⛔",
+        "example": "The meeting came to an abrupt end.",
+        "example_vi": "Cuộc họp kết thúc đột ngột.",
+        "related": [
+          {
+            "w": "abruptly",
+            "pos": "adv.",
+            "vi": "một cách đột ngột"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "vert",
+    "root": "vert / vers",
+    "origin": "Latin vertere",
+    "core": "xoay, quay",
+    "emoji": "🔄",
+    "image": "một mũi tên đang quay vòng",
+    "hook": "{{introvert}}, {{convert}}, {{diverse}}, {{controversy}}: tất cả đều đang “xoay”.",
+    "words": [
+      {
+        "word": "convert",
+        "pos": "v.",
+        "ipa": "/kənˈvɜːt/",
+        "parts": [
+          {
+            "t": "con",
+            "k": "pre",
+            "vi": "hoàn toàn"
+          },
+          {
+            "t": "vert",
+            "k": "root",
+            "vi": "xoay"
+          }
+        ],
+        "meaning": "chuyển đổi",
+        "story": "xoay một thứ hoàn toàn sang dạng khác",
+        "emoji": "♻️",
+        "example": "The old factory was converted into apartments.",
+        "example_vi": "Nhà máy cũ được chuyển đổi thành căn hộ.",
+        "related": [
+          {
+            "w": "conversion",
+            "pos": "n.",
+            "vi": "sự chuyển đổi"
+          }
+        ]
+      },
+      {
+        "word": "divert",
+        "pos": "v.",
+        "ipa": "/daɪˈvɜːt/",
+        "parts": [
+          {
+            "t": "di",
+            "k": "pre",
+            "vi": "sang hướng khác"
+          },
+          {
+            "t": "vert",
+            "k": "root",
+            "vi": "xoay"
+          }
+        ],
+        "meaning": "chuyển hướng",
+        "story": "xoay dòng chảy sang một lối khác",
+        "emoji": "↪️",
+        "example": "Funds were diverted from education to defence.",
+        "example_vi": "Ngân sách bị chuyển từ giáo dục sang quốc phòng.",
+        "related": [
+          {
+            "w": "diversion",
+            "pos": "n.",
+            "vi": "sự chuyển hướng"
+          }
+        ]
+      },
+      {
+        "word": "reverse",
+        "pos": "v. / adj.",
+        "ipa": "/rɪˈvɜːs/",
+        "parts": [
+          {
+            "t": "re",
+            "k": "pre",
+            "vi": "trở lại"
+          },
+          {
+            "t": "verse",
+            "k": "root",
+            "vi": "xoay"
+          }
+        ],
+        "meaning": "đảo ngược",
+        "story": "xoay lại theo chiều ngược hẳn",
+        "emoji": "⏪",
+        "example": "It is not too late to reverse climate change.",
+        "example_vi": "Vẫn chưa quá muộn để đảo ngược biến đổi khí hậu.",
+        "related": [
+          {
+            "w": "irreversible",
+            "pos": "adj.",
+            "vi": "không thể đảo ngược"
+          }
+        ]
+      },
+      {
+        "word": "diverse",
+        "pos": "adj.",
+        "ipa": "/daɪˈvɜːs/",
+        "parts": [
+          {
+            "t": "di",
+            "k": "pre",
+            "vi": "nhiều hướng"
+          },
+          {
+            "t": "verse",
+            "k": "root",
+            "vi": "xoay"
+          }
+        ],
+        "meaning": "đa dạng",
+        "story": "mỗi thứ xoay về một hướng khác nhau",
+        "emoji": "🌈",
+        "example": "London is one of the most diverse cities in the world.",
+        "example_vi": "London là một trong những thành phố đa dạng nhất thế giới.",
+        "related": [
+          {
+            "w": "diversity",
+            "pos": "n.",
+            "vi": "sự đa dạng"
+          }
+        ]
+      },
+      {
+        "word": "introvert",
+        "pos": "n.",
+        "ipa": "/ˈɪntrəvɜːt/",
+        "parts": [
+          {
+            "t": "intro",
+            "k": "pre",
+            "vi": "vào trong"
+          },
+          {
+            "t": "vert",
+            "k": "root",
+            "vi": "xoay"
+          }
+        ],
+        "meaning": "người hướng nội",
+        "story": "người có năng lượng xoay vào bên trong",
+        "emoji": "🧘",
+        "example": "Introverts often prefer working alone.",
+        "example_vi": "Người hướng nội thường thích làm việc một mình.",
+        "related": [
+          {
+            "w": "extrovert",
+            "pos": "n.",
+            "vi": "người hướng ngoại"
+          }
+        ]
+      },
+      {
+        "word": "controversy",
+        "pos": "n.",
+        "ipa": "/ˈkɒntrəvɜːsi/",
+        "parts": [
+          {
+            "t": "contro",
+            "k": "pre",
+            "vi": "chống lại"
+          },
+          {
+            "t": "vers",
+            "k": "root",
+            "vi": "xoay"
+          },
+          {
+            "t": "y",
+            "k": "suf",
+            "vi": "danh từ"
+          }
+        ],
+        "meaning": "cuộc tranh cãi",
+        "story": "hai phe xoay mặt chống lại nhau",
+        "emoji": "⚔️",
+        "example": "The decision caused a lot of controversy.",
+        "example_vi": "Quyết định gây ra nhiều tranh cãi.",
+        "related": [
+          {
+            "w": "controversial",
+            "pos": "adj.",
+            "vi": "gây tranh cãi"
+          }
+        ]
+      },
+      {
+        "word": "versatile",
+        "pos": "adj.",
+        "ipa": "/ˈvɜːsətaɪl/",
+        "parts": [
+          {
+            "t": "vers",
+            "k": "root",
+            "vi": "xoay"
+          },
+          {
+            "t": "atile",
+            "k": "suf",
+            "vi": "có thể"
+          }
+        ],
+        "meaning": "đa năng, linh hoạt",
+        "story": "xoay được sang làm đủ mọi việc",
+        "emoji": "🧰",
+        "example": "Bamboo is a versatile building material.",
+        "example_vi": "Tre là vật liệu xây dựng đa năng.",
+        "related": []
+      }
+    ]
+  },
+  {
+    "id": "duc",
+    "root": "duc / duct",
+    "say_root": "duct",
+    "origin": "Latin ducere",
+    "core": "dẫn dắt",
+    "emoji": "🧭",
+    "image": "một người cầm đèn đi trước dẫn đường",
+    "hook": "{{reduce}}, {{produce}}, {{educate}}: hóa ra đều là “dẫn dắt”.",
+    "words": [
+      {
+        "word": "reduce",
+        "pos": "v.",
+        "ipa": "/rɪˈdjuːs/",
+        "parts": [
+          {
+            "t": "re",
+            "k": "pre",
+            "vi": "lùi lại"
+          },
+          {
+            "t": "duce",
+            "k": "root",
+            "vi": "dẫn"
+          }
+        ],
+        "meaning": "giảm",
+        "story": "dẫn một con số lùi trở về mức thấp hơn",
+        "emoji": "📉",
+        "example": "Cycling to work can reduce air pollution.",
+        "example_vi": "Đạp xe đi làm có thể giảm ô nhiễm không khí.",
+        "related": [
+          {
+            "w": "reduction",
+            "pos": "n.",
+            "vi": "sự giảm"
+          }
+        ]
+      },
+      {
+        "word": "produce",
+        "pos": "v.",
+        "ipa": "/prəˈdjuːs/",
+        "parts": [
+          {
+            "t": "pro",
+            "k": "pre",
+            "vi": "ra phía trước"
+          },
+          {
+            "t": "duce",
+            "k": "root",
+            "vi": "dẫn"
+          }
+        ],
+        "meaning": "sản xuất, tạo ra",
+        "story": "dẫn một thứ từ chỗ chưa có ra phía trước mặt mọi người",
+        "emoji": "🏭",
+        "example": "This region produces most of the country's rice.",
+        "example_vi": "Vùng này sản xuất phần lớn lúa gạo của cả nước.",
+        "related": [
+          {
+            "w": "productive",
+            "pos": "adj.",
+            "vi": "năng suất"
+          },
+          {
+            "w": "productivity",
+            "pos": "n.",
+            "vi": "năng suất"
+          }
+        ]
+      },
+      {
+        "word": "introduce",
+        "pos": "v.",
+        "ipa": "/ˌɪntrəˈdjuːs/",
+        "parts": [
+          {
+            "t": "intro",
+            "k": "pre",
+            "vi": "vào trong"
+          },
+          {
+            "t": "duce",
+            "k": "root",
+            "vi": "dẫn"
+          }
+        ],
+        "meaning": "giới thiệu; đưa vào áp dụng",
+        "story": "dẫn một người hay một luật mới bước vào trong",
+        "emoji": "🙋",
+        "example": "The city introduced a ban on plastic bags.",
+        "example_vi": "Thành phố đưa ra lệnh cấm túi nilon.",
+        "related": [
+          {
+            "w": "introduction",
+            "pos": "n.",
+            "vi": "sự giới thiệu"
+          }
+        ]
+      },
+      {
+        "word": "educate",
+        "pos": "v.",
+        "ipa": "/ˈedʒukeɪt/",
+        "parts": [
+          {
+            "t": "e",
+            "k": "pre",
+            "vi": "ra ngoài"
+          },
+          {
+            "t": "duc",
+            "k": "root",
+            "vi": "dẫn"
+          },
+          {
+            "t": "ate",
+            "k": "suf",
+            "vi": "động từ"
+          }
+        ],
+        "meaning": "giáo dục",
+        "story": "dẫn một người ra khỏi sự thiếu hiểu biết",
+        "emoji": "🎓",
+        "example": "We need to educate people about healthy eating.",
+        "example_vi": "Chúng ta cần giáo dục mọi người về ăn uống lành mạnh.",
+        "related": [
+          {
+            "w": "education",
+            "pos": "n.",
+            "vi": "nền giáo dục"
+          }
+        ]
+      },
+      {
+        "word": "induce",
+        "pos": "v.",
+        "ipa": "/ɪnˈdjuːs/",
+        "parts": [
+          {
+            "t": "in",
+            "k": "pre",
+            "vi": "vào"
+          },
+          {
+            "t": "duce",
+            "k": "root",
+            "vi": "dẫn"
+          }
+        ],
+        "meaning": "xui khiến; gây ra",
+        "story": "dẫn ai đó đi vào một hành động hay trạng thái",
+        "emoji": "😴",
+        "example": "Some medicines can induce sleep.",
+        "example_vi": "Một số loại thuốc có thể gây buồn ngủ.",
+        "related": []
+      },
+      {
+        "word": "deduce",
+        "pos": "v.",
+        "ipa": "/dɪˈdjuːs/",
+        "parts": [
+          {
+            "t": "de",
+            "k": "pre",
+            "vi": "từ ... xuống"
+          },
+          {
+            "t": "duce",
+            "k": "root",
+            "vi": "dẫn"
+          }
+        ],
+        "meaning": "suy ra, suy luận",
+        "story": "dẫn từ những dữ kiện xuống tới kết luận",
+        "emoji": "🧠",
+        "example": "From the data, we can deduce that sales are falling.",
+        "example_vi": "Từ số liệu, ta có thể suy ra doanh số đang giảm.",
+        "related": [
+          {
+            "w": "deduction",
+            "pos": "n.",
+            "vi": "sự suy luận; khoản khấu trừ"
+          }
+        ]
+      },
+      {
+        "word": "conduct",
+        "pos": "v. / n.",
+        "ipa": "/kənˈdʌkt/",
+        "parts": [
+          {
+            "t": "con",
+            "k": "pre",
+            "vi": "cùng nhau"
+          },
+          {
+            "t": "duct",
+            "k": "root",
+            "vi": "dẫn"
+          }
+        ],
+        "meaning": "tiến hành; chỉ huy; hạnh kiểm",
+        "story": "dẫn cả nhóm cùng nhau làm một việc",
+        "emoji": "🎼",
+        "example": "Researchers conducted a survey of 2,000 students.",
+        "example_vi": "Nhà nghiên cứu tiến hành khảo sát 2.000 sinh viên.",
+        "related": [
+          {
+            "w": "conductor",
+            "pos": "n.",
+            "vi": "nhạc trưởng; chất dẫn"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ced",
+    "root": "ced / ceed / cess",
+    "say_root": "cede",
+    "origin": "Latin cedere",
+    "core": "đi; nhường",
+    "emoji": "🚶",
+    "image": "những bước chân đang đi về phía trước",
+    "hook": "{{precede}}, {{proceed}}, {{exceed}}: cùng là “đi”, nhưng đi trước, đi tiếp hay đi quá?",
+    "words": [
+      {
+        "word": "precede",
+        "pos": "v.",
+        "ipa": "/prɪˈsiːd/",
+        "parts": [
+          {
+            "t": "pre",
+            "k": "pre",
+            "vi": "trước"
+          },
+          {
+            "t": "cede",
+            "k": "root",
+            "vi": "đi"
+          }
+        ],
+        "meaning": "đi trước, xảy ra trước",
+        "story": "đi trước một người khác một bước",
+        "emoji": "🥇",
+        "example": "A short speech preceded the ceremony.",
+        "example_vi": "Một bài phát biểu ngắn diễn ra trước buổi lễ.",
+        "related": [
+          {
+            "w": "unprecedented",
+            "pos": "adj.",
+            "vi": "chưa từng có"
+          },
+          {
+            "w": "predecessor",
+            "pos": "n.",
+            "vi": "người tiền nhiệm"
+          }
+        ]
+      },
+      {
+        "word": "proceed",
+        "pos": "v.",
+        "ipa": "/prəˈsiːd/",
+        "parts": [
+          {
+            "t": "pro",
+            "k": "pre",
+            "vi": "về phía trước"
+          },
+          {
+            "t": "ceed",
+            "k": "root",
+            "vi": "đi"
+          }
+        ],
+        "meaning": "tiếp tục, tiến hành",
+        "story": "cứ thế đi tiếp về phía trước",
+        "emoji": "➡️",
+        "example": "Passengers should proceed to gate 12.",
+        "example_vi": "Hành khách vui lòng đi tới cổng 12.",
+        "related": [
+          {
+            "w": "procedure",
+            "pos": "n.",
+            "vi": "thủ tục"
+          },
+          {
+            "w": "process",
+            "pos": "n.",
+            "vi": "quá trình"
+          }
+        ]
+      },
+      {
+        "word": "exceed",
+        "pos": "v.",
+        "ipa": "/ɪkˈsiːd/",
+        "parts": [
+          {
+            "t": "ex",
+            "k": "pre",
+            "vi": "ra ngoài"
+          },
+          {
+            "t": "ceed",
+            "k": "root",
+            "vi": "đi"
+          }
+        ],
+        "meaning": "vượt quá",
+        "story": "đi ra ngoài giới hạn cho phép",
+        "emoji": "🚨",
+        "example": "Never exceed the speed limit.",
+        "example_vi": "Đừng bao giờ vượt quá tốc độ cho phép.",
+        "related": [
+          {
+            "w": "excess",
+            "pos": "n.",
+            "vi": "sự dư thừa"
+          },
+          {
+            "w": "excessive",
+            "pos": "adj.",
+            "vi": "quá mức"
+          }
+        ]
+      },
+      {
+        "word": "recede",
+        "pos": "v.",
+        "ipa": "/rɪˈsiːd/",
+        "parts": [
+          {
+            "t": "re",
+            "k": "pre",
+            "vi": "lùi lại"
+          },
+          {
+            "t": "cede",
+            "k": "root",
+            "vi": "đi"
+          }
+        ],
+        "meaning": "rút xuống, lùi xa",
+        "story": "đi lùi trở lại, như nước lũ rút",
+        "emoji": "🌊",
+        "example": "The floodwaters slowly receded.",
+        "example_vi": "Nước lũ rút dần.",
+        "related": [
+          {
+            "w": "recession",
+            "pos": "n.",
+            "vi": "suy thoái kinh tế"
+          }
+        ]
+      },
+      {
+        "word": "concede",
+        "pos": "v.",
+        "ipa": "/kənˈsiːd/",
+        "parts": [
+          {
+            "t": "con",
+            "k": "pre",
+            "vi": "hoàn toàn"
+          },
+          {
+            "t": "cede",
+            "k": "root",
+            "vi": "nhường"
+          }
+        ],
+        "meaning": "thừa nhận (miễn cưỡng); nhượng bộ",
+        "story": "nhường hẳn một bước, chịu nhận là đối phương đúng",
+        "emoji": "🏳️",
+        "example": "He conceded that the plan had some weaknesses.",
+        "example_vi": "Anh ấy thừa nhận kế hoạch có vài điểm yếu.",
+        "related": [
+          {
+            "w": "concession",
+            "pos": "n.",
+            "vi": "sự nhượng bộ"
+          }
+        ]
+      },
+      {
+        "word": "access",
+        "pos": "n. / v.",
+        "ipa": "/ˈækses/",
+        "parts": [
+          {
+            "t": "ac",
+            "k": "pre",
+            "vi": "tới"
+          },
+          {
+            "t": "cess",
+            "k": "root",
+            "vi": "đi"
+          }
+        ],
+        "meaning": "quyền / lối tiếp cận",
+        "story": "con đường để đi tới một nơi",
+        "emoji": "🔑",
+        "example": "Many rural children lack access to the internet.",
+        "example_vi": "Nhiều trẻ em nông thôn không được tiếp cận Internet.",
+        "related": [
+          {
+            "w": "accessible",
+            "pos": "adj.",
+            "vi": "dễ tiếp cận"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cred",
+    "root": "cred",
+    "origin": "Latin credere",
+    "core": "tin",
+    "emoji": "🤞",
+    "image": "một cái bắt tay tin tưởng",
+    "hook": "{{credible}} và {{credulous}}: một chữ khen, một chữ chê, cùng gốc “tin”.",
+    "words": [
+      {
+        "word": "credible",
+        "pos": "adj.",
+        "ipa": "/ˈkredəbl/",
+        "parts": [
+          {
+            "t": "cred",
+            "k": "root",
+            "vi": "tin"
+          },
+          {
+            "t": "ible",
+            "k": "suf",
+            "vi": "có thể"
+          }
+        ],
+        "meaning": "đáng tin",
+        "story": "có thể tin được",
+        "emoji": "✅",
+        "example": "Students should use credible sources in essays.",
+        "example_vi": "Sinh viên nên dùng nguồn đáng tin trong bài luận.",
+        "related": [
+          {
+            "w": "credibility",
+            "pos": "n.",
+            "vi": "độ tin cậy"
+          }
+        ]
+      },
+      {
+        "word": "incredible",
+        "pos": "adj.",
+        "ipa": "/ɪnˈkredəbl/",
+        "parts": [
+          {
+            "t": "in",
+            "k": "pre",
+            "vi": "không"
+          },
+          {
+            "t": "cred",
+            "k": "root",
+            "vi": "tin"
+          },
+          {
+            "t": "ible",
+            "k": "suf",
+            "vi": "có thể"
+          }
+        ],
+        "meaning": "khó tin, phi thường",
+        "story": "tuyệt đến mức không thể tin nổi",
+        "emoji": "🤩",
+        "example": "The view from the top was incredible.",
+        "example_vi": "Khung cảnh từ đỉnh núi thật phi thường.",
+        "related": []
+      },
+      {
+        "word": "credit",
+        "pos": "n.",
+        "ipa": "/ˈkredɪt/",
+        "parts": [
+          {
+            "t": "cred",
+            "k": "root",
+            "vi": "tin"
+          },
+          {
+            "t": "it",
+            "k": "suf",
+            "vi": "danh từ"
+          }
+        ],
+        "meaning": "tín dụng; sự công nhận",
+        "story": "ngân hàng tin bạn sẽ trả, nên cho bạn vay",
+        "emoji": "💳",
+        "example": "She deserves credit for the team's success.",
+        "example_vi": "Cô ấy xứng đáng được ghi nhận cho thành công của đội.",
+        "related": [
+          {
+            "w": "discredit",
+            "pos": "v.",
+            "vi": "làm mất uy tín"
+          }
+        ]
+      },
+      {
+        "word": "credentials",
+        "pos": "n.",
+        "ipa": "/krəˈdenʃlz/",
+        "parts": [
+          {
+            "t": "cred",
+            "k": "root",
+            "vi": "tin"
+          },
+          {
+            "t": "entials",
+            "k": "suf",
+            "vi": "danh từ"
+          }
+        ],
+        "meaning": "bằng cấp, giấy chứng nhận năng lực",
+        "story": "giấy tờ khiến người khác tin vào bạn",
+        "emoji": "📜",
+        "example": "Applicants must have strong academic credentials.",
+        "example_vi": "Ứng viên phải có bằng cấp học thuật tốt.",
+        "related": []
+      },
+      {
+        "word": "credulous",
+        "pos": "adj.",
+        "ipa": "/ˈkredjələs/",
+        "parts": [
+          {
+            "t": "cred",
+            "k": "root",
+            "vi": "tin"
+          },
+          {
+            "t": "ulous",
+            "k": "suf",
+            "vi": "quá mức"
+          }
+        ],
+        "meaning": "cả tin, dễ tin",
+        "story": "tin quá mức, ai nói gì cũng tin",
+        "emoji": "🐑",
+        "example": "Credulous users often share fake news.",
+        "example_vi": "Người dùng cả tin thường chia sẻ tin giả.",
+        "related": [
+          {
+            "w": "incredulous",
+            "pos": "adj.",
+            "vi": "hoài nghi"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tain",
+    "root": "tain / ten",
+    "origin": "Latin tenere",
+    "core": "giữ",
+    "emoji": "✊",
+    "image": "một bàn tay nắm chặt",
+    "hook": "{{maintain}}, {{obtain}}, {{retain}}, {{sustain}}: bốn kiểu “giữ” mà IELTS rất thích.",
+    "words": [
+      {
+        "word": "contain",
+        "pos": "v.",
+        "ipa": "/kənˈteɪn/",
+        "parts": [
+          {
+            "t": "con",
+            "k": "pre",
+            "vi": "cùng, toàn bộ"
+          },
+          {
+            "t": "tain",
+            "k": "root",
+            "vi": "giữ"
+          }
+        ],
+        "meaning": "chứa; kiềm chế",
+        "story": "giữ tất cả mọi thứ ở cùng một chỗ bên trong",
+        "emoji": "🫙",
+        "example": "Fast food often contains too much salt.",
+        "example_vi": "Đồ ăn nhanh thường chứa quá nhiều muối.",
+        "related": [
+          {
+            "w": "container",
+            "pos": "n.",
+            "vi": "thùng chứa"
+          }
+        ]
+      },
+      {
+        "word": "maintain",
+        "pos": "v.",
+        "ipa": "/meɪnˈteɪn/",
+        "parts": [
+          {
+            "t": "main",
+            "k": "pre",
+            "vi": "bàn tay"
+          },
+          {
+            "t": "tain",
+            "k": "root",
+            "vi": "giữ"
+          }
+        ],
+        "meaning": "duy trì, bảo dưỡng",
+        "story": "giữ một thứ trong tay để nó luôn ổn định",
+        "emoji": "🔧",
+        "example": "It is important to maintain a healthy weight.",
+        "example_vi": "Duy trì cân nặng hợp lý là điều quan trọng.",
+        "related": [
+          {
+            "w": "maintenance",
+            "pos": "n.",
+            "vi": "sự bảo trì"
+          }
+        ]
+      },
+      {
+        "word": "obtain",
+        "pos": "v.",
+        "ipa": "/əbˈteɪn/",
+        "parts": [
+          {
+            "t": "ob",
+            "k": "pre",
+            "vi": "hướng tới"
+          },
+          {
+            "t": "tain",
+            "k": "root",
+            "vi": "giữ"
+          }
+        ],
+        "meaning": "đạt được, có được",
+        "story": "với tới một thứ rồi giữ lấy nó",
+        "emoji": "🏆",
+        "example": "You need to obtain a visa before you travel.",
+        "example_vi": "Bạn cần xin thị thực trước khi đi.",
+        "related": []
+      },
+      {
+        "word": "retain",
+        "pos": "v.",
+        "ipa": "/rɪˈteɪn/",
+        "parts": [
+          {
+            "t": "re",
+            "k": "pre",
+            "vi": "lại"
+          },
+          {
+            "t": "tain",
+            "k": "root",
+            "vi": "giữ"
+          }
+        ],
+        "meaning": "giữ lại",
+        "story": "giữ lại, không để mất đi",
+        "emoji": "🧠",
+        "example": "Companies struggle to retain good staff.",
+        "example_vi": "Các công ty chật vật để giữ chân nhân viên giỏi.",
+        "related": [
+          {
+            "w": "retention",
+            "pos": "n.",
+            "vi": "sự giữ lại"
+          }
+        ]
+      },
+      {
+        "word": "sustain",
+        "pos": "v.",
+        "ipa": "/səˈsteɪn/",
+        "parts": [
+          {
+            "t": "sus",
+            "k": "pre",
+            "vi": "từ bên dưới"
+          },
+          {
+            "t": "tain",
+            "k": "root",
+            "vi": "giữ"
+          }
+        ],
+        "meaning": "duy trì lâu dài; chống đỡ",
+        "story": "giữ từ bên dưới để một thứ đứng vững lâu",
+        "emoji": "🌱",
+        "example": "Can the planet sustain this level of growth?",
+        "example_vi": "Hành tinh có duy trì nổi mức tăng trưởng này không?",
+        "related": [
+          {
+            "w": "sustainable",
+            "pos": "adj.",
+            "vi": "bền vững"
+          },
+          {
+            "w": "sustainability",
+            "pos": "n.",
+            "vi": "tính bền vững"
+          }
+        ]
+      },
+      {
+        "word": "detain",
+        "pos": "v.",
+        "ipa": "/dɪˈteɪn/",
+        "parts": [
+          {
+            "t": "de",
+            "k": "pre",
+            "vi": "tách ra"
+          },
+          {
+            "t": "tain",
+            "k": "root",
+            "vi": "giữ"
+          }
+        ],
+        "meaning": "giam giữ",
+        "story": "giữ một người tách khỏi tự do",
+        "emoji": "🚔",
+        "example": "Two men were detained for questioning.",
+        "example_vi": "Hai người đàn ông bị tạm giữ để thẩm vấn.",
+        "related": [
+          {
+            "w": "detention",
+            "pos": "n.",
+            "vi": "sự giam giữ"
+          }
+        ]
+      },
+      {
+        "word": "tenant",
+        "pos": "n.",
+        "ipa": "/ˈtenənt/",
+        "parts": [
+          {
+            "t": "ten",
+            "k": "root",
+            "vi": "giữ"
+          },
+          {
+            "t": "ant",
+            "k": "suf",
+            "vi": "người"
+          }
+        ],
+        "meaning": "người thuê nhà",
+        "story": "người đang giữ căn nhà, dù không phải chủ",
+        "emoji": "🏠",
+        "example": "Tenants complained about the rising rent.",
+        "example_vi": "Người thuê nhà phàn nàn về tiền thuê tăng.",
+        "related": [
+          {
+            "w": "tenacious",
+            "pos": "adj.",
+            "vi": "bền bỉ, kiên trì"
+          }
+        ]
+      }
+    ]
+  }
+]
