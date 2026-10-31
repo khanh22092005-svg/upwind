@@ -4,12 +4,15 @@
 //   node make-video.mjs voc                 # one family
 //   node make-video.mjs all                 # every family
 //   node make-video.mjs spect --max 4       # split long families: part 1 = words 1-4 ...
-//   node make-video.mjs voc --tts edge      # better voices (needs: pip install edge-tts)
+//   node make-video.mjs voc --voice "Hải Đăng"  # any VieNeu preset voice (default TTS)
+//   node make-video.mjs voc --tts gtts      # Google voices instead (pip install gTTS)
+//   node make-video.mjs voc --tts edge      # Microsoft voices instead (pip install edge-tts)
 //   node make-video.mjs voc --tts none      # silent draft, timed from text length
 //   node make-video.mjs voc --bgm music.mp3 # quiet background music under the voice
 //
 // Output: out/<id>[-pN]/video.mp4 + caption.txt (post text + pinned-comment answer) + scene PNGs.
-// Needs: node + playwright, ffmpeg/ffprobe, and gtts-cli (pip install gTTS) or edge-tts.
+// Needs: node + playwright, ffmpeg/ffprobe, and VieNeu-TTS (pip install vieneu).
+// If vieneu is not installed it falls back to gtts-cli (pip install gTTS).
 import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
@@ -29,13 +32,16 @@ const opt = (name, def) => {
   return i >= 0 ? args[i + 1] : def;
 };
 const target = args.find((a) => !a.startsWith("--") && args[args.indexOf(a) - 1]?.startsWith("--") !== true) ?? "all";
-const TTS = opt("tts", "gtts");
+let TTS = opt("tts", "vieneu");
 const MAX = Number(opt("max", 0)) || 0;
 const BGM = opt("bgm", "");
 const VOICES = {
   edge: { vi: opt("vi-voice", "vi-VN-HoaiMyNeural"), en: opt("en-voice", "en-GB-SoniaNeural") },
   gtts: { vi: "vi", en: "en" },
+  vieneu: { vi: opt("voice", "Ngọc Huyền"), en: opt("voice", "Ngọc Huyền") },
 };
+const PY = process.env.VIENEU_PYTHON || "python3";
+const VIENEU_SCRIPT = path.join(ROOT_DIR, "lib", "vieneu_tts.py");
 
 const run = (cmd, a) => execFileSync(cmd, a, { stdio: ["ignore", "pipe", "pipe"] }).toString();
 const duration = (f) => Number(run("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", f]));
@@ -44,10 +50,33 @@ const duration = (f) => Number(run("ffprobe", ["-v", "error", "-show_entries", "
 const CACHE = path.join(OUT_DIR, ".tts-cache");
 ensureDir(CACHE);
 
+const cachePath = (text, lang) =>
+  path.join(CACHE, crypto.createHash("sha1").update(`${TTS}|${lang}|${VOICES[TTS]?.[lang]}|${text}`).digest("hex").slice(0, 16) + (TTS === "vieneu" ? ".wav" : ".mp3"));
+const cached = (f) => fs.existsSync(f) && fs.statSync(f).size > 0;
+
+/** What gets spoken for a scene. VieNeu is bilingual, so it reads the whole line (English words included)
+ *  in one pass, which sounds far more natural than stitched clips. gTTS/edge get one clip per language. */
+const sceneChunks = (scene) => (TTS === "vieneu" ? [{ lang: "vi", text: plain(scene.say) }] : chunks(scene.say));
+
+/** VieNeu: render every missing line for a video in one Python process (the model loads once, ~10 s). */
+function prefetchVieneu(scenes) {
+  const jobs = [];
+  for (const s of scenes)
+    for (const c of sceneChunks(s)) {
+      const out = cachePath(c.text, c.lang);
+      if (!cached(out) && !jobs.some((j) => j.out === out)) jobs.push({ text: c.text, out });
+    }
+  if (!jobs.length) return;
+  const file = path.join(CACHE, "jobs.json");
+  fs.writeFileSync(file, JSON.stringify({ voice: VOICES.vieneu.vi, jobs }));
+  console.log(`  VieNeu-TTS: ${jobs.length} lines, voice "${VOICES.vieneu.vi}"`);
+  execFileSync(PY, [VIENEU_SCRIPT, file], { stdio: ["ignore", "inherit", "inherit"] });
+}
+
 function ttsChunk(text, lang) {
-  const key = crypto.createHash("sha1").update(`${TTS}|${lang}|${VOICES[TTS]?.[lang]}|${text}`).digest("hex").slice(0, 16);
-  const mp3 = path.join(CACHE, `${key}.mp3`);
-  if (fs.existsSync(mp3) && fs.statSync(mp3).size > 0) return mp3;
+  const mp3 = cachePath(text, lang);
+  if (cached(mp3)) return mp3;
+  if (TTS === "vieneu") throw new Error(`VieNeu did not produce audio for "${text}"`);
   for (let attempt = 1; ; attempt++) {
     try {
       if (TTS === "edge") {
@@ -71,7 +100,7 @@ function sceneAudio(scene, dir, idx) {
     run("ffmpeg", ["-y", "-v", "error", "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo", "-t", secs.toFixed(2), wav]);
     return wav;
   }
-  const parts = chunks(scene.say).map((c) => ttsChunk(c.text, c.lang));
+  const parts = sceneChunks(scene).map((c) => ttsChunk(c.text, c.lang));
   const inputs = parts.flatMap((p) => ["-i", p]);
   // gTTS pads each clip with silence; trim it so the English words sit inside the sentence naturally.
   const trim = "silenceremove=start_periods=1:start_threshold=-45dB,areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse";
@@ -100,6 +129,7 @@ async function makeOne(browser, family, logo, part) {
   const { scenes, words, quizAnswer } = buildScenes(family, part ? { from: part.from, max: MAX } : {});
   console.log(`▶ ${id}: ${words.length} words, ${scenes.length} scenes`);
 
+  if (TTS === "vieneu") prefetchVieneu(scenes);
   const page = await browser.newPage({ viewport: { width: W, height: H } });
   const list = [];
   for (const [i, scene] of scenes.entries()) {
@@ -146,6 +176,15 @@ async function makeOne(browser, family, logo, part) {
   ].join("\n");
   fs.writeFileSync(path.join(dir, "caption.txt"), caption + "\n");
   console.log(`  ✓ ${path.relative(ROOT_DIR, path.join(dir, "video.mp4"))} (${duration(path.join(dir, "video.mp4")).toFixed(0)}s)`);
+}
+
+if (TTS === "vieneu") {
+  try {
+    execFileSync(PY, [VIENEU_SCRIPT, "--check"], { stdio: "ignore" });
+  } catch {
+    console.warn(`! VieNeu-TTS not found for ${PY} (pip install vieneu). Falling back to --tts gtts.`);
+    TTS = "gtts";
+  }
 }
 
 const families = loadFamilies();
