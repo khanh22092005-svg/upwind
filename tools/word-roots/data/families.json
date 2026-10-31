@@ -8,6 +8,11 @@
     "emoji": "📣",
     "image": "một người mở miệng cất tiếng gọi để người khác nghe thấy mình",
     "hook": "Tại sao {{evoke}}, {{invoke}} và {{provoke}} đều có “voke”, mà nghĩa lại khác hẳn nhau?",
+    "bait": {
+      "word": "vocation ≠ vacation",
+      "literal": "sứ mệnh ≠ đi nghỉ",
+      "say": "{{Vocation}} và {{vacation}} chỉ khác nhau một chữ cái. Nhưng một từ là sứ mệnh cả đời, một từ là... đi nghỉ mát!"
+    },
     "words": [
       {
         "word": "evoke",
@@ -267,6 +272,11 @@
     "emoji": "👀",
     "image": "một đôi mắt đang chăm chú nhìn",
     "hook": "{{inspect}}, {{respect}}, {{suspect}}: cùng là “nhìn”, sao lại thành kiểm tra, tôn trọng và nghi ngờ?",
+    "bait": {
+      "word": "suspect",
+      "literal": "nhìn từ dưới lên",
+      "say": "Nghĩa đen của {{suspect}} là... nhìn ai đó từ dưới lên!"
+    },
     "words": [
       {
         "word": "inspect",
@@ -519,6 +529,11 @@
     "emoji": "🗣️",
     "image": "một cái miệng đang nói rõ ràng từng chữ",
     "hook": "{{predict}} và {{contradict}} khác nhau ở đâu, khi cả hai đều có “dict”?",
+    "bait": {
+      "word": "verdict",
+      "literal": "nói ra sự thật",
+      "say": "{{Verdict}}, phán quyết của tòa, nghĩa đen là... nói ra sự thật!"
+    },
     "words": [
       {
         "word": "predict",
@@ -751,6 +766,11 @@
     "emoji": "📦",
     "image": "một người đang khuân một chiếc thùng",
     "hook": "Chỉ một gốc “port” mà mở ra cả chục từ IELTS: {{import}}, {{export}}, {{support}}...",
+    "bait": {
+      "word": "support",
+      "literal": "vác từ bên dưới",
+      "say": "{{Support}} nghĩa đen là... vác từ bên dưới!"
+    },
     "words": [
       {
         "word": "import",
@@ -941,6 +961,11 @@
     "emoji": "🥏",
     "image": "một bàn tay đang ném mạnh một vật đi",
     "hook": "{{reject}}, {{inject}}, {{project}}: cùng là “ném”, nhưng ném theo hướng nào?",
+    "bait": {
+      "word": "reject",
+      "literal": "ném trả lại",
+      "say": "Mỗi lần bạn bị {{reject}}, nghĩa đen là... bạn bị ném trả lại!"
+    },
     "words": [
       {
         "word": "reject",
@@ -1153,6 +1178,11 @@
     "emoji": "📨",
     "image": "một lá thư được gửi bay đi",
     "hook": "{{admit}}, {{submit}}, {{permit}}, {{omit}}: một gốc “mit” mà tách ra bốn nghĩa rất khác.",
+    "bait": {
+      "word": "intermittent",
+      "literal": "thả ra ở giữa",
+      "say": "{{Intermittent}} nghĩa đen là... thả ra ở giữa. Nghe vô lý? Xem tiếp nhé!"
+    },
     "words": [
       {
         "word": "submit",
@@ -1395,6 +1425,11 @@
     "emoji": "🧲",
     "image": "một sợi dây đang bị kéo căng",
     "hook": "{{attract}} và {{distract}}: cùng là “kéo”, một bên kéo về, một bên kéo đi.",
+    "bait": {
+      "word": "distract",
+      "literal": "bị kéo đi xa",
+      "say": "Bị {{distract}} nghĩa đen là... bị kéo đi thật xa!"
+    },
     "words": [
       {
         "word": "attract",
@@ -1596,6 +1631,11 @@
     "emoji": "💥",
     "image": "một cành cây gãy rắc làm đôi",
     "hook": "{{erupt}}, {{interrupt}}, {{disrupt}}: ba kiểu “vỡ” khác nhau trong tiếng Anh.",
+    "bait": {
+      "word": "bankrupt",
+      "literal": "cái bàn bị đập gãy",
+      "say": "{{Bankrupt}} nghĩa đen là... cái bàn bị đập gãy!"
+    },
     "words": [
       {
         "word": "erupt",
@@ -1786,6 +1826,11 @@
     "emoji": "🔄",
     "image": "một mũi tên đang quay vòng",
     "hook": "{{introvert}}, {{convert}}, {{diverse}}, {{controversy}}: tất cả đều đang “xoay”.",
+    "bait": {
+      "word": "controversy",
+      "literal": "xoay người chống lại nhau",
+      "say": "{{Controversy}} nghĩa đen là... hai bên xoay người chống lại nhau!"
+    },
     "words": [
       {
         "word": "convert",
@@ -2000,6 +2045,11 @@
     "emoji": "🧭",
     "image": "một người cầm đèn đi trước dẫn đường",
     "hook": "{{reduce}}, {{produce}}, {{educate}}: hóa ra đều là “dẫn dắt”.",
+    "bait": {
+      "word": "educate",
+      "literal": "dẫn ra ngoài",
+      "say": "{{Educate}} nghĩa đen không phải là dạy, mà là... dẫn ra ngoài!"
+    },
     "words": [
       {
         "word": "reduce",
@@ -2219,6 +2269,11 @@
     "emoji": "🚶",
     "image": "những bước chân đang đi về phía trước",
     "hook": "{{precede}}, {{proceed}}, {{exceed}}: cùng là “đi”, nhưng đi trước, đi tiếp hay đi quá?",
+    "bait": {
+      "word": "unprecedented",
+      "literal": "chưa ai từng đi trước",
+      "say": "{{Unprecedented}} nghĩa đen là... chưa ai từng đi trước!"
+    },
     "words": [
       {
         "word": "precede",
@@ -2419,6 +2474,11 @@
     "emoji": "🤞",
     "image": "một cái bắt tay tin tưởng",
     "hook": "{{credible}} và {{credulous}}: một chữ khen, một chữ chê, cùng gốc “tin”.",
+    "bait": {
+      "word": "credulous",
+      "literal": "không phải lời khen!",
+      "say": "Nghe {{credulous}} tưởng là khen, nhưng thật ra là chê đấy!"
+    },
     "words": [
       {
         "word": "credible",
@@ -2568,6 +2628,11 @@
     "emoji": "✊",
     "image": "một bàn tay nắm chặt",
     "hook": "{{maintain}}, {{obtain}}, {{retain}}, {{sustain}}: bốn kiểu “giữ” mà IELTS rất thích.",
+    "bait": {
+      "word": "maintain",
+      "literal": "giữ trong bàn tay",
+      "say": "{{Maintain}} nghĩa đen là... giữ trong lòng bàn tay!"
+    },
     "words": [
       {
         "word": "contain",

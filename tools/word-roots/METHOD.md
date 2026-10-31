@@ -36,9 +36,16 @@ Chinese Douyin video re-voiced in Vietnamese. The page's other reels are almost 
 
 ## 2. Our format (what `make-video.mjs` produces)
 
-`Hook → Root card → [Split → Meaning → Example] × N → Recap → Quiz → CTA`, 1080×1920, Vietnamese captions burned in
+`Bait → Hook (+ challenge tease) → Root card → [Split → Meaning → Example] × N → Recap → Quiz → Next-video teaser`, 1080×1920, 1.2× pace,
+every scene animated in, a progress bar across the top, Vietnamese captions burned in
 (most people watch muted), UpWind branding, and the same orange/blue/green colour code.
-The two additions to the reference are the **quiz** and the **pinned-comment answer**. The quiz asks viewers to comment A, B or C,
+Additions to the reference:
+
+- **Bait opener (first 2–3 s).** A true but surprising literal meaning (“bankrupt nghĩa đen là… cái bàn bị đập gãy”) stops the scroll before the hook question.
+- **Open loop.** The hook promises “cuối video có thử thách”, which keeps people to the end.
+- **Next-video teaser.** The last scene names tomorrow's root and three of its words (“Tập sau: gốc vert…”) and asks for the follow. Post the families in file order so the promise is kept.
+- **Correct English every time.** English is voiced by a separate English voice, rendered once per word and reused.
+- The **quiz** and the **pinned-comment answer**. The quiz asks viewers to comment A, B or C,
 and the answer lives only in the pinned comment (`caption.txt`), which turns watchers into commenters.
 Comments are the strongest ranking signal on Facebook and TikTok.
 
@@ -50,7 +57,7 @@ Comments are the strongest ranking signal on Facebook and TikTok.
 3. **Draft render:** `node make-video.mjs graph --tts none`. Skim the PNGs for text overflow.
 4. **Final render:** `node make-video.mjs graph --tts edge` (or gTTS).
 5. **Post** with `caption.txt`, then pin the answer comment right away.
-6. **Repurpose** the same PNGs: the recap PNG becomes a Facebook/Threads image post; split + meaning + example for 3 words make a 5-slide carousel.
+6. **Carousel the same day**: `node make-carousel.mjs <id>` gives a 12-slide 4:5 “ảnh cuộn” post (bait cover → word cards → recap → quiz → next-family teaser). Post it a few hours after the video, or on Instagram while the video goes to TikTok.
 
 Batch it: write 5 families on Sunday, render overnight with `node make-video.mjs a,b,c,d,e`, and schedule one per day.
 
@@ -104,6 +111,8 @@ Return ONE JSON object (no prose) with this shape:
   "origin": "<Latin/Greek source word>", "core": "<Vietnamese core meaning, 2-4 words>",
   "emoji": "<one emoji>", "image": "<Vietnamese: one concrete scene that shows the core meaning>",
   "hook": "<Vietnamese curiosity question naming 3 familiar words wrapped in {{ }}>",
+  "bait": {"word": "<one word of the family>", "literal": "<its surprising literal meaning, Vietnamese, max 6 words>",
+           "say": "<Vietnamese line: {{Word}} nghĩa đen là... <literal>!>"},
   "words": [ 6-8 items:
     { "word": "", "pos": "n. | v. | adj. | v. / n.", "ipa": "<British IPA>",
       "parts": [{"t": "<letters exactly as in the word>", "k": "pre|root|suf", "vi": "<Vietnamese meaning>"}],
@@ -115,5 +124,5 @@ Return ONE JSON object (no prose) with this shape:
       "trap": "<optional Vietnamese warning, English words in {{ }}>" } ]
 }
 Rules: words must be common in IELTS Reading/Writing; parts must concatenate to the word;
-etymology may be simplified but never invented; no movie quotes; Vietnamese must sound natural.
+etymology may be simplified but never invented (this includes the bait); no movie quotes; Vietnamese must sound natural.
 ```

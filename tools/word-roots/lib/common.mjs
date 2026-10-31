@@ -64,3 +64,39 @@ export function blank(sentence, word) {
 }
 
 export const ensureDir = (d) => fs.mkdirSync(d, { recursive: true });
+
+/** Post text for Facebook / TikTok / Instagram, with the quiz answer as a ready-to-pin comment. */
+/** The family the end-of-video teaser points to: `next` in the data, else the next one in file order. */
+export function nextFamily(families, f) {
+  if (f.next) {
+    const hit = families.find((x) => x.id === f.next);
+    if (hit) return hit;
+    console.warn(`  ! ${f.id}: next "${f.next}" not found, using file order`);
+  }
+  return families[(families.indexOf(f) + 1) % families.length];
+}
+
+/** One line teasing the next video (next family, or the next part of a split family). */
+export function nextLine(next, part) {
+  if (part?.hasNext) return `👉 Phần ${part.n + 1} lên sóng ngay sau. Theo dõi để không bỏ lỡ!`;
+  if (!next) return "";
+  return `👉 Tập sau: gốc ${next.root.split("/")[0].trim()} (${next.core}). Theo dõi để học 1 họ từ mỗi ngày!`;
+}
+
+export function captionText(family, words, quizAnswer, part, next) {
+  const partLabel = part ? ` (Phần ${part.n})` : "";
+  const bait = family.bait ? `🤯 ${family.bait.word} nghĩa đen là... ${family.bait.literal}\n` : "";
+  return [
+    `${bait}${plain(family.hook)}${partLabel}`,
+    "",
+    `Gốc "${family.root}" (${family.origin}) = ${family.core}`,
+    ...words.map((w) => `• ${w.word} (${w.pos}): ${w.meaning}`),
+    "",
+    "💾 Lưu lại để ôn · Theo dõi UpWind: mỗi ngày 1 họ từ",
+    nextLine(next, part),
+    `#upwind #goctu #ielts #tuvungtienganh #hoctienganh #${family.id}`,
+    "",
+    "--- Bình luận ghim (đáp án thử thách) ---",
+    `Đáp án: ${quizAnswer}`,
+  ].join("\n");
+}
