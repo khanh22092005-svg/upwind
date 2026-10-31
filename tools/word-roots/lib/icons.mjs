@@ -16,6 +16,9 @@ export const UI_ICONS = {
   next: "arrow-right",
   swipe: "arrow-right",
   save: "bookmark",
+  write: "pencil",
+  down: "arrow-down",
+  toolkit: "tool",
 };
 
 const cache = new Map();

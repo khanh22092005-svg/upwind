@@ -129,3 +129,18 @@ Copy any object in `data/families.json`, or generate one with the prompt in `MET
 `parts` must join to spell the word (the script warns if not). Keep `story` to one sentence
 that starts from the literal parts and ends at the real meaning. The family order in the file is the
 posting order, since each video teases the next one.
+
+## Series: "Nâng band câu này" (IELTS Writing carousels)
+
+One weak sentence upgraded band 5 → 6 → 7, every upgrade highlighted and explained, plus a toolkit slide and a
+practice sentence whose model answers go in the pinned comment.
+
+```bash
+node make-upgrade.mjs tech-children          # -> out/carousel/upgrade-tech-children/01.png … + caption.txt
+node make-upgrade.mjs tech-children --size 9:16
+```
+
+Data lives in `data/upgrades.json`: `levels[]` (band, `text` with `[[upgrade]]` / `{{weak spot}}` markup,
+`moves[]` = phrase · label · criterion LR/GRA/CC · why, `problems[]` for band 5), `toolkit[]`, and
+`practice {sentence, answer6, answer7}`. Bands are "sentence-level" by the LR/GRA descriptors; the slides and
+caption say so, since IELTS bands are given for the whole essay.

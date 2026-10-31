@@ -198,9 +198,10 @@ export function wave(video = true) {
 export const FONT_LINK = `<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800&display=block" rel="stylesheet">`;
 
-export function header(family, logo) {
-  return `<header><img src="${logo}" alt=""><div><div class="brand">UpWind</div><div class="series">Học từ từ gốc</div></div>
-<div class="chip">${esc(family.root.split("/")[0].trim())}</div></header>`;
+export function header(family, logo, { series = "Học từ từ gốc", chip } = {}) {
+  const chipText = chip ?? family.root.split("/")[0].trim();
+  return `<header><img src="${logo}" alt=""><div><div class="brand">UpWind</div><div class="series">${esc(series)}</div></div>
+<div class="chip">${esc(chipText)}</div></header>`;
 }
 
 export function frameHtml({ family, scene, logo }) {

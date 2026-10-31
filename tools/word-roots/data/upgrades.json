@@ -1,0 +1,108 @@
+[
+  {
+    "id": "tech-children",
+    "topic": "Technology & children",
+    "hook": "Câu này chỉ được band 5…",
+    "levels": [
+      {
+        "band": 5,
+        "text": "Nowadays, {{many}} children {{use smartphones too much}} {{and it is very bad}} for their health.",
+        "problems": [
+          {
+            "phrase": "many",
+            "why": "Từ số lượng cơ bản, không cho thấy xu hướng."
+          },
+          {
+            "phrase": "use smartphones too much",
+            "why": "Diễn đạt chung chung, “too much” là từ của văn nói."
+          },
+          {
+            "phrase": "and it is very bad",
+            "why": "Hai câu đơn nối bằng “and”; “very bad” không nói rõ hại thế nào."
+          }
+        ]
+      },
+      {
+        "band": 6,
+        "text": "These days, [[a growing number of]] children [[spend excessive time on]] smartphones, [[which can harm]] their health.",
+        "moves": [
+          {
+            "phrase": "a growing number of",
+            "label": "Cụm chỉ xu hướng",
+            "criterion": "LR",
+            "why": "Thay “many”: vừa nói số lượng, vừa nói đang tăng."
+          },
+          {
+            "phrase": "spend excessive time on",
+            "label": "Collocation",
+            "criterion": "LR",
+            "why": "Thay “use … too much” bằng cụm học thuật tự nhiên."
+          },
+          {
+            "phrase": "which can harm",
+            "label": "Mệnh đề quan hệ",
+            "criterion": "GRA",
+            "why": "Nối hai ý thành một câu phức thay cho “and it”."
+          }
+        ]
+      },
+      {
+        "band": 7,
+        "text": "In recent years, [[excessive smartphone use among children]] has become [[increasingly common]], [[posing serious risks to]] both their [[physical and mental well-being]].",
+        "moves": [
+          {
+            "phrase": "excessive smartphone use among children",
+            "label": "Danh từ hoá",
+            "criterion": "GRA",
+            "why": "Gói cả mệnh đề thành một cụm danh từ, câu gọn và học thuật hơn."
+          },
+          {
+            "phrase": "increasingly common",
+            "label": "Cụm chỉ xu hướng",
+            "criterion": "LR",
+            "why": "Diễn tả sự thay đổi theo thời gian."
+          },
+          {
+            "phrase": "posing serious risks to",
+            "label": "Mệnh đề phân từ",
+            "criterion": "GRA",
+            "why": "V-ing nêu hệ quả, không cần thêm “and” hay “which”."
+          },
+          {
+            "phrase": "physical and mental well-being",
+            "label": "Từ vựng chính xác",
+            "criterion": "LR",
+            "why": "Nói rõ “sức khoẻ” gồm những mặt nào."
+          }
+        ]
+      }
+    ],
+    "toolkit": [
+      {
+        "formula": "a growing number of + N số nhiều",
+        "use": "thay “many”, có thêm ý xu hướng"
+      },
+      {
+        "formula": "spend excessive time on + N",
+        "use": "thay “use … too much”"
+      },
+      {
+        "formula": "…, which + V",
+        "use": "nối hai ý thay “and it”"
+      },
+      {
+        "formula": "N + use + among + N",
+        "use": "danh từ hoá một mệnh đề"
+      },
+      {
+        "formula": "…, V-ing + O",
+        "use": "nêu hệ quả bằng mệnh đề phân từ"
+      }
+    ],
+    "practice": {
+      "sentence": "Many people think university should be free because education is very important.",
+      "answer6": "Many people believe that university education should be free, as it plays an important role in society.",
+      "answer7": "Many argue that tertiary education should be free of charge, given its crucial role in social mobility."
+    }
+  }
+]
