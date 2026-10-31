@@ -22,6 +22,7 @@ body:before{content:"";position:absolute;inset:0;background:
   repeating-linear-gradient(90deg,transparent 0 59px,rgba(0,75,155,.05) 59px 60px)}
 .emoji{font-family:"Noto Color Emoji","Apple Color Emoji",sans-serif}
 .ico{display:inline-block;vertical-align:-0.14em;flex:none}
+.q,.lit,.mean,.story,.caption,.image,.en,.vi,.follow,.trap,.hint,.core,.gloss{text-wrap:balance}
 .lot{display:inline-block;vertical-align:middle;line-height:0}
 .lot svg{display:block}
 .nextroot .lot{vertical-align:-0.15em;margin-left:6px}
@@ -61,7 +62,7 @@ main{position:absolute;top:230px;left:70px;right:70px;height:${mainH}px;display:
 @keyframes fromLeft{0%{transform:translateX(-700px) rotate(-14deg);opacity:0}100%{transform:none;opacity:1}}
 @keyframes fromRight{0%{transform:translateX(700px) rotate(14deg);opacity:0}100%{transform:none;opacity:1}}
 @keyframes slam{0%{transform:scale(3.2);opacity:0}65%{transform:scale(.93);opacity:1}100%{transform:scale(1)}}
-@keyframes stamp{0%{transform:rotate(-8deg) scale(2.6);opacity:0}100%{transform:rotate(-8deg) scale(1);opacity:1}}
+@keyframes stamp{0%{transform:rotate(-8deg) scale(2.6);opacity:0}70%{transform:rotate(2deg) scale(.96);opacity:1}100%{transform:none;opacity:1}}
 @keyframes drop{0%{transform:translateY(-500px);opacity:0}100%{transform:none;opacity:1}}
 @keyframes wipe{0%{clip-path:inset(0 100% 0 0)}100%{clip-path:inset(0 0 0 0)}}
 @keyframes merge{0%{transform:translateX(var(--dx,0)) scale(.9);opacity:.2}100%{transform:none;opacity:1}}
@@ -121,7 +122,7 @@ main{position:absolute;top:230px;left:70px;right:70px;height:${mainH}px;display:
 .trap{margin-top:30px;font-size:44px;font-weight:700;color:#b42318}
 
 /* example */
-.example{width:100%}
+.example{width:100%;text-align:center}
 .label{font-size:36px;font-weight:800;color:#6ac5e8;text-transform:uppercase;letter-spacing:3px;margin-bottom:30px}
 .example .en,.quiz .en{font-size:70px;font-weight:700;line-height:1.3}
 mark{background:#ffd166;color:#0b2545;padding:0 10px;border-radius:12px}
@@ -130,8 +131,10 @@ mark{background:#ffd166;color:#0b2545;padding:0 10px;border-radius:12px}
 /* recap */
 .recap{width:100%}
 .recap .title{font-size:58px;font-weight:800;text-align:center;margin-bottom:34px}
-.recap .rows{display:flex;flex-direction:column;gap:12px}
-.recap .row{display:grid;grid-template-columns:auto auto 1fr;gap:22px;align-items:center;background:#fff;border-radius:16px;padding:14px 22px;font-size:38px}
+.recap .rows{display:grid;grid-template-columns:auto auto 1fr;row-gap:12px}
+.recap .row{display:grid;grid-column:1/-1;grid-template-columns:subgrid;column-gap:22px;align-items:center;background:#fff;
+  border:3px solid #e3f1fa;border-radius:18px;padding:14px 22px;font-size:38px;line-height:1.25;column-gap:18px}
+.recap .row>span:last-child{text-wrap:balance}
 .recap .w{font-weight:800;font-size:46px;white-space:nowrap}.recap .p{color:#4a6b8a;font-style:italic;white-space:nowrap}
 
 /* quiz */
@@ -152,7 +155,7 @@ mark{background:#ffd166;color:#0b2545;padding:0 10px;border-radius:12px}
 .nextroot .ico{color:#004b9b;margin-left:10px;vertical-align:-0.1em}
 .nextcore{font-size:72px;font-weight:800;color:#f2711c;margin-top:10px}
 .nextwords{display:flex;flex-wrap:wrap;justify-content:center;gap:16px 20px;margin-top:36px}
-.follow{margin-top:50px;font-size:58px;font-weight:800;line-height:1.3;color:#0b2545;background:#fff3b0;border-radius:24px;padding:20px 36px;display:inline-block}
+.follow{margin-top:60px;font-size:50px;font-weight:800;line-height:1.3;color:#0b2545;background:#fff3b0;border-radius:24px;padding:20px 36px;display:inline-block}
 .follow b{color:#004b9b}
 
 /* carousel extras */
@@ -201,7 +204,7 @@ export function header(family, logo) {
 }
 
 export function frameHtml({ family, scene, logo }) {
-  const cap = scene.caption ?? plain(scene.say);
+  const cap = (scene.caption ?? plain(scene.say)).replace(/(^|(?<!\.)[.!?]\s+)(\p{Ll})/gu, (m, a, b) => a + b.toUpperCase()); // "..." is a pause, not a sentence end
   const capHtml = esc(cap).replace(/\b([A-Za-z][a-z]+)\b/g, (m) =>
     family.words.some((w) => w.word === m.toLowerCase()) ? `<b>${m}</b>` : m
   );

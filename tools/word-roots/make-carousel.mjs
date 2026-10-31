@@ -45,13 +45,15 @@ const EXTRA = `
 .counter{top:-10px}
 ${tall ? "" : `
 .bait .bword{font-size:120px;margin-top:30px}.bait .lit{font-size:68px}.bait .badge{margin-top:24px}.rootcard .badge{margin-bottom:20px}
-.hook .q{font-size:38px;margin:16px 0 24px}.cw{font-size:36px;padding:6px 18px}.hook .big1{font-size:96px}.hook .big2{font-size:124px}
+.hook .q{font-size:44px;margin:22px 0 34px}.cw{font-size:44px;padding:8px 22px}.cloud{gap:16px 18px}.hook .big1{font-size:96px}.hook .big2{font-size:124px}
 .bait .nl{font-size:48px;margin:14px 0 10px}.bait .lit{font-size:80px}
 .rootcard .big{font-size:180px}.rootword{font-size:130px}.core{font-size:76px}
 .recap .row{padding:14px 22px;font-size:38px}.recap .w{font-size:46px}.recap .title{font-size:50px;margin-bottom:22px}
 .quiz .en{font-size:58px}.opt{font-size:52px}.cta .ctalogo{width:220px;height:220px}.cta .big{font-size:84px}`}
 .card .word{font-size:${tall ? 130 : 110}px}
-header{top:46px} main{top:180px;height:${CH - 180 - 190}px}
+header{top:46px}
+.card .head,.card .ipa{padding-right:190px}
+.follow br{display:block} main{top:180px;height:${CH - 180 - 190}px}
 .cta .ctalogo{width:170px;height:170px}.nextroot{font-size:110px;margin-top:20px}.nextcore{font-size:62px}
 .nextwords{margin-top:24px}.follow{margin-top:32px;font-size:48px;padding:16px 30px}.nexttag{margin-top:20px}
 .card .ex{margin-top:22px}.card .rel{margin-top:10px;padding:8px 18px}.card .story{margin-top:14px}.card .mean{margin-top:26px}
@@ -65,7 +67,7 @@ function page(family, logo, body, n, total, { swipe = false } = {}) {
 ${wave(false)}${header(family, logo)}
 <main>${body.replaceAll("__LOGO__", logo)}</main>
 <div class="dots">${n}/${total}</div>
-${lottieScripts(body, { freezeAt: 0 })}
+${lottieScripts(body, { freezeAt: 0.97 })}
 ${swipe ? `<div class="swipe">${label} ${icon(UI.swipe, 40, 2.6)}</div>` : ""}
 </body></html>`;
 }
@@ -75,7 +77,7 @@ function wordCard(f, w, n, total) {
   return `<div class="card" style="position:relative">
     ${animEmoji(w.anim ? w : f, 170)}
     <div class="head"><div class="word">${coloredWord(w)}</div></div>
-    <div class="ipa">${esc(w.ipa)} · <i>${esc(w.pos)}</i> (${esc(posVi(w.pos))})</div>
+    <div class="ipa">${esc(w.ipa)} · <i>${esc(w.pos)}</i>${w.pos.includes("/") ? "" : ` (${esc(posVi(w.pos))})`}</div>
     ${partsBlocks(w, false)}
     <div><span class="mean a-sweep">${esc(w.meaning)}</span></div>
     <div class="story">${icon(UI.story, 40)} ${esc(w.story)}</div>

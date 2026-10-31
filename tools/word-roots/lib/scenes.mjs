@@ -63,8 +63,10 @@ function wordByWord(sentence, word) {
   return highlight(sentence, word)
     .split(/(<mark>.*?<\/mark>|\s+)/)
     .filter((t) => t && !/^\s+$/.test(t))
-    .map((t, i) => {
-      const inner = t.startsWith("<mark>") ? t.replace("<mark>", `<mark class="a-pop" style="--i:${i};--d:300ms">`) : t;
+    .map((t, i, all) => {
+      let inner = t.startsWith("<mark>") ? t.replace("<mark>", `<mark class="a-pop" style="--i:${i};--d:300ms">`) : t;
+      if (i === 0) inner = "“" + inner;
+      if (i === all.length - 1) inner += "”";
       return `<span class="a-word" style="--i:${i}">${inner}</span>`;
     })
     .join(" ");
@@ -158,7 +160,7 @@ export function buildScenes(f, opts = {}) {
       caption: w.example_vi,
       html: `${counter(n)}<div class="example">
         <div class="label a-up">Ví dụ · ${esc(w.word)}</div>
-        <div class="en">“${wordByWord(w.example, w.word)}”</div>
+        <div class="en">${wordByWord(w.example, w.word)}</div>
         <div class="vi a-up" style="--d:1400ms">${esc(w.example_vi)}</div>
       </div>`,
     });
@@ -167,7 +169,7 @@ export function buildScenes(f, opts = {}) {
   // 4. Recap table
   scenes.push({
     kind: "recap",
-    say: `Ôn lại nhanh cả ${total} từ nhé. Chụp màn hình lại để học!`,
+    say: `Ôn lại nhanh ${total} từ chính nhé. Chụp màn hình lại để học!`,
     hold: 2.5,
     html: `<div class="recap"><div class="title a-up">Gốc <span style="color:${COLORS.root}">${esc(f.root)}</span> = ${esc(f.core)}</div>
       <div class="rows">${words
@@ -205,7 +207,7 @@ export function buildScenes(f, opts = {}) {
   } else if (next) {
     const nr = mainRoot(next);
     const nw = next.words.slice(0, 3);
-    teaseSay = `Video tiếp theo: một gốc từ mang nghĩa ${next.core}, mở khóa thêm ${next.words.reduce((n, w) => n + 1 + (w.related?.length ?? 0), 0)} từ mới. Theo dõi kênh để mỗi ngày học trọn một họ từ nhé!`;
+    teaseSay = `Tập sau: gốc từ mang nghĩa ${next.core}, thêm ${next.words.reduce((n, w) => n + 1 + (w.related?.length ?? 0), 0)} từ mới. Theo dõi để học mỗi ngày nhé!`;
     teaseHtml = `<div class="nextroot a-slam" style="--d:350ms;color:${COLORS.root}">${esc(next.root)} ${animEmoji(next, 120)}</div>
       <div class="nextcore a-wipe" style="--d:650ms">= ${esc(next.core)}</div>
       <div class="nextwords">${nw.map((w, k) => `<span class="cw a-pop" style="--i:${k};--d:850ms">${esc(w.word)}</span>`).join("")}<span class="cw a-pop" style="--i:3;--d:850ms">…</span></div>`;
@@ -218,9 +220,8 @@ export function buildScenes(f, opts = {}) {
     say: teaseSay,
     hold: 1,
     html: `<div class="cta">
-      <img src="__LOGO__" class="ctalogo a-drop" alt="">
       ${teaseHtml ? `<div><span class="nexttag a-stamp" style="--d:200ms">${nextPart ? "PHẦN SAU" : "TẬP SAU"} ${icon(UI.next, 44, 2.4)}</span></div>${teaseHtml}` : ""}
-      <div class="follow a-up" style="--d:1300ms">${icon(UI.follow, 56)} Theo dõi <b>UpWind</b><br>mỗi ngày 1 họ từ</div>
+      <div class="follow a-up" style="--d:1300ms">${icon(UI.follow, 52)} Theo dõi <b>UpWind</b><br>mỗi ngày 1 họ từ</div>
     </div>`,
   });
 
