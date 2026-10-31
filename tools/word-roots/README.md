@@ -1,4 +1,4 @@
-# UpWind word-root kit (Gốc từ)
+# UpWind “Học từ từ gốc” kit
 
 Turns one data file into (1) animated vertical explainer videos for Reels, TikTok and Shorts,
 (2) swipeable image posts ("ảnh cuộn") and (3) a printable study handbook.
@@ -45,13 +45,17 @@ sentences, the brand name) is spoken by a separate English voice. VieNeu reads E
 (the same word can come out right in one scene and wrong in the next), so each English word is rendered
 once and that same clip is reused everywhere: correct and identical every time.
 All clips are cached in `out/.tts-cache`, so re-rendering after a visual tweak is fast.
-Example sentences are read in English, then their Vietnamese translation.
+Example sentences are read in English, then their Vietnamese translation. The last scene (next-video teaser)
+is Vietnamese only. Every clip is measured (EBU R128) and gained to the same loudness, so the English and
+Vietnamese voices sit at the same level.
 
 `--one-voice` swaps both voices for a single Microsoft multilingual voice: same voice throughout and
 perfect English, but the Vietnamese can sound slightly accented. Try it and compare with the default.
 
-The narration is written so an English word always starts its own sentence ("{{eruption}} là danh từ…");
-VieNeu tends to repeat a dangling Vietnamese word ("Còn") right before an English one.
+**Rule for narration text:** an English word should start its own sentence ("{{eruption}} là danh từ…").
+If a Vietnamese phrase runs straight into English ("… với {{convert}}"), VieNeu tends to repeat its last word
+("với với", "còn còn"). The renderer closes such phrases with a comma automatically and prints a warning
+so you can rewrite the line.
 
 Output folder: `video.mp4` (1080×1920, 30 fps), `caption.txt` (post text, next-video line,
 **pinned comment** with the quiz answer), and one PNG per scene.
@@ -68,15 +72,21 @@ Slides: bait cover with "Lướt để xem →" → hook + word wall → root �
 meaning, story, example, related forms) → recap → quiz → next-family teaser. The script warns if any
 slide's text overflows.
 
-## Icons
+## Emoji and icons
 
-Visuals use [Tabler Icons](https://tabler.io/icons) (MIT), not emoji. Each family and word has an `icon`
-name in the data; only the icons in use are copied into `assets/icons/`. After adding families or
-changing icon names, run:
+Big visuals are [Noto animated emoji](https://googlefonts.github.io/noto-emoji-animation/) (Google, CC BY 4.0),
+played with lottie-web. Each family and word has an `anim` codepoint in the data (pick from that site; not every emoji
+is animated). In videos the emoji keeps animating for the whole scene; carousels show its rest pose.
+Small UI glyphs (tags, "bình luận", "theo dõi") are [Tabler Icons](https://tabler.io/icons) (MIT).
+
+Assets are downloaded on demand into `assets/` (the emoji are not committed). After adding families or changing
+`anim` / `icon` values, run:
 
 ```bash
-node fetch-icons.mjs
+node fetch-assets.mjs
 ```
+
+Credit for posts (CC BY 4.0 asks for attribution): "Emoji: Google Noto Emoji Animation (CC BY 4.0)".
 
 ## Make the handbook
 
@@ -93,11 +103,11 @@ Copy any object in `data/families.json`, or generate one with the prompt in `MET
 | `id` | short slug, used for the folder name and the CLI |
 | `root`, `origin`, `core` | `"voc / voke"`, `"Latin vocare"`, `"gọi, cất tiếng"` |
 | `say_root` | optional: how the English voice should say the root (`"voke"` reads better than `"voc"`) |
-| `icon`, `image` | the Tabler icon name and the one picture every word in the family hangs on (`emoji` is kept for captions) |
+| `anim`, `image` | Noto animated emoji codepoint and the one picture every word in the family hangs on (`emoji`/`icon` are fallbacks) |
 | `hook` | opening question; wrap English in `{{ }}` |
 | `bait` | `{word, literal, say}`: the surprising literal meaning that opens the video and the carousel |
 | `next` | optional id of the family to tease at the end; default is the next one in the file |
-| `words[]` | `word, pos, ipa, parts[{t, k: pre/root/suf, vi}], meaning, story, icon, example, example_vi, related[{w,pos,vi}], trap?` |
+| `words[]` | `word, pos, ipa, parts[{t, k: pre/root/suf, vi}], meaning, story, anim, example, example_vi, related[{w,pos,vi}], trap?` |
 
 `parts` must join to spell the word (the script warns if not). Keep `story` to one sentence
 that starts from the literal parts and ends at the real meaning. The family order in the file is the

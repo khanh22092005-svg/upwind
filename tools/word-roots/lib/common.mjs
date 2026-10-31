@@ -87,14 +87,16 @@ export function captionText(family, words, quizAnswer, part, next) {
   const partLabel = part ? ` (Phần ${part.n})` : "";
   const bait = family.bait ? `🤯 ${family.bait.word} nghĩa đen là... ${family.bait.literal}\n` : "";
   return [
-    `${bait}${plain(family.hook)}${partLabel}`,
+    `📚 Học từ từ gốc | ${family.root.split("/")[0].trim()}${partLabel}`,
+    "",
+    `${bait}${plain(family.hook)}`,
     "",
     `Gốc "${family.root}" (${family.origin}) = ${family.core}`,
     ...words.map((w) => `• ${w.word} (${w.pos}): ${w.meaning}`),
     "",
     "💾 Lưu lại để ôn · Theo dõi UpWind: mỗi ngày 1 họ từ",
     nextLine(next, part),
-    `#upwind #goctu #ielts #tuvungtienganh #hoctienganh #${family.id}`,
+    `#hoctututugoc #upwind #goctu #ielts #tuvungtienganh #hoctienganh #${family.id}`,
     "",
     "--- Bình luận ghim (đáp án thử thách) ---",
     `Đáp án: ${quizAnswer}`,

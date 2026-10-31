@@ -75,7 +75,7 @@ const familyPages = families
   })
   .join("");
 
-const html = `<!doctype html><html lang="vi"><head><meta charset="utf-8"><title>UpWind · Học từ vựng qua gốc từ</title>
+const html = `<!doctype html><html lang="vi"><head><meta charset="utf-8"><title>UpWind · Học từ từ gốc</title>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,600;0,800;1,400&display=block" rel="stylesheet">
 <style>
 @page{size:A4;margin:14mm 13mm}
@@ -124,8 +124,8 @@ mark{background:#ffd166;padding:0 3px;border-radius:3px}
 </style></head><body>
 <div class="cover">
   <img src="${logo}" alt="">
-  <h1>Học từ vựng tiếng Anh<br>qua gốc từ</h1>
-  <div class="sub">UpWind IELTS · Học một gốc, nhớ cả họ từ</div>
+  <h1>Học từ từ gốc</h1>
+  <div class="sub">Học từ vựng tiếng Anh từ gốc · UpWind IELTS · Học một gốc, nhớ cả họ từ</div>
   <div class="stats"><div class="stat"><b>${families.length}</b>gốc từ La-tinh</div><div class="stat"><b>${allWords.length}</b>từ chính</div>
   <div class="stat"><b>${allWords.reduce((n, w) => n + (w.related?.length ?? 0), 0)}</b>từ phái sinh</div></div>
   <p class="legend" style="margin-top:30px">Mã màu xuyên suốt tài liệu và video: <span style="color:${COLORS.pre}">tiền tố</span><span style="color:${COLORS.root}">gốc từ</span><span style="color:${COLORS.suf}">hậu tố</span></p>

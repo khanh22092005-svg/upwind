@@ -12,7 +12,8 @@ import path from "node:path";
 import { createRequire } from "node:module";
 import { ROOT_DIR, OUT_DIR, COLORS, loadFamilies, esc, plain, coloredWord, highlight, ensureDir, captionText, nextFamily } from "./lib/common.mjs";
 import { buildScenes, partsBlocks, posVi } from "./lib/scenes.mjs";
-import { icon, badge, iconOf, UI_ICONS as UI } from "./lib/icons.mjs";
+import { icon, UI_ICONS as UI } from "./lib/icons.mjs";
+import { animEmoji, lottieScripts, ensureEmojiAssets } from "./lib/emoji.mjs";
 import { css, wave, header, FONT_LINK } from "./lib/template.mjs";
 
 const require = createRequire(import.meta.url);
@@ -62,6 +63,7 @@ function page(family, logo, body, n, total, { swipe = false } = {}) {
 ${wave(false)}${header(family, logo)}
 <main>${body.replaceAll("__LOGO__", logo)}</main>
 <div class="dots">${n}/${total}</div>
+${lottieScripts(body, { freezeAt: 0 })}
 ${swipe ? `<div class="swipe">Lướt để xem ${icon(UI.swipe, 40, 2.6)}</div>` : ""}
 </body></html>`;
 }
@@ -69,7 +71,7 @@ ${swipe ? `<div class="swipe">Lướt để xem ${icon(UI.swipe, 40, 2.6)}</div>
 function wordCard(f, w, n, total) {
   const rel = (w.related ?? []).map((r) => `<div class="rel"><b>${esc(r.w)}</b> <i>${esc(r.pos)}</i> ${esc(r.vi)}</div>`).join("");
   return `<div class="card" style="position:relative">
-    ${badge(iconOf(w, iconOf(f)), 150)}
+    ${animEmoji(w.anim ? w : f, 170)}
     <div class="head"><div class="word">${coloredWord(w)}</div></div>
     <div class="ipa">${esc(w.ipa)} · <i>${esc(w.pos)}</i> (${esc(posVi(w.pos))})</div>
     ${partsBlocks(w, false)}
@@ -102,6 +104,7 @@ async function makeOne(browser, family, logo, part) {
   for (const [i, b] of bodies.entries()) {
     await pg.setContent(page(family, logo, b.html, i + 1, bodies.length, b), { waitUntil: "networkidle" }).catch(() => {});
     await pg.evaluate(() => document.fonts.ready);
+    await pg.waitForFunction(() => window.__lotReady === true, null, { timeout: 15000 });
     const overflow = await pg.evaluate(() => {
       const m = document.querySelector("main");
       return m.scrollHeight > m.clientHeight + 4 || m.scrollWidth > m.clientWidth + 4;
@@ -116,6 +119,7 @@ async function makeOne(browser, family, logo, part) {
 }
 
 const families = loadFamilies();
+ensureEmojiAssets(families);
 const chosen = target === "all" ? families : families.filter((f) => target.split(",").includes(f.id));
 if (!chosen.length) {
   console.error(`No family "${target}". Available: ${families.map((f) => f.id).join(", ")}`);

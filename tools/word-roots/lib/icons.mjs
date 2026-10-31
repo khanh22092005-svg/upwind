@@ -1,4 +1,4 @@
-// Inline SVG icons (Tabler outline set, MIT; copied into assets/icons by fetch-icons.mjs).
+// Inline SVG icons (Tabler outline set, MIT; copied into assets/icons by fetch-assets.mjs).
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -22,7 +22,7 @@ const cache = new Map();
 function inner(name) {
   if (!cache.has(name)) {
     const file = path.join(DIR, `${name}.svg`);
-    if (!fs.existsSync(file)) throw new Error(`Icon "${name}" missing: run node fetch-icons.mjs`);
+    if (!fs.existsSync(file)) throw new Error(`Icon "${name}" missing: run node fetch-assets.mjs`);
     const svg = fs.readFileSync(file, "utf8");
     cache.set(name, svg.slice(svg.indexOf(">", svg.indexOf("<svg")) + 1, svg.lastIndexOf("</svg>")));
   }

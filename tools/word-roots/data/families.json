@@ -42,7 +42,8 @@
             "vi": "giàu sức gợi"
           }
         ],
-        "icon": "music"
+        "icon": "music",
+        "anim": "1f3b6"
       },
       {
         "word": "invoke",
@@ -72,7 +73,8 @@
             "vi": "sự viện dẫn, lời cầu khẩn"
           }
         ],
-        "icon": "scale"
+        "icon": "scale",
+        "anim": "2696_fe0f"
       },
       {
         "word": "provoke",
@@ -107,7 +109,8 @@
             "vi": "sự khiêu khích"
           }
         ],
-        "icon": "mood-angry"
+        "icon": "mood-angry",
+        "anim": "1f624"
       },
       {
         "word": "revoke",
@@ -137,7 +140,8 @@
             "vi": "không thể thay đổi, không thể hủy"
           }
         ],
-        "icon": "id-badge-2"
+        "icon": "id-badge-2",
+        "anim": "274c"
       },
       {
         "word": "advocate",
@@ -172,7 +176,8 @@
             "vi": "sự vận động, ủng hộ"
           }
         ],
-        "icon": "speakerphone"
+        "icon": "speakerphone",
+        "anim": "1f4e3"
       },
       {
         "word": "vocal",
@@ -202,7 +207,8 @@
             "vi": "ca sĩ"
           }
         ],
-        "icon": "microphone-2"
+        "icon": "microphone-2",
+        "anim": "1f5e3_fe0f"
       },
       {
         "word": "equivocal",
@@ -237,7 +243,8 @@
             "vi": "nói nước đôi, né tránh"
           }
         ],
-        "icon": "help-circle"
+        "icon": "help-circle",
+        "anim": "1f914"
       },
       {
         "word": "vocation",
@@ -268,10 +275,12 @@
           }
         ],
         "trap": "Đừng nhầm với {{vacation}}: kỳ nghỉ.",
-        "icon": "stethoscope"
+        "icon": "stethoscope",
+        "anim": "1fa7a"
       }
     ],
-    "icon": "speakerphone"
+    "icon": "speakerphone",
+    "anim": "1f4e3"
   },
   {
     "id": "spect",
@@ -320,7 +329,8 @@
             "vi": "thanh tra viên"
           }
         ],
-        "icon": "search"
+        "icon": "search",
+        "anim": "1f50e"
       },
       {
         "word": "respect",
@@ -350,7 +360,8 @@
             "vi": "lễ phép, tôn trọng"
           }
         ],
-        "icon": "heart-handshake"
+        "icon": "heart-handshake",
+        "anim": "1f64f"
       },
       {
         "word": "suspect",
@@ -380,7 +391,8 @@
             "vi": "đáng ngờ"
           }
         ],
-        "icon": "user-search"
+        "icon": "user-search",
+        "anim": "1f9d0"
       },
       {
         "word": "prospect",
@@ -410,7 +422,8 @@
             "vi": "tương lai, tiềm năng"
           }
         ],
-        "icon": "sunrise"
+        "icon": "sunrise",
+        "anim": "1f305"
       },
       {
         "word": "retrospect",
@@ -440,7 +453,8 @@
             "vi": "hồi tưởng"
           }
         ],
-        "icon": "history"
+        "icon": "history",
+        "anim": "231b"
       },
       {
         "word": "perspective",
@@ -469,7 +483,8 @@
         "example": "Travel gives young people a broader perspective on life.",
         "example_vi": "Du lịch cho người trẻ góc nhìn rộng hơn về cuộc sống.",
         "related": [],
-        "icon": "frame"
+        "icon": "frame",
+        "anim": "1f30f"
       },
       {
         "word": "spectator",
@@ -499,7 +514,8 @@
             "vi": "ngoạn mục"
           }
         ],
-        "icon": "building-stadium"
+        "icon": "building-stadium",
+        "anim": "26bd"
       },
       {
         "word": "conspicuous",
@@ -534,10 +550,12 @@
             "vi": "không gây chú ý"
           }
         ],
-        "icon": "eye-search"
+        "icon": "eye-search",
+        "anim": "1f9a9"
       }
     ],
-    "icon": "eye"
+    "icon": "eye",
+    "anim": "1f440"
   },
   {
     "id": "dict",
@@ -586,7 +604,8 @@
             "vi": "khó đoán"
           }
         ],
-        "icon": "crystal-ball"
+        "icon": "crystal-ball",
+        "anim": "1f52e"
       },
       {
         "word": "contradict",
@@ -621,7 +640,8 @@
             "vi": "trái ngược"
           }
         ],
-        "icon": "arrows-split"
+        "icon": "arrows-split",
+        "anim": "1f642_200d_2194_fe0f"
       },
       {
         "word": "dictate",
@@ -656,7 +676,8 @@
             "vi": "bài chính tả"
           }
         ],
-        "icon": "crown"
+        "icon": "crown",
+        "anim": "1f451"
       },
       {
         "word": "verdict",
@@ -680,7 +701,8 @@
         "example": "The jury reached a guilty verdict after two days.",
         "example_vi": "Bồi thẩm đoàn đưa ra phán quyết có tội sau hai ngày.",
         "related": [],
-        "icon": "gavel"
+        "icon": "gavel",
+        "anim": "2696_fe0f"
       },
       {
         "word": "indicate",
@@ -715,7 +737,8 @@
             "vi": "chỉ số, dấu hiệu"
           }
         ],
-        "icon": "hand-finger-right"
+        "icon": "hand-finger-right",
+        "anim": "1f449"
       },
       {
         "word": "addict",
@@ -750,7 +773,8 @@
             "vi": "gây nghiện"
           }
         ],
-        "icon": "device-mobile"
+        "icon": "device-mobile",
+        "anim": "1f4bb"
       },
       {
         "word": "jurisdiction",
@@ -779,10 +803,12 @@
         "example": "The case falls outside the court's jurisdiction.",
         "example_vi": "Vụ án nằm ngoài thẩm quyền của tòa.",
         "related": [],
-        "icon": "map-2"
+        "icon": "map-2",
+        "anim": "1f30d"
       }
     ],
-    "icon": "message-circle"
+    "icon": "message-circle",
+    "anim": "1f5e3_fe0f"
   },
   {
     "id": "port",
@@ -820,7 +846,8 @@
         "example": "Vietnam imports most of its cotton.",
         "example_vi": "Việt Nam nhập khẩu phần lớn bông.",
         "related": [],
-        "icon": "ship"
+        "icon": "ship",
+        "anim": "26f5"
       },
       {
         "word": "export",
@@ -844,7 +871,8 @@
         "example": "Coffee is one of Vietnam's main exports.",
         "example_vi": "Cà phê là một trong những mặt hàng xuất khẩu chính của Việt Nam.",
         "related": [],
-        "icon": "coffee"
+        "icon": "coffee",
+        "anim": "2615"
       },
       {
         "word": "transport",
@@ -874,7 +902,8 @@
             "vi": "sự vận tải"
           }
         ],
-        "icon": "train"
+        "icon": "train",
+        "anim": "1f682"
       },
       {
         "word": "support",
@@ -904,7 +933,8 @@
             "vi": "hay giúp đỡ"
           }
         ],
-        "icon": "heart-handshake"
+        "icon": "heart-handshake",
+        "anim": "1f91d"
       },
       {
         "word": "portable",
@@ -928,7 +958,8 @@
         "example": "Portable devices have changed the way we study.",
         "example_vi": "Thiết bị di động đã thay đổi cách chúng ta học.",
         "related": [],
-        "icon": "device-laptop"
+        "icon": "device-laptop",
+        "anim": "1f4bb"
       },
       {
         "word": "deport",
@@ -958,7 +989,8 @@
             "vi": "sự trục xuất"
           }
         ],
-        "icon": "plane-departure"
+        "icon": "plane-departure",
+        "anim": "1f6eb"
       },
       {
         "word": "portfolio",
@@ -982,10 +1014,12 @@
         "example": "Designers need a strong portfolio to get hired.",
         "example_vi": "Nhà thiết kế cần hồ sơ năng lực tốt để được tuyển.",
         "related": [],
-        "icon": "briefcase"
+        "icon": "briefcase",
+        "anim": "1f4ca"
       }
     ],
-    "icon": "package"
+    "icon": "package",
+    "anim": "1f4e6"
   },
   {
     "id": "ject",
@@ -1029,7 +1063,8 @@
             "vi": "sự từ chối"
           }
         ],
-        "icon": "hand-off"
+        "icon": "hand-off",
+        "anim": "274c"
       },
       {
         "word": "inject",
@@ -1059,7 +1094,8 @@
             "vi": "mũi tiêm"
           }
         ],
-        "icon": "vaccine"
+        "icon": "vaccine",
+        "anim": "1f4b8"
       },
       {
         "word": "project",
@@ -1089,7 +1125,8 @@
             "vi": "dự báo; sự chiếu"
           }
         ],
-        "icon": "presentation"
+        "icon": "presentation",
+        "anim": "1f39e_fe0f"
       },
       {
         "word": "object",
@@ -1124,7 +1161,8 @@
             "vi": "khách quan; mục tiêu"
           }
         ],
-        "icon": "hand-stop"
+        "icon": "hand-stop",
+        "anim": "270b"
       },
       {
         "word": "eject",
@@ -1148,7 +1186,8 @@
         "example": "The pilot ejected seconds before the crash.",
         "example_vi": "Phi công bật ghế thoát ra vài giây trước khi máy bay rơi.",
         "related": [],
-        "icon": "disc"
+        "icon": "disc",
+        "anim": "1f4bf"
       },
       {
         "word": "subject",
@@ -1178,7 +1217,8 @@
             "vi": "chủ quan"
           }
         ],
-        "icon": "books"
+        "icon": "books",
+        "anim": "1f4da"
       },
       {
         "word": "trajectory",
@@ -1207,10 +1247,12 @@
         "example": "The company's growth trajectory looks promising.",
         "example_vi": "Đà tăng trưởng của công ty trông đầy hứa hẹn.",
         "related": [],
-        "icon": "chart-line"
+        "icon": "chart-line",
+        "anim": "1f4c8"
       }
     ],
-    "icon": "arrow-badge-right"
+    "icon": "arrow-badge-right",
+    "anim": "1f94f"
   },
   {
     "id": "mit",
@@ -1254,7 +1296,8 @@
             "vi": "sự nộp; sự phục tùng"
           }
         ],
-        "icon": "mail-forward"
+        "icon": "mail-forward",
+        "anim": "270d_fe0f"
       },
       {
         "word": "admit",
@@ -1284,7 +1327,8 @@
             "vi": "sự nhận vào; lời thú nhận"
           }
         ],
-        "icon": "door-enter"
+        "icon": "door-enter",
+        "anim": "1f39f_fe0f"
       },
       {
         "word": "permit",
@@ -1314,7 +1358,8 @@
             "vi": "sự cho phép"
           }
         ],
-        "icon": "ticket"
+        "icon": "ticket",
+        "anim": "1f197"
       },
       {
         "word": "omit",
@@ -1344,7 +1389,8 @@
             "vi": "sự bỏ sót"
           }
         ],
-        "icon": "scissors"
+        "icon": "scissors",
+        "anim": "2702_fe0f"
       },
       {
         "word": "emit",
@@ -1374,7 +1420,8 @@
             "vi": "khí thải"
           }
         ],
-        "icon": "building-factory"
+        "icon": "building-factory",
+        "anim": "1f32c_fe0f"
       },
       {
         "word": "transmit",
@@ -1404,7 +1451,8 @@
             "vi": "sự truyền"
           }
         ],
-        "icon": "antenna"
+        "icon": "antenna",
+        "anim": "1f9a0"
       },
       {
         "word": "intermittent",
@@ -1433,7 +1481,8 @@
         "example": "There will be intermittent rain this afternoon.",
         "example_vi": "Chiều nay sẽ có mưa rải rác.",
         "related": [],
-        "icon": "cloud-rain"
+        "icon": "cloud-rain",
+        "anim": "1f327_fe0f"
       },
       {
         "word": "mission",
@@ -1463,10 +1512,12 @@
             "vi": "gạt bỏ; sa thải"
           }
         ],
-        "icon": "rocket"
+        "icon": "rocket",
+        "anim": "1f680"
       }
     ],
-    "icon": "mail-forward"
+    "icon": "mail-forward",
+    "anim": "1f48c"
   },
   {
     "id": "tract",
@@ -1515,7 +1566,8 @@
             "vi": "hấp dẫn"
           }
         ],
-        "icon": "magnet"
+        "icon": "magnet",
+        "anim": "1f60d"
       },
       {
         "word": "distract",
@@ -1545,7 +1597,8 @@
             "vi": "thứ gây xao nhãng"
           }
         ],
-        "icon": "device-mobile-message"
+        "icon": "device-mobile-message",
+        "anim": "1f635_200d_1f4ab"
       },
       {
         "word": "extract",
@@ -1575,7 +1628,8 @@
             "vi": "sự khai thác"
           }
         ],
-        "icon": "dental"
+        "icon": "dental",
+        "anim": "26fd"
       },
       {
         "word": "contract",
@@ -1605,7 +1659,8 @@
             "vi": "sự co lại"
           }
         ],
-        "icon": "file-text"
+        "icon": "file-text",
+        "anim": "1f91d"
       },
       {
         "word": "subtract",
@@ -1629,7 +1684,8 @@
         "example": "Subtract your expenses from your income.",
         "example_vi": "Lấy thu nhập trừ đi chi phí.",
         "related": [],
-        "icon": "minus"
+        "icon": "minus",
+        "anim": "1f4c9"
       },
       {
         "word": "retract",
@@ -1653,7 +1709,8 @@
         "example": "The newspaper retracted the false story.",
         "example_vi": "Tờ báo rút lại bài viết sai sự thật.",
         "related": [],
-        "icon": "arrow-back-up"
+        "icon": "arrow-back-up",
+        "anim": "1f910"
       },
       {
         "word": "traction",
@@ -1677,10 +1734,12 @@
         "example": "The idea of remote work gained traction during the pandemic.",
         "example_vi": "Ý tưởng làm việc từ xa được ủng hộ mạnh trong đại dịch.",
         "related": [],
-        "icon": "wheel"
+        "icon": "wheel",
+        "anim": "1f69c"
       }
     ],
-    "icon": "magnet"
+    "icon": "magnet",
+    "anim": "1f3a3"
   },
   {
     "id": "rupt",
@@ -1724,7 +1783,8 @@
             "vi": "sự phun trào"
           }
         ],
-        "icon": "volcano"
+        "icon": "volcano",
+        "anim": "1f30b"
       },
       {
         "word": "interrupt",
@@ -1754,7 +1814,8 @@
             "vi": "sự gián đoạn"
           }
         ],
-        "icon": "hand-stop"
+        "icon": "hand-stop",
+        "anim": "270b"
       },
       {
         "word": "disrupt",
@@ -1789,7 +1850,8 @@
             "vi": "gây xáo trộn"
           }
         ],
-        "icon": "barrier-block"
+        "icon": "barrier-block",
+        "anim": "1f6a7"
       },
       {
         "word": "corrupt",
@@ -1819,7 +1881,8 @@
             "vi": "sự tham nhũng"
           }
         ],
-        "icon": "cash"
+        "icon": "cash",
+        "anim": "1f911"
       },
       {
         "word": "bankrupt",
@@ -1849,7 +1912,8 @@
             "vi": "sự phá sản"
           }
         ],
-        "icon": "trending-down"
+        "icon": "trending-down",
+        "anim": "1f4c9"
       },
       {
         "word": "abrupt",
@@ -1879,10 +1943,12 @@
             "vi": "một cách đột ngột"
           }
         ],
-        "icon": "player-stop"
+        "icon": "player-stop",
+        "anim": "1f6d1"
       }
     ],
-    "icon": "bomb"
+    "icon": "bomb",
+    "anim": "1f4a5"
   },
   {
     "id": "vert",
@@ -1926,7 +1992,8 @@
             "vi": "sự chuyển đổi"
           }
         ],
-        "icon": "recycle"
+        "icon": "recycle",
+        "anim": "1fa84"
       },
       {
         "word": "divert",
@@ -1956,7 +2023,8 @@
             "vi": "sự chuyển hướng"
           }
         ],
-        "icon": "arrows-split"
+        "icon": "arrows-split",
+        "anim": "1f6a6"
       },
       {
         "word": "reverse",
@@ -1986,7 +2054,8 @@
             "vi": "không thể đảo ngược"
           }
         ],
-        "icon": "arrow-back"
+        "icon": "arrow-back",
+        "anim": "1fa83"
       },
       {
         "word": "diverse",
@@ -2016,7 +2085,8 @@
             "vi": "sự đa dạng"
           }
         ],
-        "icon": "rainbow"
+        "icon": "rainbow",
+        "anim": "1f308"
       },
       {
         "word": "introvert",
@@ -2046,7 +2116,8 @@
             "vi": "người hướng ngoại"
           }
         ],
-        "icon": "yoga"
+        "icon": "yoga",
+        "anim": "1f92b"
       },
       {
         "word": "controversy",
@@ -2081,7 +2152,8 @@
             "vi": "gây tranh cãi"
           }
         ],
-        "icon": "swords"
+        "icon": "swords",
+        "anim": "1f5ef_fe0f"
       },
       {
         "word": "versatile",
@@ -2105,10 +2177,12 @@
         "example": "Bamboo is a versatile building material.",
         "example_vi": "Tre là vật liệu xây dựng đa năng.",
         "related": [],
-        "icon": "tool"
+        "icon": "tool",
+        "anim": "1f6e0_fe0f"
       }
     ],
-    "icon": "arrows-exchange"
+    "icon": "arrows-exchange",
+    "anim": "1f300"
   },
   {
     "id": "duc",
@@ -2153,7 +2227,8 @@
             "vi": "sự giảm"
           }
         ],
-        "icon": "trending-down"
+        "icon": "trending-down",
+        "anim": "1f4c9"
       },
       {
         "word": "produce",
@@ -2188,7 +2263,8 @@
             "vi": "năng suất"
           }
         ],
-        "icon": "building-factory-2"
+        "icon": "building-factory-2",
+        "anim": "2699_fe0f"
       },
       {
         "word": "introduce",
@@ -2218,7 +2294,8 @@
             "vi": "sự giới thiệu"
           }
         ],
-        "icon": "users-group"
+        "icon": "users-group",
+        "anim": "1f44b"
       },
       {
         "word": "educate",
@@ -2253,7 +2330,8 @@
             "vi": "nền giáo dục"
           }
         ],
-        "icon": "school"
+        "icon": "school",
+        "anim": "1f393"
       },
       {
         "word": "induce",
@@ -2277,7 +2355,8 @@
         "example": "Some medicines can induce sleep.",
         "example_vi": "Một số loại thuốc có thể gây buồn ngủ.",
         "related": [],
-        "icon": "zzz"
+        "icon": "zzz",
+        "anim": "1f634"
       },
       {
         "word": "deduce",
@@ -2307,7 +2386,8 @@
             "vi": "sự suy luận; khoản khấu trừ"
           }
         ],
-        "icon": "brain"
+        "icon": "brain",
+        "anim": "1f9e0"
       },
       {
         "word": "conduct",
@@ -2337,10 +2417,12 @@
             "vi": "nhạc trưởng; chất dẫn"
           }
         ],
-        "icon": "music"
+        "icon": "music",
+        "anim": "1f3bb"
       }
     ],
-    "icon": "compass"
+    "icon": "compass",
+    "anim": "1f449"
   },
   {
     "id": "ced",
@@ -2390,7 +2472,8 @@
             "vi": "người tiền nhiệm"
           }
         ],
-        "icon": "medal"
+        "icon": "medal",
+        "anim": "1f947"
       },
       {
         "word": "proceed",
@@ -2425,7 +2508,8 @@
             "vi": "quá trình"
           }
         ],
-        "icon": "arrow-right"
+        "icon": "arrow-right",
+        "anim": "1f3c1"
       },
       {
         "word": "exceed",
@@ -2460,7 +2544,8 @@
             "vi": "quá mức"
           }
         ],
-        "icon": "alarm"
+        "icon": "alarm",
+        "anim": "1f6a8"
       },
       {
         "word": "recede",
@@ -2490,7 +2575,8 @@
             "vi": "suy thoái kinh tế"
           }
         ],
-        "icon": "ripple"
+        "icon": "ripple",
+        "anim": "1f30a"
       },
       {
         "word": "concede",
@@ -2520,7 +2606,8 @@
             "vi": "sự nhượng bộ"
           }
         ],
-        "icon": "flag-off"
+        "icon": "flag-off",
+        "anim": "1f3f3_fe0f"
       },
       {
         "word": "access",
@@ -2550,10 +2637,12 @@
             "vi": "dễ tiếp cận"
           }
         ],
-        "icon": "key"
+        "icon": "key",
+        "anim": "1f512"
       }
     ],
-    "icon": "walk"
+    "icon": "walk",
+    "anim": "1f463"
   },
   {
     "id": "cred",
@@ -2597,7 +2686,8 @@
             "vi": "độ tin cậy"
           }
         ],
-        "icon": "circle-check"
+        "icon": "circle-check",
+        "anim": "2705"
       },
       {
         "word": "incredible",
@@ -2626,7 +2716,8 @@
         "example": "The view from the top was incredible.",
         "example_vi": "Khung cảnh từ đỉnh núi thật phi thường.",
         "related": [],
-        "icon": "mood-surprised"
+        "icon": "mood-surprised",
+        "anim": "1f929"
       },
       {
         "word": "credit",
@@ -2656,7 +2747,8 @@
             "vi": "làm mất uy tín"
           }
         ],
-        "icon": "credit-card"
+        "icon": "credit-card",
+        "anim": "1fa99"
       },
       {
         "word": "credentials",
@@ -2680,7 +2772,8 @@
         "example": "Applicants must have strong academic credentials.",
         "example_vi": "Ứng viên phải có bằng cấp học thuật tốt.",
         "related": [],
-        "icon": "certificate"
+        "icon": "certificate",
+        "anim": "1f393"
       },
       {
         "word": "credulous",
@@ -2710,10 +2803,12 @@
             "vi": "hoài nghi"
           }
         ],
-        "icon": "user-question"
+        "icon": "user-question",
+        "anim": "1f643"
       }
     ],
-    "icon": "heart-handshake"
+    "icon": "heart-handshake",
+    "anim": "1f91e"
   },
   {
     "id": "tain",
@@ -2757,7 +2852,8 @@
             "vi": "thùng chứa"
           }
         ],
-        "icon": "bottle"
+        "icon": "bottle",
+        "anim": "1f4e6"
       },
       {
         "word": "maintain",
@@ -2787,7 +2883,8 @@
             "vi": "sự bảo trì"
           }
         ],
-        "icon": "tool"
+        "icon": "tool",
+        "anim": "1f6e0_fe0f"
       },
       {
         "word": "obtain",
@@ -2811,7 +2908,8 @@
         "example": "You need to obtain a visa before you travel.",
         "example_vi": "Bạn cần xin thị thực trước khi đi.",
         "related": [],
-        "icon": "trophy"
+        "icon": "trophy",
+        "anim": "1f3c6"
       },
       {
         "word": "retain",
@@ -2841,7 +2939,8 @@
             "vi": "sự giữ lại"
           }
         ],
-        "icon": "brain"
+        "icon": "brain",
+        "anim": "1f9e0"
       },
       {
         "word": "sustain",
@@ -2876,7 +2975,8 @@
             "vi": "tính bền vững"
           }
         ],
-        "icon": "plant-2"
+        "icon": "plant-2",
+        "anim": "1f331"
       },
       {
         "word": "detain",
@@ -2906,7 +3006,8 @@
             "vi": "sự giam giữ"
           }
         ],
-        "icon": "lock"
+        "icon": "lock",
+        "anim": "1f6a8"
       },
       {
         "word": "tenant",
@@ -2936,9 +3037,11 @@
             "vi": "bền bỉ, kiên trì"
           }
         ],
-        "icon": "home"
+        "icon": "home",
+        "anim": "1f3e0"
       }
     ],
-    "icon": "hand-grab"
+    "icon": "hand-grab",
+    "anim": "270a"
   }
 ]

@@ -5,6 +5,7 @@
 // Animation: elements with class .a-<name> animate on load; `style="--i:n"` staggers them.
 // make-video.mjs pauses every animation and steps currentTime frame by frame, so capture is exact.
 import { esc, plain } from "./common.mjs";
+import { lottieScripts } from "./emoji.mjs";
 
 export const W = 1080;
 export const H = 1920;
@@ -21,6 +22,10 @@ body:before{content:"";position:absolute;inset:0;background:
   repeating-linear-gradient(90deg,transparent 0 59px,rgba(0,75,155,.05) 59px 60px)}
 .emoji{font-family:"Noto Color Emoji","Apple Color Emoji",sans-serif}
 .ico{display:inline-block;vertical-align:-0.14em;flex:none}
+.lot{display:inline-block;vertical-align:middle;line-height:0}
+.lot svg{display:block}
+.nextroot .lot{vertical-align:-0.15em;margin-left:6px}
+.card .lot{position:absolute;right:0;top:0}
 .badge{display:inline-flex;align-items:center;justify-content:center;border-radius:50%;color:#004b9b;
   background:radial-gradient(circle at 35% 30%,#ffffff 0%,#e8f6fc 70%);box-shadow:0 0 0 8px #cfe9f7,0 18px 40px rgba(0,75,155,.18)}
 header{position:absolute;top:70px;left:70px;right:70px;display:flex;align-items:center;gap:22px}
@@ -188,7 +193,7 @@ export const FONT_LINK = `<link rel="preconnect" href="https://fonts.googleapis.
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800&display=block" rel="stylesheet">`;
 
 export function header(family, logo) {
-  return `<header><img src="${logo}" alt=""><div><div class="brand">UpWind</div><div class="series">Gốc từ tiếng Anh</div></div>
+  return `<header><img src="${logo}" alt=""><div><div class="brand">UpWind</div><div class="series">Học từ từ gốc</div></div>
 <div class="chip">${esc(family.root.split("/")[0].trim())}</div></header>`;
 }
 
@@ -203,5 +208,6 @@ ${wave()}
 ${header(family, logo)}
 <main>${scene.html.replaceAll("__LOGO__", logo)}</main>
 <div class="caption a-up" style="--d:120ms">${capHtml}</div>
+${lottieScripts(scene.html)}
 </body></html>`;
 }

@@ -20,10 +20,11 @@
 import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
-import { execFileSync } from "node:child_process";
+import { execFileSync, spawnSync } from "node:child_process";
 import { createRequire } from "node:module";
 import { ROOT_DIR, OUT_DIR, loadFamilies, chunks, plain, ensureDir, captionText, nextFamily } from "./lib/common.mjs";
 import { buildScenes } from "./lib/scenes.mjs";
+import { ensureEmojiAssets } from "./lib/emoji.mjs";
 import { frameHtml, W, H } from "./lib/template.mjs";
 
 const require = createRequire(import.meta.url);
@@ -129,11 +130,38 @@ function resolveEnglishEngine() {
  *  makes VieNeu stutter or repeat the word, so it becomes a short pause; the caption still shows it. */
 function speakable(say) {
   const cs = chunks(say);
-  return cs.filter((c, i) => {
-    const lone = c.lang === "vi" && c.text.split(/\s+/).length === 1 && cs[i - 1]?.lang === "en" && cs[i + 1]?.lang === "en";
-    return !(lone && VI_TTS === "vieneu");
-  });
+  return cs
+    .filter((c, i) => {
+      const lone = c.lang === "vi" && c.text.split(/\s+/).length === 1 && cs[i - 1]?.lang === "en" && cs[i + 1]?.lang === "en";
+      return !(lone && VI_TTS === "vieneu");
+    })
+    .map((c, i, arr) => {
+      // VieNeu repeats a trailing word when a line stops mid-phrase right before English
+      // ("… với" + convert -> "với với"). Closing the phrase with a comma prevents it.
+      if (c.lang === "vi" && arr[i + 1]?.lang === "en" && !/[.,:;!?…]$/.test(c.text)) {
+        if (!WARNED.has(c.text)) {
+          WARNED.add(c.text);
+          console.warn(`  ! narration "${c.text}" runs into English; added a comma. Better: start the sentence with the English word.`);
+        }
+        return { ...c, text: c.text + "," };
+      }
+      return c;
+    });
 }
+const WARNED = new Set();
+
+/** Integrated loudness (LUFS) of a clip after trimming silence, cached next to the clip. */
+function loudness(file) {
+  const meta = file + ".lufs";
+  if (cached(meta)) return Number(fs.readFileSync(meta, "utf8"));
+  const r = spawnSync("ffmpeg", ["-hide_banner", "-nostats", "-i", file, "-af", `${TRIM},ebur128=framelog=quiet`, "-f", "null", "-"]);
+  const m = [...r.stderr.toString().matchAll(/I:\s+(-?[\d.]+) LUFS/g)].pop();
+  let v = m ? Number(m[1]) : -20;
+  if (!(v > -50)) v = -20; // clips too short to measure
+  fs.writeFileSync(meta, String(v));
+  return v;
+}
+const TARGET_LUFS = -17;
 
 const TRIM =
   "silenceremove=start_periods=1:start_threshold=-45dB,areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse";
@@ -146,17 +174,21 @@ function sceneAudio(scene, file) {
     run("ffmpeg", ["-y", "-v", "error", "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo", "-t", secs.toFixed(2), file]);
     return file;
   }
-  const parts = speakable(scene.say).map((c) => ({ ...c, file: ttsChunk(c.text, c.lang) }));
+  const parts = speakable(scene.say).map((c) => {
+    const file = ttsChunk(c.text, c.lang);
+    return { ...c, file, lufs: loudness(file) };
+  });
   const inputs = parts.flatMap((p) => ["-i", p.file]);
   // Each clip: same format, edges trimmed, loudness matched so the two voices sit at the same level.
   const filt =
     parts
       .map((p, i) => {
         const gap = i < parts.length - 1 ? (parts[i + 1].lang !== p.lang ? 0.1 : 0.05) : 0;
-        return `[${i}:a]aresample=44100,aformat=sample_fmts=fltp:channel_layouts=stereo,${TRIM},loudnorm=I=-16:TP=-1.5:LRA=11,aresample=44100,apad=pad_dur=${gap}[a${i}]`;
+        const gain = Math.max(-12, Math.min(18, TARGET_LUFS - p.lufs)).toFixed(1);
+        return `[${i}:a]aresample=44100,aformat=sample_fmts=fltp:channel_layouts=stereo,${TRIM},volume=${gain}dB,apad=pad_dur=${gap}[a${i}]`;
       })
       .join(";") +
-    `;${parts.map((_, i) => `[a${i}]`).join("")}concat=n=${parts.length}:v=0:a=1,atempo=${SPEED},adelay=120|120,apad=pad_dur=${hold.toFixed(2)}[out]`;
+    `;${parts.map((_, i) => `[a${i}]`).join("")}concat=n=${parts.length}:v=0:a=1,atempo=${SPEED},alimiter=limit=0.9:level=false,adelay=120|120,apad=pad_dur=${hold.toFixed(2)}[out]`;
   run("ffmpeg", ["-y", "-v", "error", ...inputs, "-filter_complex", filt, "-map", "[out]", "-ar", "44100", file]);
   return file;
 }
@@ -174,30 +206,61 @@ async function captureScene(page, html, dir, stillPng) {
   ensureDir(dir);
   await page.setContent(html, { waitUntil: "networkidle" }).catch(() => {});
   await page.evaluate(() => document.fonts.ready);
-  const endMs = await page.evaluate(() => {
+  await page.waitForFunction(() => window.__lotReady === true, null, { timeout: 15000 });
+  const { endMs, lotMs } = await page.evaluate(() => {
     const anims = document.getAnimations();
     anims.forEach((a) => a.pause());
     window.__anims = anims;
-    return Math.max(0, ...anims.map((a) => a.effect.getComputedTiming().endTime));
+    window.__at = (t) => {
+      window.__anims.forEach((a) => (a.currentTime = t));
+      window.__setT(t);
+    };
+    return { endMs: Math.max(0, ...anims.map((a) => a.effect.getComputedTiming().endTime)), lotMs: window.__lotDur || 0 };
   });
-  const frames = Math.max(1, Math.ceil((endMs / 1000) * FPS) + 1);
-  for (let f = 0; f < frames; f++) {
-    await page.evaluate((t) => window.__anims.forEach((a) => (a.currentTime = t)), (f * 1000) / FPS);
-    await page.screenshot({ path: path.join(dir, `f${String(f).padStart(4, "0")}.jpg`), type: "jpeg", quality: 90 });
+  const shot = (sub, i) => page.screenshot({ path: path.join(dir, sub, `f${String(i).padStart(4, "0")}.jpg`), type: "jpeg", quality: 90 });
+  ensureDir(path.join(dir, "intro"));
+  const intro = Math.max(1, Math.ceil((endMs / 1000) * FPS) + 1);
+  for (let f = 0; f < intro; f++) {
+    await page.evaluate((t) => window.__at(t), (f * 1000) / FPS);
+    await shot("intro", f);
   }
+  // One full cycle of the emoji animation after the intro; ffmpeg loops it for the rest of the scene.
+  let loop = 0;
+  if (lotMs > 0) {
+    ensureDir(path.join(dir, "loop"));
+    const start = (intro * 1000) / FPS;
+    const n = Math.max(2, Math.round((Math.min(lotMs, 6000) / 1000) * FPS));
+    for (let f = 0; f < n; f++) {
+      await page.evaluate((t) => window.__at(t), start + (f * lotMs) / n);
+      await shot("loop", f);
+    }
+    loop = n;
+  }
+  await page.evaluate((t) => window.__at(t), (intro * 1000) / FPS + lotMs - ((intro * 1000) / FPS) % (lotMs || 1));
   await page.screenshot({ path: stillPng });
-  return frames;
+  return { intro, loop };
 }
 
-function segment(framesDir, nFrames, wav, mp4) {
-  const secs = Math.max(duration(wav), nFrames / FPS + 0.3);
-  const hold = Math.max(0, secs - nFrames / FPS);
+function segment(framesDir, frames, wav, mp4) {
+  const { intro } = frames;
+  const secs = Math.max(duration(wav), intro / FPS + 0.3);
+  const hold = Math.max(0, secs - intro / FPS);
+  const loop = hold > 0.1 ? frames.loop : 0;
   const audio = SFX
     ? `[1:a]apad=whole_dur=${secs.toFixed(3)}[v1];[2:a]volume=0.35[p];[v1][p]amix=inputs=2:duration=first:normalize=0[a]`
     : `[1:a]apad=whole_dur=${secs.toFixed(3)}[a]`;
-  run("ffmpeg", ["-y", "-v", "error", "-framerate", String(FPS), "-i", path.join(framesDir, "f%04d.jpg"), "-i", wav,
+  const introIn = ["-framerate", String(FPS), "-i", path.join(framesDir, "intro", "f%04d.jpg")];
+  const video = loop
+    ? `[0:v][L]concat=n=2:v=1:a=0,format=yuv420p[v]`
+    : `[0:v]tpad=stop_mode=clone:stop_duration=${hold.toFixed(3)},format=yuv420p[v]`;
+  const loopIn = loop ? ["-loop", "1", "-framerate", String(FPS), "-i", path.join(framesDir, "loop", "f%04d.jpg")] : [];
+  // inputs: 0 intro, 1 wav, 2 pop (optional), last: loop (optional)
+  const loopIdx = SFX ? 3 : 2;
+  const loopTrim = loop ? `[${loopIdx}:v]trim=duration=${hold.toFixed(3)},setpts=PTS-STARTPTS[L];` : "";
+  run("ffmpeg", ["-y", "-v", "error", ...introIn, "-i", wav,
     ...(SFX ? ["-i", POP] : []),
-    "-filter_complex", `[0:v]tpad=stop_mode=clone:stop_duration=${hold.toFixed(3)},format=yuv420p[v];${audio}`,
+    ...loopIn,
+    "-filter_complex", `${loopTrim}${video};${audio}`,
     "-map", "[v]", "-map", "[a]", "-t", secs.toFixed(3), "-r", String(FPS),
     "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-c:a", "aac", "-b:a", "160k", "-ar", "44100", "-ac", "2", mp4]);
 }
@@ -258,6 +321,7 @@ if (VI_TTS === "vieneu" || EN_TTS === "vieneu") {
 if (VI_TTS !== "none") resolveEnglishEngine();
 
 const families = loadFamilies();
+ensureEmojiAssets(families);
 const chosen = target === "all" ? families : families.filter((f) => target.split(",").includes(f.id));
 if (!chosen.length) {
   console.error(`No family "${target}". Available: ${families.map((f) => f.id).join(", ")}`);
