@@ -40,7 +40,18 @@ split / meaning / example → recap → quiz → **next-video teaser** ("Tập s
 Every scene animates in (slams, fly-ins, parts snapping into the word, word-by-word sentences),
 with a progress bar across the top.
 
-**Voices.** By default ONE VieNeu-TTS voice reads everything, Vietnamese and English, so the video sounds
+**Best voice: VieNeu V4 (cloud, the model on vieneu.io).** Put your API key (vieneu.io → Developer) in the
+environment and the video is read by V4 in one voice, with much better English than the free local model:
+
+```bash
+export VIENEU_API_KEY="vn_sk_..."           # never commit this
+node make-video.mjs rupt --voice "Hải Đăng"  # web-app names work; "Hải Đăng" is V4 id "Minh Quân Pro"
+```
+
+One video is about 30 API calls and ~10,000 tokens (2,700 characters). TTS clips are cached, so re-rendering a
+video after visual changes costs nothing. Without a key the tool falls back to the free local model below.
+
+**Voices (free local fallback).** By default ONE VieNeu-TTS voice reads everything, Vietnamese and English, so the video sounds
 unified. Each line is read in one pass; full English example sentences get their own pass (VieNeu reads clean
 English sentences best). English words can occasionally come out imperfect; re-render that video if one does.
 Default voice is "Mai Anh": in a test of the 10 recommended VieNeu voices (English words inside Vietnamese

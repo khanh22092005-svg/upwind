@@ -56,7 +56,7 @@ const BGM = opt("bgm", "");
 const SFX = !flag("no-sfx");
 const FPS = 30;
 const VIENEU_VOICE = opt("voice", "Mai Anh"); // local v3 Turbo: best English of the 10 recommended voices in our test
-const CLOUD_VOICE = opt("voice", "Ban Mai"); // V4 catalogue: curl "https://api.vieneu.io/api/v1/voices?engine=v4"
+let CLOUD_VOICE = opt("voice", "Ban Mai"); // V4 voice id, or the name the vieneu.io web app shows (e.g. "Hải Đăng")
 const EDGE_VOICE = { vi: "vi-VN-HoaiMyNeural", en: opt("en-voice", "en-GB-SoniaNeural") };
 const PY = process.env.VIENEU_PYTHON || "python3";
 const VIENEU_SCRIPT = path.join(ROOT_DIR, "lib", "vieneu_tts.py");
@@ -348,6 +348,17 @@ async function makeOne(browser, family, logo, part) {
 /* ---------- main ---------- */
 if (VI_TTS === "vieneu-cloud") {
   EN_TTS = "vieneu-cloud";
+  // The web app shows display names that differ from API ids ("Hải Đăng" is id "Minh Quân Pro"): resolve them.
+  try {
+    const list = JSON.parse(run("curl", ["-sS", "-m", "30", "https://api.vieneu.io/api/tts/voices"])).voices ?? [];
+    const v4 = list.filter((v) => v.engine === "v4");
+    const hit = v4.find((v) => v.id === CLOUD_VOICE) ?? v4.find((v) => v.name === CLOUD_VOICE);
+    if (!hit) throw new Error(`no V4 voice called "${CLOUD_VOICE}"`);
+    if (hit.id !== CLOUD_VOICE) console.log(`  "${CLOUD_VOICE}" on vieneu.io = V4 voice id "${hit.id}"`);
+    CLOUD_VOICE = hit.id;
+  } catch (e) {
+    console.warn(`! Could not check the voice name (${e.message}); sending "${CLOUD_VOICE}" as is.`);
+  }
   console.log(`Voice: VieNeu V4 cloud "${CLOUD_VOICE}" for both Vietnamese and English`);
 }
 if (VI_TTS === "vieneu" || EN_TTS === "vieneu") {
