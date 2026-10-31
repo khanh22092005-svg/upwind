@@ -30,6 +30,7 @@ node make-video.mjs rupt --en-tts auto      # separate English voice: auto (edge
 node make-video.mjs rupt --one-voice        # ONE voice for both languages (Microsoft en-US-EmmaMultilingualNeural, needs internet)
 node make-video.mjs rupt --one-voice en-US-AvaMultilingualNeural
 node make-video.mjs rupt --tts none         # silent draft to check the visuals quickly
+node make-video.mjs rupt --audio-only       # narration MP3 only (compare voices/models without rendering video)
 node make-video.mjs rupt --no-sfx           # no pop sounds
 node make-video.mjs rupt --bgm lofi.mp3     # quiet background music (use music you own the rights to)
 ```

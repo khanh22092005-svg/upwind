@@ -54,6 +54,7 @@ const SPEED = Number(opt("speed", 1.1)) || 1.1;
 const MAX = Number(opt("max", 0)) || 0;
 const BGM = opt("bgm", "");
 const SFX = !flag("no-sfx");
+const AUDIO_ONLY = flag("audio-only"); // narration MP3 only, no video (out/<id>-audio-<engine>-<voice>/)
 const FPS = 30;
 const VIENEU_VOICE = opt("voice", "Mai Anh"); // local v3 Turbo: best English of the 10 recommended voices in our test
 let CLOUD_VOICE = opt("voice", "Ban Mai"); // V4 voice id, or the name the vieneu.io web app shows (e.g. "Hải Đăng")
@@ -310,6 +311,23 @@ async function makeOne(browser, family, logo, part) {
   console.log(`▶ ${id}: ${words.length} words, ${scenes.length} scenes`);
   if (VI_TTS === "vieneu") prefetchVieneu(scenes);
 
+  if (AUDIO_ONLY) {
+    // Narration only: same lines, pace, loudness and pauses as the video, into its own folder.
+    const voice = VI_TTS === "vieneu-cloud" ? CLOUD_VOICE : VI_TTS === "vieneu" ? VIENEU_VOICE : VI_TTS;
+    const slug = voice.normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/đ/gi, "d").replace(/[^a-z0-9]+/gi, "-").toLowerCase();
+    const outDir = path.join(OUT_DIR, `${id}-audio-${VI_TTS}-${slug}`);
+    const wavs = scenes.map((scene, i) => sceneAudio(scene, path.join(tmp, `s${String(i).padStart(2, "0")}.wav`)));
+    const list = path.join(tmp, "concat.txt");
+    fs.writeFileSync(list, wavs.map((f) => `file '${f}'`).join("\n"));
+    run("ffmpeg", ["-y", "-v", "error", "-f", "concat", "-safe", "0", "-i", list, "-ar", "44100", "-ac", "2", "-b:a", "192k",
+      path.join(dir, "narration.mp3")]);
+    fs.rmSync(tmp, { recursive: true, force: true });
+    fs.rmSync(outDir, { recursive: true, force: true });
+    fs.renameSync(dir, outDir);
+    console.log(`  ✓ ${path.relative(ROOT_DIR, path.join(outDir, "narration.mp3"))} (${duration(path.join(outDir, "narration.mp3")).toFixed(0)}s)`);
+    return;
+  }
+
   const page = await browser.newPage({ viewport: { width: W, height: H } });
   const list = [];
   for (const [i, scene] of scenes.entries()) {
@@ -381,7 +399,7 @@ if (!chosen.length) {
   process.exit(1);
 }
 const logo = "data:image/svg+xml;base64," + fs.readFileSync(path.join(ROOT_DIR, "../../public/favicon.svg")).toString("base64");
-const browser = await chromium.launch();
+const browser = AUDIO_ONLY ? null : await chromium.launch();
 try {
   for (const f of chosen) {
     if (MAX && f.words.length > MAX) {
@@ -390,5 +408,5 @@ try {
     } else await makeOne(browser, f, logo);
   }
 } finally {
-  await browser.close();
+  await browser?.close();
 }
