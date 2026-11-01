@@ -23,3 +23,10 @@ Pushing to `main` deploys automatically (Cloudflare Workers Builds). There is no
 Any Writing band content (the "Nâng band câu này" carousels in `tools/word-roots`, slides, handouts) starts from
 `tools/word-roots/WRITING-BANDS.md`. It follows the teacher's essay-grading rules (`ielts-writing-grader` skill): the tags
 TR/CC/LX/GR, band 5/6/7 anchors from the official descriptors, natural expression before fancy words, and the error bank.
+
+## Social content kit (`tools/word-roots/`)
+
+Videos, carousels ("ảnh cuộn") and the handbook for the "Học từ từ gốc" and "Nâng band câu này" series are made by
+`tools/word-roots/` (not part of the website build). Read its `README.md` (commands, voices, visual rules) and `METHOD.md`
+(format, production line, data prompts) before changing anything there. Outputs go to its gitignored `out/` folder.
+The VieNeu API key is passed only as the `VIENEU_API_KEY` environment variable; never write it into a file or commit it.

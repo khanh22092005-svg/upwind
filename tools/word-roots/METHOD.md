@@ -29,37 +29,42 @@ Chinese Douyin video re-voiced in Vietnamese. The page's other reels are almost 
 
 **What to avoid copying**
 
-- **Movie clips** are copyrighted and can get the page struck or muted. Our version uses written IELTS-style example sentences voiced by an English TTS voice.
+- **Movie clips** are copyrighted and can get the page struck or muted. Our version uses written IELTS-style example sentences read by the same narrator (English, then the Vietnamese translation).
 - **Re-uploading Douyin videos** is someone else's content, and the Chinese labels don't help Vietnamese learners.
 - **3.5 minutes, landscape.** Reels, TikTok and Shorts reward vertical videos of about 45–90 s. Split long families into parts (`--max 4`).
 - **Word overload.** Rare words (convoke, vociferous) dilute the payoff. We keep words an IELTS 6.0–7.5 learner will actually meet.
 
 ## 2. Our format (what `make-video.mjs` produces)
 
-`Bait → Hook (+ challenge tease) → Root card → [Split → Meaning → Example] × N → Recap → Quiz → Next-video teaser`, 1080×1920, 1.2× pace,
-every scene animated in, a progress bar across the top, Vietnamese captions burned in
-(most people watch muted), UpWind branding, and the same orange/blue/green colour code.
+`Bait → Hook (1 gốc = N từ + challenge tease) → Root card → [Split → Meaning → Example] × N → Recap → Quiz → Next-video teaser`.
+
+- **Frame:** 1080×1920 at **1.1×** pace, every scene animated in, animated Noto emoji, and a progress bar across the top.
+- **Subtitles:** one light line at a time, burned in, with the spoken word in orange. Most people watch muted.
+- **Branding:** UpWind header ("Học từ từ gốc"), and the orange prefix / blue root / green suffix colour code.
+
 Additions to the reference:
 
-- **Bait opener (first 2–3 s).** A true but surprising literal meaning (“bankrupt nghĩa đen là… cái bàn bị đập gãy”) stops the scroll before the hook question.
-- **Open loop.** The hook promises “cuối video có thử thách”, which keeps people to the end.
-- **Next-video teaser.** The last scene names tomorrow's root and three of its words (“Tập sau: gốc vert…”) and asks for the follow. Post the families in file order so the promise is kept.
-- **Correct English every time.** English is voiced by a separate English voice, rendered once per word and reused.
-- The **quiz** and the **pinned-comment answer**. The quiz asks viewers to comment A, B or C,
-and the answer lives only in the pinned comment (`caption.txt`), which turns watchers into commenters.
-Comments are the strongest ranking signal on Facebook and TikTok.
+- **Bait opener (first 3 s).** "ÍT AI BIẾT: *bankrupt* nghĩa đen là… **cái bàn bị gãy**". A true, surprising literal meaning stops the scroll.
+- **Concrete promise.** "1 gốc *rupt* = **13 từ**". N counts every form on screen (main words plus related forms), so the number is honest.
+- **Open loop.** "Xem hết: thử thách cuối video" keeps people to the end.
+- **Next-video teaser.** The last scene names tomorrow's root and its words and asks for the follow (Vietnamese narration only). Post families in file order so the promise is kept.
+- **One natural voice.** VieNeu V4 "Hải Đăng" reads both Vietnamese and English. Each line is read in one pass, so there's no stitching, and all clips are loudness-matched.
+- **Quiz with the answer in the pinned comment.** It turns watchers into commenters, and comments are the strongest ranking signal on Facebook and TikTok.
 
 ## 3. Production line (about 15 minutes per video once set up)
 
-1. **Write the data.** Paste the prompt in §6 into Claude or ChatGPT with a root (e.g. `graph/gram`). Paste the JSON into `data/families.json`.
-2. **Fact-check (5 min).** IPA, part of speech, and whether the example sounds natural. Etymology stories may simplify, but they must not be false.
+1. **Write the data.** Paste the prompt in §6 into Claude or ChatGPT with a root (e.g. `graph/gram`), then add the JSON to `data/families.json`.
+   Pick `anim` codes from googlefonts.github.io/noto-emoji-animation and run `node fetch-assets.mjs`.
+2. **Fact-check (5 min).** Check the IPA, the part of speech, and that the example sounds natural. Etymology (and the bait) may simplify but must never be false.
    Drop any word a 6.5 student wouldn't need.
-3. **Draft render:** `node make-video.mjs graph --tts none`. Skim the PNGs for text overflow.
-4. **Final render:** `node make-video.mjs graph --tts edge` (or gTTS).
-5. **Post** with `caption.txt`, then pin the answer comment right away.
-6. **Carousel the same day**: `node make-carousel.mjs <id>` gives a 12-slide 4:5 “ảnh cuộn” post (bait cover → word cards → recap → quiz → next-family teaser). Post it a few hours after the video, or on Instagram while the video goes to TikTok.
+3. **Draft:** `node make-video.mjs graph --tts none` (no API cost). Skim `out/graph/s*.png` and fix any "overflows" warning.
+4. **Final:** with `VIENEU_API_KEY` set, run `node make-video.mjs graph`. That's about 30 API calls; later re-renders are free thanks to the cache.
+   Watch it once, listening for mispronounced English or repeated words.
+5. **Carousel:** `node make-carousel.mjs graph`. Post it a few hours after the video, or on Instagram while the video goes to TikTok.
+6. **Post** with `caption.txt`, then pin the answer comment right away. Add the Noto emoji credit.
+7. **Hand-off:** `cd out && zip -r graph.zip graph carousel/graph`. Outputs are never committed.
 
-Batch it: write 5 families on Sunday, render overnight with `node make-video.mjs a,b,c,d,e`, and schedule one per day.
+Batch it: write 5 families on Sunday, render with `node make-video.mjs a,b,c,d,e`, and schedule one per day.
 
 ## 4. Ways to expand the method
 
@@ -73,6 +78,22 @@ Batch it: write 5 families on Sunday, render overnight with `node make-video.mjs
 | Cặp bẫy (false friends) | “vocation ≠ vacation” | affect/effect, adapt/adopt, principal/principle |
 | Từ theo chủ đề IELTS | “10 environment words you can decode yourself” | emission, sustainable, deforestation, all decoded by root |
 | Giải mã bài Reading | “Use roots to guess 5 words in this Cambridge passage” | turns the method into an exam skill and points to UpWind's Reading course |
+
+**Beyond word roots** (ideas from the planning session; ★ = built)
+
+| area | series | format |
+|---|---|---|
+| Vocabulary | **Nghĩa đen bất ngờ** | one word with a surprising true origin: disaster = "ngôi sao xấu", muscle = "chú chuột nhỏ", companion = "người cùng ăn bánh mì", sarcasm = "xé thịt", quarantine = "40 ngày". 30–45 s. |
+| Vocabulary | **Âm thanh mang nghĩa** | gl- = ánh sáng (glow, glitter, glare), sn- = mũi (sniff, sneeze, snore), fl- = nhanh (flash, flicker, flutter). Same template as roots. |
+| Vocabulary | **Phrasal verb theo tiểu từ** | up = hoàn toàn (eat up, use up), out = ra ngoài / biến mất (run out, wipe out), off = tách ra / dừng (call off, put off). |
+| Vocabulary | **Từ con lai / cặp dễ nhầm** | brunch, smog, staycation as a flip-reveal quiz; affect/effect, economic/economical on a split screen. |
+| Grammar | **Lỗi người Việt hay mắc** | wrong sentence struck out in red, then the right one, plus one-line reason: *I very like*, *Although… but*, *discuss about*, *explain me*. |
+| Grammar | **Thì trên trục thời gian** | present perfect as an arrow from the past touching "now"; in/on/at as box, surface, point. |
+| Writing | **Nâng band câu này ★** | `make-upgrade.mjs`: band 5 → 6 → 7 with every upgrade explained. |
+| Speaking | **Shadowing** | V4 reads a model Part 1 answer, karaoke subtitles, then a 3 s "đến lượt bạn". |
+| Listening | **Bạn nghe ra không?** | minimal pairs (thirteen/thirty, ship/sheep) and Section 1 spelling and number traps, with a countdown before the reveal. |
+| Reading | **Săn paraphrase** | question and passage side by side; find *ancient ↔ old* in 5 s. |
+| Practice | **Thử thách 7 ngày, phiếu bài tập, mini game** | daily quiz with streak boxes; worksheet carousels with answers on the last slide; a flashcard game on upwind.asia built from `families.json`. |
 
 **Format variants**
 
@@ -109,20 +130,29 @@ Return ONE JSON object (no prose) with this shape:
 {
   "id": "<slug>", "root": "<root forms>", "say_root": "<how an English voice should say it, optional>",
   "origin": "<Latin/Greek source word>", "core": "<Vietnamese core meaning, 2-4 words>",
-  "emoji": "<one emoji>", "icon": "<Tabler icon name, see tabler.io/icons>", "image": "<Vietnamese: one concrete scene that shows the core meaning>",
+  "emoji": "<one emoji>", "anim": "<codepoint of a Noto ANIMATED emoji, e.g. 1f30b; see googlefonts.github.io/noto-emoji-animation>",
+  "image": "<Vietnamese: one concrete scene that shows the core meaning>",
   "hook": "<Vietnamese curiosity question naming 3 familiar words wrapped in {{ }}>",
   "bait": {"word": "<one word of the family>", "literal": "<its surprising literal meaning, Vietnamese, max 6 words>",
-           "say": "<Vietnamese line: {{Word}} nghĩa đen là... <literal>!>"},
+           "say": "<Vietnamese: {{Word}}, <real meaning>, nghĩa đen là... <literal>!>"},
   "words": [ 6-8 items:
     { "word": "", "pos": "n. | v. | adj. | v. / n.", "ipa": "<British IPA>",
       "parts": [{"t": "<letters exactly as in the word>", "k": "pre|root|suf", "vi": "<Vietnamese meaning>"}],
       "meaning": "<Vietnamese, short>",
       "story": "<Vietnamese, ONE sentence: literal parts -> picture -> real meaning, no 'tưởng tượng' prefix>",
-      "emoji": "", "icon": "<Tabler icon name>", "example": "<natural IELTS-style English sentence, max 14 words>",
+      "emoji": "", "anim": "<Noto animated emoji codepoint>", "example": "<natural IELTS-style English sentence, max 14 words>",
       "example_vi": "<Vietnamese translation>",
       "related": [{"w": "", "pos": "", "vi": ""}],  // 0-2 useful derived forms
       "trap": "<optional Vietnamese warning, English words in {{ }}>" } ]
 }
 Rules: words must be common in IELTS Reading/Writing; parts must concatenate to the word;
-etymology may be simplified but never invented (this includes the bait); no movie quotes; Vietnamese must sound natural.
+etymology may be simplified but never invented (this includes the bait); no movie quotes; Vietnamese must sound natural;
+in every Vietnamese line, an English word wrapped in {{ }} must START its sentence or follow a comma — never end a
+phrase like "… với {{word}}" or "Còn {{word}}" (the voice repeats the dangling word).
 ```
+
+## 7. “Nâng band câu này” sets
+
+Writing sets follow the teacher's grading rules, so their guide and drafting prompt live in
+[`WRITING-BANDS.md`](WRITING-BANDS.md): the TR/CC/LX/GR tags, the band 5/6/7 anchors, natural expression before fancy words,
+the Vietnamese-learner error bank and the checklist. Render with `node make-upgrade.mjs <set>`.
