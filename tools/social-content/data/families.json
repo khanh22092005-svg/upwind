@@ -1541,7 +1541,8 @@
           {
             "t": "at",
             "k": "pre",
-            "vi": "về phía"
+            "vi": "về phía",
+            "note": "biến thể của ad"
           },
           {
             "t": "tract",
@@ -1567,7 +1568,8 @@
           }
         ],
         "icon": "magnet",
-        "anim": "1f60d"
+        "anim": "1f60d",
+        "literal": "kéo về phía mình"
       },
       {
         "word": "distract",
@@ -1598,7 +1600,8 @@
           }
         ],
         "icon": "device-mobile-message",
-        "anim": "1f635_200d_1f4ab"
+        "anim": "1f635_200d_1f4ab",
+        "literal": "kéo ra xa"
       },
       {
         "word": "extract",
@@ -1629,7 +1632,8 @@
           }
         ],
         "icon": "dental",
-        "anim": "26fd"
+        "anim": "26fd",
+        "literal": "kéo ra ngoài"
       },
       {
         "word": "contract",
@@ -1660,7 +1664,8 @@
           }
         ],
         "icon": "file-text",
-        "anim": "1f91d"
+        "anim": "1f91d",
+        "literal": "kéo lại với nhau"
       },
       {
         "word": "subtract",
@@ -1685,7 +1690,8 @@
         "example_vi": "Lấy thu nhập trừ đi chi phí.",
         "related": [],
         "icon": "minus",
-        "anim": "1f4c9"
+        "anim": "1f4c9",
+        "literal": "kéo bớt xuống"
       },
       {
         "word": "retract",
@@ -1710,7 +1716,8 @@
         "example_vi": "Tờ báo rút lại bài viết sai sự thật.",
         "related": [],
         "icon": "arrow-back-up",
-        "anim": "1f910"
+        "anim": "1f910",
+        "literal": "kéo ngược trở lại"
       },
       {
         "word": "traction",
@@ -1735,11 +1742,16 @@
         "example_vi": "Ý tưởng làm việc từ xa được ủng hộ mạnh trong đại dịch.",
         "related": [],
         "icon": "wheel",
-        "anim": "1f69c"
+        "anim": "1f69c",
+        "literal": "sự kéo"
       }
     ],
     "icon": "magnet",
-    "anim": "1f3a3"
+    "anim": "1f3a3",
+    "duo": [
+      "attract",
+      "distract"
+    ]
   },
   {
     "id": "rupt",

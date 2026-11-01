@@ -13,7 +13,21 @@ export const emo = (e) => (e.includes("️") ? e : e + "️");
 const mainRoot = (f) => f.root.split("/")[0].trim();
 const clean = (t) => t.replace(/[()]/g, "");
 
+/** First sense of a meaning, for spoken lines ("chiết xuất, trích ra; đoạn trích" -> "chiết xuất"). */
+export const shortMeaning = (m) => m.split(/[;,(]/)[0].trim();
+const cap = (t) => t.charAt(0).toUpperCase() + t.slice(1);
+
 function splitSay(w) {
+  if (w.literal) {
+    // Prefix/suffix meaning -> join with the root -> literal meaning. The real meaning comes in the next scene.
+    const pre = w.parts.find((p) => p.k === "pre");
+    const root = w.parts.find((p) => p.k === "root");
+    const suf = w.parts.filter((p) => p.k === "suf");
+    const note = (p) => (p.note ? `, ${p.note},` : "");
+    return pre
+      ? `Tiền tố {{${clean(pre.t)}}}${note(pre)} nghĩa là ${pre.vi}. Ghép với gốc {{${clean(root.t)}}} là ${root.vi}, ta có {{${w.word}}}. Nghĩa đen là ${w.literal}.`
+      : `Gốc {{${clean(root.t)}}} là ${root.vi}. Thêm hậu tố {{${suf[0].t}}}, chỉ ${suf[0].vi}, ta có {{${w.word}}}. Nghĩa đen là ${w.literal}.`;
+  }
   const pre = w.parts.find((p) => p.k === "pre");
   const root = w.parts.find((p) => p.k === "root");
   const suf = w.parts.filter((p) => p.k === "suf");
@@ -24,7 +38,8 @@ function splitSay(w) {
 }
 
 function meaningSay(w) {
-  let s = `Vì vậy, {{${w.word}}} nghĩa là ${w.meaning}.`;
+  // Literal -> real meaning: "Kéo người hay vật về phía mình như nam châm. Vì vậy, attract nghĩa là thu hút."
+  let s = `${w.literal ? `${cap(w.story)}. ` : ""}Vì vậy, {{${w.word}}} nghĩa là ${w.meaning}.`;
   for (const r of (w.related ?? []).slice(0, 2)) s += ` {{${r.w}}} là ${posVi(r.pos)}, nghĩa là ${r.vi}.`;
   if (w.trap) s += ` ${w.trap}`;
   return s;
@@ -83,8 +98,30 @@ export function buildScenes(f, opts = {}) {
   const forms = words.flatMap((w) => [w.word, ...(w.related ?? []).map((r) => r.w)]);
   const nForms = forms.length;
 
-  // 0. Bait: "Ít ai biết" + a surprising literal meaning, slammed on screen in the first second
-  if (f.bait) {
+  // 0. Duo opener: two words of the family, two different meanings, one question ("Tại sao A…, còn B…?").
+  // Replaces the bait. Data: f.duo = ["attract", "distract"].
+  const duo = (f.duo ?? []).map((x) => f.words.find((w) => w.word === x)).filter(Boolean);
+  if (duo.length === 2) {
+    const [a, b] = duo;
+    const row = (w, k) => `<div class="duorow ${k ? "a-right" : "a-left"}" style="--d:${k * 900}ms">
+        <div class="dword">${coloredWord(w)}</div>
+        <div class="dmean a-sweep" style="--d:${k * 900 + 450}ms">= ${esc(shortMeaning(w.meaning))}</div></div>`;
+    scenes.push({
+      kind: "duo",
+      say: `Tại sao {{${a.word}}} nghĩa là ${shortMeaning(a.meaning)}, còn {{${b.word}}} lại nghĩa là ${shortMeaning(b.meaning)}?`,
+      hold: 0.3,
+      html: `<div class="duo">
+        <div class="tag a-stamp">${icon(UI.challenge, 44)} TẠI SAO?</div>
+        ${row(a, 0)}
+        <div class="vs a-pop" style="--d:700ms">còn</div>
+        ${row(b, 1)}
+        <div class="qmark a-slam" style="--d:2000ms">?</div>
+      </div>`,
+    });
+  }
+
+  // 0b. Bait (only when there is no duo): "Ít ai biết" + a surprising literal meaning, slammed on screen in the first second
+  if (f.bait && duo.length !== 2) {
     scenes.push({
       kind: "bait",
       say: `Ít ai biết: ${f.bait.say}`,
@@ -103,12 +140,14 @@ export function buildScenes(f, opts = {}) {
   const cloud = forms.map((x, i) => `<span class="cw a-pop" style="--i:${i};--d:700ms">${esc(x)}</span>`).join("");
   scenes.push({
     kind: "hook",
-    say: `${f.hook} Chỉ một gốc từ, bạn nhớ luôn ${nForms} từ. Xem hết video, có thử thách cho bạn đấy!`,
+    say: duo.length === 2
+      ? `Chỉ trong một video, bạn nhớ luôn ${nForms} từ sau đây. Xem hết video, có thử thách cho bạn đấy!`
+      : `${f.hook} Chỉ một gốc từ, bạn nhớ luôn ${nForms} từ. Xem hết video, có thử thách cho bạn đấy!`,
     nForms,
     html: `<div class="hook">
       <div class="big1 a-slam">1 gốc <span style="color:${COLORS.root}">${esc(root)}</span></div>
       <div class="big2 a-pop" style="--d:350ms">= ${nForms} từ</div>
-      <div class="q a-up" style="--d:550ms">${esc(plain(f.hook))}</div>
+      ${duo.length === 2 ? "" : `<div class="q a-up" style="--d:550ms">${esc(plain(f.hook))}</div>`}
       <div class="cloud">${cloud}</div>
       <div class="tease a-stamp" style="--d:2000ms">${icon(UI.challenge, 44)} Xem hết: thử thách cuối video</div>
     </div>`,
@@ -117,7 +156,7 @@ export function buildScenes(f, opts = {}) {
   // 2. The root itself
   scenes.push({
     kind: "root",
-    say: `Tất cả đều có chung một gốc từ. {{${f.say_root ?? root}}}. {{${f.origin.replace(/^(Latin|Greek)\s*/, "")}}} trong tiếng ${/^Greek/.test(f.origin) ? "Hy Lạp" : "La-tinh"} nghĩa là ${f.core}. Hãy tưởng tượng ${f.image}.`,
+    say: `Tất cả đều có chung một gốc từ: {{${f.say_root ?? root}}}. {{${f.origin.replace(/^(Latin|Greek)\s*/, "")}}} trong tiếng ${/^Greek/.test(f.origin) ? "Hy Lạp" : "La-tinh"}, nghĩa cốt lõi là ${f.core}. Hãy tưởng tượng ${f.image}.`,
     html: `<div class="rootcard">
       <div class="a-drop">${animEmoji(f, 250)}</div>
       <div class="rootword a-slam" style="color:${COLORS.root};--d:200ms">${esc(f.root)}</div>
@@ -136,7 +175,9 @@ export function buildScenes(f, opts = {}) {
       html: `${counter(n)}<div class="split">
         ${partsBlocks(w)}
         <div class="a-drop" style="--d:700ms">${animEmoji(w.anim ? w : f, 260)}</div>
-        <div class="story a-up" style="--d:900ms">${esc(w.story)}</div>
+        ${w.literal
+          ? `<div class="literal a-up" style="--d:900ms"><span class="lbl">Nghĩa đen</span> <span class="a-sweep" style="--d:1200ms">${esc(w.literal)}</span></div>`
+          : `<div class="story a-up" style="--d:900ms">${esc(w.story)}</div>`}
       </div>`,
     });
     const rel = (w.related ?? [])
@@ -148,6 +189,7 @@ export function buildScenes(f, opts = {}) {
       html: `${counter(n)}<div class="meaning">
         <div class="word">${mergedWord(w)}</div>
         <div class="ipa a-up" style="--d:350ms">${esc(w.ipa)} · <i>${esc(w.pos)}</i></div>
+        ${w.literal ? `<div class="bridge a-up" style="--d:400ms">${esc(cap(w.story))}</div>` : ""}
         <div class="a-pop" style="--d:450ms"><span class="mean a-sweep" style="--d:700ms">${esc(w.meaning)}</span></div>
         ${rel ? `<div class="rels">${rel}</div>` : ""}
         ${w.trap ? `<div class="trap a-shake" style="--d:1100ms">${icon(UI.trap, 44)} ${esc(plain(w.trap))}</div>` : ""}

@@ -39,7 +39,7 @@ main{position:absolute;top:230px;left:70px;right:70px;height:${mainH}px;display:
 .caption{position:absolute;left:70px;right:70px;top:1400px;min-height:150px;background:#0b2545;color:#fff;
   border-radius:28px;padding:30px 40px;font-size:42px;line-height:1.35;font-weight:600;text-align:center}
 .caption b{color:#ffd166}
-.video .bait,.video .rootcard,.video .split,.video .meaning,.video .example,.video .recap,.video .quiz,.video .cta{zoom:1.07;max-width:calc(100% / 1.07)}
+.video .duo,.video .bait,.video .rootcard,.video .split,.video .meaning,.video .example,.video .recap,.video .quiz,.video .cta{zoom:1.07;max-width:calc(100% / 1.07)}
 .video .bait,.video .split,.video .meaning,.video .example,.video .recap,.video .quiz{width:calc(100% / 1.07)}
 .wave{position:absolute;left:0;bottom:0;width:100%;height:${video ? 320 : 210}px;display:block}
 
@@ -81,6 +81,19 @@ main{position:absolute;top:230px;left:70px;right:70px;height:${mainH}px;display:
 .bait .eq{font-size:80px;font-weight:800;color:#9fb3c8;margin:24px 0 10px}
 .bait .lit{font-size:92px;font-weight:800;line-height:1.2;color:#0b2545;padding:10px 24px;border-radius:20px;display:inline-block}
 .bait .badge{margin-top:40px}
+
+/* duo opener: "Tại sao A…, còn B…?" */
+.duo{text-align:center;width:100%}
+.duo .tag{display:inline-flex;align-items:center;gap:12px;font-size:48px;font-weight:800;color:#fff;background:#f2711c;border-radius:16px;padding:10px 28px}
+.duorow{margin-top:44px}
+.duo .dword{font-size:150px;font-weight:800;letter-spacing:-2px;line-height:1.05;white-space:nowrap}
+.duo .dmean{display:inline-block;font-size:70px;font-weight:800;color:#0b2545;padding:6px 26px;border-radius:18px;margin-top:10px}
+.duo .vs{font-size:52px;font-weight:700;color:#4a6b8a;margin-top:34px}
+.duo .qmark{font-size:180px;font-weight:800;color:#f2711c;line-height:1;margin-top:20px}
+.literal{font-size:62px;font-weight:800;margin-top:34px;line-height:1.25;color:#0b2545}
+.literal .lbl{display:inline-block;font-size:34px;color:#fff;background:#004b9b;border-radius:12px;padding:6px 16px;vertical-align:10px;margin-right:12px}
+.literal .a-sweep{padding:4px 18px;border-radius:14px}
+.bridge{font-size:44px;font-weight:600;color:#4a6b8a;line-height:1.3;margin-top:26px;text-wrap:balance}
 
 /* hook */
 .hook{text-align:center;width:100%}
