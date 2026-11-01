@@ -40,6 +40,20 @@ def marked_phonemes(text: str) -> str:
     return out
 
 
+def infer_phonemes(tts, phonemes: str, voice: str):
+    """Synthesize a ready phoneme string. Vieneu().infer() only takes text: it would phonemize the phonemes a second
+    time (it ignores unknown options such as skip_phonemize), so call the inner engine the way infer() does."""
+    from vieneu.v3turbo import _cap_frames, max_expected_frames
+
+    speaker_emb, ref_codes = tts._resolve_ref(voice, None, True, True)
+    sampling = dict(temperature=0.8, top_k=25, top_p=0.95, max_new_frames=300, repetition_penalty=1.2)
+    wav = tts.engine.infer(
+        phonemes=phonemes, speaker_emb=speaker_emb, ref_codes=ref_codes, use_ref_codes=True,
+        **_cap_frames(sampling, max_expected_frames(phonemes)),
+    )
+    return tts._apply_watermark(wav)
+
+
 def main() -> int:
     if len(sys.argv) > 1 and sys.argv[1] == "--check":
         import vieneu  # noqa: F401
@@ -62,7 +76,7 @@ def main() -> int:
         if "{{" in text:
             # English marked with {{ }}: phonemize each part on its own, so a short English word ("so", "to",
             # "an", "do") is read as English instead of as the Vietnamese syllable it also spells.
-            audio = tts.infer(marked_phonemes(text), voice=spec["voice"], skip_phonemize=True)
+            audio = infer_phonemes(tts, marked_phonemes(text), spec["voice"])
         else:
             audio = tts.infer(text, voice=spec["voice"])
         tts.save(audio, job["out"])
