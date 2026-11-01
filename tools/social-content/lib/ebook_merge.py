@@ -10,7 +10,7 @@ w.append(PdfReader(cover))
 w.append(PdfReader(body), import_outline=False)
 off = len(PdfReader(cover).pages)  # body page 1 is PDF page off+1
 pages = meta["pages"]
-labels = [("Mục lục", None), ("Cách dùng sách này", "HOW"), ("Bài kiểm tra đầu vào", "PT"), ("Bảng tiền tố và hậu tố", "AFF"), ("Bản đồ 40 gốc từ", "MAP")]
+labels = [("Mục lục", None), ("Cách dùng sách này", "HOW"), ("Study plan · Lộ trình 8–10 tuần", "PLAN"), ("Bài kiểm tra đầu vào", "PT"), ("Bảng tiền tố và hậu tố", "AFF"), ("Bản đồ 40 gốc từ", "MAP")]
 w.add_outline_item("Bìa", 0)
 for title, key in labels:
     w.add_outline_item(title, off + (pages[key] - 1 if key else 1))

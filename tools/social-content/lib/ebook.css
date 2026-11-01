@@ -231,3 +231,14 @@ table.sns .tu{text-align:center;color:#f2711c;font-size:10pt;width:30px}
 table.sns .troot2{color:#004b9b;font-size:9pt}
 table.sns small{color:#7d8ea1}
 table.sns .tp{text-align:right;font-weight:700;color:#004b9b}
+.uweek{float:right;background:#f2711c;color:#fff;border-radius:999px;padding:1px 8px;margin-left:10px;letter-spacing:.04em}
+table.plan td{font-size:8.3pt;vertical-align:top;border:1px solid #dbe8f2;padding:4px 5px}
+table.plan th{font-size:8pt}
+table.plan td a b{color:#f2711c}
+table.plan td a span{font-weight:800;color:#004b9b}
+table.plan td small{display:block;color:#7d8ea1;font-size:7.3pt;line-height:1.2}
+table.plan .pw{font-weight:800;color:#004b9b;white-space:nowrap;background:#eef7fc}
+table.plan .pw.opt{color:#1a9c5b;background:#eefaf3}
+table.plan .rev{color:#3a4a5c;font-size:7.8pt;background:#f7fafc}
+table.plan .chk{text-align:center;font-size:12pt}
+.steps.three{grid-template-columns:1fr 1fr 1fr}

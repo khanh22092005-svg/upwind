@@ -7,7 +7,7 @@ node make-ebook.mjs voc,vid          # quick preview of a few units -> out/ebook
 
 Pearson-style units in UpWind colours: unit band, "In this unit you will", Lead-in, Word map (top-down tree: root →
 words → word family → collocations), Vocabulary cards, Reading + exam tip, Vocabulary practice, Language focus,
-Speaking, Writing, Review. Front matter: contents grid (Unit × Skill), IELTS goals, placement test, affix tables, a
+Speaking, Writing, Review. Front matter: contents grid (Unit × Skill), IELTS goals, an 8–10 week study plan (5 units a week, Saturday review, weeks 9–10 for topic review and the final test), placement test, affix tables, a
 map of all 40 roots. Back: final test, answer key, topic list, A–Z index. Needs `pdftotext` and `pypdf`.
 
 Data: `data/families.json` (shared with the videos) plus `data/ebook/<id>.json`, which either adds ebook fields to a

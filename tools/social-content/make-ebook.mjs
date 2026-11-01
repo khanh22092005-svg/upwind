@@ -44,7 +44,8 @@ order.parts.forEach((part, pi) =>
     chapters.push(ch);
   })
 );
-chapters.forEach((c, i) => (c.n = i + 1));
+chapters.forEach((c, i) => { c.n = i + 1; c.week = Math.floor(i / 5) + 1; c.day = (i % 5) + 1; });
+const DAYS = ["Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6"];
 const allWords = chapters.flatMap((c) => c.words.map((w) => ({ ...w, ch: c })));
 
 for (const c of chapters) {
@@ -289,7 +290,7 @@ function chapterHTML(c, ci) {
   <span class="mark">@@CH${c.n}@@</span>
   <div class="uband">
     <div class="ul"><div class="ulab">Unit</div><div class="unum">${c.n}</div></div>
-    <div class="ur"><div class="upart">Part ${c.part + 1} · ${esc(part.title)}</div>
+    <div class="ur"><div class="upart">Part ${c.part + 1} · ${esc(part.title)}<span class="uweek">Week ${c.week} · ${DAYS[c.day - 1]}</span></div>
       <div class="utitle">${esc(c.root)}</div><div class="usub">${esc(c.origin)} · <b>${esc(c.core)}</b></div></div>
   </div>
   <div class="opener">
@@ -454,7 +455,7 @@ function buildBody(pages) {
       const list = chapters.filter((c) => c.part === pi);
       if (!list.length) return "";
       return `<tr class="tpart"><td colspan="7"><a href="#part-${pi + 1}">Part ${pi + 1} · ${esc(part.title)}</a></td></tr>
-        ${list.map((c) => `<tr><td class="tu"><a href="#ch-${c.id}"><b>${c.n}</b></a></td>
+        ${list.map((c) => `<tr><td class="tu"><a href="#ch-${c.id}"><b>${c.n}</b></a><br><small>W${c.week}</small></td>
           <td><a href="#ch-${c.id}"><b class="troot2">${esc(c.root)}</b><br><small>${esc(c.core)}</small></a></td>
           <td>${esc([...new Set(c.words.map((w) => TOPICS[w.tp]))].slice(0, 2).join(", "))}<br><small>${c.words.length} từ · ${c.words.reduce((n, w) => n + w.col.length, 0)} collocations</small></td>
           <td>${esc(SKILL[rqType(c)]?.name ?? "")}</td>
@@ -484,6 +485,7 @@ function buildBody(pages) {
 <section class="front" id="toc"><h2 class="big">Contents</h2>
   <div class="toc">
     <a href="#how"><b>Cách dùng sách & mục tiêu IELTS</b><span class="dots"></span><span>${pg("HOW")}</span></a>
+    <a href="#plan"><b>Study plan · Lộ trình 8–10 tuần</b><span class="dots"></span><span>${pg("PLAN")}</span></a>
     <a href="#placement"><b>Bài kiểm tra đầu vào</b><span class="dots"></span><span>${pg("PT")}</span></a>
     <a href="#affix"><b>Bảng tiền tố và hậu tố</b><span class="dots"></span><span>${pg("AFF")}</span></a>
     <a href="#map"><b>Bản đồ 40 gốc từ</b><span class="dots"></span><span>${pg("MAP")}</span></a>
@@ -511,9 +513,28 @@ function buildBody(pages) {
     <div class="step"><b>5. Tự nhớ lại, đừng đọc lại</b>Mỗi unit có khoảng 15 bài tập theo kỹ năng IELTS. Reading xoay vòng 5 dạng đề (Summary completion, Multiple choice, TRUE/FALSE/NOT GIVEN, Sentence completion, YES/NO/NOT GIVEN); Speaking xoay vòng Part 1, 2, 3; Writing Task 2 xoay vòng 5 dạng đề. Nhớ lại (retrieval) giúp bạn nhớ lâu hơn nhiều so với đọc đi đọc lại.</div>
     <div class="step"><b>6. Ôn giãn cách</b>Mỗi unit có bài ôn kéo từ của 1, 3 và 7 unit trước, và ô lịch ôn ngày 1, 3, 7, 14, 30. Đánh dấu ☐ mỗi lần ôn.</div>
   </div>
-  <div class="note"><b>Lộ trình gợi ý:</b> một unit mỗi ngày, khoảng 40 phút: 10 phút Word map và Vocabulary, 20 phút bài tập, 10 phút Speaking và Writing. 40 ngày là xong sách. Làm bài kiểm tra đầu vào trước, bài cuối sách sau, để thấy mình tiến bộ bao nhiêu.</div>
+  <div class="note"><b>Lộ trình 8–10 tuần:</b> 5 unit mỗi tuần (thứ 2 đến thứ 6, mỗi ngày một unit, khoảng 45 phút), thứ 7 ôn tuần, chủ nhật nghỉ. 8 tuần là học xong 40 unit; tuần 9–10 dành để ôn theo chủ đề và làm bài kiểm tra cuối. Xem trang Study plan. Làm bài kiểm tra đầu vào trước, bài cuối sách sau, để thấy mình tiến bộ bao nhiêu.</div>
   <div class="note"><b>Dùng trong phòng thi:</b> gặp từ lạ trong IELTS Reading, hãy tách nó ra. <i>irrevocable</i> = ir (không) + re (lại) + voc (gọi) + able (có thể) → không thể gọi lại → không thể thay đổi. Thường đủ để chọn đúng đáp án.</div>
   <div class="note warn"><b>Cẩn thận:</b> gốc từ cho hướng đoán, không phải định nghĩa. Nghĩa hiện đại có thể đã trôi xa (<i>addict</i>, <i>bankrupt</i>), và có cặp “bẫy” trông giống nhau nhưng khác gốc (<i>vocation</i> và <i>vacation</i>). Luôn kiểm tra bằng câu ví dụ; các mục ⚠ trong sách chỉ ra những bẫy này.</div>
+</section>
+
+
+<section class="front" id="plan"><span class="mark">@@PLAN@@</span>
+  <h2 class="big">Study plan · Lộ trình 8–10 tuần</h2>
+  <p>Mỗi tuần 5 unit, mỗi ngày học khoảng 45 phút. Thứ 7 dành cho ôn tuần. Tuần 9–10 không bắt buộc: học nhanh có thể làm bài kiểm tra cuối ngay sau tuần 8.</p>
+  <table class="plan"><tr><th>Tuần</th>${DAYS.map((d) => `<th>${d}</th>`).join("")}<th>Thứ 7 · Ôn tuần</th><th>✓</th></tr>
+  ${Array.from({ length: Math.ceil(chapters.length / 5) }, (_, wi) => {
+    const list = chapters.filter((c) => c.week === wi + 1);
+    return `<tr><td class="pw">Week ${wi + 1}</td>${DAYS.map((_, di) => { const c = list[di]; return `<td>${c ? `<a href="#ch-${c.id}"><b>Unit ${c.n}</b><br><span>${esc(shortRoot(c))}</span><small>${esc(c.core)}</small></a>` : ""}</td>`; }).join("")}
+      <td class="rev">Ôn Unit ${list[0]?.n}–${list[list.length - 1]?.n}: vẽ lại Word map, làm lại phần Review, ghi âm Speaking</td><td class="chk">☐</td></tr>`;
+  }).join("")}
+  <tr><td class="pw opt">Week 9</td><td colspan="6" class="rev">Ôn theo chủ đề IELTS (trang Từ vựng theo chủ đề): mỗi ngày một chủ đề, viết lại một bài Writing Task 2 và trả lời lại các câu Speaking Part 3 của chủ đề đó.</td><td class="chk">☐</td></tr>
+  <tr><td class="pw opt">Week 10</td><td colspan="6" class="rev">Làm bài kiểm tra cuối sách, so sánh với bài đầu vào. Làm lại mọi bài tập đã sai (ghi vào error log), ôn các mục Watch out!.</td><td class="chk">☐</td></tr></table>
+  <div class="steps three">
+    <div class="step"><b>Mỗi ngày (45 phút)</b>10' Word map + Vocabulary · 15' Reading · 15' bài tập từ vựng · 5' Speaking hoặc Writing (viết hết Task 2 vào thứ 7)</div>
+    <div class="step"><b>Thứ 7 (60 phút)</b>Vẽ lại 5 Word map không nhìn sách · làm lại Review · viết một bài Task 2 dùng từ của cả tuần</div>
+    <div class="step"><b>Ôn giãn cách</b>Bài Review mỗi unit kéo từ 1, 3, 7 unit trước; tick lịch ôn Ngày 1, 3, 7, 14, 30 ở cuối mỗi unit</div>
+  </div>
 </section>
 
 <section class="front" id="placement"><span class="mark">@@PT@@</span>
@@ -577,7 +598,7 @@ function coverHTML() {
 <div class="cover">
   <div class="ctop"><img src="${logo}" alt=""><span>UpWind IELTS</span></div>
   <div class="cmid">
-    <div class="ckick">IELTS band 5.5 → 7.0+ · Học 1 gốc, nhớ cả họ từ</div>
+    <div class="ckick">IELTS band 5.5 → 7.0+ · Lộ trình 8–10 tuần</div>
     <h1>${TITLE}</h1>
     <p class="csub">${SUB}</p>
     <div class="cword"><span style="color:#ffb27a">pro</span><span style="color:#ffffff">voke</span> · <span style="color:#ffb27a">ex</span><span style="color:#ffffff">port</span> · <span style="color:#ffb27a">in</span><span style="color:#ffffff">spect</span><span style="color:#8fe0b5">ion</span></div>
