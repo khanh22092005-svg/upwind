@@ -77,6 +77,31 @@ run never deletes the last good video.
   runs straight into English ("… với {{convert}}"), VieNeu repeats its last word ("với với", "còn còn"). The
   renderer closes such phrases with a comma and prints a warning so you can rewrite the line.
 
+## Before you render: lessons from mistakes (read every time)
+
+Each of these went wrong once. The fixes are in the code; these notes keep them from coming back.
+
+1. **Order:** script → carousel → **one** video → the teacher listens → the rest. For a new format, write the narration
+   as a script first (`scripts/<id>.md`) and get it approved before building scenes. Never render a whole batch on
+   untested changes.
+2. **English must sound English.** Mark every English word or phrase (`{{ }}` in narration, “quotes” in data). The local
+   voice then gets English phonemes for it (`lib/vieneu_tts.py`). Never pass phonemes to `Vieneu().infer()`: it only
+   takes text and silently ignores unknown options (`skip_phonemize`), so the phonemes get phonemized again and every
+   English line becomes noise. Phonemes go to `tts.engine.infer(phonemes=…)` (see `infer_phonemes`).
+3. **Check the voice by ear and by machine.** After any change to the voice code, render one video and run
+   `python3 lib/check_voice.py out/<id>/video.mp4:vi`. Every English sentence must come back readable. Do this before
+   sending anything.
+4. **Stale clips:** clips are cached by text. After changing how the local voice makes audio, bump `LOCAL_TTS_REV` in
+   `make-video.mjs` (or old clips are reused). Don't delete the cloud cache: those clips cost API calls.
+5. **Pauses** (approved by the teacher): one clip per clause, then comma 0.4 s, `;`/`:` 0.55 s, `.`/`!` 0.7 s,
+   `?` 0.75 s. Don't shorten them; words run together.
+6. **Pace:** Writing videos 1.0×, word-root videos 1.1×.
+7. **Voice:** "Hải Đăng" only (V4 cloud with a key, local preset without). The V4 trial plan allows 50 calls a day;
+   when it runs out, render with the local voice. Never write the key into a file.
+8. **Environment:** in a fresh container, local VieNeu needs `pip install "onnxruntime==1.24.4" "huggingface_hub<1.0"`
+   (see Setup). edge-tts needs the proxy CA (`SSL_CERT_FILE`). Don't rebase, rename or move this folder while a render
+   is running: the running render loses `lib/vieneu_tts.py` and dies.
+
 ## Subtitles, audio and the frame (shared)
 
 - **Subtitles** (`lib/subtitles.mjs`, ffmpeg/libass):

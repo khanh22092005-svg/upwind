@@ -118,7 +118,9 @@ Pick one to three per set; each set teaches a different one.
 5. Read band 7 aloud. If it sounds like a thesaurus, simplify it.
 6. **Carousel first:** `node make-upgrade.mjs <id>` and look at every slide (the script warns on overflow).
 7. **Then the video:** `node make-video.mjs --series writing <id> --tts none` for a quick layout check, then without
-   `--tts none` for the voiced video (voice "Hải Đăng", V4 or local). Watch it once before posting.
+   `--tts none` for the voiced video (voice "Hải Đăng", V4 or local). Run `python3 lib/check_voice.py
+   out/writing-<id>/video.mp4:vi` (every English sentence must come back readable), watch it once, and send **one**
+   video for the teacher to hear before rendering the rest. See "Before you render" in the README.
 
 ## 7. Prompt for drafting a new set
 

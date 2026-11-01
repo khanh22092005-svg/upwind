@@ -36,3 +36,7 @@ House rules for every series:
 - **One voice: "Hải Đăng".** V4 cloud ("Hải Đăng" = V4 id "Minh Quân Pro") when `VIENEU_API_KEY` is set, otherwise the local
   VieNeu preset "Hải Đăng". Both are the defaults; don't pass another `--voice`. The V4 trial plan allows 50 API calls a
   day (resets 00:00 Vietnam time); if it runs out, render with the local "Hải Đăng".
+- **Read "Before you render: lessons from mistakes" in `tools/social-content/README.md` every time.** In short: script →
+  carousel → one video → teacher listens → the rest; English marked so it is read as English; after any voice-code
+  change, bump `LOCAL_TTS_REV` and check the video with `lib/check_voice.py` before sending; pauses after , ; . ? stay
+  at the approved lengths.

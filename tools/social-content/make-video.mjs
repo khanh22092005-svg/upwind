@@ -78,9 +78,13 @@ ensureDir(CACHE);
 const engineFor = (lang) => (lang === "en" ? EN_TTS : VI_TTS);
 const voiceFor = (engine, lang) =>
   engine === "vieneu" ? VIENEU_VOICE : engine === "vieneu-cloud" ? CLOUD_VOICE : engine === "edge" ? EDGE_VOICE[lang] : engine === "edge-multi" ? ONE_VOICE : lang;
+// Bump when lib/vieneu_tts.py changes how the LOCAL voice turns text into audio: clips are cached by text, so
+// without a bump, clips made by the old (possibly broken) code are silently reused. Cloud clips are not affected.
+const LOCAL_TTS_REV = 2; // 2: marked English sent as phonemes to the inner engine (rev 1 read IPA as letters)
 const cachePath = (text, lang) => {
   const engine = engineFor(lang);
-  const key = crypto.createHash("sha1").update(`${engine}|${lang}|${voiceFor(engine, lang)}|${text}`).digest("hex").slice(0, 16);
+  const rev = engine === "vieneu" ? `|r${LOCAL_TTS_REV}` : "";
+  const key = crypto.createHash("sha1").update(`${engine}|${lang}|${voiceFor(engine, lang)}|${text}${rev}`).digest("hex").slice(0, 16);
   return path.join(CACHE, key + (engine === "vieneu" ? ".wav" : ".mp3"));
 };
 const cached = (f) => fs.existsSync(f) && fs.statSync(f).size > 0;
