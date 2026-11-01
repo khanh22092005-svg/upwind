@@ -242,3 +242,7 @@ table.plan .pw.opt{color:#1a9c5b;background:#eefaf3}
 table.plan .rev{color:#3a4a5c;font-size:7.8pt;background:#f7fafc}
 table.plan .chk{text-align:center;font-size:12pt}
 .steps.three{grid-template-columns:1fr 1fr 1fr}
+/* unit band: title never wraps, week tag sits inline after the part name */
+.ur{flex:1;min-width:0}
+.utitle{white-space:nowrap}
+.uweek{float:none;display:inline-block;vertical-align:1px}
