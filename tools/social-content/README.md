@@ -66,7 +66,7 @@ run never deletes the last good video.
 - **V4 trial plan:** 50 API calls a day, reset at 00:00 Vietnam time; a video needs ~20–30. When the limit hits, the run
   stops and the last good video is kept. Unset the key to finish with the local "Hải Đăng".
 - **Pauses:** narration is voiced one clause at a time (split at `. , ; : ! ?`), with a fixed pause after each mark:
-  comma 0.22 s, `;`/`:` 0.32 s, `.`/`!` 0.45 s, `?` 0.5 s (before `--speed`). Short clips are read more clearly than long
+  comma 0.4 s, `;`/`:` 0.55 s, `.`/`!` 0.7 s, `?` 0.75 s (before `--speed`). Short clips are read more clearly than long
   lines, and the pauses no longer depend on the model. Tune them in `PAUSE` in `make-video.mjs`.
 - **Marking English:** wrap English in `{{ }}` in narration (in data, write it in “quotes”; the scripts turn quotes into
   `{{ }}`). The local VieNeu then reads each marked part as English phonemes, so short words that are also Vietnamese

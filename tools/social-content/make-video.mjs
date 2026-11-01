@@ -175,7 +175,7 @@ function speakable(say) {
 const WARNED = new Set();
 
 /** Pause after each punctuation mark, in seconds before --speed (each clause is its own clip, so these are exact). */
-const PAUSE = { ",": 0.22, ";": 0.32, ":": 0.32, ".": 0.45, "!": 0.45, "?": 0.5, "…": 0.4 };
+const PAUSE = { ",": 0.4, ";": 0.55, ":": 0.55, ".": 0.7, "!": 0.7, "?": 0.75, "…": 0.6 };
 const PUNCT_END = /[.,;:!?…]+$/;
 
 /** One voice for both languages: one clip per clause (split at . , ; : ! ?), with a set pause after each.
