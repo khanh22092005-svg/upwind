@@ -407,3 +407,7 @@ th{padding:4px 7px}
 .cv-bgimg{bottom:10mm}
 .cv-fade{height:22mm;background:linear-gradient(180deg,rgba(14,80,133,0) 0%,#08345f 85%)}
 .cv-photo .cv-head{margin-top:16mm}
+/* cover the small star mark in the corner of the illustration */
+.cv-patch{position:absolute;left:182mm;top:254mm;width:22mm;height:22mm;border-radius:50%;z-index:1;
+  background:radial-gradient(circle,rgb(18,80,132) 55%,rgba(18,80,132,0) 72%)}
+.cv-foot{bottom:1.2mm;font-size:7.5pt}

@@ -660,7 +660,7 @@ function coverHTML() {
     <p class="cv-sub">Band 5.5 → 7.0+ · ${chapters.length} gốc từ · ${allWords.length} từ · 8–10 tuần</p>
   </div>
 
-  <img class="cv-bgimg" src="${coverImg}" alt=""><div class="cv-fade"></div>
+  <img class="cv-bgimg" src="${coverImg}" alt=""><div class="cv-patch"></div><div class="cv-fade"></div>
 
   <svg class="cv-waves" viewBox="0 0 210 30" preserveAspectRatio="none"><path d="M0 14 Q52 2 105 12 T210 10 V30 H0Z" fill="#6ac5e8" opacity=".9"/><path d="M0 20 Q55 10 108 19 T210 17 V30 H0Z" fill="#00244d"/></svg>
   <div class="cv-foot">upwind.asia</div>
