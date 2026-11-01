@@ -603,17 +603,44 @@ function coverHTML() {
   // hero: one real root family from the book, drawn as a word tree
   const hero = chapters.find((c) => c.id === "spect") ?? chapters[0];
   const hw = hero.words.slice(0, 6);
-  const W = 520, H = 330, cx = W / 2, cy = 70;
-  const pos = hw.map((w, i) => ({ w, x: 92 + (i % 3) * 168, y: i < 3 ? 190 : 285 }));
+  // a real tree: the root sits at the bottom like a seed, branches grow up to the words, twigs to their derived forms
+  const W = 620, H = 440, rx = W / 2, ry = 372, tx = rx, ty = 268;
   const word = (w) => w.parts.map((p) => `<tspan fill="${p.k === "pre" ? "#ffb27a" : p.k === "suf" ? "#8fe0b5" : "#ffffff"}">${esc(p.t)}</tspan>`).join("");
+  const nodes = hw.map((w, i) => {
+    const a = Math.PI * (1.08 + (i / (hw.length - 1)) * 0.84); // fan across the upper half
+    return { w, a, x: rx + Math.cos(a) * 236, y: ty + Math.sin(a) * 182 };
+  });
+  const forms = (w) => [...new Set(Object.values(w.forms ?? {}).flatMap((v) => v.split(",")).map((f) => f.replace(/\(.*?\)/g, "").trim()))].filter((f) => f && f.toLowerCase() !== w.word.toLowerCase()).slice(0, 2);
+  const twigs = nodes.flatMap((n) => forms(n.w).map((f, k) => {
+    const base = (n.a - Math.PI * 1.5) * 0.45 + Math.PI * 1.5; // lean twigs toward the sky so edge labels stay on the page
+    const a = base + (forms(n.w).length > 1 ? (k ? 0.34 : -0.34) : 0);
+    return { n, f, a, x: n.x + Math.cos(a) * 78, y: n.y + Math.sin(a) * 62 };
+  }));
+  const r = seeded("cover");
+  const stars = Array.from({ length: 26 }, () => `<circle cx="${(r() * W).toFixed(0)}" cy="${(r() * (H - 60)).toFixed(0)}" r="${(0.6 + r() * 1.4).toFixed(1)}" fill="#cfe9f7" opacity="${(0.2 + r() * 0.5).toFixed(2)}"/>`).join("");
   const tree = `<svg class="ctree" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
-    ${pos.map((p) => `<path d="M${cx} ${cy + 34} C ${cx} ${(cy + p.y) / 2 + 20}, ${p.x} ${(cy + p.y) / 2 - 10}, ${p.x} ${p.y - 26}" stroke="rgba(106,197,232,.55)" stroke-width="2" fill="none"/>`).join("")}
-    <circle cx="${cx}" cy="${cy}" r="44" fill="#6ac5e8"/><circle cx="${cx}" cy="${cy}" r="56" fill="none" stroke="rgba(106,197,232,.35)" stroke-width="2"/>
-    <text x="${cx}" y="${cy + 4}" text-anchor="middle" font-family="Be Vietnam Pro" font-weight="800" font-size="25" fill="#003066">${esc(shortRoot(hero))}</text>
-    <text x="${cx}" y="${cy + 24}" text-anchor="middle" font-family="Be Vietnam Pro" font-weight="600" font-size="11" fill="#003066">= ${esc(hero.core)}</text>
-    ${pos.map((p) => `<rect x="${p.x - 78}" y="${p.y - 26}" width="156" height="50" rx="12" fill="rgba(255,255,255,.08)" stroke="rgba(207,233,247,.35)"/>
-      <text x="${p.x}" y="${p.y + 2}" text-anchor="middle" font-family="Be Vietnam Pro" font-weight="800" font-size="17">${word(p.w)}</text>
-      <text x="${p.x}" y="${p.y + 17}" text-anchor="middle" font-family="Be Vietnam Pro" font-size="9.5" fill="#cfe9f7">${esc(p.w.meaning.split(/[;,(]/)[0].trim())}</text>`).join("")}
+    <defs>
+      <radialGradient id="seed" cx="50%" cy="40%" r="60%"><stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#9edcf3"/><stop offset="1" stop-color="#4fb3df"/></radialGradient>
+      <radialGradient id="halo"><stop offset="0" stop-color="#6ac5e8" stop-opacity=".55"/><stop offset="1" stop-color="#6ac5e8" stop-opacity="0"/></radialGradient>
+      <linearGradient id="trunk" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#9edcf3"/><stop offset="1" stop-color="#6ac5e8" stop-opacity=".7"/></linearGradient>
+      <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    </defs>
+    ${stars}
+    <circle cx="${rx}" cy="${ry}" r="120" fill="url(#halo)"/>
+    ${[-1, -0.5, 0, 0.5, 1].map((k) => `<path d="M${rx} ${ry + 30} q ${k * 30} 28 ${k * 70} 44" stroke="rgba(158,220,243,.35)" stroke-width="${2.2 - Math.abs(k)}" fill="none" stroke-linecap="round"/>`).join("")}
+    <path d="M${rx - 7} ${ry - 30} C ${rx - 4} ${ry - 70}, ${tx - 3} ${ty + 30}, ${tx} ${ty} C ${tx + 3} ${ty + 30}, ${rx + 4} ${ry - 70}, ${rx + 7} ${ry - 30} Z" fill="url(#trunk)" filter="url(#glow)"/>
+    ${nodes.map((n) => `<path d="M${tx} ${ty} C ${tx} ${ty - 40}, ${(tx + n.x) / 2} ${n.y + 40}, ${n.x} ${n.y + 14}" stroke="#6ac5e8" stroke-width="3" fill="none" stroke-linecap="round" filter="url(#glow)" opacity=".85"/>`).join("")}
+    ${twigs.map((t) => `<path d="M${t.n.x} ${t.n.y} Q ${(t.n.x + t.x) / 2} ${(t.n.y + t.y) / 2 - 8} ${t.x} ${t.y}" stroke="rgba(143,224,181,.6)" stroke-width="1.4" fill="none"/>
+      <circle cx="${t.x.toFixed(1)}" cy="${t.y.toFixed(1)}" r="3.2" fill="#8fe0b5" filter="url(#glow)"/>
+      <text x="${(t.x + Math.cos(t.a) * 7).toFixed(1)}" y="${(t.y + Math.sin(t.a) * 7 + 3).toFixed(1)}" text-anchor="${t.x - t.f.length * 5.5 < 8 ? "start" : t.x + t.f.length * 5.5 > W - 8 ? "end" : Math.cos(t.a) < -0.35 ? "end" : Math.cos(t.a) > 0.35 ? "start" : "middle"}" font-family="Be Vietnam Pro" font-weight="600" font-size="9.5" fill="#cfe9f7">${esc(t.f)}</text>`).join("")}
+    ${nodes.map((n) => { const wd = n.w.word.length * 10.5 + 30; return `<g filter="url(#glow)"><rect x="${(n.x - wd / 2).toFixed(1)}" y="${(n.y - 17).toFixed(1)}" width="${wd.toFixed(1)}" height="34" rx="17" fill="rgba(0,36,77,.85)" stroke="#6ac5e8" stroke-width="1.6"/></g>
+      <text x="${n.x.toFixed(1)}" y="${(n.y + 6).toFixed(1)}" text-anchor="middle" font-family="Be Vietnam Pro" font-weight="800" font-size="17">${word(n.w)}</text>
+      <text x="${n.x.toFixed(1)}" y="${(n.y + 31).toFixed(1)}" text-anchor="middle" font-family="Be Vietnam Pro" font-size="9.5" fill="#9edcf3">${esc(n.w.meaning.split(/[;,(]/)[0].trim())}</text>`; }).join("")}
+    <circle cx="${rx}" cy="${ry}" r="50" fill="none" stroke="rgba(158,220,243,.45)" stroke-width="1.5" stroke-dasharray="3 5"/>
+    <circle cx="${rx}" cy="${ry}" r="40" fill="url(#seed)" filter="url(#glow)"/>
+    <text x="${rx}" y="${ry + 4}" text-anchor="middle" font-family="Be Vietnam Pro" font-weight="800" font-size="24" fill="#003066">${esc(shortRoot(hero))}</text>
+    <text x="${rx}" y="${ry + 21}" text-anchor="middle" font-family="Be Vietnam Pro" font-weight="700" font-size="10.5" fill="#004b9b">${esc(hero.core)}</text>
+    <text x="${rx + 62}" y="${ry + 48}" font-family="Be Vietnam Pro" font-weight="700" font-size="9" fill="#9edcf3" letter-spacing="1.5">GỐC ${esc(hero.origin.toUpperCase())}</text>
   </svg>`;
   const headphones = `<svg class="ico" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2z"/><path d="M15 15a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2z"/><path d="M4 15v-3a8 8 0 0 1 16 0v3"/></svg>`;
   const skills = [["Reading", icon("books", 26, 1.8)], ["Listening", headphones], ["Writing", icon("pencil", 26, 1.8)], ["Speaking", icon("microphone-2", 26, 1.8)]];
