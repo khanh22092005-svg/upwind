@@ -17,7 +17,7 @@ import { icon } from "./lib/icons.mjs";
 const require = createRequire(import.meta.url);
 const { chromium } = require("playwright");
 
-const TITLE = "Giải mã từ vựng IELTS bằng từ gốc";
+const TITLE = "Từ vựng IELTS: Học từ từ gốc Latin";
 const SUB = "Từ vựng học thuật cho IELTS band 5.5 → 7.0+ · 40 gốc từ · collocation · họ từ · bài tập Reading, Writing, Speaking có đáp án";
 const DATA = path.join(ROOT_DIR, "data", "ebook");
 const only = process.argv[2] && !process.argv[2].startsWith("-") ? process.argv[2].split(",") : null;
@@ -624,26 +624,15 @@ function coverHTML() {
 <style>@page{size:A4;margin:0}${css}</style></head><body class="coverbody">
 <div class="cv">
   <svg class="cv-sail" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M50 4 L50 78 L6 78 Z" fill="rgba(106,197,232,.07)"/></svg>
-  <div class="cv-top"><div class="cv-brand"><img src="${logo}" alt=""><span>UpWind <b>IELTS</b></span></div><div class="cv-chip">Academic Vocabulary · Self-study</div></div>
+  <div class="cv-top"><div class="cv-brand"><img src="${logo}" alt=""><span>UpWind <b>IELTS</b></span></div></div>
 
   <div class="cv-head">
-    <div class="cv-kick">IELTS Vocabulary from Roots</div>
-    <h1>Giải mã<br>từ vựng <span>IELTS</span><br>bằng từ gốc</h1>
-    <p class="cv-sub">Học 1 gốc, nhớ cả họ từ · collocation · word family · bài tập Reading, Writing, Speaking có đáp án</p>
+    <h1><span>Từ Vựng IELTS</span><br>Học Từ<br>Từ Gốc Latin</h1>
+    <p class="cv-sub">Band 5.5 → 7.0+ · ${chapters.length} gốc từ · ${allWords.length} từ · 8–10 tuần</p>
   </div>
 
-  <div class="cv-mid">
-    <div class="cv-band"><div class="cv-bl">Target band</div>
-      ${bands.map((b, i) => `<div class="cv-step" style="--w:${46 + i * 18}%"><span>${b}</span></div>`).join("")}
-      <div class="cv-bnote">Lexical Resource<br>= 25% điểm Writing &amp; Speaking</div></div>
-    <div class="cv-hero">${tree}<div class="cv-hcap">Một gốc <b>${esc(shortRoot(hero))}</b> mở ra cả họ từ: <i style="color:#ffb27a">tiền tố</i> · <i style="color:#fff">gốc</i> · <i style="color:#8fe0b5">hậu tố</i></div></div>
-  </div>
+  <div class="cv-hero simple">${tree}</div>
 
-  <div class="cv-skills">${skills.map(([n, ic]) => `<div><span class="cv-ic">${ic}</span>${n}</div>`).join("")}</div>
-
-  <div class="cv-stats">
-    <div><b>${chapters.length}</b>units · gốc từ</div><div><b>${allWords.length}</b>từ học thuật</div><div><b>${nCol}</b>collocations</div><div><b>${totalEx}</b>bài luyện tập</div><div class="hl"><b>8–10</b>tuần lộ trình</div>
-  </div>
   <svg class="cv-waves" viewBox="0 0 210 30" preserveAspectRatio="none"><path d="M0 14 Q52 2 105 12 T210 10 V30 H0Z" fill="#6ac5e8" opacity=".9"/><path d="M0 20 Q55 10 108 19 T210 17 V30 H0Z" fill="#00244d"/></svg>
   <div class="cv-foot">upwind.asia</div>
 </div></body></html>`;

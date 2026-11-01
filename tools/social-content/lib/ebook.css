@@ -380,3 +380,9 @@ th{padding:4px 7px}
 .cv-mid{margin-top:13mm}
 .cv-skills{margin-top:13mm}
 .cv-stats{margin-top:9mm}
+/* simple cover */
+.cv-head{margin-top:30mm}
+.cv h1{font-size:54pt;line-height:1.08;margin:0 0 14px}
+.cv h1 span{color:#6ac5e8}
+.cv-sub{font-size:13pt;font-weight:600;color:#cfe9f7}
+.cv-hero.simple{background:none;border:none;padding:0;margin:20mm auto 0;width:150mm}
