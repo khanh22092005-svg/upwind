@@ -78,6 +78,13 @@ run never deletes the last good video.
   runs straight into English ("… với {{convert}}"), VieNeu repeats its last word ("với với", "còn còn"). The
   renderer closes such phrases with a comma and prints a warning so you can rewrite the line.
 
+## Call to action: the ebook offer (all series)
+
+Every post ends with the same offer, defined once in `lib/offer.mjs` (`OFFER.keyword` = "GỐC TỪ"): the last carousel
+slide and the last video scene show the ebook cover with "Bình luận GỐC TỪ", the narration says it, and the caption adds
+two lines (UpWind sends the commenter the community link for the ebook and more documents). Change the keyword or the
+wording there; the caption lines in `lib/common.mjs` (`OFFER_LINES`) must match.
+
 ## Before you render: lessons from mistakes (read every time)
 
 Each of these went wrong once. The fixes are in the code; these notes keep them from coming back.

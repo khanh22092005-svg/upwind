@@ -3,6 +3,7 @@
 // Narration is written so English always sits at a clean boundary ("Vì vậy, {{erupt}} nghĩa là ..."),
 // never glued mid-syllable, so the spliced audio sounds natural.
 import { COLORS, KIND_VI, esc, plain, coloredWord, highlight, blank } from "./common.mjs";
+import { offerSay, offerHtml } from "./offer.mjs";
 import { icon, UI_ICONS as UI } from "./icons.mjs";
 import { animEmoji } from "./emoji.mjs";
 
@@ -243,18 +244,18 @@ export function buildScenes(f, opts = {}) {
   let teaseSay, teaseHtml;
   if (nextPart) {
     const nw = f.words.slice((opts.from ?? 0) + total, (opts.from ?? 0) + total + 3);
-    teaseSay = `Phần ${opts.part.n + 1} có thêm ${nw.length} từ nữa cùng gốc này. Theo dõi kênh để không bỏ lỡ nhé!`;
+    teaseSay = `Phần ${opts.part.n + 1} có thêm ${nw.length} từ nữa cùng gốc này. ${offerSay()}`;
     teaseHtml = `<div class="nextroot a-slam" style="--d:350ms;color:${COLORS.root}">Phần ${opts.part.n + 1}</div>
       <div class="nextwords">${nw.map((w, k) => `<span class="cw a-pop" style="--i:${k};--d:800ms">${esc(w.word)}</span>`).join("")}</div>`;
   } else if (next) {
     const nr = mainRoot(next);
     const nw = next.words.slice(0, 3);
-    teaseSay = `Tập sau: gốc từ mang nghĩa ${next.core}, thêm ${next.words.reduce((n, w) => n + 1 + (w.related?.length ?? 0), 0)} từ mới. Theo dõi để học mỗi ngày nhé!`;
+    teaseSay = `Tập sau: gốc từ mang nghĩa ${next.core}, thêm ${next.words.reduce((n, w) => n + 1 + (w.related?.length ?? 0), 0)} từ mới. ${offerSay()}`;
     teaseHtml = `<div class="nextroot a-slam" style="--d:350ms;color:${COLORS.root}">${esc(next.root)} ${animEmoji(next, 120)}</div>
       <div class="nextcore a-wipe" style="--d:650ms">= ${esc(next.core)}</div>
       <div class="nextwords">${nw.map((w, k) => `<span class="cw a-pop" style="--i:${k};--d:850ms">${esc(w.word)}</span>`).join("")}<span class="cw a-pop" style="--i:3;--d:850ms">…</span></div>`;
   } else {
-    teaseSay = "Theo dõi kênh để mỗi ngày học trọn một họ từ nhé!";
+    teaseSay = offerSay();
     teaseHtml = "";
   }
   scenes.push({
@@ -263,7 +264,7 @@ export function buildScenes(f, opts = {}) {
     hold: 1,
     html: `<div class="cta">
       ${teaseHtml ? `<div><span class="nexttag a-stamp" style="--d:200ms">${nextPart ? "PHẦN SAU" : "TẬP SAU"} ${icon(UI.next, 44, 2.4)}</span></div>${teaseHtml}` : ""}
-      <div class="follow a-up" style="--d:1300ms">${icon(UI.follow, 52)} Theo dõi <b>UpWind</b><br>mỗi ngày 1 họ từ</div>
+      ${offerHtml(1300)}
     </div>`,
   });
 

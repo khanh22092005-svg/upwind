@@ -5,6 +5,7 @@
 // hook (band 5 sentence) -> why band 5 (one scene per problem) -> band 6 (sentence + one scene per move)
 // -> band 7 (same) -> save-this ladder -> your turn (comment) -> next set teaser + follow.
 import { esc } from "./common.mjs";
+import { offerSay, offerHtml } from "./offer.mjs";
 import { css, wave, header, FONT_LINK } from "./template.mjs";
 import { icon, UI_ICONS as UI } from "./icons.mjs";
 import { lottieScripts } from "./emoji.mjs";
@@ -169,14 +170,14 @@ export function buildUpgradeScenes(set, { next = null } = {}) {
   scenes.push({
     kind: "cta",
     say: next
-      ? `Tập sau: ${sayText(stop(next.hook))} Theo dõi UpWind, mỗi tuần nâng band một câu nhé!`
-      : "Theo dõi UpWind, mỗi tuần nâng band một câu nhé!",
+      ? `Tập sau: ${sayText(stop(next.hook))} ${offerSay()}`
+      : offerSay(),
     hold: 1,
     html: `<div class="wr center">
       ${next ? `<div><span class="nexttag a-stamp" style="--d:200ms">TẬP SAU ${icon(UI.next, 44, 2.4)}</span></div>
       <div class="nexthook a-slam" style="--d:400ms">${esc(next.hook)}</div>
       <div class="nexttopic a-up" style="--d:800ms">${esc(next.topic)}</div>` : ""}
-      <div class="follow a-up" style="--d:1300ms">${icon(UI.follow, 52)} Theo dõi <b>UpWind</b><br>mỗi tuần nâng band 1 câu</div>
+      ${offerHtml(1300)}
     </div>`,
   });
 

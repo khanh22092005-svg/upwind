@@ -83,6 +83,11 @@ export function nextLine(next, part) {
   return `👉 Tập sau: gốc ${next.root.split("/")[0].trim()} (${next.core}). Theo dõi để học 1 họ từ mỗi ngày!`;
 }
 
+/* Ebook offer lines (kept here, not imported from offer.mjs, to avoid a circular import). */
+const OFFER_LINES = [
+  '🎁 UpWind có ebook "Học Từ, Từ Gốc": 40 gốc từ · 252 từ IELTS · bài tập có đáp án.',
+  '👉 Muốn một bản? Bình luận "GỐC TỪ", UpWind gửi bạn link vào cộng đồng để nhận ebook này và nhiều tài liệu khác.',
+];
 export function captionText(family, words, quizAnswer, part, next) {
   const partLabel = part ? ` (Phần ${part.n})` : "";
   const nForms = words.reduce((n, w) => n + 1 + (w.related?.length ?? 0), 0);
@@ -97,6 +102,8 @@ export function captionText(family, words, quizAnswer, part, next) {
     "",
     "💾 Lưu lại để ôn · Theo dõi UpWind: mỗi ngày 1 họ từ",
     nextLine(next, part),
+    "",
+    ...OFFER_LINES,
     `#hoctututugoc #upwind #goctu #ielts #tuvungtienganh #hoctienganh #${family.id}`,
     "",
     "--- Bình luận ghim (đáp án thử thách) ---",

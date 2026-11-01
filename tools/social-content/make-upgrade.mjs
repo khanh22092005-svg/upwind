@@ -9,6 +9,7 @@
 // Write new sets from docs/nang-band.md (band anchors, tags, error bank, checklist).
 // Text markup in the data: [[upgraded phrase]] is highlighted, {{weak phrase}} gets a red wavy underline.
 import fs from "node:fs";
+import { offerHtml, offerCaption } from "./lib/offer.mjs";
 import path from "node:path";
 import { createRequire } from "node:module";
 import { ROOT_DIR, OUT_DIR, esc, ensureDir } from "./lib/common.mjs";
@@ -150,7 +151,7 @@ function slides(set) {
       html: `<div class="center">
         <div class="kicker">${icon(UI.next, 34, 2.6)} MỖI TUẦN 1 CÂU</div>
         <div class="h1" style="margin-top:30px">Nâng band từng câu,<br>lên band cả bài</div>
-        <div class="follow">${icon(UI.follow, 50)} Theo dõi <b>UpWind</b><br>để không bỏ lỡ</div></div>`,
+        ${offerHtml(0)}</div>`,
     },
   ];
 }

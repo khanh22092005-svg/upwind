@@ -172,6 +172,15 @@ mark{background:#ffd166;color:#0b2545;padding:0 10px;border-radius:12px}
 .nextwords{display:flex;flex-wrap:wrap;justify-content:center;gap:16px 20px;margin-top:36px}
 .follow{margin-top:60px;font-size:50px;font-weight:800;line-height:1.3;color:#0b2545;background:#fff3b0;border-radius:24px;padding:20px 36px;display:inline-block}
 .follow b{color:#004b9b}
+/* ebook offer card (every series) */
+.offer{display:flex;align-items:center;gap:40px;margin:56px auto 0;max-width:960px;text-align:left;background:#fff;border:4px solid #6ac5e8;border-radius:36px;padding:34px 40px;box-shadow:0 18px 40px rgba(0,48,102,.18)}
+.offer-book{width:230px;border-radius:12px;box-shadow:0 14px 30px rgba(0,30,60,.35);transform:rotate(-4deg);flex:none}
+.offer-kick{font-size:40px;font-weight:700;color:#4a6b8a}
+.offer-cta{font-size:62px;font-weight:800;color:#0b2545;line-height:1.15;margin:8px 0 12px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.offer-cta .ico{color:#004b9b}
+.offer-cta b{background:#004b9b;color:#fff;border-radius:16px;padding:2px 20px;white-space:nowrap}
+.offer-sub{font-size:36px;line-height:1.35;color:#4a6b8a}
+.offer-sub b{color:#004b9b}
 
 /* carousel extras */
 .swipe{position:absolute;right:70px;bottom:16px;z-index:2;display:flex;align-items:center;gap:10px;font-size:40px;font-weight:800;color:#fff;background:#f2711c;border-radius:999px;padding:12px 30px}

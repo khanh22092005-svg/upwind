@@ -1,6 +1,7 @@
 // Shared by the "Nâng band câu này" carousel (make-upgrade.mjs) and video (make-video.mjs --series writing).
 // Data: data/upgrades.json. Rules for writing it: docs/nang-band.md.
 import fs from "node:fs";
+import { offerCaption } from "./offer.mjs";
 import path from "node:path";
 import { ROOT_DIR, esc } from "./common.mjs";
 
@@ -97,6 +98,8 @@ export function upgradeCaption(set, next = null) {
     `(Band chấm theo cả bài; đây là câu kiểu band 5/6/7 theo tiêu chí ${critNames(set)}.)`,
     ...(next ? [`⏭️ Tập sau: ${next.hook}`] : []),
     "💾 Lưu lại · Theo dõi UpWind: mỗi tuần 1 câu",
+    "",
+    ...offerCaption(),
     "#nangbandcaunay #ieltswriting #upwind #ielts #hoctienganh",
     "",
     "--- Bình luận ghim (đáp án mẫu) ---",
