@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { allWords, COLORS, families, iconSvg, type Family } from "./data";
+import { allWords, COLORS, DAYS, EBOOK_URL, families, iconSvg, parts, shortRoot, type Family } from "./data";
 import { fold } from "./lib";
 import { dueWords, resetProgress, stars, streak, useProgress, type Progress } from "./progress";
 import { go, Icon, KindLegend, Stars, ZaloCta } from "./ui";
@@ -13,10 +13,10 @@ function resumeTarget(p: Progress): { f: Family; label: string } {
   if (open) {
     const step = p.chapters[open.id].step;
     const wi = Math.min(Math.max(step - 2, 0), open.words.length);
-    return { f: open, label: `Học tiếp: gốc ${open.root.split(" ")[0]} · ${step >= 2 + open.words.length ? "luyện tập" : `từ ${wi + 1}/${open.words.length}`}` };
+    return { f: open, label: `Học tiếp: gốc ${shortRoot(open)} · ${step >= 2 + open.words.length ? "luyện tập" : `từ ${wi + 1}/${open.words.length}`}` };
   }
   const fresh = families.find((f) => !p.chapters[f.id]?.doneAt);
-  if (fresh) return { f: fresh, label: `${Object.keys(p.chapters).length ? "Học gốc tiếp theo" : "Bắt đầu"}: gốc ${fresh.root.split(" ")[0]}` };
+  if (fresh) return { f: fresh, label: `${Object.keys(p.chapters).length ? `Bài ${fresh.n}` : "Bắt đầu"}: gốc ${shortRoot(fresh)}` };
   return { f: families[0], label: "Học lại từ gốc đầu tiên" };
 }
 
@@ -38,13 +38,13 @@ export function Home() {
           </g>
         </svg>
         <div className="hero-in">
-          <p className="eyebrow">Miễn phí · UpWind IELTS</p>
+          <p className="eyebrow">Ebook tương tác · Miễn phí</p>
           <h1>
             Học từ <span className="u">từ gốc</span>
           </h1>
           <p className="lead">
-            {families.length} gốc La-tinh, {TOTAL} từ IELTS. Tách từ thành <b style={{ color: COLORS.pre }}>tiền tố</b> +{" "}
-            <b style={{ color: COLORS.root }}>gốc</b> + <b style={{ color: COLORS.suf }}>hậu tố</b>, hình dung nghĩa gốc, rồi tự đoán nghĩa từ
+            {families.length} gốc La-tinh, {TOTAL} từ vựng IELTS, học trong 8 tuần. Tách từ thành <b style={{ color: COLORS.pre, whiteSpace: "nowrap" }}>tiền tố</b> +{" "}
+            <b style={{ color: COLORS.root }}>gốc</b> + <b style={{ color: COLORS.suf, whiteSpace: "nowrap" }}>hậu tố</b>, hình dung nghĩa gốc, rồi tự đoán nghĩa từ
             mới. Học một gốc, nhớ cả họ từ.
           </p>
           <div className="hero-demo" aria-hidden="true">
@@ -67,7 +67,7 @@ export function Home() {
           <button className="btn primary big" onClick={() => go(resume.f.id)}>
             {resume.label} →
           </button>
-          <p className="muted small">Không cần đăng ký · khoảng 4 phút mỗi gốc · tiến độ lưu trên máy của bạn</p>
+          <p className="muted small">Không cần đăng ký · khoảng 5 phút mỗi bài · tiến độ lưu trên máy của bạn</p>
         </div>
       </section>
 
@@ -92,31 +92,54 @@ export function Home() {
 
         <Search />
 
-        <h2 className="sec">{families.length} gốc từ</h2>
+        <a className="ebook-link" href={EBOOK_URL}>
+          <img src="/ebook/hoc-tu-tu-goc/pages/001.webp" alt="" width="54" height="76" loading="lazy" />
+          <span>
+            <b>Thích đọc như sách?</b>
+            <small>Mở bản ebook lật trang: cùng {families.length} bài, kèm bài đọc, Writing và Speaking.</small>
+          </span>
+          <Icon name="arrow-right" size={22} stroke={2} />
+        </a>
+
+        <h2 className="sec">{families.length} bài · {families.length} gốc từ</h2>
         <KindLegend />
-        <div className="grid">
-          {families.map((f, i) => {
-            const rec = p.chapters[f.id];
-            const state = rec?.doneAt ? "done" : rec?.step ? "doing" : "new";
-            return (
-              <a key={f.id} href={`#/${f.id}`} className={"fcard " + state}>
-                <span className="num">{i + 1}</span>
-                <span className="ficon" dangerouslySetInnerHTML={{ __html: svg(f.icon) }} />
-                <b className="froot">{f.root}</b>
-                <span className="fcore">{f.core}</span>
-                <span className="fstate">
-                  {state === "done" && rec?.best !== undefined ? (
-                    <Stars n={stars(rec.best, rec.total ?? 8)} />
-                  ) : state === "doing" ? (
-                    `Đang học · ${Math.min(Math.max(rec!.step - 1, 0), f.words.length)}/${f.words.length}`
-                  ) : (
-                    `${f.words.length} từ`
-                  )}
-                </span>
-              </a>
-            );
-          })}
-        </div>
+        {parts.map((part, pi) => (
+          <div key={pi}>
+            <div className="part-head">
+              <span className="pn">Phần {pi + 1}</span>
+              <h3>{part.title}</h3>
+              <small>{part.sub}</small>
+            </div>
+            <div className="grid">
+              {families
+                .filter((f) => f.part === pi)
+                .map((f) => {
+                  const rec = p.chapters[f.id];
+                  const state = rec?.doneAt ? "done" : rec?.step ? "doing" : "new";
+                  return (
+                    <a key={f.id} href={`#/${f.id}`} className={"fcard " + state}>
+                      <span className="num">{f.n}</span>
+                      <span className="ficon" dangerouslySetInnerHTML={{ __html: svg(f.icon) }} />
+                      <span className="wk">
+                        Tuần {f.week} · {DAYS[f.day - 1]}
+                      </span>
+                      <b className="froot">{f.root}</b>
+                      <span className="fcore">{f.core}</span>
+                      <span className="fstate">
+                        {state === "done" && rec?.best !== undefined ? (
+                          <Stars n={stars(rec.best, rec.total ?? 10)} />
+                        ) : state === "doing" ? (
+                          `Đang học · ${Math.min(Math.max(rec!.step - 1, 0), f.words.length)}/${f.words.length}`
+                        ) : (
+                          `${f.words.length} từ`
+                        )}
+                      </span>
+                    </a>
+                  );
+                })}
+            </div>
+          </div>
+        ))}
 
         <h2 className="sec">Phương pháp 4 bước</h2>
         <ol className="method">
@@ -178,9 +201,12 @@ function Search() {
       if (fold(f.root).includes(k) || fold(f.core).includes(k)) out.push({ label: `gốc ${f.root}`, sub: f.core, to: f.id });
       for (const w of f.words) {
         if (fold(w.word).includes(k) || fold(w.meaning).includes(k))
-          out.push({ label: w.word, sub: `${w.meaning} · gốc ${f.root.split(" ")[0]}`, to: `${f.id}/${encodeURIComponent(w.word)}` });
+          out.push({ label: w.word, sub: `${w.meaning} · bài ${f.n}, gốc ${shortRoot(f)}`, to: `${f.id}/${encodeURIComponent(w.word)}` });
         for (const r of w.related ?? [])
           if (fold(r.w).includes(k)) out.push({ label: r.w, sub: `${r.vi} · xem ${w.word}`, to: `${f.id}/${encodeURIComponent(w.word)}` });
+        for (const form of Object.values(w.forms ?? {}).flatMap((v) => v.split(",").map((x) => x.trim())))
+          if (form && form !== w.word && !(w.related ?? []).some((r) => r.w === form) && fold(form).includes(k))
+            out.push({ label: form, sub: `dạng khác của ${w.word}`, to: `${f.id}/${encodeURIComponent(w.word)}` });
       }
     }
     return out.slice(0, 8);

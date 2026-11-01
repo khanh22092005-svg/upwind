@@ -1,4 +1,4 @@
-import { defineConfig } from "vite";
+import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import fs from "fs";
@@ -20,9 +20,35 @@ const ebooks = Object.fromEntries(
 //   goc-tu/index.html                      -> https://upwind.asia/goc-tu/ (interactive version of the ebook)
 //   test/green-finance/index.html          -> https://upwind.asia/test/green-finance/
 // "/" redirects to /ielts-self-study/ (public/_redirects).
+// `import x from "./file.json?fields=a,b"` keeps only those top-level keys, so a page that needs a few
+// fields of a large data file doesn't ship all of it (used by src/goc-tu for the ebook units).
+function jsonFields(): Plugin {
+  const PREFIX = "\0json-fields:";
+  return {
+    name: "json-fields",
+    enforce: "pre",
+    async resolveId(source, importer) {
+      const [spec, query] = source.split("?");
+      if (!query?.includes("fields=") || !spec.endsWith(".json")) return;
+      const resolved = await this.resolve(spec, importer, { skipSelf: true });
+      // no ".json" in the virtual id, or vite:json would try to parse the generated module
+      return resolved && PREFIX + resolved.id.replace(/\.json$/, ".json-fields") + "?" + query;
+    },
+    load(id) {
+      if (!id.startsWith(PREFIX)) return;
+      const [virtual, query] = id.slice(PREFIX.length).split("?");
+      const file = virtual.replace(/\.json-fields$/, ".json");
+      const fields = new URLSearchParams(query).get("fields")!.split(",");
+      const data = JSON.parse(fs.readFileSync(file, "utf8"));
+      this.addWatchFile(file);
+      return `export default ${JSON.stringify(Object.fromEntries(fields.filter((k) => k in data).map((k) => [k, data[k]])))};`;
+    },
+  };
+}
+
 export default defineConfig({
   base: "/",
-  plugins: [react(), tailwindcss()],
+  plugins: [jsonFields(), react(), tailwindcss()],
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "src"),

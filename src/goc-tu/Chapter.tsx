@@ -1,8 +1,8 @@
 import { AnimatePresence, motion } from "motion/react";
 import confetti from "canvas-confetti";
 import { useEffect, useMemo, useState } from "react";
-import { allWords, COLORS, families, iconSvg, nextFamily, type Family, type Part, type Word } from "./data";
-import { shuffle } from "./lib";
+import { allWords, COLORS, DAYS, families, iconSvg, nextFamily, parts, shortRoot, type Family, type Part, type Word } from "./data";
+import { shuffle, splitAt } from "./lib";
 import { completeChapter, progressStore, restartChapter, saveStep, stars, useProgress } from "./progress";
 import { speak } from "./speech";
 import { ColoredWord, go, Icon, KindLegend, PartGloss, Rich, Speak, Stars, ZaloCta } from "./ui";
@@ -45,7 +45,9 @@ export function Chapter({ family: f, startWord }: { family: Family; startWord?: 
           <Icon name="arrow-left" size={22} stroke={2} />
         </a>
         <div className="ch-title">
-          <small>Gốc {families.indexOf(f) + 1}/{families.length}</small>
+          <small>
+            Bài {f.n}/{families.length} · Tuần {f.week} · {DAYS[f.day - 1]}
+          </small>
           <b>{f.root}</b>
         </div>
         <div className="ch-bar" role="progressbar" aria-valuenow={pct} aria-valuemin={0} aria-valuemax={100}>
@@ -118,7 +120,7 @@ function Bait({ f, onNext }: { f: Family; onNext: () => void }) {
       <BottomBar>
         {open ? (
           <button className="btn primary wide" onClick={onNext}>
-            Khám phá gốc {f.root.split(" ")[0]} →
+            Khám phá gốc {shortRoot(f)} →
           </button>
         ) : (
           <button className="btn primary wide" onClick={() => setOpen(true)}>
@@ -133,7 +135,7 @@ function Bait({ f, onNext }: { f: Family; onNext: () => void }) {
 function RootCard({ f, onNext }: { f: Family; onNext: () => void }) {
   return (
     <section className="screen">
-      <p className="kicker">Gốc từ</p>
+      <p className="kicker">Gốc từ · Phần {f.part + 1}: {parts[f.part].title}</p>
       <div className="root-card">
         <span className="badge" dangerouslySetInnerHTML={{ __html: badgeSvg(f.icon) }} />
         <div className="root-big">
@@ -237,7 +239,7 @@ function WordScreen({ f, w, index, onNext, onBack }: { f: Family; w: Word; index
 }
 
 export function WordCard({ w }: { w: Word }) {
-  const [before, form, after] = splitExample(w);
+  const [before, form, after] = splitAt(w);
   return (
     <article className="word-card">
       <header>
@@ -276,13 +278,6 @@ export function WordCard({ w }: { w: Word }) {
       )}
     </article>
   );
-}
-
-function splitExample(w: Word): [string, string, string] {
-  const stem = w.word.replace(/e$/, "").slice(0, Math.max(4, w.word.length - 2));
-  const m = w.example.match(new RegExp(`\\b(${stem}[a-z]*)`, "i"));
-  if (!m || m.index === undefined) return [w.example, "", ""];
-  return [w.example.slice(0, m.index), m[1], w.example.slice(m.index + m[1].length)];
 }
 
 type Chip = { id: number; part: Part; slot: number | null };
@@ -383,7 +378,7 @@ function Done({ f, result, onRestart }: { f: Family; result: { score: number; to
   const [copied, setCopied] = useState(false);
   const share = async () => {
     const url = `https://upwind.asia/goc-tu/#/${f.id}`;
-    const text = `Mình vừa học ${f.words.length} từ gốc ${f.root.split(" ")[0]} ${"★".repeat(stars(score, total))} với UpWind. Thử xem bạn được mấy sao?`;
+    const text = `Mình vừa học ${f.words.length} từ gốc ${shortRoot(f)} ${"★".repeat(stars(score, total))} với UpWind. Thử xem bạn được mấy sao?`;
     if (navigator.share) {
       try {
         await navigator.share({ title: "Học từ từ gốc · UpWind", text, url });
@@ -411,7 +406,7 @@ function Done({ f, result, onRestart }: { f: Family; result: { score: number; to
       </p>
       <div className="done-actions">
         <button className="btn primary wide" onClick={() => go(nf.id)}>
-          Gốc tiếp theo: {nf.root} →
+          Bài tiếp theo: gốc {nf.root} →
         </button>
         <div className="row2">
           <button className="btn ghost" onClick={share}>

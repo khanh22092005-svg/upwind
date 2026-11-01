@@ -1,6 +1,6 @@
-// TS ports of the helpers in tools/word-roots/lib/common.mjs and make-handbook.mjs,
-// so the practice questions and answers match the printed handbook.
-import { allWords, type Family, type PartKind } from "./data";
+// TS ports of the helpers in tools/social-content/make-ebook.mjs,
+// so the practice questions and answers match the printed ebook.
+import { allWords, type Family, type PartKind, type Word } from "./data";
 
 /** "Tại sao {{evoke}}..." -> segments, English ones flagged. */
 export function chunks(text: string) {
@@ -18,26 +18,36 @@ export function chunks(text: string) {
 }
 export const plain = (text: string) => text.replace(/\{\{(.+?)\}\}/g, "$1");
 
-const stemRe = (word: string) => {
-  const stem = word.replace(/e$/, "").slice(0, Math.max(4, word.length - 2));
-  return new RegExp(`\\b(${stem}[a-z]*)`, "i");
-};
-/** The form of `word` used in `sentence` ("evoked"), or the word itself. */
-export const formIn = (sentence: string, word: string) => sentence.match(stemRe(word))?.[1] ?? word;
-/** Split a sentence around the target word: [before, form, after]. */
-export function splitAt(sentence: string, word: string): [string, string, string] {
-  const m = sentence.match(stemRe(word));
-  if (!m || m.index === undefined) return [sentence, "", ""];
-  return [sentence.slice(0, m.index), m[1], sentence.slice(m.index + m[1].length)];
+/** All spellings of a word we may meet in text: the word, its forms, related words. */
+function spellings(w: Word) {
+  const list = [w.word, ...Object.values(w.forms ?? {}).flatMap((v) => v.split(",")), ...(w.related ?? []).map((r) => r.w)];
+  return [...new Set(list.map((s) => s.replace(/\(.*?\)/g, "").trim().toLowerCase()).filter(Boolean))];
+}
+const stemOf = (s: string) => s.replace(/e$/, "").slice(0, Math.max(4, s.length - 2));
+/** Regex that finds any form of the word (provoke, provoked, provocative...), as in make-ebook.mjs. */
+export function formRe(w: Word, flags = "i") {
+  const stems = [...new Set(spellings(w).filter((s) => !s.includes(" ")).map(stemOf))].sort((a, b) => b.length - a.length);
+  return new RegExp(`\\b(${stems.map((s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})[a-z]*`, flags);
+}
+/** The form of the word used in its example sentence ("evoked"), or the word itself. */
+export const formIn = (w: Word) => w.example.match(formRe(w))?.[0] ?? w.word;
+/** Split the example sentence around the target word: [before, form, after]. */
+export function splitAt(w: Word): [string, string, string] {
+  const m = w.example.match(formRe(w));
+  if (!m || m.index === undefined) return [w.example, "", ""];
+  return [w.example.slice(0, m.index), m[0], w.example.slice(m.index + m[0].length)];
 }
 
-/** Deterministic shuffle, identical to make-handbook.mjs, so the PDF and the app ask the same questions. */
+/** Deterministic shuffle, identical to make-ebook.mjs, so the ebook and the app ask the same questions. */
+const seeded = (seed: string) => {
+  let s = [...String(seed)].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7);
+  return () => (s = (s * 1103515245 + 12345) >>> 0) / 4294967296;
+};
 export function shuffle<T>(arr: T[], seed: string): T[] {
   const a = [...arr];
-  let s = [...seed].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7);
+  const r = seeded(seed);
   for (let i = a.length - 1; i > 0; i--) {
-    s = (s * 1103515245 + 12345) >>> 0;
-    const j = s % (i + 1);
+    const j = Math.floor(r() * (i + 1));
     [a[i], a[j]] = [a[j], a[i]];
   }
   return a;
@@ -59,17 +69,19 @@ export function affixIndex(kind: Exclude<PartKind, "root">) {
     .sort((a, b) => b.words.length - a.words.length || a.key.localeCompare(b.key));
 }
 
-/** Practice set for one family: the handbook's 5 gap-fill sentences + word bank, then 3 meaning questions. */
+/** Practice for one unit: the ebook's "Hoàn thành câu" (same sentences and word bank),
+ * then 2 of its "Word form" items, then 3 meaning questions. */
 export function practiceFor(f: Family) {
-  const gaps = shuffle(f.words, f.id).slice(0, Math.min(5, f.words.length));
+  const gaps = shuffle(f.words, f.id + "C").slice(0, Math.min(5, f.words.length - 1));
   const bank = shuffle(f.words.map((w) => w.word), f.id + "bank");
+  const wf = (f.wf ?? []).slice(0, 2);
   const mcq = shuffle(f.words, f.id + "mcq")
     .slice(0, 3)
     .map((w) => {
       const others = shuffle(f.words.filter((o) => o.word !== w.word), w.word).slice(0, 3);
       return { w, options: shuffle([w, ...others], w.word + "opt").map((o) => o.meaning) };
     });
-  return { gaps, bank, mcq };
+  return { gaps, bank, wf, mcq };
 }
 
 export const todayKey = (d = new Date()) =>

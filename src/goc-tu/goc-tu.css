@@ -246,3 +246,22 @@ h1, h2, h3 { font-family: var(--font-serif); color: var(--color-upwind-ink); lin
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* word form */
+.base-word { margin: 10px 0; color: var(--color-upwind-ink-2); }
+.base-word b { color: var(--root); letter-spacing: 0.03em; }
+.wf-input { display: flex; gap: 8px; }
+.wf-input input { flex: 1; min-width: 0; font: inherit; font-size: 18px; padding: 12px 16px; border-radius: 14px; border: 2px solid var(--color-upwind-border); outline: 0; }
+.wf-input input:focus { border-color: var(--color-upwind-accent); }
+
+/* home: parts */
+.part-head { margin: 26px 0 10px; }
+.part-head h3 { font-size: 1.25rem; margin: 0; }
+.part-head small { color: var(--color-upwind-ink-2); }
+.part-head .pn { display: inline-block; font-family: var(--font-sans); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-upwind-accent); }
+.fcard .wk { font-size: 0.72rem; font-weight: 800; color: var(--color-upwind-accent); text-transform: uppercase; letter-spacing: 0.03em; }
+.ebook-link { display: flex; align-items: center; gap: 14px; margin: 18px 0 6px; padding: 14px 18px; border-radius: var(--radius); background: oklch(0.97 0.02 80); border: 2px solid oklch(0.9 0.05 80); text-decoration: none; color: var(--color-upwind-ink); }
+.ebook-link:hover { color: var(--color-upwind-ink); border-color: oklch(0.8 0.09 70); }
+.ebook-link img { width: 54px; height: auto; border-radius: 6px; box-shadow: 0 4px 12px oklch(0.3 0.05 250 / 0.2); flex: none; }
+.ebook-link span { display: grid; flex: 1; }
+.ebook-link small { color: var(--color-upwind-ink-2); }

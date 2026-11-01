@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { COLORS } from "./data";
+import { COLORS, shortRoot } from "./data";
 import { affixIndex } from "./lib";
 import { go, Icon } from "./ui";
 
@@ -40,7 +40,7 @@ export function Affixes() {
               <div className="affix-words">
                 {r.words.map(({ family, word }) => (
                   <button key={family.id + word} className="chip small" onClick={() => go(`${family.id}/${encodeURIComponent(word)}`)}>
-                    {word} <small>· {family.root.split(" ")[0]}</small>
+                    {word} <small>· {shortRoot(family)}</small>
                   </button>
                 ))}
               </div>

@@ -7,7 +7,7 @@ Source for **https://upwind.asia**, hosted on Cloudflare (moved from Replit).
 | UpWind IELTS & Self Study | `/ielts-self-study/` (`/` redirects here) | `ielts-self-study/index.html`, `src/ielts/` |
 | UpWind IELTS & Self Study · 4.0 → 5.5 | `/ielts-foundation/` | `ielts-foundation/index.html`, `src/ielts-foundation/` (shares `src/ielts/index.css`) |
 | Intensive Mastery · Writing & Speaking | `/Intensive-Writing-Speaking/` | `Intensive-Writing-Speaking/index.html`, `src/intensive/` |
-| Học từ từ gốc (interactive word-roots handbook) | `/goc-tu/` | `goc-tu/index.html`, `src/goc-tu/` (data: `tools/word-roots/data/families.json`) |
+| Học từ từ gốc, interactive version of the ebook | `/goc-tu/` | `goc-tu/index.html`, `src/goc-tu/` (data: `tools/social-content/data/ebook/`) |
 | Upwind Green Finance (test, not indexed) | `/test/green-finance/` | `test/green-finance/index.html`, `src/green-finance/` |
 
 Other folders:
@@ -17,11 +17,16 @@ Other folders:
 
 ## Học từ từ gốc (`/goc-tu/`)
 
-Interactive version of the word-roots handbook. It reads `tools/word-roots/data/families.json` directly, so a new
-family added for the videos/handbook also appears here after a build. Each root is a chapter (bait → root → build
-each word from its parts → guess the meaning → word card → 8 practice questions taken from the handbook), with spaced
-review (`ts-fsrs`) and a prefix/suffix table. Progress is saved in the browser (`localStorage` key `upwind-goc-tu-v1`);
-there are no accounts yet. Deep links: `/goc-tu/#/rupt` (a root), `/goc-tu/#/rupt/erupt` (a word), `#/on-tap`, `#/bang-phu-to`.
+Interactive version of the ebook "Học Từ, Từ Gốc" (`/ebook/hoc-tu-tu-goc/`). It reads the ebook's own data,
+`tools/social-content/data/ebook/order.json` + `<id>.json` (merged with `data/families.json` the same way as
+`make-ebook.mjs`), so after a data change and a build the two always match. Only the fields the app uses are bundled
+(`?fields=` imports, see `jsonFields()` in `vite.config.ts`).
+
+Each unit is a chapter: bait → root → build each word from its parts → guess the meaning → word card (browser
+speech) → practice (the ebook's "Hoàn thành câu" sentences and word bank, 2 "Word form" items, 3 meaning questions)
+→ result. Plus spaced review (`ts-fsrs`), a prefix/suffix table and word search. Progress is saved in the browser
+(`localStorage` key `upwind-goc-tu-v1`); there are no accounts yet. Deep links: `/goc-tu/#/rupt` (a unit),
+`/goc-tu/#/rupt/erupt` (a word), `#/on-tap`, `#/bang-phu-to`.
 
 ## Edit & preview
 
