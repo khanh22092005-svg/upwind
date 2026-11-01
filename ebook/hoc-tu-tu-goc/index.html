@@ -35,7 +35,7 @@
       </a>
       <div class="tools">
         <button id="tocBtn" class="btn" type="button" aria-haspopup="true" aria-expanded="false">Mục lục</button>
-        <button id="fsBtn" class="btn icon" type="button" aria-label="Toàn màn hình" title="Toàn màn hình">⛶</button>
+        <button id="fsBtn" class="btn icon" type="button" aria-label="Chỉ xem trang sách" title="Chỉ xem trang sách (F)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
       </div>
     </header>
 
@@ -51,6 +51,8 @@
       <input id="slider" type="range" min="1" value="1" aria-label="Chọn trang" />
       <span id="pageNum" class="pnum">1 / 1</span>
     </footer>
+    <button id="exitFull" class="exitfull" type="button" aria-label="Thoát chế độ chỉ xem trang">✕</button>
+    <span id="fullNum" class="fullnum"></span>
     <p id="hint" class="hint">Vuốt hoặc kéo góc trang để lật</p>
 
     <script type="module" src="/src/ebook/main.ts"></script>

@@ -17,6 +17,7 @@ const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as 
 const wrap = $("bookwrap");
 const slider = $<HTMLInputElement>("slider");
 const pageNum = $("pageNum");
+const fullNum = $("fullNum");
 const hint = $("hint");
 const tocBtn = $<HTMLButtonElement>("tocBtn");
 const toc = $("toc");
@@ -48,11 +49,15 @@ function makePages(): HTMLElement[] {
 }
 
 let pages: HTMLElement[] = [];
+// Fetch and decode pages ahead of time, so a flip never waits for an image to decode mid-animation.
 function loadAround(i: number) {
-  for (let k = i - 3; k <= i + 6; k++) {
+  for (let k = i - 4; k <= i + 8; k++) {
     if (k < 0 || k >= PAGES) continue;
     const img = pages[k].firstElementChild as HTMLImageElement;
-    if (!img.getAttribute("src")) img.src = src(k);
+    if (!img.getAttribute("src")) {
+      img.src = src(k);
+      img.decode?.().catch(() => {});
+    }
   }
 }
 
@@ -91,8 +96,8 @@ function build(at: number) {
     showCover: true,
     usePortrait: true,
     drawShadow: true,
-    maxShadowOpacity: 0.45,
-    flippingTime: 750,
+    maxShadowOpacity: 0.4,
+    flippingTime: 600,
     mobileScrollSupport: false,
     swipeDistance: 20,
     showPageCorners: true,
@@ -115,6 +120,7 @@ function onPage(i: number) {
   // In a spread, show both page numbers.
   const pair = spread && i > 0 && i < PAGES - 1 ? (i % 2 ? `${n}–${n + 1}` : `${n - 1}–${n}`) : String(n);
   pageNum.textContent = `${pair} / ${PAGES}`;
+  fullNum.textContent = `${pair} / ${PAGES}`;
   localStorage.setItem(STORE, String(n));
   history.replaceState(null, "", `#p=${n}`);
   markToc(n);
@@ -125,15 +131,22 @@ function onPage(i: number) {
 }
 
 const startAt = startPage();
-build(startAt);
 
-let resizeTimer = 0;
-window.addEventListener("resize", () => {
-  clearTimeout(resizeTimer);
-  resizeTimer = window.setTimeout(() => {
-    if (wantSpread() !== spread) build(current());
-  }, 150);
-});
+// Build only once the reader area has a real size (in-app browsers like Zalo report 0 at first),
+// then keep the book fitted: rebuild when one page <-> spread should switch, otherwise just re-measure.
+let pending = 0;
+function fit() {
+  if (wrap.clientWidth < 50 || wrap.clientHeight < 50) return;
+  if (!flip) build(startAt);
+  else if (wantSpread() !== spread) build(current());
+  else flip.update();
+}
+new ResizeObserver(() => {
+  cancelAnimationFrame(pending);
+  pending = requestAnimationFrame(fit);
+}).observe(wrap);
+window.addEventListener("orientationchange", () => setTimeout(fit, 300));
+fit();
 
 /* ---------- controls ---------- */
 $("prev").addEventListener("click", () => flip?.flipPrev());
@@ -150,14 +163,26 @@ document.addEventListener("keydown", (e) => {
   else if (e.key === "ArrowLeft" || e.key === "PageUp") flip?.flipPrev();
   else if (e.key === "Home") flip?.turnToPage(0);
   else if (e.key === "End") flip?.turnToPage(PAGES - 1);
-  else if (e.key === "Escape") closeToc();
+  else if (e.key === "Escape") { closeToc(); setFull(false); }
+  else if (e.key === "f") setFull(!document.body.classList.contains("full"));
 });
 
+/* ---------- page-only mode: hide the bars; also real fullscreen where the browser allows it (not iPhone) ---------- */
 const fsBtn = $("fsBtn");
-if (!document.fullscreenEnabled) fsBtn.hidden = true;
-fsBtn.addEventListener("click", () => {
-  if (document.fullscreenElement) document.exitFullscreen();
-  else document.documentElement.requestFullscreen().catch(() => {});
+const exitBtn = $("exitFull");
+function setFull(on: boolean) {
+  document.body.classList.toggle("full", on);
+  closeToc();
+  if (on && document.fullscreenEnabled && !document.fullscreenElement) {
+    document.documentElement.requestFullscreen().catch(() => {});
+  } else if (!on && document.fullscreenElement) {
+    document.exitFullscreen().catch(() => {});
+  }
+}
+fsBtn.addEventListener("click", () => setFull(true));
+exitBtn.addEventListener("click", () => setFull(false));
+document.addEventListener("fullscreenchange", () => {
+  if (!document.fullscreenElement && document.body.classList.contains("full")) setFull(false);
 });
 
 /* ---------- contents (from the PDF outline) ---------- */

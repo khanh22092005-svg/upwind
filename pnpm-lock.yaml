@@ -4,13 +4,18 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  page-flip@2.0.7:
+    hash: 3971b4edbcb31ed1929a247e794775975235cb708a64acd365238823bbc58f59
+    path: patches/page-flip@2.0.7.patch
+
 importers:
 
   .:
     dependencies:
       page-flip:
         specifier: 2.0.7
-        version: 2.0.7
+        version: 2.0.7(patch_hash=3971b4edbcb31ed1929a247e794775975235cb708a64acd365238823bbc58f59)
       react:
         specifier: 19.1.0
         version: 19.1.0
@@ -1411,7 +1416,7 @@ snapshots:
 
   node-releases@2.0.59: {}
 
-  page-flip@2.0.7: {}
+  page-flip@2.0.7(patch_hash=3971b4edbcb31ed1929a247e794775975235cb708a64acd365238823bbc58f59): {}
 
   picocolors@1.1.1: {}
 
