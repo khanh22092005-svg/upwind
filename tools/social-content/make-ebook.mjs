@@ -340,8 +340,7 @@ function chapterHTML(c, ci) {
   ${exList("skill").join("")}
 
   <div class="review">
-    ${sec("✓", "Review", `Unit ${c.n} · ${esc(c.root)} = ${esc(c.core)}`)}
-    ${exList("review").join("")}
+    ${keep(sec("✓", "Review", `Unit ${c.n} · ${esc(c.root)} = ${esc(c.core)}`), exList("review"))}
     <table class="recap"><tr><th>Word</th><th>Nghĩa</th><th>Collocations</th></tr>${recap}</table>
     <div class="tracker"><b>Lịch ôn</b> Che cột nghĩa và tự nói lại: <span>☐ Ngày 1</span><span>☐ Ngày 3</span><span>☐ Ngày 7</span><span>☐ Ngày 14</span><span>☐ Ngày 30</span></div>
   </div>

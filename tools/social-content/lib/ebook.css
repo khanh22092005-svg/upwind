@@ -325,3 +325,16 @@ table.plan td{padding:5px 6px}
 th{padding:5px 8px}
 td{padding:5px 8px}
 .cstats div{padding:12px 16px}
+/* the Review box may split across pages (heading stays with its first exercise; the recap table stays whole) */
+.review{break-inside:auto}
+.review .recap{break-inside:avoid}
+td{padding:4px 7px}
+th{padding:4px 7px}
+/* keep the extra padding inside boxes, win the space back between blocks */
+.sec{margin:20px 0 10px}
+.q{margin:10px 0 12px}
+.card{margin:0 0 8px}
+.card .cl{padding:11px 13px}.card .cr{padding:10px 14px}
+.row{margin-top:2px;line-height:1.6}
+.review{margin-top:14px}
+.maphelp{margin:4px 0 2px}
