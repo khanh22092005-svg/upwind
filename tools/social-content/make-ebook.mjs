@@ -143,8 +143,7 @@ function chapterHTML(c, ci) {
         <div class="row"><span class="lab">Word family</span>${Object.entries(w.forms ?? {}).map(([k, v]) => `<span class="form"><i>${POS[k] ?? k}</i> ${esc(v)}</span>`).join("")}</div>
         ${w.trap ? `<div class="watch"><b>Watch out!</b> ${en(w.trap)}</div>` : ""}
       </div></div>`
-    )
-    .join("");
+    );
 
   /* ---- reading ---- */
   let text = esc(c.reading.text);
@@ -293,7 +292,9 @@ function chapterHTML(c, ci) {
   exs.forEach((e, i) => (e.n = i + 1));
   totalEx += exs.length;
   answers.push({ c, ans: exs.filter((e) => e.ans).map((e) => `<b>${e.n}</b> ${e.ans}`) });
-  const exHTML = (sec) => exs.filter((e) => e.sec === sec).map((e) => `<div class="q"><div class="qh"><span class="qn">${e.n}</span><span class="qt">${esc(e.title)}</span><span class="tag">${esc(e.tag)}</span></div><p class="rubric">${e.rubric}</p>${e.body}</div>`).join("");
+  const exList = (sec) => exs.filter((e) => e.sec === sec).map((e) => `<div class="q"><div class="qh"><span class="qn">${e.n}</span><span class="qt">${esc(e.title)}</span><span class="tag">${esc(e.tag)}</span></div><p class="rubric">${e.rubric}</p>${e.body}</div>`);
+  /** A section heading is always printed together with its first block, so it never sits alone at the foot of a page. */
+  const keep = (head, items) => (items.length ? `<div class="keep">${head}${items[0]}</div>${items.slice(1).join("")}` : head);
   const range = (sec) => { const l = exs.filter((e) => e.sec === sec); return l.length ? `${l[0].n}${l.length > 1 ? "–" + l[l.length - 1].n : ""}` : ""; };
 
   const topicNames = [...new Set(words.map((w) => TOPICS[w.tp]).filter(Boolean))].slice(0, 3);
@@ -320,18 +321,15 @@ function chapterHTML(c, ci) {
       <p class="anchorline"><b>Hình neo:</b> ${esc(c.image)}.</p></div>
   </div>
 
-  ${sec("1", "Word map", "Sơ đồ họ từ")}
+  <div class="keep">${sec("1", "Word map", "Sơ đồ họ từ")}
   ${familyTree(c)}
-  <p class="maphelp">Đọc từ trên xuống: gốc → từ → word family → collocations. <b style="color:${COLORS.pre}">tiền tố</b> · <b style="color:${COLORS.root}">gốc</b> · <b style="color:${COLORS.suf}">hậu tố</b></p>
+  <p class="maphelp">Đọc từ trên xuống: gốc → từ → word family → collocations. <b style="color:${COLORS.pre}">tiền tố</b> · <b style="color:${COLORS.root}">gốc</b> · <b style="color:${COLORS.suf}">hậu tố</b></p></div>
 
-  ${sec("2", "Vocabulary", "Từ vựng")}
-  ${cards}
+  ${keep(sec("2", "Vocabulary", "Từ vựng"), cards)}
 
-  ${sec("3", "Vocabulary practice", `Exercises ${range("vocab")}`)}
-  ${exHTML("vocab")}
+  ${keep(sec("3", "Vocabulary practice", `Exercises ${range("vocab")}`), exList("vocab"))}
 
-  ${sec("4", "Language focus: word families", `Exercises ${range("lang")}`)}
-  ${exHTML("lang")}
+  ${keep(sec("4", "Language focus: word families", `Exercises ${range("lang")}`), exList("lang"))}
 
   <div class="readwrap">
   ${sec("5", "Skill focus · " + esc(SK.label), `Exercises ${range("skill")}`)}
@@ -339,11 +337,11 @@ function chapterHTML(c, ci) {
     <div class="passage"><h4>${esc(c.reading.title)}</h4><p>${text}</p></div>
     <div class="tipbox">${SK.skill === "reading" ? `<b>Exam tip · ${esc(SKILL[rq.type].name)}</b>${esc(SKILL[rq.type].tip)}<small>${esc(SKILL[rq.type].wk)}</small>` : SK.skill === "speaking" ? `<b>Exam tip · ${esc(SK.label)}</b>${esc(SKILL["p" + SK.part].tip)}<small>${esc(SK.roadmap)}</small>` : `<b>Exam tip · ${esc(SKILL[c.wt ?? "opinion"].name)}</b>${esc(SKILL[c.wt ?? "opinion"].tip)}<small>${esc(SK.roadmap)}</small>`}</div>
   </div></div>
-  ${exHTML("skill")}
+  ${exList("skill").join("")}
 
   <div class="review">
     ${sec("✓", "Review", `Unit ${c.n} · ${esc(c.root)} = ${esc(c.core)}`)}
-    ${exHTML("review")}
+    ${exList("review").join("")}
     <table class="recap"><tr><th>Word</th><th>Nghĩa</th><th>Collocations</th></tr>${recap}</table>
     <div class="tracker"><b>Lịch ôn</b> Che cột nghĩa và tự nói lại: <span>☐ Ngày 1</span><span>☐ Ngày 3</span><span>☐ Ngày 7</span><span>☐ Ngày 14</span><span>☐ Ngày 30</span></div>
   </div>
@@ -455,7 +453,7 @@ function buildBody(pages) {
       const e = map.get(p.t) ?? { vi: new Set(), words: [] };
       e.vi.add(p.vi); e.words.push(w.word); map.set(p.t, e);
     }
-    return [...map.entries()].sort((a, b) => b[1].words.length - a[1].words.length).slice(0, 18);
+    return [...map.entries()].sort((a, b) => b[1].words.length - a[1].words.length).slice(0, 12);
   })();
 
   const rqType = (c) => (c.rq ?? (c.tf ? { type: "tfng" } : null))?.type;
@@ -500,8 +498,9 @@ function buildBody(pages) {
     <a href="#map"><b>Bản đồ 40 gốc từ</b><span class="dots"></span><span>${pg("MAP")}</span></a>
     <a href="#final"><b>Bài kiểm tra cuối sách · Đáp án · Chủ đề · Chỉ mục</b><span class="dots"></span><span>${pg("FT")}</span></a>
   </div>
-  <table class="sns"><tr><th>Unit</th><th>Root</th><th>Vocabulary</th><th>Skill focus</th><th>Task</th><th>Page</th></tr>${toc}</table>
   <p class="small">Mỗi unit luyện một kỹ năng, theo thứ tự của UpWind Student Roadmap: Reading (Unit 1–15) → Speaking Part 1 (16–20) → Writing Task 2 (21–30) → Speaking Part 3 (31–35) → Speaking Part 2 (36–40). Phần từ vựng của mọi unit giống nhau: Word map, Vocabulary, Paraphrase pairs, Word building, Collocations, Word form, bảng họ từ, sửa lỗi, ôn giãn cách.</p>
+  <table class="sns"><tr><th>Unit</th><th>Root</th><th>Vocabulary</th><th>Skill focus</th><th>Task</th><th>Page</th></tr>${toc}</table>
+
 </section>
 
 <section class="front" id="how"><span class="mark">@@HOW@@</span>
@@ -523,8 +522,8 @@ function buildBody(pages) {
     <div class="step"><b>6. Ôn giãn cách</b>Mỗi unit có bài ôn kéo từ của 1, 3 và 7 unit trước, và ô lịch ôn ngày 1, 3, 7, 14, 30. Đánh dấu ☐ mỗi lần ôn.</div>
   </div>
   <div class="note"><b>Lộ trình 8–10 tuần:</b> 5 unit mỗi tuần (thứ 2 đến thứ 6, mỗi ngày một unit, khoảng 45 phút), thứ 7 ôn tuần, chủ nhật nghỉ. 8 tuần là học xong 40 unit; tuần 9–10 dành để ôn theo chủ đề và làm bài kiểm tra cuối. Xem trang Study plan. Làm bài kiểm tra đầu vào trước, bài cuối sách sau, để thấy mình tiến bộ bao nhiêu.</div>
-  <div class="note"><b>Dùng trong phòng thi:</b> gặp từ lạ trong IELTS Reading, hãy tách nó ra. <i>irrevocable</i> = ir (không) + re (lại) + voc (gọi) + able (có thể) → không thể gọi lại → không thể thay đổi. Thường đủ để chọn đúng đáp án.</div>
-  <div class="note warn"><b>Cẩn thận:</b> gốc từ cho hướng đoán, không phải định nghĩa. Nghĩa hiện đại có thể đã trôi xa (<i>addict</i>, <i>bankrupt</i>), và có cặp “bẫy” trông giống nhau nhưng khác gốc (<i>vocation</i> và <i>vacation</i>). Luôn kiểm tra bằng câu ví dụ; các mục ⚠ trong sách chỉ ra những bẫy này.</div>
+  <div class="notes2"><div class="note"><b>Dùng trong phòng thi:</b> gặp từ lạ trong IELTS Reading, hãy tách nó ra. <i>irrevocable</i> = ir (không) + re (lại) + voc (gọi) + able (có thể) → không thể gọi lại → không thể thay đổi. Thường đủ để chọn đúng đáp án.</div>
+  <div class="note warn"><b>Cẩn thận:</b> gốc từ cho hướng đoán, không phải định nghĩa. Nghĩa hiện đại có thể đã trôi xa (<i>addict</i>, <i>bankrupt</i>), và có cặp “bẫy” trông giống nhau nhưng khác gốc (<i>vocation</i> và <i>vacation</i>). Luôn kiểm tra bằng câu ví dụ; các mục ⚠ trong sách chỉ ra những bẫy này.</div></div>
 </section>
 
 

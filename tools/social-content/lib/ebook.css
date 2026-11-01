@@ -249,3 +249,45 @@ table.plan .chk{text-align:center;font-size:12pt}
 .uskill{display:inline-block;background:#fff;color:#004b9b;border-radius:999px;padding:1px 8px;margin-left:6px;font-weight:800;letter-spacing:.04em;vertical-align:1px}
 table.sns .skl{color:#004b9b}
 table.plan .psk{font-weight:700;color:#2b8cc4;font-size:7.8pt;background:#f7fbfe}
+/* ===== spacing pass: headings get room to breathe ===== */
+.keep{break-inside:avoid}
+.big{margin:0 0 16px}
+.opener{margin:14px 0 6px;gap:12px}
+.goals,.leadin{padding:10px 14px}
+.sec{margin:26px 0 12px;padding-bottom:6px}
+.chapter>.keep:first-of-type .sec,.uband+.opener+.keep .sec{margin-top:20px}
+.q{margin:14px 0 16px}
+.qh{margin-bottom:4px}
+.rubric{margin:3px 0 6px 27px}
+.card{margin:0 0 10px}
+.cl{padding:11px 13px}.cr{padding:10px 14px}
+.readgrid{margin-bottom:6px}
+.passage{padding:12px 16px}
+.passage h4{margin-bottom:6px}
+.tipbox{padding:12px 14px}
+.maphelp{margin:6px 0 4px}
+.review{padding:4px 14px 12px;margin-top:20px}
+.review .sec{margin-top:14px}
+.tracker{margin-top:10px}
+.partpage h1{margin:8px 0 10px}
+.psub{margin:0 0 28px}
+.goalbox{padding:12px 16px;margin:12px 0 14px}
+.goalbox p{margin:6px 0 8px}
+.steps{gap:12px;margin:14px 0}
+.step{padding:12px 14px}
+.note{margin:12px 0;padding:10px 14px}
+.back h3{margin:16px 0 6px}
+.ans{margin:8px 0}
+.topic{margin-bottom:14px}
+.topic h4{margin-bottom:3px}
+table.sns{margin-top:14px}
+.notes2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.notes2 .note{margin:0}
+table.sns td{padding:2px 6px}
+#how .step{padding:9px 12px;font-size:9pt}
+#how .steps{gap:9px;margin:10px 0}
+#how .goalbox{margin:8px 0 10px;padding:10px 14px}
+#how .goalbox td{padding:3px 6px;font-size:8.6pt}
+#how .lead{margin:4px 0 8px}
+#how .note{padding:8px 12px;font-size:9pt}
+#affix td{padding:2px 7px;font-size:8.8pt}
