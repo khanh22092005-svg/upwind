@@ -1,0 +1,280 @@
+{
+"pages": 238,
+"toc": [
+{
+"t": "Bìa",
+"p": 1,
+"d": 0
+},
+{
+"t": "Mục lục",
+"p": 3,
+"d": 0
+},
+{
+"t": "Cách dùng sách này",
+"p": 5,
+"d": 0
+},
+{
+"t": "Study plan · Lộ trình 8–10 tuần",
+"p": 6,
+"d": 0
+},
+{
+"t": "Bài kiểm tra đầu vào",
+"p": 7,
+"d": 0
+},
+{
+"t": "Bảng tiền tố và hậu tố",
+"p": 8,
+"d": 0
+},
+{
+"t": "Bản đồ 40 gốc từ",
+"p": 9,
+"d": 0
+},
+{
+"t": "Phần 1. Nói, viết, nhìn, nghe",
+"p": 10,
+"d": 0
+},
+{
+"t": "1. voc / voke (gọi, cất tiếng)",
+"p": 11,
+"d": 1
+},
+{
+"t": "2. dict / dic (nói)",
+"p": 17,
+"d": 1
+},
+{
+"t": "3. log / logy (lời nói, lý lẽ, môn học)",
+"p": 23,
+"d": 1
+},
+{
+"t": "4. aud / audi (nghe)",
+"p": 28,
+"d": 1
+},
+{
+"t": "5. spect / spic (nhìn)",
+"p": 33,
+"d": 1
+},
+{
+"t": "6. vid / vis (nhìn, thấy)",
+"p": 39,
+"d": 1
+},
+{
+"t": "7. scrib / script (viết)",
+"p": 45,
+"d": 1
+},
+{
+"t": "8. graph / gram (viết, vẽ, ghi lại)",
+"p": 50,
+"d": 1
+},
+{
+"t": "9. sens / sent (cảm nhận)",
+"p": 56,
+"d": 1
+},
+{
+"t": "10. path (cảm xúc; nỗi đau, bệnh)",
+"p": 61,
+"d": 1
+},
+{
+"t": "Phần 2. Di chuyển và mang đi",
+"p": 66,
+"d": 0
+},
+{
+"t": "11. port (mang, vác)",
+"p": 67,
+"d": 1
+},
+{
+"t": "12. fer (mang, chở)",
+"p": 73,
+"d": 1
+},
+{
+"t": "13. mit / miss (gửi, thả đi)",
+"p": 78,
+"d": 1
+},
+{
+"t": "14. ject (ném)",
+"p": 84,
+"d": 1
+},
+{
+"t": "15. pel / puls (đẩy, xua)",
+"p": 89,
+"d": 1
+},
+{
+"t": "16. tract (kéo)",
+"p": 94,
+"d": 1
+},
+{
+"t": "17. duc / duct (dẫn dắt)",
+"p": 99,
+"d": 1
+},
+{
+"t": "18. mot / mov (chuyển động)",
+"p": 104,
+"d": 1
+},
+{
+"t": "19. ced / ceed / cess (đi; nhường)",
+"p": 109,
+"d": 1
+},
+{
+"t": "20. cur / curs (chạy)",
+"p": 114,
+"d": 1
+},
+{
+"t": "21. gress / grad (bước)",
+"p": 119,
+"d": 1
+},
+{
+"t": "22. vent / ven (đến)",
+"p": 124,
+"d": 1
+},
+{
+"t": "23. sequ / secu (theo sau)",
+"p": 129,
+"d": 1
+},
+{
+"t": "Phần 3. Đặt, giữ, làm, xây",
+"p": 134,
+"d": 0
+},
+{
+"t": "24. pos / pon (đặt, để)",
+"p": 135,
+"d": 1
+},
+{
+"t": "25. tain / ten (giữ)",
+"p": 140,
+"d": 1
+},
+{
+"t": "26. cept / cap (lấy, nắm)",
+"p": 146,
+"d": 1
+},
+{
+"t": "27. sist / sta (đứng)",
+"p": 151,
+"d": 1
+},
+{
+"t": "28. tend / tens (kéo căng, vươn tới)",
+"p": 156,
+"d": 1
+},
+{
+"t": "29. press (ấn, ép)",
+"p": 161,
+"d": 1
+},
+{
+"t": "30. struct (xây, xếp)",
+"p": 166,
+"d": 1
+},
+{
+"t": "31. fect / fic / fac (làm)",
+"p": 171,
+"d": 1
+},
+{
+"t": "32. clud / clus / clos (đóng)",
+"p": 176,
+"d": 1
+},
+{
+"t": "33. solv / solu (tháo, nới lỏng)",
+"p": 181,
+"d": 1
+},
+{
+"t": "Phần 4. Sự sống, thời gian, niềm tin, thay đổi",
+"p": 186,
+"d": 0
+},
+{
+"t": "34. bio (sự sống)",
+"p": 187,
+"d": 1
+},
+{
+"t": "35. gen / gener (sinh ra; dòng giống)",
+"p": 192,
+"d": 1
+},
+{
+"t": "36. chron (thời gian)",
+"p": 197,
+"d": 1
+},
+{
+"t": "37. cred (tin)",
+"p": 202,
+"d": 1
+},
+{
+"t": "38. quest / quer / quire (hỏi, tìm)",
+"p": 207,
+"d": 1
+},
+{
+"t": "39. rupt (vỡ, bẻ gãy)",
+"p": 212,
+"d": 1
+},
+{
+"t": "40. vert / vers (xoay, quay)",
+"p": 217,
+"d": 1
+},
+{
+"t": "Bài kiểm tra cuối sách",
+"p": 223,
+"d": 0
+},
+{
+"t": "Đáp án",
+"p": 225,
+"d": 0
+},
+{
+"t": "Từ vựng theo chủ đề",
+"p": 236,
+"d": 0
+},
+{
+"t": "Chỉ mục A–Z",
+"p": 237,
+"d": 0
+}
+]
+}
