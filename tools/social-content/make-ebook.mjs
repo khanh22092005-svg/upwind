@@ -21,6 +21,9 @@ const { chromium } = require("playwright");
 const TITLE = "Học Từ, Từ Gốc · Từ vựng IELTS từ gốc Latin";
 const SUB = "Từ vựng học thuật cho IELTS band 5.5 → 7.0+ · 40 gốc từ · collocation · họ từ · bài tập Reading, Writing, Speaking có đáp án";
 const DATA = path.join(ROOT_DIR, "data", "ebook");
+/** Per-unit tightening level from the fit pass (see render). */
+const fit = {};
+const fitDone = new Set();
 const only = process.argv[2] && !process.argv[2].startsWith("-") ? process.argv[2].split(",") : null;
 
 /* ---------------- data ---------------- */
@@ -305,7 +308,7 @@ function chapterHTML(c, ci) {
   const sec = (n, title, sub) => `<div class="sec"><span class="sn">${n}</span><span class="st">${title}</span>${sub ? `<span class="ss">${sub}</span>` : ""}</div>`;
   const part = order.parts[c.part];
 
-  return `<section class="chapter" id="ch-${c.id}">
+  return `<section class="chapter${fit[c.n] ? " fit" + fit[c.n] : ""}" id="ch-${c.id}">
   <span class="mark">@@CH${c.n}@@</span>
   <div class="uband">
     <div class="ul"><div class="ulab">Unit</div><div class="unum">${c.n}</div></div>
@@ -346,6 +349,7 @@ function chapterHTML(c, ci) {
     <table class="recap"><tr><th>Word</th><th>Nghĩa</th><th>Collocations</th></tr>${recap}</table>
     <div class="tracker"><b>Lịch ôn</b> Che cột nghĩa và tự nói lại: <span>☐ Ngày 1</span><span>☐ Ngày 3</span><span>☐ Ngày 7</span><span>☐ Ngày 14</span><span>☐ Ngày 30</span></div>
   </div>
+  <span class="mark endmark">@@E${c.n}@@</span>
 </section>`;
 }
 
@@ -688,12 +692,42 @@ async function render(html, file, opts = {}) {
 }
 const bodyPdf = path.join(dir, "body.pdf");
 const pdfOpts = { displayHeaderFooter: true, headerTemplate: "<span></span>", footerTemplate: footer, tagged: true, outline: true };
-// pass 1: find which page each marker lands on, pass 2: print those numbers in the table of contents
-await render(buildBody(null), bodyPdf, pdfOpts);
-const pages = {};
-execFileSync("pdftotext", ["-layout", bodyPdf, "-"], { encoding: "utf8", maxBuffer: 1 << 28 })
-  .split("\f")
-  .forEach((t, i) => { for (const m of t.matchAll(/@@(\w+?)@@/g)) pages[m[1]] ??= i + 1; });
+/** Where each @@marker@@ lands: page number and how far down the printable area (0 = top, 1 = bottom). */
+function findMarks(pdf) {
+  const html = execFileSync("pdftotext", ["-bbox", pdf, "-"], { encoding: "utf8", maxBuffer: 1 << 28 });
+  const found = {};
+  html.split("<page ").slice(1).forEach((pg, i) => {
+    const h = Number(pg.match(/height="([\d.]+)"/)[1]);
+    const top = (14 / 297) * h, bottom = h - (16 / 297) * h;
+    for (const m of pg.matchAll(/yMin="([\d.]+)"[^>]*>@@(\w+?)@@</g)) found[m[2]] ??= { page: i + 1, y: (Number(m[1]) - top) / (bottom - top) };
+  });
+  return found;
+}
+
+// Fit pass: a unit whose last page holds only a short tail (e.g. just the Review table or the "Lịch ôn" line)
+// is tightened one step at a time (.fit1 spacing → .fit2 → .fit3 smaller type) until the tail moves back.
+// If even .fit3 can't pull it back, the unit keeps its normal spacing.
+const SHORT_TAIL = 0.42;
+let marks;
+for (let round = 0; ; round++) {
+  await render(buildBody(null), bodyPdf, pdfOpts);
+  marks = findMarks(bodyPdf);
+  let changed = false;
+  for (const c of chapters) {
+    const start = marks["CH" + c.n], end = marks["E" + c.n];
+    if (!start || !end || fitDone.has(c.n) || end.page === start.page || end.y >= SHORT_TAIL) continue;
+    if ((fit[c.n] ?? 0) < 3) fit[c.n] = (fit[c.n] ?? 0) + 1;
+    else { delete fit[c.n]; fitDone.add(c.n); }
+    changed = true;
+  }
+  if (!changed || round >= 4) break;
+}
+const tight = Object.entries(fit);
+if (tight.length) console.log(`  fit: ${tight.map(([n, l]) => `U${n}→${l}`).join(" ")}`);
+const stillShort = chapters.filter((c) => marks["E" + c.n] && marks["CH" + c.n] && marks["E" + c.n].page !== marks["CH" + c.n].page && marks["E" + c.n].y < SHORT_TAIL);
+if (stillShort.length) console.log(`  short last page left: ${stillShort.map((c) => `U${c.n} (${Math.round(marks["E" + c.n].y * 100)}%)`).join(", ")}`);
+// then print the page numbers in the table of contents
+const pages = Object.fromEntries(Object.entries(marks).map(([k, v]) => [k, v.page]));
 await render(buildBody(pages), bodyPdf, pdfOpts);
 await render(coverHTML(), path.join(dir, "cover.pdf"));
 await browser.close();

@@ -433,3 +433,18 @@ th{padding:4px 7px}
 .cv-top-ov{height:150mm;background:linear-gradient(180deg,rgba(9,62,110,.97) 0%,rgba(9,62,110,.9) 45%,rgba(9,62,110,.55) 75%,rgba(9,62,110,0) 100%)}
 .cv-bgimg{bottom:2mm}
 .cv-top-ov{height:135mm;background:linear-gradient(180deg,rgba(9,62,110,.98) 0%,rgba(9,62,110,.96) 66%,rgba(9,62,110,.6) 84%,rgba(9,62,110,0) 100%)}
+
+/* ===== fit levels: set per unit by the fit pass in make-ebook.mjs when the unit's last page would hold only a short tail ===== */
+.chapter.fit1 .sec,.chapter.fit2 .sec,.chapter.fit3 .sec{margin:15px 0 8px}
+.chapter.fit1 .q,.chapter.fit2 .q,.chapter.fit3 .q{margin:8px 0 9px}
+.chapter.fit1 .card,.chapter.fit2 .card,.chapter.fit3 .card{margin:0 0 6px}
+.chapter.fit1 .card .cl,.chapter.fit2 .card .cl,.chapter.fit3 .card .cl{padding:9px 12px}
+.chapter.fit1 .card .cr,.chapter.fit2 .card .cr,.chapter.fit3 .card .cr{padding:9px 14px}
+.chapter.fit1 .review,.chapter.fit2 .review,.chapter.fit3 .review{margin-top:10px;padding:4px 14px 10px}
+.chapter.fit1 .opener,.chapter.fit2 .opener,.chapter.fit3 .opener{margin:10px 0 4px}
+.chapter.fit2,.chapter.fit3{font-size:9.6pt;line-height:1.4}
+.chapter.fit2 .recap td,.chapter.fit3 .recap td{padding:3px 7px}
+.chapter.fit3{font-size:9.2pt;line-height:1.36}
+.chapter.fit3 .passage{padding:10px 14px}
+.chapter.fit3 .tipbox{padding:10px 12px}
+.chapter.fit3 .recap td{padding:2px 6px}

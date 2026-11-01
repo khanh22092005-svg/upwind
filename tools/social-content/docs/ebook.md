@@ -17,6 +17,14 @@ Per unit: `reading`, `rq` (Reading task: `gap` | `mcq` | `tfng` | `sent` | `ynng
 (paraphrase pairs); per word `forms`, `col` (collocations), `tp` (IELTS topic). Task types and exam tips follow the
 UpWind Student Roadmap (sheet "Roadmap v2").
 
+## Page fit (automatic)
+
+Each unit starts on a new page, so a unit that runs a little long used to leave a nearly empty last page (just the Review
+table, or only the "Lịch ôn" line). `make-ebook.mjs` now checks where each unit ends (an invisible `@@E<n>@@` marker,
+read with `pdftotext -bbox`) and, if the last page is under 42% full, tightens that unit step by step (`.fit1` spacing,
+`.fit2`/`.fit3` slightly smaller type, in `lib/ebook.css`) and renders again. If even `.fit3` can't pull the tail back,
+the unit keeps its normal spacing. The run prints which units were tightened and any short last pages left.
+
 ## Online reader (flip book): https://upwind.asia/ebook/hoc-tu-tu-goc/
 
 Page curl and swipe come from StPageFlip (`page-flip` on npm, MIT). Code: `ebook/hoc-tu-tu-goc/index.html` and `src/ebook/`.
