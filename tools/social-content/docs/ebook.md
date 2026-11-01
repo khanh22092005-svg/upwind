@@ -27,13 +27,9 @@ the unit keeps its normal spacing. The run prints which units were tightened and
 
 ## Online reader (flip book): https://upwind.asia/ebook/hoc-tu-tu-goc/
 
-Page curl and swipe come from StPageFlip (`page-flip` on npm, MIT). Code: `ebook/hoc-tu-tu-goc/index.html` and `src/ebook/`.
-The reader shows pre-rendered pages, not the PDF. After changing the ebook, rebuild them from the repo root:
+After changing the ebook, rebuild the PDF and refresh the online copy (see `tools/ebook/README.md`):
 
 ```bash
 node tools/social-content/make-ebook.mjs
-rm -rf /tmp/pg && mkdir /tmp/pg && pdftoppm -scale-to-x 1000 -scale-to-y -1 -png tools/social-content/out/ebook/upwind-giai-ma-tu-vung.pdf /tmp/pg/p
-rm -f public/ebook/hoc-tu-tu-goc/pages/*.webp && i=0; for f in /tmp/pg/*.png; do i=$((i+1)); python3 -c "import sys;from PIL import Image;Image.open(sys.argv[1]).convert('RGB').save(sys.argv[2],'WEBP',quality=74)" "$f" "public/ebook/hoc-tu-tu-goc/pages/$(printf %03d $i).webp"; done
+node tools/ebook/add-ebook.mjs tools/social-content/out/ebook/upwind-giai-ma-tu-vung.pdf --slug hoc-tu-tu-goc
 ```
-
-Then refresh `src/ebook/hoc-tu-tu-goc.json` (page count + contents from the PDF outline) if units or pages moved.

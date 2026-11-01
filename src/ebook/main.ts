@@ -1,16 +1,24 @@
-// Flip-book reader for the UpWind ebook "Học Từ, Từ Gốc".
+// UpWind flip-book reader, shared by every ebook at /ebook/<slug>/.
 // Page curl, drag and swipe come from StPageFlip (github.com/Nodlik/StPageFlip, MIT, npm "page-flip").
-// Pages are pre-rendered WebP images in public/ebook/hoc-tu-tu-goc/pages/NNN.webp (see tools/social-content/docs/ebook.md),
-// loaded a few at a time around the open page.
+// Each book's index.html carries its data in <script id="book-data" type="application/json">
+// ({ slug, pages, ratio, toc }); pages are WebP images in public/ebook/<slug>/pages/NNN.webp,
+// loaded a few at a time around the open page. Add a book with tools/ebook/add-ebook.mjs.
 import { PageFlip } from "page-flip/dist/js/page-flip.module.js";
 import "page-flip/src/Style/stPageFlip.css";
 import "./style.css";
-import book from "./hoc-tu-tu-goc.json";
+
+interface Book {
+  slug: string;
+  pages: number;
+  ratio: number; // page width / height
+  toc: { t: string; p: number; d: number }[];
+}
+const book: Book = JSON.parse(document.getElementById("book-data")!.textContent!);
 
 const PAGES = book.pages;
-const RATIO = 1000 / 1416; // A4 page images
-const BASE = "/ebook/hoc-tu-tu-goc/pages/";
-const STORE = "upwind-ebook-hoc-tu-tu-goc-page";
+const RATIO = book.ratio;
+const BASE = `/ebook/${book.slug}/pages/`;
+const STORE = `upwind-ebook-${book.slug}-page`;
 const src = (i: number) => `${BASE}${String(i + 1).padStart(3, "0")}.webp`;
 
 const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
@@ -186,6 +194,7 @@ document.addEventListener("fullscreenchange", () => {
 });
 
 /* ---------- contents (from the PDF outline) ---------- */
+if (!book.toc.length) tocBtn.hidden = true; // PDF without bookmarks
 for (const item of book.toc) {
   const a = document.createElement("a");
   a.href = `#p=${item.p}`;

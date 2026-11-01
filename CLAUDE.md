@@ -18,6 +18,12 @@ Pushing to `main` deploys automatically (Cloudflare Workers Builds). There is no
 
 `/opengraph.jpg` (a screenshot of a build error) was deleted; `public/_redirects` sends it to the IELTS preview. Do **not** use it for anything.
 
+## Ebooks (`/ebook/<slug>/`)
+
+Every ebook uses the one shared flip-book reader (`src/ebook/`). Add or update a book with
+`node tools/ebook/add-ebook.mjs book.pdf --slug <slug> --title "..."` (see `tools/ebook/README.md`): it makes the page
+images, the page with its tags, and the social preview. Don't copy the reader per book.
+
 ## IELTS Writing content
 
 Any Writing band content (the "Nâng band câu này" carousels in `tools/social-content`, slides, handouts) starts from
