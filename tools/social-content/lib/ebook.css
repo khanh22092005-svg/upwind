@@ -246,3 +246,6 @@ table.plan .chk{text-align:center;font-size:12pt}
 .ur{flex:1;min-width:0}
 .utitle{white-space:nowrap}
 .uweek{float:none;display:inline-block;vertical-align:1px}
+.uskill{display:inline-block;background:#fff;color:#004b9b;border-radius:999px;padding:1px 8px;margin-left:6px;font-weight:800;letter-spacing:.04em;vertical-align:1px}
+table.sns .skl{color:#004b9b}
+table.plan .psk{font-weight:700;color:#2b8cc4;font-size:7.8pt;background:#f7fbfe}

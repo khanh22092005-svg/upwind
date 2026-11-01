@@ -136,7 +136,6 @@
    "a": "Researchers conducted a survey of 2,000 students."
   }
  ],
- "sp": "Do you think governments should tell people what to eat?",
  "wt": "discussion",
  "rq": {
   "type": "mcq",
@@ -194,5 +193,13 @@
    "deduce",
    "conclude"
   ]
- ]
+ ],
+ "spk": {
+  "part": 1,
+  "qs": [
+   "Do you cook at home? Why or why not?",
+   "Have you ever tried to reduce the amount of sugar you eat?",
+   "What was your favourite subject at school?"
+  ]
+ }
 }

@@ -291,10 +291,11 @@
   ]
  ],
  "spk": {
-  "part": 3,
+  "part": 1,
   "qs": [
-   "Should schools teach practical life skills such as managing money?",
-   "Who should decide what students learn: teachers, parents or the government?"
+   "What subject did you enjoy most at school?",
+   "Did your school organise excursions? Where did you go?",
+   "Do you follow current affairs?"
   ]
  },
  "wt": "opinion",

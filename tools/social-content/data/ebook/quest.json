@@ -295,10 +295,13 @@
   ]
  ],
  "spk": {
-  "part": 3,
-  "qs": [
-   "Is it better to learn a foreign language as a child or as an adult?",
-   "Should learning a second language be compulsory at school?"
+  "part": 2,
+  "topic": "Describe a skill you acquired that took a long time to learn.",
+  "bullets": [
+   "what the skill is",
+   "when you started learning it",
+   "why it took a long time",
+   "and explain how you use it now."
   ]
  },
  "wt": "twopart",

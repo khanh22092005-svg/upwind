@@ -144,11 +144,13 @@
   ]
  },
  "spk": {
-  "part": 1,
-  "qs": [
-   "Where do you usually get the news?",
-   "Do you trust what you read on social media?",
-   "Have you ever believed a story that turned out to be false?"
+  "part": 2,
+  "topic": "Describe a time when you found out that a piece of news was not true.",
+  "bullets": [
+   "what the news was",
+   "where you saw it",
+   "how you found out it was false",
+   "and explain how you felt about it."
   ]
  },
  "syn": [

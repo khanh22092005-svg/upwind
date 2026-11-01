@@ -297,13 +297,11 @@
   ]
  ],
  "spk": {
-  "part": 2,
-  "topic": "Describe a person who motivated you to study or work harder.",
-  "bullets": [
-   "who the person is",
-   "how you know them",
-   "what they did",
-   "and explain why they motivated you."
+  "part": 1,
+  "qs": [
+   "What motivates you to study English?",
+   "Would you like to work remotely one day?",
+   "Do you show your emotions easily?"
   ]
  },
  "wt": "advdis",

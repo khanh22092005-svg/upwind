@@ -1,12 +1,120 @@
 {
   "parts": [
-    { "title": "Nói, viết, nhìn, nghe", "sub": "Gốc từ về giao tiếp và giác quan", "ids": ["voc", "dict", "log", "aud", "spect", "vid", "scrib", "graph", "sens", "path"] },
-    { "title": "Di chuyển và mang đi", "sub": "Gốc từ về chuyển động: mang, ném, kéo, dẫn, đi, chạy", "ids": ["port", "fer", "mit", "ject", "pel", "tract", "duc", "mot", "ced", "cur", "gress", "vent", "sequ"] },
-    { "title": "Đặt, giữ, làm, xây", "sub": "Gốc từ về hành động lên sự vật", "ids": ["pos", "tain", "cept", "sist", "tend", "press", "struct", "fect", "clud", "solv"] },
-    { "title": "Sự sống, thời gian, niềm tin, thay đổi", "sub": "Gốc từ về con người và thế giới", "ids": ["bio", "gen", "chron", "cred", "quest", "rupt", "vert"] }
+    {
+      "title": "Nói, viết, nhìn, nghe",
+      "sub": "Gốc từ về giao tiếp và giác quan",
+      "ids": [
+        "voc",
+        "dict",
+        "log",
+        "aud",
+        "spect",
+        "vid",
+        "scrib",
+        "graph",
+        "sens",
+        "path"
+      ]
+    },
+    {
+      "title": "Di chuyển và mang đi",
+      "sub": "Gốc từ về chuyển động: mang, ném, kéo, dẫn, đi, chạy",
+      "ids": [
+        "port",
+        "fer",
+        "mit",
+        "ject",
+        "pel",
+        "tract",
+        "duc",
+        "mot",
+        "ced",
+        "cur",
+        "gress",
+        "vent",
+        "sequ"
+      ]
+    },
+    {
+      "title": "Đặt, giữ, làm, xây",
+      "sub": "Gốc từ về hành động lên sự vật",
+      "ids": [
+        "pos",
+        "tain",
+        "cept",
+        "sist",
+        "tend",
+        "press",
+        "struct",
+        "fect",
+        "clud",
+        "solv"
+      ]
+    },
+    {
+      "title": "Sự sống, thời gian, niềm tin, thay đổi",
+      "sub": "Gốc từ về con người và thế giới",
+      "ids": [
+        "bio",
+        "gen",
+        "chron",
+        "cred",
+        "quest",
+        "rupt",
+        "vert"
+      ]
+    }
   ],
   "topics": {
-    "env": "Môi trường", "edu": "Giáo dục", "tech": "Công nghệ", "health": "Sức khoẻ", "work": "Công việc & kinh tế",
-    "soc": "Xã hội & chính phủ", "crime": "Luật & tội phạm", "media": "Truyền thông & văn hoá", "sci": "Khoa học", "daily": "Đời sống & con người"
-  }
+    "env": "Môi trường",
+    "edu": "Giáo dục",
+    "tech": "Công nghệ",
+    "health": "Sức khoẻ",
+    "work": "Công việc & kinh tế",
+    "soc": "Xã hội & chính phủ",
+    "crime": "Luật & tội phạm",
+    "media": "Truyền thông & văn hoá",
+    "sci": "Khoa học",
+    "daily": "Đời sống & con người"
+  },
+  "skills": [
+    {
+      "from": 1,
+      "to": 15,
+      "skill": "reading",
+      "label": "Reading",
+      "roadmap": "Roadmap tháng 1 · Reading – Listening"
+    },
+    {
+      "from": 16,
+      "to": 20,
+      "skill": "speaking",
+      "part": 1,
+      "label": "Speaking Part 1",
+      "roadmap": "Roadmap tuần 5"
+    },
+    {
+      "from": 21,
+      "to": 30,
+      "skill": "writing",
+      "label": "Writing Task 2",
+      "roadmap": "Roadmap tuần 6–8"
+    },
+    {
+      "from": 31,
+      "to": 35,
+      "skill": "speaking",
+      "part": 3,
+      "label": "Speaking Part 3",
+      "roadmap": "Roadmap tuần 9–10"
+    },
+    {
+      "from": 36,
+      "to": 40,
+      "skill": "speaking",
+      "part": 2,
+      "label": "Speaking Part 2",
+      "roadmap": "Roadmap tuần 11–12"
+    }
+  ]
 }

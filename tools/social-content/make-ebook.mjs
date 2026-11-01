@@ -46,6 +46,8 @@ order.parts.forEach((part, pi) =>
 );
 chapters.forEach((c, i) => { c.n = i + 1; c.week = Math.floor(i / 5) + 1; c.day = (i % 5) + 1; });
 const DAYS = ["Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6"];
+/** One skill per unit, in the order of the UpWind Student Roadmap (order.json "skills"). */
+const skillOf = (c) => order.skills.find((r) => c.n >= r.from && c.n <= r.to) ?? order.skills[0];
 const allWords = chapters.flatMap((c) => c.words.map((w) => ({ ...w, ch: c })));
 
 for (const c of chapters) {
@@ -154,7 +156,13 @@ function chapterHTML(c, ci) {
   }
   if (found.length < 3) problems.push(`${c.id}: reading uses only ${found.length} family words`);
   const findQ = shuffle(found, c.id + "find").slice(0, 4);
-  const rq = c.rq ?? (c.tf ? { type: "tfng", items: c.tf } : null);
+  const SK = skillOf(c);
+  ex({ sec: "skill", title: SK.skill === "reading" ? "Đọc lướt và tìm từ" : "Đọc lấy ý", tag: SK.skill === "reading" ? "Reading" : SK.label,
+    rubric: SK.skill === "reading" ? "Đọc bài. Tìm từ gạch chân có nghĩa sau." : "Đọc bài để lấy ý cho phần " + SK.label + ". Tìm từ gạch chân có nghĩa sau.",
+    body: `<ol class="alpha">${findQ.map((f) => `<li>${esc(f.w.meaning)} <span class="blankline"></span></li>`).join("")}</ol>`,
+    ans: findQ.map((f, i) => `${"abcd"[i]} ${esc(f.form)}`).join(" · ") });
+  const rq = SK.skill === "reading" ? (c.rq ?? (c.tf ? { type: "tfng", items: c.tf } : null)) : null;
+  if (SK.skill === "reading" && !rq) problems.push(`${c.id}: reading unit without a reading task`);
   const LAB = { T: "TRUE", F: "FALSE", NG: "NOT GIVEN", Y: "YES", N: "NO" };
   if (rq) {
     const sk = SKILL[rq.type];
@@ -177,7 +185,7 @@ function chapterHTML(c, ci) {
       body = `<ol>${rq.items.map((q) => `<li>${esc(q.s).replace("____", "__________")}</li>`).join("")}</ol>`;
       ans = rq.items.map((q, i) => `${i + 1} ${esc(q.a)}`).join(" · ");
     }
-    ex({ sec: "read", title: sk.name, tag: "IELTS Reading", rubric: rub, body, ans });
+    ex({ sec: "skill", title: sk.name, tag: "IELTS Reading", rubric: rub, body, ans });
   }
   /* ---- vocabulary practice ---- */
   const aQ = shuffle(words, c.id + "A").slice(0, 3).map((w) => {
@@ -243,28 +251,34 @@ function chapterHTML(c, ci) {
 
   /* ---- speaking ---- */
   const useful = words.flatMap((w) => (w.col ?? []).slice(0, 1)).slice(0, 6);
-  const spk = c.spk ?? (c.sp ? { part: 3, qs: [c.sp] } : null);
+  const spk = SK.skill === "speaking" ? (c.spk ?? (c.sp ? { part: 3, qs: [c.sp] } : null)) : null;
+  if (SK.skill === "speaking" && spk?.part !== SK.part) problems.push(`${c.id}: speaking unit needs Part ${SK.part}, data has Part ${spk?.part}`);
+  if (spk && c.pa?.length)
+    ex({ sec: "skill", title: "Nói lại câu", tag: "Speaking · paraphrase", rubric: "Nói to câu mới với nghĩa không đổi, dùng từ cho sẵn. Rồi viết lại để kiểm tra.",
+      body: `<ol>${c.pa.map((q) => `<li>${esc(q.s)} <b class="base">${esc(q.k)}</b><div class="line1"></div></li>`).join("")}</ol>`,
+      ans: c.pa.map((q, i) => `${i + 1} ${esc(q.a)}`).join(" · ") });
   if (spk) {
     const sk = SKILL["p" + spk.part];
     const bodyQ = spk.part === 2
       ? `<div class="cue"><b>${esc(spk.topic)}</b><p>You should say:</p><ul>${spk.bullets.map((b) => `<li>${esc(b)}</li>`).join("")}</ul></div>`
       : `<ol class="spl">${spk.qs.map((q) => `<li class="spq">${esc(q)}</li>`).join("")}</ol>`;
     const rub = spk.part === 1 ? "Trả lời mỗi câu trong 20–30 giây theo AREA. Dùng ít nhất một cụm trong khung." : spk.part === 2 ? "Chuẩn bị 1 phút, nói 1–2 phút. Dùng ít nhất ba cụm trong khung." : "Trả lời trong 45–60 giây, từ góc nhìn xã hội. Dùng ít nhất hai cụm trong khung.";
-    ex({ sec: "speak", title: sk.name, tag: "IELTS Speaking", rubric: rub,
+    ex({ sec: "skill", title: sk.name, tag: "IELTS Speaking", rubric: rub,
       body: `${bodyQ}<div class="useful"><b>Useful language</b>${useful.map((u) => `<span>${esc(u)}</span>`).join("")}</div><p class="sktip"><b>Tip</b> ${esc(sk.tip)} <i>(${esc(sk.wk)})</i></p>`, ans: "" });
   }
 
   /* ---- writing ---- */
-  if (c.pa?.length)
-    ex({ sec: "write", title: "Paraphrase", tag: "Writing", rubric: "Viết lại câu với nghĩa không đổi, dùng từ cho sẵn.",
+  const W = SK.skill === "writing";
+  if (W && c.pa?.length)
+    ex({ sec: "skill", title: "Paraphrase", tag: "Writing", rubric: "Viết lại câu với nghĩa không đổi, dùng từ cho sẵn.",
       body: `<ol>${c.pa.map((q) => `<li>${esc(q.s)} <b class="base">${esc(q.k)}</b><div class="line1"></div></li>`).join("")}</ol>`,
       ans: c.pa.map((q, i) => `${i + 1} ${esc(q.a)}`).join(" · ") });
   const hWords = order3.slice(-2);
-  ex({ sec: "write", title: "Dịch sang tiếng Anh", tag: "Writing", rubric: "Dịch câu, dùng từ cho sẵn.",
+  if (W) ex({ sec: "skill", title: "Dịch sang tiếng Anh", tag: "Writing", rubric: "Dịch câu, dùng từ cho sẵn.",
     body: `<ol>${hWords.map((w) => `<li>${esc(w.example_vi)} <b class="base">${esc(w.word)}</b><div class="line1"></div></li>`).join("")}</ol>`,
     ans: hWords.map((w, i) => `${i + 1} ${esc(w.example)}`).join(" · ") });
   const wt = SKILL[c.wt ?? "opinion"];
-  ex({ sec: "write", title: "Writing Task 2 · " + wt.name, tag: "IELTS Writing", rubric: "Viết mở bài và một đoạn thân bài (120–150 từ). Dùng ít nhất 3 từ của unit.",
+  if (W) ex({ sec: "skill", title: "Writing Task 2 · " + wt.name, tag: "IELTS Writing", rubric: "Viết mở bài và một đoạn thân bài (120–150 từ). Dùng ít nhất 3 từ của unit.",
     body: `<p class="task">${en(c.write.replace(/ Viết 2–3 câu.*$/, ""))}</p><p class="sktip"><b>Tip</b> ${esc(wt.tip)} <i>(Roadmap tuần 6–8)</i></p><div class="lines"></div>`, ans: "" });
 
   /* ---- review ---- */
@@ -274,6 +288,8 @@ function chapterHTML(c, ci) {
       body: `<ol>${ownRev.map((r) => `<li><b>${coloredWord(r.w)}</b> <small>(Unit ${r.ch.n} · ${esc(shortRoot(r.ch))})</small> <span class="blankline long"></span></li>`).join("")}</ol>`,
       ans: ownRev.map((r, i) => `${i + 1} ${esc(r.w.word)}: ${esc(r.w.meaning)}`).join(" · ") });
 
+  const SEC_ORDER = ["vocab", "lang", "skill", "review"];
+  exs.sort((a, b) => SEC_ORDER.indexOf(a.sec) - SEC_ORDER.indexOf(b.sec));
   exs.forEach((e, i) => (e.n = i + 1));
   totalEx += exs.length;
   answers.push({ c, ans: exs.filter((e) => e.ans).map((e) => `<b>${e.n}</b> ${e.ans}`) });
@@ -290,15 +306,14 @@ function chapterHTML(c, ci) {
   <span class="mark">@@CH${c.n}@@</span>
   <div class="uband">
     <div class="ul"><div class="ulab">Unit</div><div class="unum">${c.n}</div></div>
-    <div class="ur"><div class="upart">Part ${c.part + 1} · ${esc(part.title)}<span class="uweek">Week ${c.week} · ${DAYS[c.day - 1]}</span></div>
+    <div class="ur"><div class="upart">Part ${c.part + 1} · ${esc(part.title)}<span class="uweek">Week ${c.week} · ${DAYS[c.day - 1]}</span><span class="uskill">${esc(SK.label)}</span></div>
       <div class="utitle">${esc(c.root)}</div><div class="usub">${esc(c.origin)} · <b>${esc(c.core)}</b></div></div>
   </div>
   <div class="opener">
     <div class="goals"><h4>In this unit you will</h4><ul>
-      <li><b>Reading</b> đoán nghĩa từ lạ chứa gốc <i>${esc(shortR)}</i>; luyện dạng ${esc(rq ? SKILL[rq.type].name : "")}</li>
-      <li><b>Vocabulary</b> học ${words.length} từ học thuật và ${nCol} collocation chủ đề ${esc(topicNames.join(", ").toLowerCase())}</li>
+      <li><b>Vocabulary</b> học ${words.length} từ học thuật và ${nCol} collocation chủ đề ${esc(topicNames.join(", ").toLowerCase())}; đoán nghĩa từ lạ chứa gốc <i>${esc(shortR)}</i></li>
       <li><b>Language focus</b> chuyển đúng dạng từ trong họ từ</li>
-      <li><b>Speaking &amp; Writing</b> dùng từ mới trong ${esc(spk ? SKILL["p" + spk.part].name : "Speaking")} và ${esc(SKILL[c.wt ?? "opinion"].name)}</li></ul></div>
+      <li><b>Skill focus · ${esc(SK.label)}</b> ${SK.skill === "reading" ? `luyện dạng ${esc(SKILL[rq.type].name)}` : SK.skill === "speaking" ? "nói bằng chính các collocation vừa học" : `viết ${esc(SKILL[c.wt ?? "opinion"].name.toLowerCase())} với từ của unit`}</li></ul></div>
     <div class="leadin"><h4>Lead-in</h4>
       <p class="baitline"><b class="en">${esc(c.bait.word)}</b> nghĩa đen là… <b>${esc(c.bait.literal)}</b>.</p>
       <p>${en(c.hook)}</p>
@@ -312,24 +327,19 @@ function chapterHTML(c, ci) {
   ${sec("2", "Vocabulary", "Từ vựng")}
   ${cards}
 
-  <div class="readwrap">
-  ${sec("3", "Reading", `Exercises ${range("read")}`)}
-  <div class="readgrid">
-    <div class="passage"><h4>${esc(c.reading.title)}</h4><p>${text}</p></div>
-    <div class="tipbox"><b>Exam tip · ${esc(rq ? SKILL[rq.type].name : "Reading")}</b>${esc(rq ? SKILL[rq.type].tip : TIPS[(c.n - 1) % TIPS.length])}${rq?.type && SKILL[rq.type].wk ? `<small>${esc(SKILL[rq.type].wk)}</small>` : ""}</div>
-  </div></div>
-  ${exHTML("read")}
-
-  ${sec("4", "Vocabulary practice", `Exercises ${range("vocab")}`)}
+  ${sec("3", "Vocabulary practice", `Exercises ${range("vocab")}`)}
   ${exHTML("vocab")}
 
-  ${sec("5", "Language focus: word families", `Exercises ${range("lang")}`)}
+  ${sec("4", "Language focus: word families", `Exercises ${range("lang")}`)}
   ${exHTML("lang")}
 
-  ${spk ? `${sec("6", "Speaking", `Exercise ${range("speak")}`)}${exHTML("speak")}` : ""}
-
-  ${sec(spk ? "7" : "6", "Writing", `Exercises ${range("write")}`)}
-  ${exHTML("write")}
+  <div class="readwrap">
+  ${sec("5", "Skill focus · " + esc(SK.label), `Exercises ${range("skill")}`)}
+  <div class="readgrid">
+    <div class="passage"><h4>${esc(c.reading.title)}</h4><p>${text}</p></div>
+    <div class="tipbox">${SK.skill === "reading" ? `<b>Exam tip · ${esc(SKILL[rq.type].name)}</b>${esc(SKILL[rq.type].tip)}<small>${esc(SKILL[rq.type].wk)}</small>` : SK.skill === "speaking" ? `<b>Exam tip · ${esc(SK.label)}</b>${esc(SKILL["p" + SK.part].tip)}<small>${esc(SK.roadmap)}</small>` : `<b>Exam tip · ${esc(SKILL[c.wt ?? "opinion"].name)}</b>${esc(SKILL[c.wt ?? "opinion"].tip)}<small>${esc(SK.roadmap)}</small>`}</div>
+  </div></div>
+  ${exHTML("skill")}
 
   <div class="review">
     ${sec("✓", "Review", `Unit ${c.n} · ${esc(c.root)} = ${esc(c.core)}`)}
@@ -449,18 +459,17 @@ function buildBody(pages) {
   })();
 
   const rqType = (c) => (c.rq ?? (c.tf ? { type: "tfng" } : null))?.type;
-  const spPart = (c) => (c.spk ?? (c.sp ? { part: 3 } : null))?.part;
+  const skillTask = (c) => { const k = skillOf(c); return k.skill === "reading" ? SKILL[rqType(c)]?.name ?? "" : k.skill === "writing" ? SKILL[c.wt ?? "opinion"].name : (c.spk?.part === 2 ? "Cue card" : `${(c.spk?.qs ?? []).length} câu hỏi`); };
   const toc = order.parts
     .map((part, pi) => {
       const list = chapters.filter((c) => c.part === pi);
       if (!list.length) return "";
-      return `<tr class="tpart"><td colspan="7"><a href="#part-${pi + 1}">Part ${pi + 1} · ${esc(part.title)}</a></td></tr>
+      return `<tr class="tpart"><td colspan="6"><a href="#part-${pi + 1}">Part ${pi + 1} · ${esc(part.title)}</a></td></tr>
         ${list.map((c) => `<tr><td class="tu"><a href="#ch-${c.id}"><b>${c.n}</b></a><br><small>W${c.week}</small></td>
           <td><a href="#ch-${c.id}"><b class="troot2">${esc(c.root)}</b><br><small>${esc(c.core)}</small></a></td>
           <td>${esc([...new Set(c.words.map((w) => TOPICS[w.tp]))].slice(0, 2).join(", "))}<br><small>${c.words.length} từ · ${c.words.reduce((n, w) => n + w.col.length, 0)} collocations</small></td>
-          <td>${esc(SKILL[rqType(c)]?.name ?? "")}</td>
-          <td>${esc(SKILL["p" + spPart(c)]?.name ?? "")}</td>
-          <td>Task 2: ${esc(SKILL[c.wt ?? "opinion"].name)}</td>
+          <td><b class="skl">${esc(skillOf(c).label)}</b></td>
+          <td>${esc(skillTask(c))}</td>
           <td class="tp">${pg("CH" + c.n)}</td></tr>`).join("")}`;
     })
     .join("");
@@ -491,8 +500,8 @@ function buildBody(pages) {
     <a href="#map"><b>Bản đồ 40 gốc từ</b><span class="dots"></span><span>${pg("MAP")}</span></a>
     <a href="#final"><b>Bài kiểm tra cuối sách · Đáp án · Chủ đề · Chỉ mục</b><span class="dots"></span><span>${pg("FT")}</span></a>
   </div>
-  <table class="sns"><tr><th>Unit</th><th>Root</th><th>Vocabulary</th><th>Reading</th><th>Speaking</th><th>Writing</th><th>Page</th></tr>${toc}</table>
-  <p class="small">Mỗi unit còn có: Word map, Paraphrase pairs, Word building, Collocations, Word form, bảng họ từ, sửa lỗi, paraphrase câu, dịch và ôn giãn cách. Dạng bài Reading, Speaking, Writing được phân theo lộ trình UpWind Student Roadmap.</p>
+  <table class="sns"><tr><th>Unit</th><th>Root</th><th>Vocabulary</th><th>Skill focus</th><th>Task</th><th>Page</th></tr>${toc}</table>
+  <p class="small">Mỗi unit luyện một kỹ năng, theo thứ tự của UpWind Student Roadmap: Reading (Unit 1–15) → Speaking Part 1 (16–20) → Writing Task 2 (21–30) → Speaking Part 3 (31–35) → Speaking Part 2 (36–40). Phần từ vựng của mọi unit giống nhau: Word map, Vocabulary, Paraphrase pairs, Word building, Collocations, Word form, bảng họ từ, sửa lỗi, ôn giãn cách.</p>
 </section>
 
 <section class="front" id="how"><span class="mark">@@HOW@@</span>
@@ -501,16 +510,16 @@ function buildBody(pages) {
   <div class="goalbox"><b>🎯 Mục tiêu: từ vựng cho IELTS band 5.5 → 7.0+</b>
     <p>Sách dành cho người học đang ở khoảng band 5.0–6.0 và muốn lên 6.5–7.5. Mọi từ đều được chọn vì hay xuất hiện trong IELTS Reading, Listening và hữu ích cho Writing Task 2, Speaking Part 3. Sách nhắm vào ba chỗ cụ thể trong bài thi:</p>
     <table><tr><th>Kỹ năng IELTS</th><th>Sách giúp gì</th><th>Bài tập</th></tr>
-    <tr><td><b>Reading, Listening</b></td><td>Tách từ lạ thành gốc + tiền tố + hậu tố để đoán nghĩa; nhận ra paraphrase giữa câu hỏi và bài đọc.</td><td>Reading (5 dạng đề), Paraphrase pairs, Word building</td></tr>
-    <tr><td><b>Writing (Lexical Resource, 25% điểm)</b></td><td>Band 7 yêu cầu “dùng từ ít phổ biến, có ý thức về collocation”. Mỗi từ đi kèm collocation và đủ họ từ để dùng đúng dạng.</td><td>Collocations, Word form, Sửa lỗi, Paraphrase, Writing Task 2</td></tr>
-    <tr><td><b>Speaking (Lexical Resource, 25% điểm)</b></td><td>Câu hỏi Part 1, cue card Part 2 hoặc câu hỏi Part 3 theo chủ đề của unit để luyện nói bằng chính các collocation vừa học.</td><td>Speaking Part 1, 2, 3</td></tr></table>
+    <tr><td><b>Reading, Listening</b></td><td>Tách từ lạ thành gốc + tiền tố + hậu tố để đoán nghĩa; nhận ra paraphrase giữa câu hỏi và bài đọc.</td><td>Unit 1–15 · 5 dạng đề; Paraphrase pairs, Word building ở mọi unit</td></tr>
+    <tr><td><b>Writing (Lexical Resource, 25% điểm)</b></td><td>Band 7 yêu cầu “dùng từ ít phổ biến, có ý thức về collocation”. Mỗi từ đi kèm collocation và đủ họ từ để dùng đúng dạng.</td><td>Unit 21–30 · Task 2; Collocations, Word form, Sửa lỗi ở mọi unit</td></tr>
+    <tr><td><b>Speaking (Lexical Resource, 25% điểm)</b></td><td>Câu hỏi Part 1, cue card Part 2 hoặc câu hỏi Part 3 theo chủ đề của unit để luyện nói bằng chính các collocation vừa học.</td><td>Unit 16–20 · Part 1; 31–35 · Part 3; 36–40 · Part 2</td></tr></table>
   </div>
   <div class="steps">
     <div class="step"><b>1. Neo gốc bằng một hình ảnh</b>Mỗi gốc có một nghĩa lõi và một “hình neo”. Mọi từ trong unit chỉ là hình neo đó cộng thêm một hướng (tiền tố) và một loại từ (hậu tố).</div>
     <div class="step"><b>2. Tách từ, kể chuyện</b>Thẻ từ tách từ thành các mảnh có màu, rồi nối nghĩa đen với nghĩa thật bằng một câu chuyện ngắn. Học câu chuyện trước, nghĩa sau.</div>
     <div class="step"><b>3. Học cả cụm, không học từ lẻ</b>Mỗi từ có 3–4 collocation hay gặp trong IELTS và cả họ từ (danh, động, tính, trạng). Đây là thứ giúp bạn <i>dùng</i> được từ, không chỉ <i>nhận ra</i> nó.</div>
     <div class="step"><b>4. Gặp lại trong bài đọc</b>Bài đọc ngắn kiểu IELTS cho bạn thấy các từ hoạt động cùng nhau trong một đoạn văn thật.</div>
-    <div class="step"><b>5. Tự nhớ lại, đừng đọc lại</b>Mỗi unit có khoảng 15 bài tập theo kỹ năng IELTS. Reading xoay vòng 5 dạng đề (Summary completion, Multiple choice, TRUE/FALSE/NOT GIVEN, Sentence completion, YES/NO/NOT GIVEN); Speaking xoay vòng Part 1, 2, 3; Writing Task 2 xoay vòng 5 dạng đề. Nhớ lại (retrieval) giúp bạn nhớ lâu hơn nhiều so với đọc đi đọc lại.</div>
+    <div class="step"><b>5. Tự nhớ lại, đừng đọc lại</b>Mỗi unit có khoảng 12 bài tập: bài tập từ vựng giống nhau ở mọi unit, cộng một phần Skill focus luyện một kỹ năng IELTS. Unit Reading xoay vòng 5 dạng đề, unit Writing xoay vòng 5 dạng Task 2. Nhớ lại (retrieval) giúp bạn nhớ lâu hơn nhiều so với đọc đi đọc lại.</div>
     <div class="step"><b>6. Ôn giãn cách</b>Mỗi unit có bài ôn kéo từ của 1, 3 và 7 unit trước, và ô lịch ôn ngày 1, 3, 7, 14, 30. Đánh dấu ☐ mỗi lần ôn.</div>
   </div>
   <div class="note"><b>Lộ trình 8–10 tuần:</b> 5 unit mỗi tuần (thứ 2 đến thứ 6, mỗi ngày một unit, khoảng 45 phút), thứ 7 ôn tuần, chủ nhật nghỉ. 8 tuần là học xong 40 unit; tuần 9–10 dành để ôn theo chủ đề và làm bài kiểm tra cuối. Xem trang Study plan. Làm bài kiểm tra đầu vào trước, bài cuối sách sau, để thấy mình tiến bộ bao nhiêu.</div>
@@ -521,17 +530,17 @@ function buildBody(pages) {
 
 <section class="front" id="plan"><span class="mark">@@PLAN@@</span>
   <h2 class="big">Study plan · Lộ trình 8–10 tuần</h2>
-  <p>Mỗi tuần 5 unit, mỗi ngày học khoảng 45 phút. Thứ 7 dành cho ôn tuần. Tuần 9–10 không bắt buộc: học nhanh có thể làm bài kiểm tra cuối ngay sau tuần 8.</p>
-  <table class="plan"><tr><th>Tuần</th>${DAYS.map((d) => `<th>${d}</th>`).join("")}<th>Thứ 7 · Ôn tuần</th><th>✓</th></tr>
+  <p>Mỗi tuần 5 unit, mỗi ngày học khoảng 45 phút, và mỗi unit chỉ luyện một kỹ năng. Kỹ năng đi theo thứ tự của UpWind Student Roadmap: Reading trước, rồi Speaking Part 1, Writing Task 2, Speaking Part 3 và Part 2. Thứ 7 dành cho ôn tuần. Tuần 9–10 không bắt buộc: học nhanh có thể làm bài kiểm tra cuối ngay sau tuần 8.</p>
+  <table class="plan"><tr><th>Tuần</th><th>Kỹ năng</th>${DAYS.map((d) => `<th>${d}</th>`).join("")}<th>Thứ 7 · Ôn tuần</th><th>✓</th></tr>
   ${Array.from({ length: Math.ceil(chapters.length / 5) }, (_, wi) => {
     const list = chapters.filter((c) => c.week === wi + 1);
-    return `<tr><td class="pw">Week ${wi + 1}</td>${DAYS.map((_, di) => { const c = list[di]; return `<td>${c ? `<a href="#ch-${c.id}"><b>Unit ${c.n}</b><br><span>${esc(shortRoot(c))}</span><small>${esc(c.core)}</small></a>` : ""}</td>`; }).join("")}
+    return `<tr><td class="pw">Week ${wi + 1}</td><td class="psk">${esc([...new Set(list.map((c) => skillOf(c).label))].join(" / "))}</td>${DAYS.map((_, di) => { const c = list[di]; return `<td>${c ? `<a href="#ch-${c.id}"><b>Unit ${c.n}</b><br><span>${esc(shortRoot(c))}</span><small>${esc(c.core)}</small></a>` : ""}</td>`; }).join("")}
       <td class="rev">Ôn Unit ${list[0]?.n}–${list[list.length - 1]?.n}: vẽ lại Word map, làm lại phần Review, ghi âm Speaking</td><td class="chk">☐</td></tr>`;
   }).join("")}
-  <tr><td class="pw opt">Week 9</td><td colspan="6" class="rev">Ôn theo chủ đề IELTS (trang Từ vựng theo chủ đề): mỗi ngày một chủ đề, viết lại một bài Writing Task 2 và trả lời lại các câu Speaking Part 3 của chủ đề đó.</td><td class="chk">☐</td></tr>
-  <tr><td class="pw opt">Week 10</td><td colspan="6" class="rev">Làm bài kiểm tra cuối sách, so sánh với bài đầu vào. Làm lại mọi bài tập đã sai (ghi vào error log), ôn các mục Watch out!.</td><td class="chk">☐</td></tr></table>
+  <tr><td class="pw opt">Week 9</td><td class="psk">Ôn tập</td><td colspan="6" class="rev">Ôn theo chủ đề IELTS (trang Từ vựng theo chủ đề): mỗi ngày một chủ đề, viết lại một bài Writing Task 2 và trả lời lại các câu Speaking Part 3 của chủ đề đó.</td><td class="chk">☐</td></tr>
+  <tr><td class="pw opt">Week 10</td><td class="psk">Kiểm tra</td><td colspan="6" class="rev">Làm bài kiểm tra cuối sách, so sánh với bài đầu vào. Làm lại mọi bài tập đã sai (ghi vào error log), ôn các mục Watch out!.</td><td class="chk">☐</td></tr></table>
   <div class="steps three">
-    <div class="step"><b>Mỗi ngày (45 phút)</b>10' Word map + Vocabulary · 15' Reading · 15' bài tập từ vựng · 5' Speaking hoặc Writing (viết hết Task 2 vào thứ 7)</div>
+    <div class="step"><b>Mỗi ngày (45 phút)</b>15' Word map + Vocabulary · 15' bài tập từ vựng · 15' Skill focus của unit (Reading, Speaking hoặc Writing)</div>
     <div class="step"><b>Thứ 7 (60 phút)</b>Vẽ lại 5 Word map không nhìn sách · làm lại Review · viết một bài Task 2 dùng từ của cả tuần</div>
     <div class="step"><b>Ôn giãn cách</b>Bài Review mỗi unit kéo từ 1, 3, 7 unit trước; tick lịch ôn Ngày 1, 3, 7, 14, 30 ở cuối mỗi unit</div>
   </div>

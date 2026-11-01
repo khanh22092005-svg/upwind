@@ -317,11 +317,10 @@
   ]
  ],
  "spk": {
-  "part": 1,
+  "part": 3,
   "qs": [
-   "Do you use reusable bags or cups?",
-   "Do you take antibiotics when you have a cold?",
-   "Have you ever visited a national park?"
+   "Is protecting nature more important than economic growth?",
+   "Who should pay to protect endangered species: governments or businesses?"
   ]
  },
  "wt": "opinion",

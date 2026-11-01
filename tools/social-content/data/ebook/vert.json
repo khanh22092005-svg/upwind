@@ -158,11 +158,13 @@
   ]
  },
  "spk": {
-  "part": 1,
-  "qs": [
-   "Are you an introvert or an extrovert?",
-   "Is your city culturally diverse?",
-   "Do you enjoy spending time in nature?"
+  "part": 2,
+  "topic": "Describe a place in nature that you enjoyed visiting.",
+  "bullets": [
+   "where it is",
+   "when you went there",
+   "what you did there",
+   "and explain why you enjoyed it."
   ]
  },
  "syn": [

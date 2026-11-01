@@ -294,11 +294,10 @@
   ]
  ],
  "spk": {
-  "part": 1,
+  "part": 3,
   "qs": [
-   "Does the weather affect your mood?",
-   "Would you describe yourself as an efficient person?",
-   "What factors are important to you when you choose a phone?"
+   "How does the cost of energy affect ordinary families?",
+   "What can governments do to make homes more energy-efficient?"
   ]
  },
  "wt": "problem",
