@@ -103,7 +103,8 @@ Pick one to three per set; each set teaches a different one.
 - English stays English: tags, IELTS terms (collocation, comma splice), every example phrase.
 - `label` names the technique (Collocation, Danh từ hoá, Mệnh đề quan hệ, Mệnh đề phân từ, Cụm chỉ nguyên nhân…).
 - `toolkit` formulas must be reusable in other essays, and each one should match a move in the set.
-- The video reads `why` aloud: put every English word or phrase in “quotes” (it is then marked as English) and use
+- The video reads `why` aloud: put every English word or phrase in “quotes” (it becomes a `{{ }}` mark, which makes the
+  local voice read it as English, see the README) and use
   words, not symbols (no →, +, =, /). Write "nên dùng “much time” hoặc “a lot of time”", not "→ much time / a lot of time".
 - `practice.sentence` has the **same error type** as the set, on a different topic. `answer6` fixes the errors;
   `answer7` follows §3 (same idea, natural, no forced words).

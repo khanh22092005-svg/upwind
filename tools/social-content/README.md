@@ -65,6 +65,14 @@ run never deletes the last good video.
   VieNeu v3 Turbo is the newest *open* model. V4 (the web app's model) is cloud-only.
 - **V4 trial plan:** 50 API calls a day, reset at 00:00 Vietnam time; a video needs ~20–30. When the limit hits, the run
   stops and the last good video is kept. Unset the key to finish with the local "Hải Đăng".
+- **Pauses:** narration is voiced one clause at a time (split at `. , ; : ! ?`), with a fixed pause after each mark:
+  comma 0.22 s, `;`/`:` 0.32 s, `.`/`!` 0.45 s, `?` 0.5 s (before `--speed`). Short clips are read more clearly than long
+  lines, and the pauses no longer depend on the model. Tune them in `PAUSE` in `make-video.mjs`.
+- **Marking English:** wrap English in `{{ }}` in narration (in data, write it in “quotes”; the scripts turn quotes into
+  `{{ }}`). The local VieNeu then reads each marked part as English phonemes, so short words that are also Vietnamese
+  syllables (so, to, an, do, con) are not read the Vietnamese way. Plain quotes alone do nothing for the voice. The V4
+  cloud API takes plain text, so the marks are stripped for it (its own English detection is already good).
+- **Pace:** 1.1× for word-root videos, 1.0× for Writing videos (`--speed` overrides).
 - **Narration rule:** an English word must start its own sentence ("{{eruption}} là danh từ…"). When a Vietnamese phrase
   runs straight into English ("… với {{convert}}"), VieNeu repeats its last word ("với với", "còn còn"). The
   renderer closes such phrases with a comma and prints a warning so you can rewrite the line.

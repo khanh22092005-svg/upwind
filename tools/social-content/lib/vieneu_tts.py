@@ -8,7 +8,36 @@ jobs.json = {"voice": "Ngọc Huyền", "jobs": [{"text": "...", "out": "/abs/pa
 `python3 lib/vieneu_tts.py --voices` lists the built-in voices.
 """
 import json
+import re
 import sys
+
+
+_PIPE = None
+
+
+def marked_phonemes(text: str) -> str:
+    """'Thứ nhất, {{Because}} và {{so}}.' -> phonemes, each {{English}} part phonemized alone (forced English)."""
+    global _PIPE
+    if _PIPE is None:
+        from sea_g2p import SEAPipeline
+
+        _PIPE = SEAPipeline(lang="vi")
+    out = ""
+    for seg in re.split(r"(\{\{.+?\}\})", text):
+        english = seg.startswith("{{")
+        seg = seg[2:-2] if english else seg
+        if not seg.strip():
+            continue
+        body = seg.strip()
+        if not re.search(r"\w", body):  # punctuation only: glue it to what came before
+            out = out.rstrip() + body
+            continue
+        ph = _PIPE.run(body).strip()
+        tail = re.search(r"[.,;:!?]+$", body)
+        if tail and not re.search(r"[.,;:!?]$", ph):
+            ph += tail.group(0)  # keep the clause's own punctuation (the pipeline drops a trailing comma)
+        out += (" " if out else "") + ph
+    return out
 
 
 def main() -> int:
@@ -29,7 +58,13 @@ def main() -> int:
         spec = json.load(f)
     jobs = spec["jobs"]
     for i, job in enumerate(jobs, 1):
-        audio = tts.infer(job["text"], voice=spec["voice"])
+        text = job["text"]
+        if "{{" in text:
+            # English marked with {{ }}: phonemize each part on its own, so a short English word ("so", "to",
+            # "an", "do") is read as English instead of as the Vietnamese syllable it also spells.
+            audio = tts.infer(marked_phonemes(text), voice=spec["voice"], skip_phonemize=True)
+        else:
+            audio = tts.infer(text, voice=spec["voice"])
         tts.save(audio, job["out"])
         print(f"    tts {i}/{len(jobs)}", flush=True)
     return 0

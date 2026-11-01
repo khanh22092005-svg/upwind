@@ -56,7 +56,8 @@ if (ONE_VOICE && VI_TTS !== "none") {
   EN_TTS = "edge-multi";
 }
 const SERIES = opt("series", "roots"); // roots (data/families.json) | writing (data/upgrades.json)
-const SPEED = Number(opt("speed", 1.1)) || 1.1;
+// Writing videos explain grammar slowly, so they default to natural pace; word-root videos keep 1.1.
+const SPEED = Number(opt("speed", SERIES === "writing" ? 1.0 : 1.1)) || 1.1;
 const MAX = Number(opt("max", 0)) || 0;
 const BGM = opt("bgm", "");
 const SFX = !flag("no-sfx");
@@ -110,7 +111,7 @@ function ttsChunk(text, lang) {
       if (engine === "vieneu-cloud") {
         const r = spawnSync("curl", ["-sS", "-m", "180", "-w", "%{http_code}", "-X", "POST", "https://api.vieneu.io/api/v1/audio/speech",
           "-H", `Authorization: Bearer ${CLOUD_KEY}`, "-H", "Content-Type: application/json",
-          "-d", JSON.stringify({ input: text, voice: CLOUD_VOICE, response_format: "mp3" }), "-o", out]);
+          "-d", JSON.stringify({ input: plain(text), voice: CLOUD_VOICE, response_format: "mp3" }), "-o", out]);
         const code = r.stdout.toString().trim();
         if (code !== "200") {
           const body = fs.existsSync(out) ? fs.readFileSync(out, "utf8").slice(0, 300) : r.stderr.toString();
@@ -120,7 +121,7 @@ function ttsChunk(text, lang) {
           throw new Error(`VieNeu API HTTP ${code}: ${body}`);
         }
       } else if (engine === "edge-multi") {
-        run("edge-tts", ["--voice", ONE_VOICE, "--text", text, "--write-media", out]);
+        run("edge-tts", ["--voice", ONE_VOICE, "--text", plain(text), "--write-media", out]);
       } else if (engine === "edge") {
         run("edge-tts", ["--voice", EDGE_VOICE[lang], "--rate", lang === "en" ? "-5%" : "+0%", "--text", text, "--write-media", out]);
       } else {
@@ -173,21 +174,45 @@ function speakable(say) {
 }
 const WARNED = new Set();
 
-/** One voice for both languages: read each line in one pass (natural flow, no splicing), except that a full
- *  English sentence (an example) gets its own pass, since VieNeu reads clean English sentences best. */
+/** Pause after each punctuation mark, in seconds before --speed (each clause is its own clip, so these are exact). */
+const PAUSE = { ",": 0.22, ";": 0.32, ":": 0.32, ".": 0.45, "!": 0.45, "?": 0.5, "…": 0.4 };
+const PUNCT_END = /[.,;:!?…]+$/;
+
+/** One voice for both languages: one clip per clause (split at . , ; : ! ?), with a set pause after each.
+ *  Short clips are read more clearly than long lines (fewer swallowed words) and the pauses no longer depend on
+ *  the model. English keeps its {{ }} marks: the local VieNeu reads marked parts as English phonemes, so "so",
+ *  "to", "an" or "do" are not read as Vietnamese syllables (lib/vieneu_tts.py). Other engines get plain text. */
 function unifiedLines(say) {
-  const out = [];
-  let buf = "";
-  for (const c of chunks(say)) {
-    const fullSentence = c.lang === "en" && /[.!?]$/.test(c.text) && c.text.split(/\s+/).length >= 3;
-    if (fullSentence) {
-      if (buf.trim()) out.push({ lang: "vi", text: buf.trim() });
-      out.push({ lang: "en", text: c.text });
-      buf = "";
-    } else buf += (buf && !/^[,.:;!?]/.test(c.text) ? " " : "") + c.text;
+  const words = [];
+  for (const m of say.matchAll(/\{\{(.+?)\}\}|([^{]+)/g)) {
+    const en = m[1] != null;
+    for (const w of (m[1] ?? m[2]).split(/\s+/).filter(Boolean)) {
+      if (!/[\p{L}\p{N}]/u.test(w) && words.length) words.at(-1).w += w; // lone punctuation joins the word before
+      else words.push({ w, en });
+    }
   }
-  if (buf.trim()) out.push({ lang: "vi", text: buf.trim() });
-  return out;
+  const clauses = [];
+  let cur = [];
+  for (const x of words) {
+    cur.push(x);
+    if (PUNCT_END.test(x.w)) (clauses.push(cur), (cur = []));
+  }
+  if (cur.length) clauses.push(cur);
+  // A one-word lead-in ("Vì vậy," / "Lên,") would be a tiny clip: read it together with the next clause.
+  for (let i = clauses.length - 2; i >= 0; i--)
+    if (clauses[i].length === 1 && /,$/.test(clauses[i][0].w)) clauses.splice(i, 2, [...clauses[i], ...clauses[i + 1]]);
+  return clauses.map((c, i) => {
+    const text = c
+      .map(({ w, en }) => {
+        if (!en) return w;
+        const tail = w.match(PUNCT_END)?.[0] ?? "";
+        return `{{${w.slice(0, w.length - tail.length)}}}${tail}`;
+      })
+      .join(" ")
+      .replace(/\}\} \{\{/g, " ");
+    const mark = c.at(-1).w.match(PUNCT_END)?.[0].at(-1);
+    return { lang: c.every((x) => x.en) ? "en" : "vi", text, pause: i < clauses.length - 1 ? PAUSE[mark] ?? 0.15 : 0 };
+  });
 }
 
 /** Integrated loudness (LUFS) of a clip after trimming silence, cached next to the clip. */
@@ -225,7 +250,7 @@ function sceneAudio(scene, file) {
   const filt =
     parts
       .map((p, i) => {
-        const gap = i < parts.length - 1 ? (parts[i + 1].lang !== p.lang ? 0.1 : 0.05) : 0;
+        const gap = p.pause ?? (i < parts.length - 1 ? (parts[i + 1].lang !== p.lang ? 0.1 : 0.05) : 0);
         const gain = Math.max(-12, Math.min(18, TARGET_LUFS - p.lufs)).toFixed(1);
         return `[${i}:a]aresample=44100,aformat=sample_fmts=fltp:channel_layouts=stereo,${TRIM},volume=${gain}dB,apad=pad_dur=${gap}[a${i}]`;
       })
