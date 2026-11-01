@@ -12,6 +12,7 @@ import { execFileSync } from "node:child_process";
 import { createRequire } from "node:module";
 import { ROOT_DIR, OUT_DIR, COLORS, loadFamilies, esc, ensureDir } from "./lib/common.mjs";
 import { globalMap, prefixesOf, canonPrefix } from "./lib/ebook-map.mjs";
+import { icon } from "./lib/icons.mjs";
 
 const require = createRequire(import.meta.url);
 const { chromium } = require("playwright");
@@ -599,18 +600,52 @@ ${chapterHtml.join("\n")}
 }
 
 function coverHTML() {
+  // hero: one real root family from the book, drawn as a word tree
+  const hero = chapters.find((c) => c.id === "spect") ?? chapters[0];
+  const hw = hero.words.slice(0, 6);
+  const W = 520, H = 330, cx = W / 2, cy = 70;
+  const pos = hw.map((w, i) => ({ w, x: 92 + (i % 3) * 168, y: i < 3 ? 190 : 285 }));
+  const word = (w) => w.parts.map((p) => `<tspan fill="${p.k === "pre" ? "#ffb27a" : p.k === "suf" ? "#8fe0b5" : "#ffffff"}">${esc(p.t)}</tspan>`).join("");
+  const tree = `<svg class="ctree" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
+    ${pos.map((p) => `<path d="M${cx} ${cy + 34} C ${cx} ${(cy + p.y) / 2 + 20}, ${p.x} ${(cy + p.y) / 2 - 10}, ${p.x} ${p.y - 26}" stroke="rgba(106,197,232,.55)" stroke-width="2" fill="none"/>`).join("")}
+    <circle cx="${cx}" cy="${cy}" r="44" fill="#6ac5e8"/><circle cx="${cx}" cy="${cy}" r="56" fill="none" stroke="rgba(106,197,232,.35)" stroke-width="2"/>
+    <text x="${cx}" y="${cy + 4}" text-anchor="middle" font-family="Be Vietnam Pro" font-weight="800" font-size="25" fill="#003066">${esc(shortRoot(hero))}</text>
+    <text x="${cx}" y="${cy + 24}" text-anchor="middle" font-family="Be Vietnam Pro" font-weight="600" font-size="11" fill="#003066">= ${esc(hero.core)}</text>
+    ${pos.map((p) => `<rect x="${p.x - 78}" y="${p.y - 26}" width="156" height="50" rx="12" fill="rgba(255,255,255,.08)" stroke="rgba(207,233,247,.35)"/>
+      <text x="${p.x}" y="${p.y + 2}" text-anchor="middle" font-family="Be Vietnam Pro" font-weight="800" font-size="17">${word(p.w)}</text>
+      <text x="${p.x}" y="${p.y + 17}" text-anchor="middle" font-family="Be Vietnam Pro" font-size="9.5" fill="#cfe9f7">${esc(p.w.meaning.split(/[;,(]/)[0].trim())}</text>`).join("")}
+  </svg>`;
+  const headphones = `<svg class="ico" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2z"/><path d="M15 15a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2z"/><path d="M4 15v-3a8 8 0 0 1 16 0v3"/></svg>`;
+  const skills = [["Reading", icon("books", 26, 1.8)], ["Listening", headphones], ["Writing", icon("pencil", 26, 1.8)], ["Speaking", icon("microphone-2", 26, 1.8)]];
+  const bands = ["5.5", "6.0", "6.5", "7.0+"];
+  const nCol = allWords.reduce((n, w) => n + (w.col?.length ?? 0), 0);
   return `<!doctype html><html lang="vi"><head><meta charset="utf-8">
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;800&display=block" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=block" rel="stylesheet">
 <style>@page{size:A4;margin:0}${css}</style></head><body class="coverbody">
-<div class="cover">
-  <div class="ctop"><img src="${logo}" alt=""><span>UpWind IELTS</span></div>
-  <div class="cmid">
-    <div class="ckick">IELTS band 5.5 → 7.0+ · Lộ trình 8–10 tuần</div>
-    <h1>${TITLE}</h1>
-    <p class="csub">${SUB}</p>
-    <div class="cword"><span style="color:#ffb27a">pro</span><span style="color:#ffffff">voke</span> · <span style="color:#ffb27a">ex</span><span style="color:#ffffff">port</span> · <span style="color:#ffb27a">in</span><span style="color:#ffffff">spect</span><span style="color:#8fe0b5">ion</span></div>
+<div class="cv">
+  <svg class="cv-sail" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M50 4 L50 78 L6 78 Z" fill="rgba(106,197,232,.07)"/></svg>
+  <div class="cv-top"><div class="cv-brand"><img src="${logo}" alt=""><span>UpWind <b>IELTS</b></span></div><div class="cv-chip">Academic Vocabulary · Self-study</div></div>
+
+  <div class="cv-head">
+    <div class="cv-kick">IELTS Vocabulary from Roots</div>
+    <h1>Giải mã<br>từ vựng <span>IELTS</span><br>bằng từ gốc</h1>
+    <p class="cv-sub">Học 1 gốc, nhớ cả họ từ · collocation · word family · bài tập Reading, Writing, Speaking có đáp án</p>
   </div>
-  <div class="cstats"><div><b>${chapters.length}</b>gốc từ</div><div><b>${allWords.length}</b>từ chính</div><div><b>${allWords.reduce((n, w) => n + (w.col?.length ?? 0), 0)}</b>collocation</div><div><b>${totalEx}</b>bài luyện tập</div></div>
+
+  <div class="cv-mid">
+    <div class="cv-band"><div class="cv-bl">Target band</div>
+      ${bands.map((b, i) => `<div class="cv-step" style="--w:${46 + i * 18}%"><span>${b}</span></div>`).join("")}
+      <div class="cv-bnote">Lexical Resource<br>= 25% điểm Writing &amp; Speaking</div></div>
+    <div class="cv-hero">${tree}<div class="cv-hcap">Một gốc <b>${esc(shortRoot(hero))}</b> mở ra cả họ từ: <i style="color:#ffb27a">tiền tố</i> · <i style="color:#fff">gốc</i> · <i style="color:#8fe0b5">hậu tố</i></div></div>
+  </div>
+
+  <div class="cv-skills">${skills.map(([n, ic]) => `<div><span class="cv-ic">${ic}</span>${n}</div>`).join("")}</div>
+
+  <div class="cv-stats">
+    <div><b>${chapters.length}</b>units · gốc từ</div><div><b>${allWords.length}</b>từ học thuật</div><div><b>${nCol}</b>collocations</div><div><b>${totalEx}</b>bài luyện tập</div><div class="hl"><b>8–10</b>tuần lộ trình</div>
+  </div>
+  <svg class="cv-waves" viewBox="0 0 210 30" preserveAspectRatio="none"><path d="M0 14 Q52 2 105 12 T210 10 V30 H0Z" fill="#6ac5e8" opacity=".9"/><path d="M0 20 Q55 10 108 19 T210 17 V30 H0Z" fill="#00244d"/></svg>
+  <div class="cv-foot">upwind.asia</div>
 </div></body></html>`;
 }
 
