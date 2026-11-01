@@ -1,0 +1,206 @@
+{
+ "id": "voc",
+ "words": {
+  "evoke": {
+   "tp": "media",
+   "forms": {
+    "v": "evoke",
+    "n": "evocation",
+    "adj": "evocative"
+   },
+   "col": [
+    "evoke memories",
+    "evoke a feeling of nostalgia",
+    "powerfully evoke",
+    "highly evocative"
+   ]
+  },
+  "invoke": {
+   "tp": "soc",
+   "forms": {
+    "v": "invoke",
+    "n": "invocation"
+   },
+   "col": [
+    "invoke a law",
+    "invoke emergency powers",
+    "invoke the right to remain silent"
+   ]
+  },
+  "provoke": {
+   "tp": "soc",
+   "forms": {
+    "v": "provoke",
+    "n": "provocation",
+    "adj": "provocative",
+    "adv": "provocatively"
+   },
+   "col": [
+    "provoke a reaction",
+    "provoke outrage",
+    "provoke debate",
+    "deliberately provoke"
+   ]
+  },
+  "revoke": {
+   "tp": "crime",
+   "forms": {
+    "v": "revoke",
+    "n": "revocation",
+    "adj": "irrevocable"
+   },
+   "col": [
+    "revoke a licence",
+    "revoke a visa",
+    "revoke a decision"
+   ]
+  },
+  "advocate": {
+   "tp": "soc",
+   "forms": {
+    "v": "advocate",
+    "n": "advocate, advocacy"
+   },
+   "col": [
+    "advocate for change",
+    "a strong advocate of",
+    "a leading advocate"
+   ]
+  },
+  "vocal": {
+   "tp": "media",
+   "forms": {
+    "adj": "vocal",
+    "n": "voice, vocalist",
+    "adv": "vocally"
+   },
+   "col": [
+    "vocal critics",
+    "become increasingly vocal",
+    "a vocal minority"
+   ]
+  },
+  "equivocal": {
+   "tp": "sci",
+   "forms": {
+    "adj": "equivocal, unequivocal",
+    "adv": "unequivocally",
+    "v": "equivocate"
+   },
+   "col": [
+    "equivocal evidence",
+    "an unequivocal answer",
+    "unequivocally support"
+   ]
+  },
+  "vocation": {
+   "tp": "work",
+   "forms": {
+    "n": "vocation",
+    "adj": "vocational"
+   },
+   "col": [
+    "a sense of vocation",
+    "vocational training",
+    "vocational courses"
+   ]
+  }
+ },
+ "reading": {
+  "title": "Should schools teach trades?",
+  "text": "Many parents still see university as the only route to success, but a growing number of educators advocate a different path. They argue that vocational training gives teenagers practical skills that employers urgently need. The idea often provokes heated debate. Critics are vocal about the risk of pushing students into low-paid jobs too early, while supporters invoke data showing that skilled technicians now earn more than many graduates. The evidence is still equivocal, yet one thing is clear: for some young people, working with their hands is not a fallback but a true vocation."
+ },
+ "wf": [
+  {
+   "s": "The minister's comments were deliberately ___, and the opposition reacted angrily.",
+   "base": "PROVOKE",
+   "a": "provocative"
+  },
+  {
+   "s": "Once the contract is signed, the decision is ___ and cannot be changed.",
+   "base": "REVOKE",
+   "a": "irrevocable"
+  },
+  {
+   "s": "The government has ___ rejected the proposal, leaving no room for doubt.",
+   "base": "EQUIVOCAL",
+   "a": "unequivocally"
+  }
+ ],
+ "err": [
+  {
+   "s": "The documentary *made* memories of my grandparents' village.",
+   "a": "evoked"
+  },
+  {
+   "s": "Students who prefer practical work can join *vocation* training courses.",
+   "a": "vocational"
+  }
+ ],
+ "write": "Some people think all teenagers should go to university, while others believe vocational training is a better option. Viết 2–3 câu nêu quan điểm, dùng ít nhất 2 từ trong chương.",
+ "pa": [
+  {
+   "s": "The new policy caused a lot of anger among teachers.",
+   "k": "provoke",
+   "a": "The new policy provoked outrage among teachers."
+  },
+  {
+   "s": "She has always strongly supported equal pay for women.",
+   "k": "advocate",
+   "a": "She has always been a strong advocate of equal pay for women."
+  }
+ ],
+ "wt": "discussion",
+ "rq": {
+  "type": "gap",
+  "box": [
+   "vocational",
+   "advocate",
+   "debate",
+   "fallback",
+   "graduates",
+   "universities",
+   "equivocal",
+   "employers"
+  ],
+  "text": "A growing number of educators [1] practical training as an alternative to university. They believe that [2] value the skills that such courses teach. The issue causes a lot of [3]. Supporters point out that some technicians earn more than many [4], although the research is still [5]. For some young people, practical work is not a [6] but a real calling.",
+  "a": [
+   "advocate",
+   "employers",
+   "debate",
+   "graduates",
+   "equivocal",
+   "fallback"
+  ]
+ },
+ "spk": {
+  "part": 1,
+  "qs": [
+   "What job did you want to do when you were a child?",
+   "Do you think your job (or studies) suits your personality? Why?",
+   "Is it important to enjoy your work?"
+  ]
+ },
+ "syn": [
+  [
+   "evoke",
+   "bring back (memories)"
+  ],
+  [
+   "provoke",
+   "trigger"
+  ],
+  [
+   "advocate",
+   "argue in favour of"
+  ],
+  [
+   "revoke",
+   "cancel officially"
+  ],
+  [
+   "equivocal",
+   "inconclusive"
+  ]
+ ]
+}

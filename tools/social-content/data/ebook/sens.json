@@ -1,0 +1,302 @@
+{
+ "id": "sens",
+ "root": "sens / sent",
+ "origin": "Latin sentire",
+ "core": "cảm nhận",
+ "image": "đầu ngón tay chạm nhẹ vào một bề mặt để cảm nhận",
+ "hook": "{{sensible}} và {{sensitive}} chỉ khác vài chữ, nhưng một từ là “hợp lý”, một từ là “nhạy cảm”.",
+ "bait": {
+  "word": "consent",
+  "literal": "cùng cảm nhận"
+ },
+ "words": [
+  {
+   "word": "sensitive",
+   "pos": "adj.",
+   "ipa": "/ˈsensətɪv/",
+   "parts": [
+    {
+     "t": "sens",
+     "k": "root",
+     "vi": "cảm nhận"
+    },
+    {
+     "t": "itive",
+     "k": "suf",
+     "vi": "tính từ"
+    }
+   ],
+   "meaning": "nhạy cảm",
+   "story": "cảm nhận rất nhanh, rất mạnh",
+   "example": "Privacy is a sensitive issue for many internet users.",
+   "example_vi": "Quyền riêng tư là vấn đề nhạy cảm với nhiều người dùng mạng.",
+   "tp": "soc",
+   "forms": {
+    "adj": "sensitive, insensitive",
+    "n": "sensitivity"
+   },
+   "col": [
+    "a sensitive issue",
+    "sensitive to criticism",
+    "sensitive information",
+    "environmentally sensitive"
+   ]
+  },
+  {
+   "word": "sensible",
+   "pos": "adj.",
+   "ipa": "/ˈsensəbl/",
+   "parts": [
+    {
+     "t": "sens",
+     "k": "root",
+     "vi": "cảm nhận"
+    },
+    {
+     "t": "ible",
+     "k": "suf",
+     "vi": "có thể"
+    }
+   ],
+   "meaning": "hợp lý, khôn ngoan",
+   "story": "có cảm nhận tốt về điều đúng đắn",
+   "example": "It would be sensible to save some money every month.",
+   "example_vi": "Sẽ là khôn ngoan nếu tiết kiệm một ít tiền mỗi tháng.",
+   "tp": "daily",
+   "forms": {
+    "adj": "sensible",
+    "adv": "sensibly"
+   },
+   "col": [
+    "a sensible decision",
+    "sensible advice",
+    "it would be sensible to"
+   ],
+   "trap": "{{sensible}} = hợp lý; {{sensitive}} = nhạy cảm. Đừng nhầm hai từ này!"
+  },
+  {
+   "word": "consent",
+   "pos": "n. / v.",
+   "ipa": "/kənˈsent/",
+   "parts": [
+    {
+     "t": "con",
+     "k": "pre",
+     "vi": "cùng nhau"
+    },
+    {
+     "t": "sent",
+     "k": "root",
+     "vi": "cảm nhận"
+    }
+   ],
+   "meaning": "sự đồng ý",
+   "story": "cùng cảm nhận một điều, nên đồng lòng",
+   "example": "Patients must give their consent before surgery.",
+   "example_vi": "Bệnh nhân phải đồng ý trước khi phẫu thuật.",
+   "tp": "soc",
+   "forms": {
+    "n": "consent, consensus",
+    "v": "consent"
+   },
+   "col": [
+    "give consent",
+    "without consent",
+    "written consent",
+    "reach a consensus"
+   ]
+  },
+  {
+   "word": "resent",
+   "pos": "v.",
+   "ipa": "/rɪˈzent/",
+   "parts": [
+    {
+     "t": "re",
+     "k": "pre",
+     "vi": "lại"
+    },
+    {
+     "t": "sent",
+     "k": "root",
+     "vi": "cảm nhận"
+    }
+   ],
+   "meaning": "bực bội, oán giận",
+   "story": "cảm nhận lại mãi một điều khó chịu",
+   "example": "Many workers resent having to answer emails at the weekend.",
+   "example_vi": "Nhiều nhân viên bực bội vì phải trả lời email cuối tuần.",
+   "tp": "daily",
+   "forms": {
+    "v": "resent",
+    "n": "resentment",
+    "adj": "resentful"
+   },
+   "col": [
+    "deeply resent",
+    "resent being told what to do",
+    "growing resentment"
+   ]
+  },
+  {
+   "word": "sentiment",
+   "pos": "n.",
+   "ipa": "/ˈsentɪmənt/",
+   "parts": [
+    {
+     "t": "senti",
+     "k": "root",
+     "vi": "cảm nhận"
+    },
+    {
+     "t": "ment",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "tình cảm; quan điểm chung",
+   "story": "những gì nhiều người cùng cảm thấy",
+   "example": "Public sentiment has turned against the new airport.",
+   "example_vi": "Dư luận đã quay sang phản đối sân bay mới.",
+   "tp": "soc",
+   "forms": {
+    "n": "sentiment",
+    "adj": "sentimental"
+   },
+   "col": [
+    "public sentiment",
+    "anti-government sentiment",
+    "sentimental value"
+   ]
+  },
+  {
+   "word": "sensation",
+   "pos": "n.",
+   "ipa": "/senˈseɪʃn/",
+   "parts": [
+    {
+     "t": "sens",
+     "k": "root",
+     "vi": "cảm nhận"
+    },
+    {
+     "t": "ation",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "cảm giác; sự náo động",
+   "story": "điều được cảm nhận, đôi khi mạnh đến mức gây xôn xao",
+   "example": "The young singer became an overnight sensation.",
+   "example_vi": "Ca sĩ trẻ trở thành hiện tượng chỉ sau một đêm.",
+   "tp": "media",
+   "forms": {
+    "n": "sensation",
+    "adj": "sensational"
+   },
+   "col": [
+    "a burning sensation",
+    "cause a sensation",
+    "sensational headlines"
+   ]
+  }
+ ],
+ "wf": [
+  {
+   "s": "The new manager was criticised for being ___ to the needs of older staff.",
+   "base": "SENSITIVE",
+   "a": "insensitive"
+  },
+  {
+   "s": "There is growing ___ among farmers about the new trade deal.",
+   "base": "RESENT",
+   "a": "resentment"
+  },
+  {
+   "s": "This old watch is not expensive, but it has great ___ value for me.",
+   "base": "SENTIMENT",
+   "a": "sentimental"
+  }
+ ],
+ "err": [
+  {
+   "s": "It is *sensitive* to wear a helmet when you ride a bike.",
+   "a": "sensible"
+  },
+  {
+   "s": "Doctors cannot operate without the patient's *sensation*.",
+   "a": "consent"
+  }
+ ],
+ "reading": {
+  "title": "Who owns your data?",
+  "text": "Personal data is one of the most sensitive issues of our time. When we install an app, we usually give our consent with one click, without reading the terms. Public sentiment is changing, however. After several scandals, many users resent the way companies collect information about them, and newspapers run sensational stories about data leaks. Most experts agree that the sensible solution is not to ban data collection but to make the rules shorter and clearer, so that people know what they are agreeing to."
+ },
+ "write": "Should companies be allowed to collect personal data from their users? Viết 2–3 câu, dùng ít nhất 2 từ trong chương.",
+ "pa": [
+  {
+   "s": "It would be a good idea to book the tickets early.",
+   "k": "sensible",
+   "a": "It would be sensible to book the tickets early."
+  },
+  {
+   "s": "Most people in the town feel against the new factory.",
+   "k": "sentiment",
+   "a": "Public sentiment in the town is against the new factory."
+  }
+ ],
+ "wt": "discussion",
+ "rq": {
+  "type": "sent",
+  "items": [
+   {
+    "s": "Most app users give their ____ with a single click.",
+    "a": "consent"
+   },
+   {
+    "s": "After several scandals, public ____ is changing.",
+    "a": "sentiment"
+   },
+   {
+    "s": "Newspapers run ____ stories about data leaks.",
+    "a": "sensational"
+   },
+   {
+    "s": "Experts want the rules to be shorter and ____.",
+    "a": "clearer"
+   }
+  ]
+ },
+ "spk": {
+  "part": 2,
+  "topic": "Describe a time when you had to make a sensible decision.",
+  "bullets": [
+   "what the decision was",
+   "when you made it",
+   "what other choices you had",
+   "and explain why you think it was sensible."
+  ]
+ },
+ "syn": [
+  [
+   "sensitive",
+   "delicate"
+  ],
+  [
+   "sensible",
+   "reasonable"
+  ],
+  [
+   "consent",
+   "permission"
+  ],
+  [
+   "resent",
+   "feel bitter about"
+  ],
+  [
+   "public sentiment",
+   "public opinion"
+  ]
+ ]
+}

@@ -1,0 +1,281 @@
+{
+ "id": "chron",
+ "root": "chron",
+ "origin": "Greek chronos",
+ "core": "thời gian",
+ "image": "một chiếc đồng hồ cát đang chảy",
+ "hook": "{{chronic}}, {{chronological}}, {{synchronise}}: bệnh mãn tính, trình tự thời gian và đồng bộ điện thoại đều liên quan đến… thời gian.",
+ "bait": {
+  "word": "synchronise",
+  "literal": "cùng một thời gian"
+ },
+ "words": [
+  {
+   "word": "chronic",
+   "pos": "adj.",
+   "ipa": "/ˈkrɒnɪk/",
+   "parts": [
+    {
+     "t": "chron",
+     "k": "root",
+     "vi": "thời gian"
+    },
+    {
+     "t": "ic",
+     "k": "suf",
+     "vi": "tính từ"
+    }
+   ],
+   "meaning": "mãn tính; kéo dài",
+   "story": "kéo dài theo thời gian",
+   "example": "Chronic stress can damage the heart.",
+   "example_vi": "Căng thẳng kéo dài có thể gây hại cho tim.",
+   "tp": "health",
+   "forms": {
+    "adj": "chronic",
+    "adv": "chronically"
+   },
+   "col": [
+    "chronic disease",
+    "chronic pain",
+    "a chronic shortage of"
+   ]
+  },
+  {
+   "word": "chronological",
+   "pos": "adj.",
+   "ipa": "/ˌkrɒnəˈlɒdʒɪkl/",
+   "parts": [
+    {
+     "t": "chrono",
+     "k": "root",
+     "vi": "thời gian"
+    },
+    {
+     "t": "log",
+     "k": "root",
+     "vi": "lý lẽ"
+    },
+    {
+     "t": "ical",
+     "k": "suf",
+     "vi": "tính từ"
+    }
+   ],
+   "meaning": "theo trình tự thời gian",
+   "story": "sắp xếp theo lý lẽ của thời gian",
+   "example": "The exhibition is arranged in chronological order.",
+   "example_vi": "Triển lãm được sắp xếp theo trình tự thời gian.",
+   "tp": "media",
+   "forms": {
+    "adj": "chronological",
+    "adv": "chronologically"
+   },
+   "col": [
+    "in chronological order",
+    "a chronological account"
+   ]
+  },
+  {
+   "word": "synchronise",
+   "pos": "v.",
+   "ipa": "/ˈsɪŋkrənaɪz/",
+   "parts": [
+    {
+     "t": "syn",
+     "k": "pre",
+     "vi": "cùng"
+    },
+    {
+     "t": "chron",
+     "k": "root",
+     "vi": "thời gian"
+    },
+    {
+     "t": "ise",
+     "k": "suf",
+     "vi": "động từ"
+    }
+   ],
+   "meaning": "đồng bộ",
+   "story": "làm cho cùng một thời gian",
+   "example": "You can synchronise your phone with your laptop.",
+   "example_vi": "Bạn có thể đồng bộ điện thoại với máy tính xách tay.",
+   "tp": "tech",
+   "forms": {
+    "v": "synchronise",
+    "adj": "synchronised"
+   },
+   "col": [
+    "synchronise data",
+    "perfectly synchronised",
+    "synchronised swimming"
+   ]
+  },
+  {
+   "word": "chronicle",
+   "pos": "n. / v.",
+   "ipa": "/ˈkrɒnɪkl/",
+   "parts": [
+    {
+     "t": "chron",
+     "k": "root",
+     "vi": "thời gian"
+    },
+    {
+     "t": "icle",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "biên niên sử; ghi chép lại",
+   "story": "ghi lại các sự việc theo thời gian",
+   "example": "The book chronicles the history of the city.",
+   "example_vi": "Cuốn sách ghi lại lịch sử của thành phố.",
+   "tp": "media",
+   "forms": {
+    "n": "chronicle",
+    "v": "chronicle"
+   },
+   "col": [
+    "chronicle the history of",
+    "a detailed chronicle"
+   ]
+  },
+  {
+   "word": "anachronism",
+   "pos": "n.",
+   "ipa": "/əˈnækrənɪzəm/",
+   "parts": [
+    {
+     "t": "ana",
+     "k": "pre",
+     "vi": "ngược lại"
+    },
+    {
+     "t": "chron",
+     "k": "root",
+     "vi": "thời gian"
+    },
+    {
+     "t": "ism",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "điều lỗi thời, sai thời đại",
+   "story": "đi ngược lại với thời gian",
+   "example": "Some people see the eight-hour working day as an anachronism.",
+   "example_vi": "Một số người xem ngày làm việc tám tiếng là điều lỗi thời.",
+   "tp": "soc",
+   "forms": {
+    "n": "anachronism",
+    "adj": "anachronistic"
+   },
+   "col": [
+    "a historical anachronism",
+    "be seen as an anachronism"
+   ]
+  }
+ ],
+ "wf": [
+  {
+   "s": "She has been ___ ill for years.",
+   "base": "CHRONIC",
+   "a": "chronically"
+  },
+  {
+   "s": "The events are listed ___.",
+   "base": "CHRONOLOGICAL",
+   "a": "chronologically"
+  },
+  {
+   "s": "Typewriters seem completely ___ today.",
+   "base": "ANACHRONISM",
+   "a": "anachronistic"
+  }
+ ],
+ "err": [
+  {
+   "s": "Please put the photos in *chronic* order.",
+   "a": "chronological"
+  },
+  {
+   "s": "The swimmers moved in perfect *synchronise*.",
+   "a": "synchronisation"
+  }
+ ],
+ "tf": [],
+ "pa": [
+  {
+   "s": "The story is told in the order in which things happened.",
+   "k": "chronological",
+   "a": "The story is told in chronological order."
+  },
+  {
+   "s": "He has had back pain for many years.",
+   "k": "chronic",
+   "a": "He suffers from chronic back pain."
+  }
+ ],
+ "reading": {
+  "title": "Sleep and the modern world",
+  "text": "Doctors say that chronic lack of sleep is one of the biggest health problems of modern life. Our body clocks are synchronised with daylight, but artificial light and late-night screens confuse them. Some historians argue that the eight-hour working day is an anachronism from the factory age. A new book chronicles how people slept before electricity: many woke in the middle of the night for an hour before a 'second sleep'."
+ },
+ "rq": {
+  "type": "gap",
+  "box": [
+   "chronic",
+   "synchronised",
+   "screens",
+   "anachronism",
+   "chronicles",
+   "electricity",
+   "chronological",
+   "factory"
+  ],
+  "text": "A [1] shortage of sleep is a major health issue. Body clocks are [2] with daylight, but artificial light and [3] disturb them. Some historians see the eight-hour working day as an [4]. A new book [5] how people slept before [6].",
+  "a": [
+   "chronic",
+   "synchronised",
+   "screens",
+   "anachronism",
+   "chronicles",
+   "electricity"
+  ]
+ },
+ "syn": [
+  [
+   "chronic",
+   "long-lasting"
+  ],
+  [
+   "chronological",
+   "time-ordered"
+  ],
+  [
+   "synchronise",
+   "coordinate"
+  ],
+  [
+   "chronicle",
+   "record"
+  ],
+  [
+   "anachronism",
+   "something out of date"
+  ]
+ ],
+ "spk": {
+  "part": 2,
+  "topic": "Describe a time when you did not get enough sleep.",
+  "bullets": [
+   "when it was",
+   "why you could not sleep",
+   "how it affected you",
+   "and explain what you learned from it."
+  ]
+ },
+ "wt": "twopart",
+ "write": "Many people today do not get enough sleep. What are the reasons for this? How can the problem be solved?"
+}

@@ -1,0 +1,330 @@
+{
+ "id": "vid",
+ "root": "vid / vis",
+ "origin": "Latin videre",
+ "core": "nhìn, thấy",
+ "image": "một con mắt mở to nhìn rõ mọi thứ",
+ "hook": "{{evidence}}, {{provide}}, {{revise}}: bằng chứng, cung cấp và ôn bài đều giấu một con mắt?",
+ "bait": {
+  "word": "provide",
+  "literal": "nhìn trước"
+ },
+ "words": [
+  {
+   "word": "evidence",
+   "pos": "n.",
+   "ipa": "/ˈevɪdəns/",
+   "parts": [
+    {
+     "t": "e",
+     "k": "pre",
+     "vi": "ra ngoài"
+    },
+    {
+     "t": "vid",
+     "k": "root",
+     "vi": "thấy"
+    },
+    {
+     "t": "ence",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "bằng chứng",
+   "story": "thứ làm sự thật lộ ra cho ai cũng thấy",
+   "example": "There is strong evidence that exercise improves memory.",
+   "example_vi": "Có bằng chứng rõ ràng rằng tập thể dục cải thiện trí nhớ.",
+   "tp": "sci",
+   "forms": {
+    "n": "evidence",
+    "adj": "evident",
+    "adv": "evidently"
+   },
+   "col": [
+    "strong evidence",
+    "scientific evidence",
+    "evidence suggests that",
+    "little evidence of"
+   ],
+   "trap": "{{evidence}} là danh từ không đếm được: không nói {{an evidence}} hay {{evidences}}."
+  },
+  {
+   "word": "visible",
+   "pos": "adj.",
+   "ipa": "/ˈvɪzəbl/",
+   "parts": [
+    {
+     "t": "vis",
+     "k": "root",
+     "vi": "thấy"
+    },
+    {
+     "t": "ible",
+     "k": "suf",
+     "vi": "có thể"
+    }
+   ],
+   "meaning": "nhìn thấy được; rõ ràng",
+   "story": "có thể lọt vào tầm mắt",
+   "example": "The effects of climate change are already visible in the Arctic.",
+   "example_vi": "Tác động của biến đổi khí hậu đã thấy rõ ở Bắc Cực.",
+   "tp": "sci",
+   "forms": {
+    "adj": "visible, invisible",
+    "n": "visibility",
+    "adv": "visibly"
+   },
+   "col": [
+    "clearly visible",
+    "visible to the naked eye",
+    "poor visibility"
+   ]
+  },
+  {
+   "word": "revise",
+   "pos": "v.",
+   "ipa": "/rɪˈvaɪz/",
+   "parts": [
+    {
+     "t": "re",
+     "k": "pre",
+     "vi": "lại"
+    },
+    {
+     "t": "vis",
+     "k": "root",
+     "vi": "nhìn"
+    },
+    {
+     "t": "e",
+     "k": "suf",
+     "vi": ""
+    }
+   ],
+   "meaning": "ôn tập; sửa đổi",
+   "story": "nhìn lại một lần nữa để nhớ hoặc để sửa",
+   "example": "The government revised its forecast for economic growth.",
+   "example_vi": "Chính phủ đã điều chỉnh dự báo tăng trưởng kinh tế.",
+   "tp": "edu",
+   "forms": {
+    "v": "revise",
+    "n": "revision"
+   },
+   "col": [
+    "revise for an exam",
+    "revise a forecast",
+    "a revised edition",
+    "do some revision"
+   ],
+   "trap": "{{revise}} ở Anh còn là “ôn thi”; người Mỹ nói {{review}}."
+  },
+  {
+   "word": "supervise",
+   "pos": "v.",
+   "ipa": "/ˈsuːpəvaɪz/",
+   "parts": [
+    {
+     "t": "super",
+     "k": "pre",
+     "vi": "ở trên"
+    },
+    {
+     "t": "vis",
+     "k": "root",
+     "vi": "nhìn"
+    },
+    {
+     "t": "e",
+     "k": "suf",
+     "vi": ""
+    }
+   ],
+   "meaning": "giám sát",
+   "story": "đứng ở trên nhìn xuống người khác làm việc",
+   "example": "Young children should be supervised near water.",
+   "example_vi": "Trẻ nhỏ cần được giám sát khi ở gần nước.",
+   "tp": "work",
+   "forms": {
+    "v": "supervise",
+    "n": "supervisor, supervision",
+    "adj": "supervisory"
+   },
+   "col": [
+    "closely supervise",
+    "under supervision",
+    "adult supervision"
+   ]
+  },
+  {
+   "word": "provide",
+   "pos": "v.",
+   "ipa": "/prəˈvaɪd/",
+   "parts": [
+    {
+     "t": "pro",
+     "k": "pre",
+     "vi": "trước"
+    },
+    {
+     "t": "vid",
+     "k": "root",
+     "vi": "thấy"
+    },
+    {
+     "t": "e",
+     "k": "suf",
+     "vi": ""
+    }
+   ],
+   "meaning": "cung cấp",
+   "story": "nhìn trước nhu cầu rồi chuẩn bị sẵn cho người khác",
+   "example": "The school provides free meals for all pupils.",
+   "example_vi": "Nhà trường cung cấp bữa ăn miễn phí cho mọi học sinh.",
+   "tp": "soc",
+   "forms": {
+    "v": "provide",
+    "n": "provision, provider",
+    "conj": "provided that"
+   },
+   "col": [
+    "provide support",
+    "provide someone with something",
+    "provide an opportunity for",
+    "healthcare providers"
+   ]
+  },
+  {
+   "word": "vision",
+   "pos": "n.",
+   "ipa": "/ˈvɪʒn/",
+   "parts": [
+    {
+     "t": "vis",
+     "k": "root",
+     "vi": "thấy"
+    },
+    {
+     "t": "ion",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "tầm nhìn; thị lực",
+   "story": "khả năng thấy, kể cả thấy trước tương lai",
+   "example": "The mayor has a clear vision for the future of the city.",
+   "example_vi": "Thị trưởng có tầm nhìn rõ ràng cho tương lai thành phố.",
+   "tp": "work",
+   "forms": {
+    "n": "vision",
+    "adj": "visual, visionary",
+    "v": "visualise"
+   },
+   "col": [
+    "a clear vision",
+    "a vision for the future",
+    "blurred vision",
+    "visual aids"
+   ]
+  }
+ ],
+ "wf": [
+  {
+   "s": "The benefits of the new law are already clearly ___.",
+   "base": "EVIDENCE",
+   "a": "evident"
+  },
+  {
+   "s": "Many students prefer ___ aids such as charts and diagrams.",
+   "base": "VISION",
+   "a": "visual"
+  },
+  {
+   "s": "Working with animals requires close ___ at all times.",
+   "base": "SUPERVISE",
+   "a": "supervision"
+  }
+ ],
+ "err": [
+  {
+   "s": "There are many *evidences* that smoking causes cancer.",
+   "a": "evidence"
+  },
+  {
+   "s": "The charity *provides* poor families food and clothing.",
+   "a": "provides poor families with"
+  }
+ ],
+ "reading": {
+  "title": "Should children use screens before bed?",
+  "text": "There is growing evidence that screens disturb children's sleep. Blue light, which is visible to the eye but hard to notice, tells the brain that it is still daytime. Paediatricians recommend that young children should be supervised when they use tablets and that parents provide a screen-free hour before bedtime. Some governments have revised their health advice to include these points. Researchers have a simple vision: a bedroom where books, not phones, are the last thing a child sees at night."
+ },
+ "write": "Should parents limit the time children spend on screens? Give your opinion. Viết 2–3 câu, dùng ít nhất 2 từ trong chương.",
+ "pa": [
+  {
+   "s": "There is a lot of proof that sugar is bad for teeth.",
+   "k": "evidence",
+   "a": "There is strong evidence that sugar damages teeth."
+  },
+  {
+   "s": "The company gives every worker a laptop.",
+   "k": "provide",
+   "a": "The company provides every worker with a laptop."
+  }
+ ],
+ "wt": "opinion",
+ "rq": {
+  "type": "gap",
+  "box": [
+   "evidence",
+   "visible",
+   "supervised",
+   "provide",
+   "revised",
+   "daytime",
+   "night",
+   "vision"
+  ],
+  "text": "There is increasing [1] that screens harm children's sleep. Blue light is [2] but hard to notice, and it makes the brain think it is still [3]. Experts say children should be [4] when using tablets and that parents should [5] a screen-free hour before bed. Several governments have [6] their health advice.",
+  "a": [
+   "evidence",
+   "visible",
+   "daytime",
+   "supervised",
+   "provide",
+   "revised"
+  ]
+ },
+ "spk": {
+  "part": 2,
+  "topic": "Describe a time when you saw something interesting in a museum or gallery.",
+  "bullets": [
+   "where it was",
+   "what you saw",
+   "who you were with",
+   "and explain why it was interesting to you."
+  ]
+ },
+ "syn": [
+  [
+   "evidence",
+   "proof"
+  ],
+  [
+   "provide",
+   "supply"
+  ],
+  [
+   "supervise",
+   "oversee"
+  ],
+  [
+   "visible",
+   "noticeable"
+  ],
+  [
+   "revise",
+   "amend"
+  ]
+ ]
+}

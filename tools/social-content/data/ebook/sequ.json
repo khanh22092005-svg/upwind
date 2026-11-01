@@ -1,0 +1,316 @@
+{
+ "id": "sequ",
+ "root": "sequ / secu",
+ "origin": "Latin sequi",
+ "core": "theo sau",
+ "image": "một hàng người nối đuôi nhau đi theo người dẫn đầu",
+ "hook": "{{consequence}}, {{sequel}}, {{prosecute}}: hậu quả, phần tiếp theo và khởi tố đều… “theo sau”?",
+ "bait": {
+  "word": "sequel",
+  "literal": "thứ theo sau"
+ },
+ "words": [
+  {
+   "word": "consequence",
+   "pos": "n.",
+   "ipa": "/ˈkɒnsɪkwəns/",
+   "parts": [
+    {
+     "t": "con",
+     "k": "pre",
+     "vi": "cùng"
+    },
+    {
+     "t": "sequ",
+     "k": "root",
+     "vi": "theo sau"
+    },
+    {
+     "t": "ence",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "hậu quả",
+   "story": "điều theo sau cùng với một hành động",
+   "example": "Climate change will have serious consequences for farming.",
+   "example_vi": "Biến đổi khí hậu sẽ gây hậu quả nghiêm trọng cho nông nghiệp.",
+   "tp": "env",
+   "forms": {
+    "n": "consequence",
+    "adj": "consequent",
+    "adv": "consequently"
+   },
+   "col": [
+    "serious consequences",
+    "as a consequence",
+    "face the consequences",
+    "unintended consequences"
+   ]
+  },
+  {
+   "word": "sequence",
+   "pos": "n.",
+   "ipa": "/ˈsiːkwəns/",
+   "parts": [
+    {
+     "t": "sequ",
+     "k": "root",
+     "vi": "theo sau"
+    },
+    {
+     "t": "ence",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "trình tự, chuỗi",
+   "story": "cái này theo sau cái kia",
+   "example": "Put the events in the correct sequence.",
+   "example_vi": "Sắp xếp các sự kiện theo đúng trình tự.",
+   "tp": "sci",
+   "forms": {
+    "n": "sequence",
+    "adj": "sequential"
+   },
+   "col": [
+    "in sequence",
+    "a sequence of events",
+    "the correct sequence"
+   ]
+  },
+  {
+   "word": "subsequent",
+   "pos": "adj.",
+   "ipa": "/ˈsʌbsɪkwənt/",
+   "parts": [
+    {
+     "t": "sub",
+     "k": "pre",
+     "vi": "dưới, sau"
+    },
+    {
+     "t": "sequ",
+     "k": "root",
+     "vi": "theo sau"
+    },
+    {
+     "t": "ent",
+     "k": "suf",
+     "vi": "tính từ"
+    }
+   ],
+   "meaning": "tiếp theo, sau đó",
+   "story": "xảy ra theo ngay phía sau",
+   "example": "The storm and the subsequent floods destroyed thousands of homes.",
+   "example_vi": "Cơn bão và trận lũ sau đó đã phá huỷ hàng nghìn ngôi nhà.",
+   "tp": "sci",
+   "forms": {
+    "adj": "subsequent",
+    "adv": "subsequently"
+   },
+   "col": [
+    "subsequent years",
+    "subsequent research",
+    "subsequently discovered"
+   ]
+  },
+  {
+   "word": "consecutive",
+   "pos": "adj.",
+   "ipa": "/kənˈsekjətɪv/",
+   "parts": [
+    {
+     "t": "con",
+     "k": "pre",
+     "vi": "cùng"
+    },
+    {
+     "t": "secu",
+     "k": "root",
+     "vi": "theo sau"
+    },
+    {
+     "t": "tive",
+     "k": "suf",
+     "vi": "tính từ"
+    }
+   ],
+   "meaning": "liên tiếp",
+   "story": "cái nọ theo sát cái kia không đứt quãng",
+   "example": "Prices have risen for five consecutive years.",
+   "example_vi": "Giá đã tăng năm năm liên tiếp.",
+   "tp": "work",
+   "forms": {
+    "adj": "consecutive",
+    "adv": "consecutively"
+   },
+   "col": [
+    "three consecutive years",
+    "consecutive days",
+    "for the second consecutive year"
+   ]
+  },
+  {
+   "word": "sequel",
+   "pos": "n.",
+   "ipa": "/ˈsiːkwəl/",
+   "parts": [
+    {
+     "t": "sequ",
+     "k": "root",
+     "vi": "theo sau"
+    },
+    {
+     "t": "el",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "phần tiếp theo (phim, sách)",
+   "story": "phần đi theo sau phần đầu",
+   "example": "The sequel was even more successful than the first film.",
+   "example_vi": "Phần tiếp theo còn thành công hơn phim đầu.",
+   "tp": "media",
+   "forms": {
+    "n": "sequel"
+   },
+   "col": [
+    "a sequel to",
+    "the long-awaited sequel"
+   ]
+  },
+  {
+   "word": "prosecute",
+   "pos": "v.",
+   "ipa": "/ˈprɒsɪkjuːt/",
+   "parts": [
+    {
+     "t": "pro",
+     "k": "pre",
+     "vi": "về phía trước"
+    },
+    {
+     "t": "secu",
+     "k": "root",
+     "vi": "theo sau"
+    },
+    {
+     "t": "te",
+     "k": "suf",
+     "vi": ""
+    }
+   ],
+   "meaning": "khởi tố",
+   "story": "theo đuổi một vụ việc tới cùng trước toà",
+   "example": "Companies that pollute rivers should be prosecuted.",
+   "example_vi": "Các công ty gây ô nhiễm sông ngòi cần bị khởi tố.",
+   "tp": "crime",
+   "forms": {
+    "v": "prosecute",
+    "n": "prosecution, prosecutor"
+   },
+   "col": [
+    "be prosecuted for",
+    "face prosecution",
+    "the public prosecutor"
+   ]
+  }
+ ],
+ "wf": [
+  {
+   "s": "Prices rose, and ___, sales fell.",
+   "base": "CONSEQUENCE",
+   "a": "consequently"
+  },
+  {
+   "s": "He faced ___ for tax fraud.",
+   "base": "PROSECUTE",
+   "a": "prosecution"
+  },
+  {
+   "s": "The house was ___ sold to a hotel group.",
+   "base": "SUBSEQUENT",
+   "a": "subsequently"
+  }
+ ],
+ "err": [
+  {
+   "s": "The decision had serious *consequents* for the town.",
+   "a": "consequences"
+  },
+  {
+   "s": "The team won the league for three *continuous* years.",
+   "a": "consecutive"
+  }
+ ],
+ "tf": [],
+ "pa": [
+  {
+   "s": "As a result of the strike, many flights were cancelled.",
+   "k": "consequence",
+   "a": "As a consequence of the strike, many flights were cancelled."
+  },
+  {
+   "s": "Sales went up every year from 2019 to 2023.",
+   "k": "consecutive",
+   "a": "Sales rose for five consecutive years."
+  }
+ ],
+ "reading": {
+  "title": "The cost of fast fashion",
+  "text": "For the third consecutive year, global clothing production has broken records. Cheap fashion has clear benefits for shoppers, but its consequences for the environment are serious. The textile industry uses huge amounts of water, and most clothes are thrown away within a year. In 2013, a factory collapse in Bangladesh killed more than 1,100 workers; subsequent investigations found that warning signs had been ignored. Several managers were prosecuted. Campaigners say the sequence is always the same: a disaster, a promise to change, and then business as usual."
+ },
+ "rq": {
+  "type": "tfng",
+  "items": [
+   {
+    "s": "Clothing production has reached a record level for three years in a row.",
+    "a": "T"
+   },
+   {
+    "s": "Most clothes are kept for more than a year.",
+    "a": "F"
+   },
+   {
+    "s": "All the managers responsible for the collapse went to prison.",
+    "a": "NG"
+   },
+   {
+    "s": "Campaigners believe the industry rarely changes after disasters.",
+    "a": "T"
+   }
+  ]
+ },
+ "syn": [
+  [
+   "consequence",
+   "result"
+  ],
+  [
+   "subsequent",
+   "later"
+  ],
+  [
+   "consecutive",
+   "in a row"
+  ],
+  [
+   "prosecute",
+   "take to court"
+  ],
+  [
+   "sequence",
+   "order"
+  ]
+ ],
+ "spk": {
+  "part": 3,
+  "qs": [
+   "Who is responsible for the consequences of fast fashion: companies or consumers?",
+   "Why do people keep buying cheap clothes even when they know about the problems?"
+  ]
+ },
+ "wt": "twopart",
+ "write": "Many people buy cheap clothes and throw them away quickly. Why is this happening? What effects does it have on the environment?"
+}

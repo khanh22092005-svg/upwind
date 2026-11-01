@@ -1,0 +1,319 @@
+{
+ "id": "fer",
+ "root": "fer",
+ "origin": "Latin ferre",
+ "core": "mang, chở",
+ "image": "một người khuân chiếc hộp đi theo nhiều hướng khác nhau",
+ "hook": "{{transfer}}, {{refer}}, {{offer}}: chuyển, nhắc tới, đề nghị… tất cả đều là “mang” theo một hướng?",
+ "bait": {
+  "word": "offer",
+  "literal": "mang đến trước mặt"
+ },
+ "words": [
+  {
+   "word": "transfer",
+   "pos": "v. / n.",
+   "ipa": "/trænsˈfɜː/",
+   "parts": [
+    {
+     "t": "trans",
+     "k": "pre",
+     "vi": "qua, sang"
+    },
+    {
+     "t": "fer",
+     "k": "root",
+     "vi": "mang"
+    }
+   ],
+   "meaning": "chuyển (tiền, người, kỹ năng)",
+   "story": "mang từ bên này sang bên kia",
+   "example": "Skills learned in sport can transfer to the workplace.",
+   "example_vi": "Kỹ năng học từ thể thao có thể chuyển sang môi trường làm việc.",
+   "tp": "work",
+   "forms": {
+    "n": "transfer",
+    "adj": "transferable"
+   },
+   "col": [
+    "transfer money",
+    "transferable skills",
+    "technology transfer"
+   ]
+  },
+  {
+   "word": "refer",
+   "pos": "v.",
+   "ipa": "/rɪˈfɜː/",
+   "parts": [
+    {
+     "t": "re",
+     "k": "pre",
+     "vi": "trở lại"
+    },
+    {
+     "t": "fer",
+     "k": "root",
+     "vi": "mang"
+    }
+   ],
+   "meaning": "nhắc tới; chuyển (bệnh nhân) đến",
+   "story": "mang một điều trở lại để nói đến nó",
+   "example": "The doctor referred her to a specialist.",
+   "example_vi": "Bác sĩ chuyển cô ấy đến một chuyên gia.",
+   "tp": "health",
+   "forms": {
+    "v": "refer",
+    "n": "reference, referral"
+   },
+   "col": [
+    "refer to",
+    "refer someone to a specialist",
+    "make reference to",
+    "a letter of reference"
+   ]
+  },
+  {
+   "word": "infer",
+   "pos": "v.",
+   "ipa": "/ɪnˈfɜː/",
+   "parts": [
+    {
+     "t": "in",
+     "k": "pre",
+     "vi": "vào trong"
+    },
+    {
+     "t": "fer",
+     "k": "root",
+     "vi": "mang"
+    }
+   ],
+   "meaning": "suy ra",
+   "story": "mang ý nghĩa từ dữ kiện vào trong đầu mình",
+   "example": "From the data, we can infer that sales will fall.",
+   "example_vi": "Từ số liệu, ta có thể suy ra doanh số sẽ giảm.",
+   "tp": "sci",
+   "forms": {
+    "v": "infer",
+    "n": "inference"
+   },
+   "col": [
+    "infer from",
+    "draw an inference",
+    "it is reasonable to infer that"
+   ],
+   "trap": "{{infer}} là người nghe suy ra; {{imply}} là người nói ngụ ý. Đừng dùng lẫn."
+  },
+  {
+   "word": "differ",
+   "pos": "v.",
+   "ipa": "/ˈdɪfə/",
+   "parts": [
+    {
+     "t": "dif",
+     "k": "pre",
+     "vi": "tách rời"
+    },
+    {
+     "t": "fer",
+     "k": "root",
+     "vi": "mang"
+    }
+   ],
+   "meaning": "khác nhau",
+   "story": "mang về hai phía tách rời nhau",
+   "example": "Opinions differ on how to solve the housing crisis.",
+   "example_vi": "Có nhiều ý kiến khác nhau về cách giải quyết khủng hoảng nhà ở.",
+   "tp": "daily",
+   "forms": {
+    "v": "differ, differentiate",
+    "n": "difference",
+    "adj": "different"
+   },
+   "col": [
+    "differ from",
+    "differ greatly",
+    "opinions differ",
+    "a significant difference"
+   ]
+  },
+  {
+   "word": "offer",
+   "pos": "v. / n.",
+   "ipa": "/ˈɒfə/",
+   "parts": [
+    {
+     "t": "of",
+     "k": "pre",
+     "vi": "hướng tới"
+    },
+    {
+     "t": "fer",
+     "k": "root",
+     "vi": "mang"
+    }
+   ],
+   "meaning": "đề nghị, cung cấp",
+   "story": "mang đến đặt trước mặt người khác",
+   "example": "Many companies offer flexible working hours.",
+   "example_vi": "Nhiều công ty cho phép giờ làm việc linh hoạt.",
+   "tp": "work",
+   "forms": {
+    "v": "offer",
+    "n": "offer"
+   },
+   "col": [
+    "offer support",
+    "offer an opportunity",
+    "a job offer",
+    "accept an offer"
+   ]
+  },
+  {
+   "word": "fertile",
+   "pos": "adj.",
+   "ipa": "/ˈfɜːtaɪl/",
+   "parts": [
+    {
+     "t": "fer",
+     "k": "root",
+     "vi": "mang, sinh ra"
+    },
+    {
+     "t": "tile",
+     "k": "suf",
+     "vi": "tính từ"
+    }
+   ],
+   "meaning": "màu mỡ; có khả năng sinh sản",
+   "story": "mảnh đất “mang” được nhiều hoa trái",
+   "example": "The river delta has some of the most fertile land in Asia.",
+   "example_vi": "Vùng châu thổ có những vùng đất màu mỡ nhất châu Á.",
+   "tp": "env",
+   "forms": {
+    "adj": "fertile, infertile",
+    "n": "fertility, fertiliser",
+    "v": "fertilise"
+   },
+   "col": [
+    "fertile soil",
+    "fertile land",
+    "chemical fertilisers"
+   ]
+  }
+ ],
+ "wf": [
+  {
+   "s": "Communication is a highly ___ skill that is useful in any job.",
+   "base": "TRANSFER",
+   "a": "transferable"
+  },
+  {
+   "s": "There is a big ___ between the two proposals.",
+   "base": "DIFFER",
+   "a": "difference"
+  },
+  {
+   "s": "Chemical ___ can pollute rivers.",
+   "base": "FERTILE",
+   "a": "fertilisers"
+  }
+ ],
+ "err": [
+  {
+   "s": "The two plans *differ with* each other in cost.",
+   "a": "differ from"
+  },
+  {
+   "s": "The writer *infers* that the government is to blame, but she never says it directly.",
+   "a": "implies"
+  }
+ ],
+ "tf": [],
+ "pa": [
+  {
+   "s": "The two cities are not the same in many ways.",
+   "k": "differ",
+   "a": "The two cities differ in many ways."
+  },
+  {
+   "s": "The company wanted to give her a job, but she said no.",
+   "k": "offer",
+   "a": "She turned down the company's job offer."
+  }
+ ],
+ "reading": {
+  "title": "Farms on the roof",
+  "text": "Singapore imports more than 90 percent of its food, so the government has started to offer grants to rooftop farms. The idea is not to replace imports but to transfer some production closer to consumers. Supporters refer to studies showing that city farms can grow vegetables using far less water than fields, even without fertile soil. Opinions differ, however, on how much these farms can really produce. From early figures, analysts infer that rooftop farms supply less than five percent of the vegetables the city needs, but they also create jobs and teach young people where food comes from."
+ },
+ "rq": {
+  "type": "mcq",
+  "items": [
+   {
+    "q": "Why does the Singapore government support rooftop farms?",
+    "o": [
+     "To replace all food imports",
+     "To move some production closer to consumers",
+     "To export vegetables",
+     "To reduce taxes"
+    ],
+    "a": "B"
+   },
+   {
+    "q": "What do supporters say about city farms?",
+    "o": [
+     "They need fertile soil.",
+     "They use much less water than fields.",
+     "They are cheaper than fields.",
+     "They will replace imports."
+    ],
+    "a": "B"
+   },
+   {
+    "q": "What do early figures suggest?",
+    "o": [
+     "Rooftop farms meet most of the city's needs.",
+     "Rooftop farms supply only a small share of vegetables.",
+     "Rooftop farms lose money.",
+     "Rooftop farms will soon close."
+    ],
+    "a": "B"
+   }
+  ]
+ },
+ "syn": [
+  [
+   "transfer",
+   "move"
+  ],
+  [
+   "infer",
+   "deduce"
+  ],
+  [
+   "differ",
+   "vary"
+  ],
+  [
+   "offer",
+   "provide"
+  ],
+  [
+   "fertile",
+   "productive"
+  ]
+ ],
+ "spk": {
+  "part": 2,
+  "topic": "Describe a skill you learned that has been useful in different situations.",
+  "bullets": [
+   "what the skill is",
+   "how you learned it",
+   "where you have used it",
+   "and explain why it is useful."
+  ]
+ },
+ "wt": "advdis",
+ "write": "Some people think cities should grow more of their own food on rooftops and in parks. What are the advantages and disadvantages of this?"
+}

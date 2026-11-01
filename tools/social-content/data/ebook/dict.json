@@ -1,0 +1,199 @@
+{
+ "id": "dict",
+ "words": {
+  "predict": {
+   "tp": "sci",
+   "forms": {
+    "v": "predict",
+    "n": "prediction",
+    "adj": "predictable, unpredictable",
+    "adv": "predictably"
+   },
+   "col": [
+    "accurately predict",
+    "make a prediction",
+    "highly unpredictable",
+    "predict the future"
+   ]
+  },
+  "contradict": {
+   "tp": "sci",
+   "forms": {
+    "v": "contradict",
+    "n": "contradiction",
+    "adj": "contradictory"
+   },
+   "col": [
+    "contradict the evidence",
+    "a direct contradiction",
+    "contradictory findings",
+    "a contradiction in terms"
+   ]
+  },
+  "dictate": {
+   "tp": "soc",
+   "forms": {
+    "v": "dictate",
+    "n": "dictator, dictatorship, dictation"
+   },
+   "col": [
+    "dictate terms",
+    "dictate what people wear",
+    "a military dictatorship"
+   ]
+  },
+  "verdict": {
+   "tp": "crime",
+   "forms": {
+    "n": "verdict"
+   },
+   "col": [
+    "reach a verdict",
+    "a guilty verdict",
+    "deliver a verdict",
+    "the final verdict"
+   ]
+  },
+  "indicate": {
+   "tp": "sci",
+   "forms": {
+    "v": "indicate",
+    "n": "indication, indicator",
+    "adj": "indicative"
+   },
+   "col": [
+    "research indicates that",
+    "a clear indication",
+    "a key indicator",
+    "economic indicators"
+   ]
+  },
+  "addict": {
+   "tp": "health",
+   "forms": {
+    "n": "addict, addiction",
+    "adj": "addicted, addictive"
+   },
+   "col": [
+    "a drug addict",
+    "be addicted to",
+    "highly addictive",
+    "internet addiction"
+   ]
+  },
+  "jurisdiction": {
+   "tp": "crime",
+   "forms": {
+    "n": "jurisdiction"
+   },
+   "col": [
+    "fall under the jurisdiction of",
+    "have jurisdiction over",
+    "outside the court's jurisdiction"
+   ]
+  }
+ },
+ "reading": {
+  "title": "Are smartphones addictive?",
+  "text": "Few experts predicted how quickly smartphones would change daily life. Many psychologists now argue that social apps are designed to be addictive, and surveys indicate that the average teenager checks a phone more than 100 times a day. Yet other studies contradict this alarming picture, finding that most users can stop when they need to. Because technology companies operate across borders, no single government has jurisdiction over their designs, so they still dictate many of the rules themselves. The final verdict on whether phones harm young people's health has not yet been reached."
+ },
+ "wf": [
+  {
+   "s": "The weather in the mountains is highly ___, so always bring a raincoat.",
+   "base": "PREDICT",
+   "a": "unpredictable"
+  },
+  {
+   "s": "Rising house prices are a key ___ of a growing economy.",
+   "base": "INDICATE",
+   "a": "indicator"
+  },
+  {
+   "s": "The two reports reached completely ___ conclusions.",
+   "base": "CONTRADICT",
+   "a": "contradictory"
+  }
+ ],
+ "err": [
+  {
+   "s": "After three days, the jury finally *made* a verdict of not guilty.",
+   "a": "reached"
+  },
+  {
+   "s": "Many teenagers are *addictive* to video games.",
+   "a": "addicted"
+  }
+ ],
+ "write": "Some people think that governments should limit the time children spend on smartphones. To what extent do you agree? Viết 2–3 câu, dùng ít nhất 2 từ trong chương.",
+ "pa": [
+  {
+   "s": "It is difficult to say what will happen to house prices next year.",
+   "k": "predict",
+   "a": "House prices next year are difficult to predict."
+  },
+  {
+   "s": "The survey shows that most people sleep less than seven hours.",
+   "k": "indicate",
+   "a": "The survey indicates that most people sleep less than seven hours."
+  }
+ ],
+ "sp": "Why do you think some people find it difficult to stop using their phones?",
+ "wt": "opinion",
+ "rq": {
+  "type": "mcq",
+  "items": [
+   {
+    "q": "According to the text, what do surveys show about teenagers?",
+    "o": [
+     "They prefer apps to games.",
+     "They check their phones very frequently.",
+     "They cannot stop using phones.",
+     "They are healthier than before."
+    ],
+    "a": "B"
+   },
+   {
+    "q": "Why is it hard for one government to control app design?",
+    "o": [
+     "Apps are free to download.",
+     "Psychologists disagree.",
+     "Companies operate in many countries.",
+     "Teenagers do not vote."
+    ],
+    "a": "C"
+   },
+   {
+    "q": "What does the writer say about the effect of phones on health?",
+    "o": [
+     "It has been proved harmful.",
+     "It has been proved harmless.",
+     "Experts have not reached a final conclusion.",
+     "Only adults are affected."
+    ],
+    "a": "C"
+   }
+  ]
+ },
+ "syn": [
+  [
+   "predict",
+   "forecast"
+  ],
+  [
+   "indicate",
+   "suggest"
+  ],
+  [
+   "contradict",
+   "be inconsistent with"
+  ],
+  [
+   "addictive",
+   "habit-forming"
+  ],
+  [
+   "verdict",
+   "conclusion"
+  ]
+ ]
+}

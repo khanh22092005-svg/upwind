@@ -1,0 +1,180 @@
+{
+ "id": "ced",
+ "words": {
+  "precede": {
+   "tp": "sci",
+   "forms": {
+    "v": "precede",
+    "n": "precedent, predecessor",
+    "adj": "preceding, unprecedented"
+   },
+   "col": [
+    "the preceding year",
+    "an unprecedented rise",
+    "set a precedent",
+    "on an unprecedented scale"
+   ]
+  },
+  "proceed": {
+   "tp": "work",
+   "forms": {
+    "v": "proceed",
+    "n": "procedure, process, proceeds"
+   },
+   "col": [
+    "proceed with the plan",
+    "a standard procedure",
+    "the proceeds of the sale"
+   ]
+  },
+  "exceed": {
+   "tp": "work",
+   "forms": {
+    "v": "exceed",
+    "n": "excess",
+    "adj": "excessive",
+    "adv": "excessively"
+   },
+   "col": [
+    "exceed expectations",
+    "exceed the speed limit",
+    "excessive use of",
+    "in excess of"
+   ]
+  },
+  "recede": {
+   "tp": "env",
+   "forms": {
+    "v": "recede",
+    "n": "recession"
+   },
+   "col": [
+    "the floodwaters receded",
+    "an economic recession",
+    "the threat recedes"
+   ]
+  },
+  "concede": {
+   "tp": "soc",
+   "forms": {
+    "v": "concede",
+    "n": "concession"
+   },
+   "col": [
+    "concede defeat",
+    "concede that",
+    "make concessions"
+   ]
+  },
+  "access": {
+   "tp": "edu",
+   "forms": {
+    "n": "access, accessibility",
+    "v": "access",
+    "adj": "accessible, inaccessible"
+   },
+   "col": [
+    "have access to",
+    "gain access to",
+    "easily accessible",
+    "access to education"
+   ]
+  }
+ },
+ "reading": {
+  "title": "After the flood",
+  "text": "The floods of last autumn were unprecedented: rainfall in the region exceeded the average for the whole year in just three days. When the water finally receded, thousands of homes were damaged and several villages were inaccessible by road. Engineers had warned in the preceding decade that the river defences were too low. The government has now conceded that it ignored those warnings, and it plans to proceed with a new flood barrier. However, with the country close to recession, many residents doubt that the money will arrive soon."
+ },
+ "wf": [
+  {
+   "s": "The ___ use of antibiotics has created resistant bacteria.",
+   "base": "EXCEED",
+   "a": "excessive"
+  },
+  {
+   "s": "The country experienced an ___ heatwave last summer.",
+   "base": "PRECEDE",
+   "a": "unprecedented"
+  },
+  {
+   "s": "Public buildings must be ___ to people in wheelchairs.",
+   "base": "ACCESS",
+   "a": "accessible"
+  }
+ ],
+ "err": [
+  {
+   "s": "Every child should have access *for* free education.",
+   "a": "to"
+  },
+  {
+   "s": "The results *passed over* all our expectations.",
+   "a": "exceeded"
+  }
+ ],
+ "write": "In some countries, many people still do not have access to clean water or education. What should governments do? Viết 2–3 câu, dùng ít nhất 2 từ trong chương.",
+ "pa": [
+  {
+   "s": "The number of tourists was higher than anyone expected.",
+   "k": "exceed",
+   "a": "The number of tourists exceeded expectations."
+  },
+  {
+   "s": "Many villages could not be reached by road.",
+   "k": "inaccessible",
+   "a": "Many villages were inaccessible by road."
+  }
+ ],
+ "wt": "problem",
+ "rq": {
+  "type": "sent",
+  "items": [
+   {
+    "s": "In just three days, rainfall exceeded the ____ for the whole year.",
+    "a": "average"
+   },
+   {
+    "s": "After the floods, several villages could not be reached by ____.",
+    "a": "road"
+   },
+   {
+    "s": "Engineers said in the preceding decade that the river ____ were too low.",
+    "a": "defences"
+   },
+   {
+    "s": "The government plans to build a new flood ____.",
+    "a": "barrier"
+   }
+  ]
+ },
+ "spk": {
+  "part": 1,
+  "qs": [
+   "What kind of weather do you like best?",
+   "Has your hometown ever had a flood or a storm?",
+   "Is it easy to access public services where you live?"
+  ]
+ },
+ "syn": [
+  [
+   "exceed",
+   "go beyond"
+  ],
+  [
+   "unprecedented",
+   "never seen before"
+  ],
+  [
+   "recede",
+   "go down"
+  ],
+  [
+   "concede",
+   "admit"
+  ],
+  [
+   "proceed with",
+   "go ahead with"
+  ]
+ ]
+}

@@ -1,0 +1,190 @@
+{
+ "id": "tain",
+ "words": {
+  "contain": {
+   "tp": "health",
+   "forms": {
+    "v": "contain",
+    "n": "container, containment"
+   },
+   "col": [
+    "contain the spread of",
+    "contain information",
+    "contain sugar",
+    "a plastic container"
+   ]
+  },
+  "maintain": {
+   "tp": "daily",
+   "forms": {
+    "v": "maintain",
+    "n": "maintenance"
+   },
+   "col": [
+    "maintain a healthy lifestyle",
+    "maintain contact",
+    "maintain standards",
+    "routine maintenance"
+   ]
+  },
+  "obtain": {
+   "tp": "edu",
+   "forms": {
+    "v": "obtain",
+    "adj": "obtainable"
+   },
+   "col": [
+    "obtain a degree",
+    "obtain permission",
+    "obtain information"
+   ]
+  },
+  "retain": {
+   "tp": "work",
+   "forms": {
+    "v": "retain",
+    "n": "retention"
+   },
+   "col": [
+    "retain staff",
+    "retain information",
+    "retain heat",
+    "staff retention"
+   ]
+  },
+  "sustain": {
+   "tp": "env",
+   "forms": {
+    "v": "sustain",
+    "adj": "sustainable, unsustainable",
+    "n": "sustainability"
+   },
+   "col": [
+    "sustainable development",
+    "sustain economic growth",
+    "environmentally sustainable",
+    "sustain an injury"
+   ]
+  },
+  "detain": {
+   "tp": "crime",
+   "forms": {
+    "v": "detain",
+    "n": "detention, detainee"
+   },
+   "col": [
+    "be detained by police",
+    "detain suspects",
+    "a detention centre"
+   ]
+  },
+  "tenant": {
+   "tp": "daily",
+   "forms": {
+    "n": "tenant, tenancy",
+    "adj": "tenacious"
+   },
+   "col": [
+    "a tenancy agreement",
+    "evict a tenant",
+    "a tenacious fighter"
+   ]
+  }
+ },
+ "reading": {
+  "title": "Can cities be sustainable?",
+  "text": "More than half of the world's population now lives in cities, and many experts doubt that this growth is sustainable. Old buildings are expensive to maintain and retain heat poorly, so tenants in rented flats often pay huge energy bills. Some cities have obtained funding to insulate homes, but landlords cannot always be persuaded to take part. Meanwhile, planners try to contain urban sprawl by building upwards rather than outwards. The aim is to sustain economic growth while cutting energy use, a balance that no major city has fully achieved yet."
+ },
+ "wf": [
+  {
+   "s": "Regular ___ keeps machines running for longer.",
+   "base": "MAINTAIN",
+   "a": "maintenance"
+  },
+  {
+   "s": "Burning coal is an ___ way to produce energy in the long term.",
+   "base": "SUSTAIN",
+   "a": "unsustainable"
+  },
+  {
+   "s": "The company offers bonuses to improve staff ___.",
+   "base": "RETAIN",
+   "a": "retention"
+  }
+ ],
+ "err": [
+  {
+   "s": "Fizzy drinks *include* a lot of sugar, so children should avoid them.",
+   "a": "contain"
+  },
+  {
+   "s": "It is hard to *contain* a healthy lifestyle if you work long hours.",
+   "a": "maintain"
+  }
+ ],
+ "write": "More and more people are moving to big cities. What problems does this cause, and how can they be solved? Viết 2–3 câu, dùng ít nhất 2 từ trong chương.",
+ "pa": [
+  {
+   "s": "It is important to keep a good balance between work and life.",
+   "k": "maintain",
+   "a": "It is important to maintain a healthy work-life balance."
+  },
+  {
+   "s": "The company wants to keep its best employees.",
+   "k": "retain",
+   "a": "The company wants to retain its best employees."
+  }
+ ],
+ "wt": "problem",
+ "rq": {
+  "type": "ynng",
+  "items": [
+   {
+    "s": "The rapid growth of cities may not be sustainable.",
+    "a": "Y"
+   },
+   {
+    "s": "Landlords are always willing to insulate their homes.",
+    "a": "N"
+   },
+   {
+    "s": "Building upwards is the cheapest form of housing.",
+    "a": "NG"
+   },
+   {
+    "s": "No major city has yet balanced growth and lower energy use.",
+    "a": "Y"
+   }
+  ]
+ },
+ "spk": {
+  "part": 1,
+  "qs": [
+   "Do you live in a house or a flat?",
+   "What do you do to maintain your health?",
+   "Would you prefer to live in a big city or a small town?"
+  ]
+ },
+ "syn": [
+  [
+   "maintain",
+   "keep up"
+  ],
+  [
+   "obtain",
+   "get"
+  ],
+  [
+   "retain",
+   "keep"
+  ],
+  [
+   "sustainable",
+   "able to continue"
+  ],
+  [
+   "contain",
+   "hold back"
+  ]
+ ]
+}

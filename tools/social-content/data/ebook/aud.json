@@ -1,0 +1,299 @@
+{
+ "id": "aud",
+ "root": "aud / audi",
+ "origin": "Latin audire",
+ "core": "nghe",
+ "image": "một bàn tay khum sau tai để nghe cho rõ",
+ "hook": "{{audience}}, {{audition}}, {{audit}}: khán giả, thử giọng và… kiểm toán thì có gì chung?",
+ "bait": {
+  "word": "audit",
+  "literal": "một buổi lắng nghe"
+ },
+ "words": [
+  {
+   "word": "audience",
+   "pos": "n.",
+   "ipa": "/ˈɔːdiəns/",
+   "parts": [
+    {
+     "t": "audi",
+     "k": "root",
+     "vi": "nghe"
+    },
+    {
+     "t": "ence",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "khán giả, thính giả",
+   "story": "những người ngồi lắng nghe",
+   "example": "The film was made for a young audience.",
+   "example_vi": "Bộ phim được làm cho khán giả trẻ.",
+   "tp": "media",
+   "forms": {
+    "n": "audience"
+   },
+   "col": [
+    "a target audience",
+    "a wide audience",
+    "attract an audience",
+    "a live audience"
+   ]
+  },
+  {
+   "word": "audible",
+   "pos": "adj.",
+   "ipa": "/ˈɔːdəbl/",
+   "parts": [
+    {
+     "t": "aud",
+     "k": "root",
+     "vi": "nghe"
+    },
+    {
+     "t": "ible",
+     "k": "suf",
+     "vi": "có thể"
+    }
+   ],
+   "meaning": "nghe được, nghe rõ",
+   "story": "có thể lọt được vào tai",
+   "example": "Her voice was barely audible above the noise of the traffic.",
+   "example_vi": "Giọng cô ấy gần như không nghe thấy giữa tiếng xe cộ.",
+   "tp": "sci",
+   "forms": {
+    "adj": "audible, inaudible",
+    "adv": "audibly"
+   },
+   "col": [
+    "barely audible",
+    "clearly audible",
+    "inaudible to humans"
+   ]
+  },
+  {
+   "word": "audition",
+   "pos": "n. / v.",
+   "ipa": "/ɔːˈdɪʃn/",
+   "parts": [
+    {
+     "t": "audi",
+     "k": "root",
+     "vi": "nghe"
+    },
+    {
+     "t": "tion",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "buổi thử giọng, thử vai",
+   "story": "buổi giám khảo ngồi nghe bạn hát hoặc diễn",
+   "example": "Over 2,000 teenagers attended the audition for the musical.",
+   "example_vi": "Hơn 2.000 bạn trẻ tham gia buổi thử vai cho vở nhạc kịch.",
+   "tp": "media",
+   "forms": {
+    "n": "audition",
+    "v": "audition"
+   },
+   "col": [
+    "hold auditions",
+    "audition for a role",
+    "pass an audition"
+   ]
+  },
+  {
+   "word": "auditorium",
+   "pos": "n.",
+   "ipa": "/ˌɔːdɪˈtɔːriəm/",
+   "parts": [
+    {
+     "t": "audi",
+     "k": "root",
+     "vi": "nghe"
+    },
+    {
+     "t": "tor",
+     "k": "suf",
+     "vi": "người"
+    },
+    {
+     "t": "ium",
+     "k": "suf",
+     "vi": "nơi chốn"
+    }
+   ],
+   "meaning": "hội trường, khán phòng",
+   "story": "nơi dành cho người đến nghe",
+   "example": "The lecture took place in a packed auditorium.",
+   "example_vi": "Bài giảng diễn ra trong một hội trường chật kín.",
+   "tp": "edu",
+   "forms": {
+    "n": "auditorium"
+   },
+   "col": [
+    "a packed auditorium",
+    "the school auditorium",
+    "a 500-seat auditorium"
+   ]
+  },
+  {
+   "word": "audit",
+   "pos": "n. / v.",
+   "ipa": "/ˈɔːdɪt/",
+   "parts": [
+    {
+     "t": "aud",
+     "k": "root",
+     "vi": "nghe"
+    },
+    {
+     "t": "it",
+     "k": "suf",
+     "vi": ""
+    }
+   ],
+   "meaning": "kiểm toán; đánh giá, rà soát",
+   "story": "ngày xưa sổ sách được đọc to cho người kiểm tra ngồi nghe",
+   "example": "An independent audit found serious errors in the accounts.",
+   "example_vi": "Một cuộc kiểm toán độc lập phát hiện sai sót nghiêm trọng trong sổ sách.",
+   "tp": "work",
+   "forms": {
+    "n": "audit, auditor",
+    "v": "audit"
+   },
+   "col": [
+    "carry out an audit",
+    "an independent audit",
+    "an energy audit"
+   ]
+  },
+  {
+   "word": "auditory",
+   "pos": "adj.",
+   "ipa": "/ˈɔːdətri/",
+   "parts": [
+    {
+     "t": "audit",
+     "k": "root",
+     "vi": "nghe"
+    },
+    {
+     "t": "ory",
+     "k": "suf",
+     "vi": "tính từ"
+    }
+   ],
+   "meaning": "thuộc thính giác",
+   "story": "liên quan đến việc nghe",
+   "example": "Auditory learners remember information better when they hear it.",
+   "example_vi": "Người học bằng thính giác nhớ thông tin tốt hơn khi được nghe.",
+   "tp": "health",
+   "forms": {
+    "adj": "auditory"
+   },
+   "col": [
+    "auditory learners",
+    "the auditory nerve",
+    "auditory processing"
+   ]
+  }
+ ],
+ "wf": [
+  {
+   "s": "The speaker's words were almost ___ because the microphone was broken.",
+   "base": "AUDIBLE",
+   "a": "inaudible"
+  },
+  {
+   "s": "All public companies must have their accounts checked by an independent ___.",
+   "base": "AUDIT",
+   "a": "auditor"
+  },
+  {
+   "s": "The concert was broadcast live to an ___ of millions.",
+   "base": "AUDIENCE",
+   "a": "audience"
+  }
+ ],
+ "err": [
+  {
+   "s": "The theatre *made* auditions for the new play last week.",
+   "a": "held"
+  },
+  {
+   "s": "The advertisement was designed for a *target audition* of young mothers.",
+   "a": "target audience"
+  }
+ ],
+ "reading": {
+  "title": "Do we learn by listening?",
+  "text": "Many teachers still sort students into visual and auditory learners. The idea is attractive: some children, it is said, learn best when information is audible, others when it is shown. However, when psychologists carried out an audit of the research, they found little evidence for it. Students did not learn more when lessons matched their supposed style. This matters because schools spend money on training based on the theory. A better approach, researchers say, is to match the method to the content: music is learnt by ear, maps by eye, whatever the audience."
+ },
+ "write": "Some people think that live music performances are better than recorded music. Do you agree? Viết 2–3 câu, dùng ít nhất 2 từ trong chương.",
+ "pa": [
+  {
+   "s": "The concert was watched by thousands of people.",
+   "k": "audience",
+   "a": "The concert attracted an audience of thousands."
+  },
+  {
+   "s": "His voice was so quiet that nobody could hear it.",
+   "k": "inaudible",
+   "a": "His voice was almost inaudible."
+  }
+ ],
+ "wt": "opinion",
+ "rq": {
+  "type": "sent",
+  "items": [
+   {
+    "s": "Many teachers divide students into visual and ____ learners.",
+    "a": "auditory"
+   },
+   {
+    "s": "After an audit of the research, psychologists found little ____ for the theory.",
+    "a": "evidence"
+   },
+   {
+    "s": "Schools spend money on ____ based on the learning-styles theory.",
+    "a": "training"
+   },
+   {
+    "s": "Researchers suggest matching the teaching method to the ____.",
+    "a": "content"
+   }
+  ]
+ },
+ "spk": {
+  "part": 1,
+  "qs": [
+   "Do you prefer listening to music or podcasts? Why?",
+   "Have you ever performed in front of an audience?",
+   "Do you find it easy to learn by listening?"
+  ]
+ },
+ "syn": [
+  [
+   "audience",
+   "viewers / listeners"
+  ],
+  [
+   "audible",
+   "able to be heard"
+  ],
+  [
+   "audit",
+   "official inspection"
+  ],
+  [
+   "audition",
+   "trial performance"
+  ],
+  [
+   "auditorium",
+   "hall"
+  ]
+ ]
+}

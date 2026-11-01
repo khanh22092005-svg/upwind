@@ -1,0 +1,305 @@
+{
+ "id": "pos",
+ "root": "pos / pon",
+ "origin": "Latin ponere",
+ "core": "đặt, để",
+ "image": "một bàn tay đặt một khối gỗ lên bàn",
+ "hook": "{{propose}}, {{oppose}}, {{postpone}}: đề xuất, phản đối, hoãn lại… chỉ là “đặt” ở những vị trí khác nhau.",
+ "bait": {
+  "word": "postpone",
+  "literal": "đặt ra phía sau"
+ },
+ "words": [
+  {
+   "word": "impose",
+   "pos": "v.",
+   "ipa": "/ɪmˈpəʊz/",
+   "parts": [
+    {
+     "t": "im",
+     "k": "pre",
+     "vi": "lên trên"
+    },
+    {
+     "t": "pose",
+     "k": "root",
+     "vi": "đặt"
+    }
+   ],
+   "meaning": "áp đặt",
+   "story": "đặt một gánh nặng lên người khác",
+   "example": "The government imposed a tax on sugary drinks.",
+   "example_vi": "Chính phủ áp thuế lên đồ uống có đường.",
+   "tp": "soc",
+   "forms": {
+    "v": "impose",
+    "n": "imposition"
+   },
+   "col": [
+    "impose a tax on",
+    "impose restrictions",
+    "impose a ban on"
+   ]
+  },
+  {
+   "word": "propose",
+   "pos": "v.",
+   "ipa": "/prəˈpəʊz/",
+   "parts": [
+    {
+     "t": "pro",
+     "k": "pre",
+     "vi": "ra phía trước"
+    },
+    {
+     "t": "pose",
+     "k": "root",
+     "vi": "đặt"
+    }
+   ],
+   "meaning": "đề xuất",
+   "story": "đặt một ý kiến ra trước mặt mọi người",
+   "example": "Scientists have proposed a new way to store energy.",
+   "example_vi": "Các nhà khoa học đã đề xuất một cách mới để lưu trữ năng lượng.",
+   "tp": "work",
+   "forms": {
+    "v": "propose",
+    "n": "proposal"
+   },
+   "col": [
+    "propose a solution",
+    "put forward a proposal",
+    "propose that"
+   ]
+  },
+  {
+   "word": "expose",
+   "pos": "v.",
+   "ipa": "/ɪkˈspəʊz/",
+   "parts": [
+    {
+     "t": "ex",
+     "k": "pre",
+     "vi": "ra ngoài"
+    },
+    {
+     "t": "pose",
+     "k": "root",
+     "vi": "đặt"
+    }
+   ],
+   "meaning": "phơi bày; cho tiếp xúc",
+   "story": "đặt ra ngoài cho ai cũng thấy",
+   "example": "Children are exposed to advertising from an early age.",
+   "example_vi": "Trẻ em tiếp xúc với quảng cáo từ rất sớm.",
+   "tp": "health",
+   "forms": {
+    "v": "expose",
+    "n": "exposure"
+   },
+   "col": [
+    "be exposed to",
+    "expose corruption",
+    "exposure to sunlight"
+   ]
+  },
+  {
+   "word": "oppose",
+   "pos": "v.",
+   "ipa": "/əˈpəʊz/",
+   "parts": [
+    {
+     "t": "op",
+     "k": "pre",
+     "vi": "chống lại"
+    },
+    {
+     "t": "pose",
+     "k": "root",
+     "vi": "đặt"
+    }
+   ],
+   "meaning": "phản đối",
+   "story": "đặt mình chắn ngược lại",
+   "example": "Many residents oppose the new airport.",
+   "example_vi": "Nhiều cư dân phản đối sân bay mới.",
+   "tp": "soc",
+   "forms": {
+    "v": "oppose",
+    "adj": "opposed, opposite, opposing",
+    "n": "opposition"
+   },
+   "col": [
+    "strongly oppose",
+    "be opposed to",
+    "the opposition party"
+   ],
+   "trap": "{{be opposed to}} + V-ing: {{opposed to building}}, không phải {{opposed to build}}."
+  },
+  {
+   "word": "component",
+   "pos": "n.",
+   "ipa": "/kəmˈpəʊnənt/",
+   "parts": [
+    {
+     "t": "com",
+     "k": "pre",
+     "vi": "cùng nhau"
+    },
+    {
+     "t": "pon",
+     "k": "root",
+     "vi": "đặt"
+    },
+    {
+     "t": "ent",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "thành phần",
+   "story": "những phần được đặt cùng nhau thành một khối",
+   "example": "Exercise is a key component of a healthy lifestyle.",
+   "example_vi": "Tập thể dục là thành phần then chốt của lối sống lành mạnh.",
+   "tp": "sci",
+   "forms": {
+    "n": "component"
+   },
+   "col": [
+    "a key component",
+    "an essential component",
+    "electronic components"
+   ]
+  },
+  {
+   "word": "postpone",
+   "pos": "v.",
+   "ipa": "/pəˈspəʊn/",
+   "parts": [
+    {
+     "t": "post",
+     "k": "pre",
+     "vi": "phía sau"
+    },
+    {
+     "t": "pone",
+     "k": "root",
+     "vi": "đặt"
+    }
+   ],
+   "meaning": "hoãn lại",
+   "story": "đặt việc gì đó ra phía sau",
+   "example": "The match was postponed because of heavy rain.",
+   "example_vi": "Trận đấu bị hoãn vì mưa lớn.",
+   "tp": "daily",
+   "forms": {
+    "v": "postpone",
+    "n": "postponement"
+   },
+   "col": [
+    "postpone a meeting",
+    "be postponed until",
+    "postponed indefinitely"
+   ]
+  }
+ ],
+ "wf": [
+  {
+   "s": "The government's ___ was rejected by parliament.",
+   "base": "PROPOSE",
+   "a": "proposal"
+  },
+  {
+   "s": "Too much ___ to the sun can damage your skin.",
+   "base": "EXPOSE",
+   "a": "exposure"
+  },
+  {
+   "s": "The two parties hold ___ views on immigration.",
+   "base": "OPPOSE",
+   "a": "opposing"
+  }
+ ],
+ "err": [
+  {
+   "s": "Many parents are opposed to *give* young children phones.",
+   "a": "giving"
+  },
+  {
+   "s": "The concert was *posted* until next month.",
+   "a": "postponed"
+  }
+ ],
+ "tf": [],
+ "pa": [
+  {
+   "s": "The council has suggested building a new bridge.",
+   "k": "propose",
+   "a": "The council has proposed building a new bridge."
+  },
+  {
+   "s": "Most farmers are against the new law.",
+   "k": "oppose",
+   "a": "Most farmers oppose the new law."
+  }
+ ],
+ "reading": {
+  "title": "Taxes or bans?",
+  "text": "Many governments want to reduce childhood obesity, but they disagree about how. Some have imposed taxes on sugary snacks. Others have proposed banning food advertising during children's programmes, since young viewers are exposed to thousands of adverts each year. Food companies strongly oppose both ideas, arguing that exercise is the most important component of good health. In the UK, a planned advertising ban was postponed twice before it finally came into force."
+ },
+ "rq": {
+  "type": "sent",
+  "items": [
+   {
+    "s": "Some governments have put ____ on sugary snacks.",
+    "a": "taxes"
+   },
+   {
+    "s": "Young viewers see thousands of ____ every year.",
+    "a": "adverts"
+   },
+   {
+    "s": "Food companies say that ____ is the most important part of good health.",
+    "a": "exercise"
+   },
+   {
+    "s": "The UK advertising ban was delayed ____ before it started.",
+    "a": "twice"
+   }
+  ]
+ },
+ "syn": [
+  [
+   "impose",
+   "introduce (a rule)"
+  ],
+  [
+   "propose",
+   "suggest"
+  ],
+  [
+   "oppose",
+   "be against"
+  ],
+  [
+   "postpone",
+   "delay"
+  ],
+  [
+   "component",
+   "part"
+  ]
+ ],
+ "spk": {
+  "part": 2,
+  "topic": "Describe a plan or event that was postponed.",
+  "bullets": [
+   "what it was",
+   "why it was postponed",
+   "how you felt about it",
+   "and explain what happened in the end."
+  ]
+ },
+ "wt": "opinion",
+ "write": "Some people think governments should ban advertisements for unhealthy food. To what extent do you agree or disagree?"
+}

@@ -1,0 +1,308 @@
+{
+ "id": "tend",
+ "root": "tend / tens",
+ "origin": "Latin tendere",
+ "core": "kéo căng, vươn tới",
+ "image": "một sợi dây cao su bị kéo căng ra",
+ "hook": "{{extend}}, {{intend}}, {{attend}}: kéo dài, dự định, tham dự… cùng một động tác “vươn tới”.",
+ "bait": {
+  "word": "tension",
+  "literal": "sợi dây bị kéo căng"
+ },
+ "words": [
+  {
+   "word": "extend",
+   "pos": "v.",
+   "ipa": "/ɪkˈstend/",
+   "parts": [
+    {
+     "t": "ex",
+     "k": "pre",
+     "vi": "ra ngoài"
+    },
+    {
+     "t": "tend",
+     "k": "root",
+     "vi": "kéo căng"
+    }
+   ],
+   "meaning": "kéo dài, mở rộng",
+   "story": "kéo căng ra xa hơn",
+   "example": "The government plans to extend the metro line to the airport.",
+   "example_vi": "Chính phủ dự định kéo dài tuyến metro tới sân bay.",
+   "tp": "work",
+   "forms": {
+    "v": "extend",
+    "n": "extension, extent",
+    "adj": "extensive"
+   },
+   "col": [
+    "extend a deadline",
+    "to a large extent",
+    "an extensive range of"
+   ]
+  },
+  {
+   "word": "intend",
+   "pos": "v.",
+   "ipa": "/ɪnˈtend/",
+   "parts": [
+    {
+     "t": "in",
+     "k": "pre",
+     "vi": "hướng vào"
+    },
+    {
+     "t": "tend",
+     "k": "root",
+     "vi": "vươn tới"
+    }
+   ],
+   "meaning": "dự định",
+   "story": "vươn ý nghĩ về phía một mục tiêu",
+   "example": "The policy is intended to reduce traffic in the city centre.",
+   "example_vi": "Chính sách nhằm giảm giao thông ở trung tâm thành phố.",
+   "tp": "soc",
+   "forms": {
+    "v": "intend",
+    "n": "intention",
+    "adj": "intentional, unintended"
+   },
+   "col": [
+    "be intended to",
+    "have no intention of",
+    "unintended consequences"
+   ]
+  },
+  {
+   "word": "tension",
+   "pos": "n.",
+   "ipa": "/ˈtenʃn/",
+   "parts": [
+    {
+     "t": "tens",
+     "k": "root",
+     "vi": "kéo căng"
+    },
+    {
+     "t": "ion",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "sự căng thẳng",
+   "story": "sợi dây bị kéo căng đến mức sắp đứt",
+   "example": "There is growing tension between the two countries.",
+   "example_vi": "Căng thẳng giữa hai nước ngày càng tăng.",
+   "tp": "soc",
+   "forms": {
+    "n": "tension",
+    "adj": "tense"
+   },
+   "col": [
+    "ease tension",
+    "rising tension",
+    "tension between"
+   ]
+  },
+  {
+   "word": "intensive",
+   "pos": "adj.",
+   "ipa": "/ɪnˈtensɪv/",
+   "parts": [
+    {
+     "t": "in",
+     "k": "pre",
+     "vi": "vào trong"
+    },
+    {
+     "t": "tens",
+     "k": "root",
+     "vi": "kéo căng"
+    },
+    {
+     "t": "ive",
+     "k": "suf",
+     "vi": "tính từ"
+    }
+   ],
+   "meaning": "chuyên sâu, cường độ cao",
+   "story": "kéo căng hết sức vào một việc",
+   "example": "She took an intensive English course before going abroad.",
+   "example_vi": "Cô ấy học một khoá tiếng Anh cấp tốc trước khi ra nước ngoài.",
+   "tp": "edu",
+   "forms": {
+    "adj": "intensive, intense",
+    "n": "intensity",
+    "v": "intensify"
+   },
+   "col": [
+    "an intensive course",
+    "intensive farming",
+    "intensive care"
+   ]
+  },
+  {
+   "word": "tendency",
+   "pos": "n.",
+   "ipa": "/ˈtendənsi/",
+   "parts": [
+    {
+     "t": "tend",
+     "k": "root",
+     "vi": "vươn tới"
+    },
+    {
+     "t": "ency",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "xu hướng",
+   "story": "hướng mà mọi thứ hay vươn tới",
+   "example": "Young people have a tendency to spend more time online.",
+   "example_vi": "Người trẻ có xu hướng dành nhiều thời gian hơn trên mạng.",
+   "tp": "daily",
+   "forms": {
+    "n": "tendency",
+    "v": "tend"
+   },
+   "col": [
+    "a tendency to",
+    "a growing tendency",
+    "tend to be"
+   ]
+  },
+  {
+   "word": "attend",
+   "pos": "v.",
+   "ipa": "/əˈtend/",
+   "parts": [
+    {
+     "t": "at",
+     "k": "pre",
+     "vi": "hướng tới"
+    },
+    {
+     "t": "tend",
+     "k": "root",
+     "vi": "vươn tới"
+    }
+   ],
+   "meaning": "tham dự; theo học",
+   "story": "vươn tới và có mặt",
+   "example": "Over 500 people attended the conference.",
+   "example_vi": "Hơn 500 người đã tham dự hội nghị.",
+   "tp": "edu",
+   "forms": {
+    "v": "attend",
+    "n": "attendance, attention",
+    "adj": "attentive"
+   },
+   "col": [
+    "attend school",
+    "attend a meeting",
+    "pay attention to",
+    "school attendance"
+   ],
+   "trap": "{{attend}} không cần {{to}}: nói {{attend a class}}, không nói {{attend to a class}}."
+  }
+ ],
+ "wf": [
+  {
+   "s": "The fire caused ___ damage to the building.",
+   "base": "EXTEND",
+   "a": "extensive"
+  },
+  {
+   "s": "I had no ___ of upsetting you.",
+   "base": "INTEND",
+   "a": "intention"
+  },
+  {
+   "s": "The ___ of the storm surprised forecasters.",
+   "base": "INTENSIVE",
+   "a": "intensity"
+  }
+ ],
+ "err": [
+  {
+   "s": "All students must *attend to* the lecture on Monday.",
+   "a": "attend"
+  },
+  {
+   "s": "Teenagers have a tendency *of spending* too long online.",
+   "a": "to spend"
+  }
+ ],
+ "tf": [],
+ "pa": [
+  {
+   "s": "Prices usually go up in December.",
+   "k": "tend",
+   "a": "Prices tend to rise in December."
+  },
+  {
+   "s": "I agree with this view, but not completely.",
+   "k": "extent",
+   "a": "I agree with this view to some extent."
+  }
+ ],
+ "reading": {
+  "title": "Four-day school weeks",
+  "text": "In parts of the United States, some rural schools have moved to a four-day week. The change was intended to save money on transport and heating, and to help schools attract teachers. School days are extended by about an hour to make up for the lost time. Early studies suggest that attendance has improved slightly, but test scores in maths tend to fall. There is also tension between families: working parents must find childcare on the fifth day, while others enjoy the extra time together."
+ },
+ "rq": {
+  "type": "tfng",
+  "items": [
+   {
+    "s": "The four-day week was introduced mainly in big cities.",
+    "a": "F"
+   },
+   {
+    "s": "School days are longer under the new system.",
+    "a": "T"
+   },
+   {
+    "s": "Maths results usually improve under the four-day week.",
+    "a": "F"
+   },
+   {
+    "s": "Most parents support the change.",
+    "a": "NG"
+   }
+  ]
+ },
+ "syn": [
+  [
+   "extend",
+   "lengthen"
+  ],
+  [
+   "intend",
+   "plan"
+  ],
+  [
+   "tension",
+   "strain"
+  ],
+  [
+   "tendency",
+   "trend"
+  ],
+  [
+   "attend",
+   "go to"
+  ]
+ ],
+ "spk": {
+  "part": 1,
+  "qs": [
+   "Do you attend any classes outside school or work?",
+   "Do you tend to plan your weekends in advance?",
+   "Do you feel tense before exams?"
+  ]
+ },
+ "wt": "advdis",
+ "write": "Some schools are introducing a four-day week with longer school days. Do the advantages outweigh the disadvantages?"
+}

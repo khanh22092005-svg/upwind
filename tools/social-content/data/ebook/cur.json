@@ -1,0 +1,302 @@
+{
+ "id": "cur",
+ "root": "cur / curs",
+ "origin": "Latin currere",
+ "core": "chạy",
+ "image": "một vận động viên chạy dọc đường đua",
+ "hook": "{{current}}, {{currency}}, {{curriculum}}: dòng nước, tiền tệ và chương trình học đều đang… “chạy”?",
+ "bait": {
+  "word": "curriculum",
+  "literal": "đường đua"
+ },
+ "words": [
+  {
+   "word": "current",
+   "pos": "adj. / n.",
+   "ipa": "/ˈkʌrənt/",
+   "parts": [
+    {
+     "t": "curr",
+     "k": "root",
+     "vi": "chạy"
+    },
+    {
+     "t": "ent",
+     "k": "suf",
+     "vi": "tính từ"
+    }
+   ],
+   "meaning": "hiện tại; dòng chảy",
+   "story": "đang chạy ngay lúc này",
+   "example": "The current system does not protect part-time workers.",
+   "example_vi": "Hệ thống hiện tại không bảo vệ người làm bán thời gian.",
+   "tp": "media",
+   "forms": {
+    "adj": "current",
+    "n": "current",
+    "adv": "currently"
+   },
+   "col": [
+    "current affairs",
+    "the current situation",
+    "a strong current"
+   ]
+  },
+  {
+   "word": "currency",
+   "pos": "n.",
+   "ipa": "/ˈkʌrənsi/",
+   "parts": [
+    {
+     "t": "curr",
+     "k": "root",
+     "vi": "chạy"
+    },
+    {
+     "t": "ency",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "tiền tệ",
+   "story": "thứ chạy từ tay người này sang tay người khác",
+   "example": "Tourists can exchange currency at the airport.",
+   "example_vi": "Khách du lịch có thể đổi tiền tại sân bay.",
+   "tp": "work",
+   "forms": {
+    "n": "currency"
+   },
+   "col": [
+    "foreign currency",
+    "a single currency",
+    "digital currency"
+   ]
+  },
+  {
+   "word": "occur",
+   "pos": "v.",
+   "ipa": "/əˈkɜː/",
+   "parts": [
+    {
+     "t": "oc",
+     "k": "pre",
+     "vi": "hướng tới"
+    },
+    {
+     "t": "cur",
+     "k": "root",
+     "vi": "chạy"
+    }
+   ],
+   "meaning": "xảy ra",
+   "story": "chạy tới gặp mình",
+   "example": "Most accidents occur at home.",
+   "example_vi": "Phần lớn tai nạn xảy ra ở nhà.",
+   "tp": "sci",
+   "forms": {
+    "v": "occur",
+    "n": "occurrence"
+   },
+   "col": [
+    "occur naturally",
+    "occur to someone",
+    "a common occurrence"
+   ],
+   "trap": "{{occur}} → {{occurred}}, {{occurring}}: nhân đôi chữ r; và không dùng bị động ({{was occurred}} là sai)."
+  },
+  {
+   "word": "recur",
+   "pos": "v.",
+   "ipa": "/rɪˈkɜː/",
+   "parts": [
+    {
+     "t": "re",
+     "k": "pre",
+     "vi": "lại"
+    },
+    {
+     "t": "cur",
+     "k": "root",
+     "vi": "chạy"
+    }
+   ],
+   "meaning": "tái diễn",
+   "story": "chạy trở lại thêm lần nữa",
+   "example": "The problem recurs every winter.",
+   "example_vi": "Vấn đề tái diễn mỗi mùa đông.",
+   "tp": "health",
+   "forms": {
+    "v": "recur",
+    "adj": "recurring, recurrent",
+    "n": "recurrence"
+   },
+   "col": [
+    "a recurring theme",
+    "recurring problems",
+    "prevent recurrence"
+   ]
+  },
+  {
+   "word": "excursion",
+   "pos": "n.",
+   "ipa": "/ɪkˈskɜːʃn/",
+   "parts": [
+    {
+     "t": "ex",
+     "k": "pre",
+     "vi": "ra ngoài"
+    },
+    {
+     "t": "curs",
+     "k": "root",
+     "vi": "chạy"
+    },
+    {
+     "t": "ion",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "chuyến đi chơi ngắn, tham quan",
+   "story": "chạy ra ngoài một lúc rồi về",
+   "example": "The school organised an excursion to the science museum.",
+   "example_vi": "Nhà trường tổ chức chuyến tham quan bảo tàng khoa học.",
+   "tp": "edu",
+   "forms": {
+    "n": "excursion"
+   },
+   "col": [
+    "go on an excursion",
+    "a day excursion",
+    "a school excursion"
+   ]
+  },
+  {
+   "word": "curriculum",
+   "pos": "n.",
+   "ipa": "/kəˈrɪkjələm/",
+   "parts": [
+    {
+     "t": "curr",
+     "k": "root",
+     "vi": "chạy"
+    },
+    {
+     "t": "iculum",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "chương trình học",
+   "story": "đường đua mà học sinh phải chạy hết",
+   "example": "Coding is now part of the national curriculum.",
+   "example_vi": "Lập trình nay là một phần của chương trình học quốc gia.",
+   "tp": "edu",
+   "forms": {
+    "n": "curriculum",
+    "adj": "curricular, extracurricular"
+   },
+   "col": [
+    "the national curriculum",
+    "extracurricular activities",
+    "curriculum reform"
+   ]
+  }
+ ],
+ "wf": [
+  {
+   "s": "The museum is ___ closed for repairs.",
+   "base": "CURRENT",
+   "a": "currently"
+  },
+  {
+   "s": "Floods are a common ___ in this region.",
+   "base": "OCCUR",
+   "a": "occurrence"
+  },
+  {
+   "s": "Students should take part in ___ activities such as sport and music.",
+   "base": "CURRICULUM",
+   "a": "extracurricular"
+  }
+ ],
+ "err": [
+  {
+   "s": "The accident *was occurred* late last night.",
+   "a": "occurred"
+  },
+  {
+   "s": "Many students are worried about the *currently* situation.",
+   "a": "current"
+  }
+ ],
+ "tf": [],
+ "pa": [
+  {
+   "s": "It never came into my mind that she was lying.",
+   "k": "occur",
+   "a": "It never occurred to me that she was lying."
+  },
+  {
+   "s": "The same problem keeps happening every year.",
+   "k": "recur",
+   "a": "The same problem recurs every year."
+  }
+ ],
+ "reading": {
+  "title": "What should schools teach?",
+  "text": "The current school curriculum in many countries was designed for the industrial age, and I believe it is time for change. Problems such as climate change and online fraud recur in the news every week, yet students rarely discuss them in class. Some teachers argue that the timetable is already full. In my opinion, this is not a reason to do nothing: subjects could be combined, and regular excursions could replace some classroom lessons. It rarely occurs to policymakers that learning how money, interest and currency work may be as useful as algebra."
+ },
+ "rq": {
+  "type": "ynng",
+  "items": [
+   {
+    "s": "The curriculum in many countries is out of date.",
+    "a": "Y"
+   },
+   {
+    "s": "The timetable is too full to add new topics.",
+    "a": "N"
+   },
+   {
+    "s": "Students prefer excursions to classroom lessons.",
+    "a": "NG"
+   },
+   {
+    "s": "Financial education deserves more attention in schools.",
+    "a": "Y"
+   }
+  ]
+ },
+ "syn": [
+  [
+   "current",
+   "present"
+  ],
+  [
+   "occur",
+   "happen"
+  ],
+  [
+   "recur",
+   "happen again"
+  ],
+  [
+   "excursion",
+   "trip"
+  ],
+  [
+   "curriculum",
+   "syllabus"
+  ]
+ ],
+ "spk": {
+  "part": 3,
+  "qs": [
+   "Should schools teach practical life skills such as managing money?",
+   "Who should decide what students learn: teachers, parents or the government?"
+  ]
+ },
+ "wt": "opinion",
+ "write": "Some people think schools should teach practical skills such as managing money rather than academic subjects. To what extent do you agree or disagree?"
+}

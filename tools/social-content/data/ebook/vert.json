@@ -1,0 +1,190 @@
+{
+ "id": "vert",
+ "words": {
+  "convert": {
+   "tp": "env",
+   "forms": {
+    "v": "convert",
+    "n": "conversion",
+    "adj": "convertible"
+   },
+   "col": [
+    "convert into",
+    "convert sunlight into electricity",
+    "energy conversion"
+   ]
+  },
+  "divert": {
+   "tp": "soc",
+   "forms": {
+    "v": "divert",
+    "n": "diversion"
+   },
+   "col": [
+    "divert attention from",
+    "divert funds",
+    "divert traffic"
+   ]
+  },
+  "reverse": {
+   "tp": "env",
+   "forms": {
+    "v": "reverse",
+    "n": "reversal",
+    "adj": "reverse, irreversible"
+   },
+   "col": [
+    "reverse the trend",
+    "in reverse order",
+    "irreversible damage",
+    "the reverse is true"
+   ]
+  },
+  "diverse": {
+   "tp": "soc",
+   "forms": {
+    "adj": "diverse",
+    "n": "diversity",
+    "v": "diversify"
+   },
+   "col": [
+    "a diverse range of",
+    "culturally diverse",
+    "biological diversity",
+    "diversify the economy"
+   ]
+  },
+  "introvert": {
+   "tp": "daily",
+   "forms": {
+    "n": "introvert, extrovert",
+    "adj": "introverted, extroverted"
+   },
+   "col": [
+    "a shy introvert",
+    "a natural extrovert"
+   ]
+  },
+  "controversy": {
+   "tp": "media",
+   "forms": {
+    "n": "controversy",
+    "adj": "controversial"
+   },
+   "col": [
+    "cause controversy",
+    "a highly controversial issue",
+    "spark controversy",
+    "the controversy surrounding"
+   ]
+  },
+  "versatile": {
+   "tp": "work",
+   "forms": {
+    "adj": "versatile",
+    "n": "versatility"
+   },
+   "col": [
+    "a versatile material",
+    "a versatile player",
+    "extremely versatile"
+   ]
+  }
+ },
+ "reading": {
+  "title": "Rewilding Britain",
+  "text": "Rewilding, the idea of letting farmland return to nature, has caused considerable controversy in Britain. Supporters say that converting a small share of farms into wild land could reverse the decline in wildlife and make the countryside more diverse. Beavers, for example, are versatile engineers: their dams store water and slow down floods. Farmers, however, fear that the policy will divert money away from food production, and some argue that once land is abandoned the change may be irreversible. Both sides agree on one point: the current loss of species cannot continue."
+ },
+ "wf": [
+  {
+   "s": "Cutting down rainforests causes ___ damage to the planet.",
+   "base": "REVERSE",
+   "a": "irreversible"
+  },
+  {
+   "s": "Cities with greater cultural ___ often attract more tourists.",
+   "base": "DIVERSE",
+   "a": "diversity"
+  },
+  {
+   "s": "Genetic engineering remains a highly ___ topic.",
+   "base": "CONTROVERSY",
+   "a": "controversial"
+  }
+ ],
+ "err": [
+  {
+   "s": "The old factory was converted *to* a modern art gallery.",
+   "a": "into"
+  },
+  {
+   "s": "The new law has *made* a lot of controversy.",
+   "a": "caused"
+  }
+ ],
+ "write": "Some people think farmland should be returned to nature to protect wildlife. Others say food production is more important. Viết 2–3 câu, dùng ít nhất 2 từ trong chương.",
+ "pa": [
+  {
+   "s": "The city has many different cultures.",
+   "k": "diverse",
+   "a": "The city is culturally diverse."
+  },
+  {
+   "s": "Some damage to the environment can never be undone.",
+   "k": "irreversible",
+   "a": "Some environmental damage is irreversible."
+  }
+ ],
+ "wt": "discussion",
+ "rq": {
+  "type": "ynng",
+  "items": [
+   {
+    "s": "Rewilding has divided opinion in Britain.",
+    "a": "Y"
+   },
+   {
+    "s": "Beavers have no practical value for people.",
+    "a": "N"
+   },
+   {
+    "s": "Rewilding will make British farmers poorer.",
+    "a": "NG"
+   },
+   {
+    "s": "The current loss of species must stop.",
+    "a": "Y"
+   }
+  ]
+ },
+ "spk": {
+  "part": 1,
+  "qs": [
+   "Are you an introvert or an extrovert?",
+   "Is your city culturally diverse?",
+   "Do you enjoy spending time in nature?"
+  ]
+ },
+ "syn": [
+  [
+   "convert into",
+   "turn into"
+  ],
+  [
+   "divert",
+   "redirect"
+  ],
+  [
+   "reverse",
+   "undo"
+  ],
+  [
+   "diverse",
+   "varied"
+  ],
+  [
+   "controversial",
+   "disputed"
+  ]
+ ]
+}

@@ -1,0 +1,307 @@
+{
+ "id": "cept",
+ "root": "cept / cap",
+ "origin": "Latin capere",
+ "core": "lấy, nắm",
+ "image": "một bàn tay nắm chặt một quả bóng",
+ "hook": "{{accept}}, {{except}}, {{concept}}: chấp nhận, ngoại trừ, khái niệm… đều là “nắm lấy” theo nhiều cách.",
+ "bait": {
+  "word": "except",
+  "literal": "lấy ra ngoài"
+ },
+ "words": [
+  {
+   "word": "accept",
+   "pos": "v.",
+   "ipa": "/əkˈsept/",
+   "parts": [
+    {
+     "t": "ac",
+     "k": "pre",
+     "vi": "hướng tới"
+    },
+    {
+     "t": "cept",
+     "k": "root",
+     "vi": "lấy"
+    }
+   ],
+   "meaning": "chấp nhận",
+   "story": "đưa tay ra lấy về phía mình",
+   "example": "Most scientists accept that climate change is caused by humans.",
+   "example_vi": "Hầu hết các nhà khoa học chấp nhận rằng biến đổi khí hậu do con người gây ra.",
+   "tp": "soc",
+   "forms": {
+    "v": "accept",
+    "adj": "acceptable, unacceptable",
+    "n": "acceptance"
+   },
+   "col": [
+    "widely accepted",
+    "accept responsibility",
+    "socially acceptable"
+   ]
+  },
+  {
+   "word": "except",
+   "pos": "prep.",
+   "ipa": "/ɪkˈsept/",
+   "parts": [
+    {
+     "t": "ex",
+     "k": "pre",
+     "vi": "ra ngoài"
+    },
+    {
+     "t": "cept",
+     "k": "root",
+     "vi": "lấy"
+    }
+   ],
+   "meaning": "ngoại trừ",
+   "story": "lấy ra khỏi nhóm",
+   "example": "All shops are closed except pharmacies.",
+   "example_vi": "Mọi cửa hàng đều đóng, trừ nhà thuốc.",
+   "tp": "daily",
+   "forms": {
+    "prep": "except",
+    "n": "exception",
+    "adj": "exceptional",
+    "adv": "exceptionally"
+   },
+   "col": [
+    "with the exception of",
+    "an exceptional case",
+    "exceptionally talented"
+   ],
+   "trap": "{{except}} (ngoại trừ) và {{accept}} (chấp nhận) phát âm gần giống nhau: đọc kỹ ngữ cảnh."
+  },
+  {
+   "word": "concept",
+   "pos": "n.",
+   "ipa": "/ˈkɒnsept/",
+   "parts": [
+    {
+     "t": "con",
+     "k": "pre",
+     "vi": "cùng nhau"
+    },
+    {
+     "t": "cept",
+     "k": "root",
+     "vi": "nắm"
+    }
+   ],
+   "meaning": "khái niệm",
+   "story": "nắm gọn nhiều ý thành một",
+   "example": "The concept of working from home is not new.",
+   "example_vi": "Khái niệm làm việc tại nhà không có gì mới.",
+   "tp": "edu",
+   "forms": {
+    "n": "concept, conception",
+    "v": "conceive",
+    "adj": "conceptual"
+   },
+   "col": [
+    "a basic concept",
+    "the concept of",
+    "grasp a concept"
+   ]
+  },
+  {
+   "word": "perception",
+   "pos": "n.",
+   "ipa": "/pəˈsepʃn/",
+   "parts": [
+    {
+     "t": "per",
+     "k": "pre",
+     "vi": "xuyên qua"
+    },
+    {
+     "t": "cept",
+     "k": "root",
+     "vi": "nắm"
+    },
+    {
+     "t": "ion",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "nhận thức, cách nhìn",
+   "story": "nắm bắt thế giới qua các giác quan",
+   "example": "Social media can change our perception of beauty.",
+   "example_vi": "Mạng xã hội có thể thay đổi cách chúng ta nhìn nhận cái đẹp.",
+   "tp": "media",
+   "forms": {
+    "n": "perception",
+    "v": "perceive",
+    "adj": "perceptive"
+   },
+   "col": [
+    "public perception",
+    "the perception of risk",
+    "change people's perceptions"
+   ]
+  },
+  {
+   "word": "capable",
+   "pos": "adj.",
+   "ipa": "/ˈkeɪpəbl/",
+   "parts": [
+    {
+     "t": "cap",
+     "k": "root",
+     "vi": "nắm"
+    },
+    {
+     "t": "able",
+     "k": "suf",
+     "vi": "có thể"
+    }
+   ],
+   "meaning": "có khả năng",
+   "story": "có thể nắm được việc",
+   "example": "Robots are now capable of performing complex surgery.",
+   "example_vi": "Rô-bốt nay có thể thực hiện những ca mổ phức tạp.",
+   "tp": "tech",
+   "forms": {
+    "adj": "capable, incapable",
+    "n": "capability"
+   },
+   "col": [
+    "be capable of",
+    "highly capable",
+    "military capability"
+   ]
+  },
+  {
+   "word": "capacity",
+   "pos": "n.",
+   "ipa": "/kəˈpæsəti/",
+   "parts": [
+    {
+     "t": "cap",
+     "k": "root",
+     "vi": "nắm, chứa"
+    },
+    {
+     "t": "acity",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "sức chứa; năng lực",
+   "story": "lượng mà một vật nắm giữ được",
+   "example": "The stadium has a capacity of 60,000.",
+   "example_vi": "Sân vận động có sức chứa 60.000 người.",
+   "tp": "work",
+   "forms": {
+    "n": "capacity"
+   },
+   "col": [
+    "full capacity",
+    "seating capacity",
+    "production capacity"
+   ]
+  }
+ ],
+ "wf": [
+  {
+   "s": "Late homework is not ___ in this class.",
+   "base": "ACCEPT",
+   "a": "acceptable"
+  },
+  {
+   "s": "She is an ___ student who has won three national prizes.",
+   "base": "EXCEPT",
+   "a": "exceptional"
+  },
+  {
+   "s": "Many people ___ nuclear energy as dangerous.",
+   "base": "PERCEPTION",
+   "a": "perceive"
+  }
+ ],
+ "err": [
+  {
+   "s": "Everyone came to the party *accept* Tom.",
+   "a": "except"
+  },
+  {
+   "s": "Machines are now capable *to drive* cars.",
+   "a": "of driving"
+  }
+ ],
+ "tf": [],
+ "pa": [
+  {
+   "s": "Many people think that big cities are dangerous.",
+   "k": "perception",
+   "a": "There is a common perception that big cities are dangerous."
+  },
+  {
+   "s": "This hall can hold 500 people.",
+   "k": "capacity",
+   "a": "This hall has a capacity of 500."
+  }
+ ],
+ "reading": {
+  "title": "Can robots care?",
+  "text": "Robots are now capable of lifting patients, reminding them to take medicine and even holding simple conversations. In Japan, where hospitals often operate at full capacity, care robots are widely accepted. In Europe, however, public perception is more negative: many people find the concept of a machine looking after their grandparents disturbing. Experts say robots should support nurses, not replace them, except perhaps in the most repetitive tasks."
+ },
+ "rq": {
+  "type": "gap",
+  "box": [
+   "capable",
+   "capacity",
+   "accepted",
+   "perception",
+   "concept",
+   "nurses",
+   "cheaper",
+   "rejected"
+  ],
+  "text": "Care robots are now [1] of doing many tasks. Japanese hospitals often work at full [2], and robots there are widely [3]. In Europe, public [4] is less positive, and many people dislike the [5] of machines caring for the elderly. Experts believe robots should help [6] rather than replace them.",
+  "a": [
+   "capable",
+   "capacity",
+   "accepted",
+   "perception",
+   "concept",
+   "nurses"
+  ]
+ },
+ "syn": [
+  [
+   "accept",
+   "agree to"
+  ],
+  [
+   "concept",
+   "idea"
+  ],
+  [
+   "perception",
+   "view"
+  ],
+  [
+   "capable of",
+   "able to"
+  ],
+  [
+   "except",
+   "apart from"
+  ]
+ ],
+ "spk": {
+  "part": 3,
+  "qs": [
+   "Would you be happy to be cared for by a robot when you are old? Why or why not?",
+   "What jobs do you think robots will never be able to do?"
+  ]
+ },
+ "wt": "discussion",
+ "write": "Some people believe robots will improve care for the elderly, while others think only humans can provide good care. Discuss both views and give your own opinion."
+}

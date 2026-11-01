@@ -1,0 +1,306 @@
+{
+ "id": "quest",
+ "root": "quest / quer / quire",
+ "origin": "Latin quaerere",
+ "core": "hỏi, tìm",
+ "image": "một người cầm đèn đi tìm câu trả lời",
+ "hook": "{{request}}, {{require}}, {{acquire}}: yêu cầu, đòi hỏi, thu được… đều bắt đầu bằng việc “hỏi, tìm”.",
+ "bait": {
+  "word": "conquer",
+  "literal": "tìm cho bằng được"
+ },
+ "words": [
+  {
+   "word": "request",
+   "pos": "n. / v.",
+   "ipa": "/rɪˈkwest/",
+   "parts": [
+    {
+     "t": "re",
+     "k": "pre",
+     "vi": "lại"
+    },
+    {
+     "t": "quest",
+     "k": "root",
+     "vi": "hỏi"
+    }
+   ],
+   "meaning": "yêu cầu, đề nghị",
+   "story": "hỏi lại một lần nữa cho rõ",
+   "example": "Visitors can request a free guide at the entrance.",
+   "example_vi": "Khách tham quan có thể yêu cầu hướng dẫn viên miễn phí tại cổng.",
+   "tp": "work",
+   "forms": {
+    "n": "request",
+    "v": "request"
+   },
+   "col": [
+    "make a request",
+    "at the request of",
+    "available on request"
+   ]
+  },
+  {
+   "word": "conquer",
+   "pos": "v.",
+   "ipa": "/ˈkɒŋkə/",
+   "parts": [
+    {
+     "t": "con",
+     "k": "pre",
+     "vi": "hoàn toàn"
+    },
+    {
+     "t": "quer",
+     "k": "root",
+     "vi": "tìm"
+    }
+   ],
+   "meaning": "chinh phục; vượt qua",
+   "story": "tìm kiếm và chiếm lấy cho bằng được",
+   "example": "She finally conquered her fear of public speaking.",
+   "example_vi": "Cuối cùng cô ấy đã vượt qua nỗi sợ nói trước đám đông.",
+   "tp": "daily",
+   "forms": {
+    "v": "conquer",
+    "n": "conquest"
+   },
+   "col": [
+    "conquer a fear",
+    "conquer the market",
+    "the Norman Conquest"
+   ]
+  },
+  {
+   "word": "acquire",
+   "pos": "v.",
+   "ipa": "/əˈkwaɪə/",
+   "parts": [
+    {
+     "t": "ac",
+     "k": "pre",
+     "vi": "hướng tới"
+    },
+    {
+     "t": "quire",
+     "k": "root",
+     "vi": "tìm"
+    }
+   ],
+   "meaning": "đạt được, thu được",
+   "story": "tìm và lấy thêm về cho mình",
+   "example": "Children acquire language skills very quickly.",
+   "example_vi": "Trẻ em tiếp thu kỹ năng ngôn ngữ rất nhanh.",
+   "tp": "edu",
+   "forms": {
+    "v": "acquire",
+    "n": "acquisition"
+   },
+   "col": [
+    "acquire skills",
+    "acquire knowledge",
+    "language acquisition",
+    "an acquired taste"
+   ]
+  },
+  {
+   "word": "inquiry",
+   "pos": "n.",
+   "ipa": "/ɪnˈkwaɪəri/",
+   "parts": [
+    {
+     "t": "in",
+     "k": "pre",
+     "vi": "vào trong"
+    },
+    {
+     "t": "quir",
+     "k": "root",
+     "vi": "hỏi"
+    },
+    {
+     "t": "y",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "cuộc điều tra; câu hỏi",
+   "story": "hỏi sâu vào bên trong sự việc",
+   "example": "The government has launched an inquiry into the accident.",
+   "example_vi": "Chính phủ đã mở cuộc điều tra về vụ tai nạn.",
+   "tp": "crime",
+   "forms": {
+    "n": "inquiry, enquiry",
+    "v": "inquire, enquire"
+   },
+   "col": [
+    "launch an inquiry into",
+    "a public inquiry",
+    "make inquiries"
+   ]
+  },
+  {
+   "word": "require",
+   "pos": "v.",
+   "ipa": "/rɪˈkwaɪə/",
+   "parts": [
+    {
+     "t": "re",
+     "k": "pre",
+     "vi": "lại"
+    },
+    {
+     "t": "quire",
+     "k": "root",
+     "vi": "hỏi, tìm"
+    }
+   ],
+   "meaning": "yêu cầu, đòi hỏi",
+   "story": "hỏi đi hỏi lại vì thật sự cần",
+   "example": "All visitors are required to show ID.",
+   "example_vi": "Mọi khách đến đều phải xuất trình giấy tờ tuỳ thân.",
+   "tp": "edu",
+   "forms": {
+    "v": "require",
+    "n": "requirement"
+   },
+   "col": [
+    "be required to",
+    "entry requirements",
+    "meet the requirements"
+   ]
+  },
+  {
+   "word": "questionnaire",
+   "pos": "n.",
+   "ipa": "/ˌkwestʃəˈneə/",
+   "parts": [
+    {
+     "t": "quest",
+     "k": "root",
+     "vi": "hỏi"
+    },
+    {
+     "t": "ion",
+     "k": "suf",
+     "vi": "danh từ"
+    },
+    {
+     "t": "naire",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "bảng câu hỏi",
+   "story": "một tờ giấy toàn câu hỏi",
+   "example": "Over 2,000 students completed the questionnaire.",
+   "example_vi": "Hơn 2.000 sinh viên đã điền bảng câu hỏi.",
+   "tp": "sci",
+   "forms": {
+    "n": "questionnaire"
+   },
+   "col": [
+    "complete a questionnaire",
+    "an online questionnaire",
+    "send out a questionnaire"
+   ]
+  }
+ ],
+ "wf": [
+  {
+   "s": "Most universities have strict entry ___.",
+   "base": "REQUIRE",
+   "a": "requirements"
+  },
+  {
+   "s": "The ___ of a new language takes years.",
+   "base": "ACQUIRE",
+   "a": "acquisition"
+  },
+  {
+   "s": "The Roman ___ of Britain began in AD 43.",
+   "base": "CONQUER",
+   "a": "conquest"
+  }
+ ],
+ "err": [
+  {
+   "s": "All passengers are required *showing* their passports.",
+   "a": "to show"
+  },
+  {
+   "s": "The police have opened an *inquire* into the fire.",
+   "a": "inquiry"
+  }
+ ],
+ "tf": [],
+ "pa": [
+  {
+   "s": "You must wear a helmet on a motorbike.",
+   "k": "require",
+   "a": "Motorcyclists are required to wear a helmet."
+  },
+  {
+   "s": "She learned many new skills at her first job.",
+   "k": "acquire",
+   "a": "She acquired many new skills at her first job."
+  }
+ ],
+ "reading": {
+  "title": "How do we learn languages?",
+  "text": "Young children acquire their first language without formal lessons. A major inquiry by linguists, based on an online questionnaire completed by around 670,000 people, suggested that the ability to learn grammar perfectly declines after about the age of 17. This does not mean adults cannot learn: it simply requires more time and effort. Many adult learners, the researchers found, conquer their difficulties by using the language every day rather than only in class."
+ },
+ "rq": {
+  "type": "tfng",
+  "items": [
+   {
+    "s": "Children need formal lessons to learn their first language.",
+    "a": "F"
+   },
+   {
+    "s": "The study collected data from hundreds of thousands of people.",
+    "a": "T"
+   },
+   {
+    "s": "Adults are unable to learn grammar after the age of 17.",
+    "a": "F"
+   },
+   {
+    "s": "The researchers recommend learning at least two languages.",
+    "a": "NG"
+   }
+  ]
+ },
+ "syn": [
+  [
+   "request",
+   "ask for"
+  ],
+  [
+   "require",
+   "need"
+  ],
+  [
+   "acquire",
+   "gain"
+  ],
+  [
+   "inquiry",
+   "investigation"
+  ],
+  [
+   "conquer",
+   "overcome"
+  ]
+ ],
+ "spk": {
+  "part": 3,
+  "qs": [
+   "Is it better to learn a foreign language as a child or as an adult?",
+   "Should learning a second language be compulsory at school?"
+  ]
+ },
+ "wt": "twopart",
+ "write": "Some people say children should start learning a foreign language at primary school. Why do some people believe this? Do the advantages outweigh the disadvantages?"
+}

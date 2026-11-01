@@ -1,0 +1,306 @@
+{
+ "id": "solv",
+ "root": "solv / solu",
+ "origin": "Latin solvere",
+ "core": "tháo, nới lỏng",
+ "image": "những ngón tay đang gỡ một nút dây thắt",
+ "hook": "{{solve}}, {{dissolve}}, {{absolute}}: giải bài toán, hoà tan đường và “tuyệt đối” đều là… “tháo ra”?",
+ "bait": {
+  "word": "absolute",
+  "literal": "được tháo khỏi mọi ràng buộc"
+ },
+ "words": [
+  {
+   "word": "solve",
+   "pos": "v.",
+   "ipa": "/sɒlv/",
+   "parts": [
+    {
+     "t": "solv",
+     "k": "root",
+     "vi": "tháo"
+    },
+    {
+     "t": "e",
+     "k": "suf",
+     "vi": ""
+    }
+   ],
+   "meaning": "giải quyết",
+   "story": "tháo một nút thắt",
+   "example": "Building more roads will not solve the traffic problem.",
+   "example_vi": "Xây thêm đường sẽ không giải quyết được vấn đề giao thông.",
+   "tp": "soc",
+   "forms": {
+    "v": "solve",
+    "n": "solution",
+    "adj": "solvable, unsolved"
+   },
+   "col": [
+    "solve a problem",
+    "solve a mystery",
+    "an unsolved crime"
+   ]
+  },
+  {
+   "word": "solution",
+   "pos": "n.",
+   "ipa": "/səˈluːʃn/",
+   "parts": [
+    {
+     "t": "solu",
+     "k": "root",
+     "vi": "tháo"
+    },
+    {
+     "t": "tion",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "giải pháp; dung dịch",
+   "story": "cách tháo gỡ một vấn đề",
+   "example": "There is no simple solution to poverty.",
+   "example_vi": "Không có giải pháp đơn giản nào cho nghèo đói.",
+   "tp": "soc",
+   "forms": {
+    "n": "solution"
+   },
+   "col": [
+    "a solution to",
+    "find a solution",
+    "a long-term solution",
+    "a practical solution"
+   ],
+   "trap": "Nói {{a solution to the problem}}, không nói {{a solution of the problem}}."
+  },
+  {
+   "word": "resolve",
+   "pos": "v.",
+   "ipa": "/rɪˈzɒlv/",
+   "parts": [
+    {
+     "t": "re",
+     "k": "pre",
+     "vi": "lại"
+    },
+    {
+     "t": "solve",
+     "k": "root",
+     "vi": "tháo"
+    }
+   ],
+   "meaning": "giải quyết (tranh chấp); quyết tâm",
+   "story": "tháo gỡ lại cho xong một mối bất hoà",
+   "example": "The two countries resolved their dispute peacefully.",
+   "example_vi": "Hai nước giải quyết tranh chấp một cách hoà bình.",
+   "tp": "soc",
+   "forms": {
+    "v": "resolve",
+    "n": "resolution",
+    "adj": "resolute"
+   },
+   "col": [
+    "resolve a dispute",
+    "resolve a conflict",
+    "a New Year's resolution"
+   ]
+  },
+  {
+   "word": "dissolve",
+   "pos": "v.",
+   "ipa": "/dɪˈzɒlv/",
+   "parts": [
+    {
+     "t": "dis",
+     "k": "pre",
+     "vi": "tách rời"
+    },
+    {
+     "t": "solve",
+     "k": "root",
+     "vi": "tháo"
+    }
+   ],
+   "meaning": "hoà tan; giải tán",
+   "story": "tháo rời ra cho tới khi biến mất",
+   "example": "Sugar dissolves quickly in hot water.",
+   "example_vi": "Đường tan nhanh trong nước nóng.",
+   "tp": "sci",
+   "forms": {
+    "v": "dissolve"
+   },
+   "col": [
+    "dissolve in water",
+    "dissolve parliament",
+    "dissolve a company"
+   ]
+  },
+  {
+   "word": "absolute",
+   "pos": "adj.",
+   "ipa": "/ˈæbsəluːt/",
+   "parts": [
+    {
+     "t": "ab",
+     "k": "pre",
+     "vi": "khỏi"
+    },
+    {
+     "t": "solu",
+     "k": "root",
+     "vi": "tháo"
+    },
+    {
+     "t": "te",
+     "k": "suf",
+     "vi": ""
+    }
+   ],
+   "meaning": "tuyệt đối",
+   "story": "được tháo khỏi mọi giới hạn",
+   "example": "Nobody has absolute freedom in a society.",
+   "example_vi": "Không ai có tự do tuyệt đối trong một xã hội.",
+   "tp": "soc",
+   "forms": {
+    "adj": "absolute",
+    "adv": "absolutely"
+   },
+   "col": [
+    "absolute power",
+    "absolute poverty",
+    "absolutely essential"
+   ]
+  },
+  {
+   "word": "solvent",
+   "pos": "adj. / n.",
+   "ipa": "/ˈsɒlvənt/",
+   "parts": [
+    {
+     "t": "solv",
+     "k": "root",
+     "vi": "tháo"
+    },
+    {
+     "t": "ent",
+     "k": "suf",
+     "vi": "tính từ"
+    }
+   ],
+   "meaning": "có khả năng trả nợ; dung môi",
+   "story": "có thể tháo gỡ hết các khoản nợ",
+   "example": "The company is still solvent despite the crisis.",
+   "example_vi": "Công ty vẫn đủ khả năng thanh toán bất chấp khủng hoảng.",
+   "tp": "work",
+   "forms": {
+    "adj": "solvent, insolvent",
+    "n": "solvent, insolvency"
+   },
+   "col": [
+    "remain solvent",
+    "become insolvent",
+    "financially solvent"
+   ]
+  }
+ ],
+ "wf": [
+  {
+   "s": "The crime remains ___ after twenty years.",
+   "base": "SOLVE",
+   "a": "unsolved"
+  },
+  {
+   "s": "He made a ___ to exercise every day.",
+   "base": "RESOLVE",
+   "a": "resolution"
+  },
+  {
+   "s": "I ___ agree with you.",
+   "base": "ABSOLUTE",
+   "a": "absolutely"
+  }
+ ],
+ "err": [
+  {
+   "s": "We need to find a solution *of* this problem.",
+   "a": "to"
+  },
+  {
+   "s": "Salt *melts* quickly in water.",
+   "a": "dissolves"
+  }
+ ],
+ "tf": [],
+ "pa": [
+  {
+   "s": "The two sides finally ended their argument.",
+   "k": "resolve",
+   "a": "The two sides finally resolved their dispute."
+  },
+  {
+   "s": "Building more roads is not the answer to traffic jams.",
+   "k": "solution",
+   "a": "Building more roads is not the solution to traffic congestion."
+  }
+ ],
+ "reading": {
+  "title": "Fixing traffic",
+  "text": "Every big city faces traffic jams, and every mayor promises to solve them. The usual solution has been to build more roads, but research shows that new lanes fill up within a few years. Some cities have tried a different approach. Stockholm introduced a congestion charge in 2006: drivers pay to enter the centre at busy times. Traffic fell by about 20 percent almost overnight. The scheme was unpopular at first, but after a public vote the dispute was resolved and the charge was made permanent. Experts warn, however, that there is no absolute answer: what works in one city may fail in another."
+ },
+ "rq": {
+  "type": "tfng",
+  "items": [
+   {
+    "s": "New roads usually reduce traffic for many years.",
+    "a": "F"
+   },
+   {
+    "s": "Drivers in Stockholm pay the charge at all times of day.",
+    "a": "F"
+   },
+   {
+    "s": "Traffic in Stockholm fell soon after the charge began.",
+    "a": "T"
+   },
+   {
+    "s": "Other Swedish cities have copied Stockholm's scheme.",
+    "a": "NG"
+   }
+  ]
+ },
+ "syn": [
+  [
+   "solve",
+   "fix"
+  ],
+  [
+   "solution",
+   "answer"
+  ],
+  [
+   "resolve",
+   "settle"
+  ],
+  [
+   "dissolve",
+   "break up"
+  ],
+  [
+   "absolute",
+   "complete"
+  ]
+ ],
+ "spk": {
+  "part": 2,
+  "topic": "Describe a problem you solved in a creative way.",
+  "bullets": [
+   "what the problem was",
+   "when it happened",
+   "how you solved it",
+   "and explain why you were pleased with the solution."
+  ]
+ },
+ "wt": "problem",
+ "write": "Traffic congestion is a major problem in many cities. What are the causes, and what solutions can you suggest?"
+}

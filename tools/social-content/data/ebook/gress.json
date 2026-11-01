@@ -1,0 +1,309 @@
+{
+ "id": "gress",
+ "root": "gress / grad",
+ "origin": "Latin gradi",
+ "core": "bước",
+ "image": "những bậc thang, mỗi bước một bậc",
+ "hook": "{{progress}}, {{graduate}}, {{degrade}}: tiến bộ, tốt nghiệp, suy thoái… lên hay xuống đều là từng bước.",
+ "bait": {
+  "word": "aggressive",
+  "literal": "bước xông thẳng tới"
+ },
+ "words": [
+  {
+   "word": "progress",
+   "pos": "n. / v.",
+   "ipa": "/ˈprəʊɡres/",
+   "parts": [
+    {
+     "t": "pro",
+     "k": "pre",
+     "vi": "về phía trước"
+    },
+    {
+     "t": "gress",
+     "k": "root",
+     "vi": "bước"
+    }
+   ],
+   "meaning": "sự tiến bộ; tiến triển",
+   "story": "bước về phía trước",
+   "example": "Students have made great progress this year.",
+   "example_vi": "Học sinh đã tiến bộ rất nhiều trong năm nay.",
+   "tp": "edu",
+   "forms": {
+    "n": "progress, progression",
+    "v": "progress",
+    "adj": "progressive"
+   },
+   "col": [
+    "make progress",
+    "rapid progress",
+    "technological progress"
+   ],
+   "trap": "{{progress}} không đếm được: không nói {{a progress}} hay {{progresses}}."
+  },
+  {
+   "word": "aggressive",
+   "pos": "adj.",
+   "ipa": "/əˈɡresɪv/",
+   "parts": [
+    {
+     "t": "ag",
+     "k": "pre",
+     "vi": "hướng tới"
+    },
+    {
+     "t": "gress",
+     "k": "root",
+     "vi": "bước"
+    },
+    {
+     "t": "ive",
+     "k": "suf",
+     "vi": "tính từ"
+    }
+   ],
+   "meaning": "hung hăng; quyết liệt",
+   "story": "bước xông thẳng vào người khác",
+   "example": "Some experts believe violent games make children more aggressive.",
+   "example_vi": "Một số chuyên gia cho rằng trò chơi bạo lực khiến trẻ hung hăng hơn.",
+   "tp": "crime",
+   "forms": {
+    "adj": "aggressive",
+    "n": "aggression",
+    "adv": "aggressively"
+   },
+   "col": [
+    "aggressive behaviour",
+    "an aggressive marketing campaign",
+    "act aggressively"
+   ]
+  },
+  {
+   "word": "gradual",
+   "pos": "adj.",
+   "ipa": "/ˈɡrædʒuəl/",
+   "parts": [
+    {
+     "t": "grad",
+     "k": "root",
+     "vi": "bước"
+    },
+    {
+     "t": "ual",
+     "k": "suf",
+     "vi": "tính từ"
+    }
+   ],
+   "meaning": "dần dần, từ từ",
+   "story": "từng bước một",
+   "example": "There has been a gradual increase in global temperatures.",
+   "example_vi": "Nhiệt độ toàn cầu tăng dần.",
+   "tp": "sci",
+   "forms": {
+    "adj": "gradual",
+    "adv": "gradually"
+   },
+   "col": [
+    "a gradual increase",
+    "a gradual decline",
+    "gradually improve"
+   ]
+  },
+  {
+   "word": "graduate",
+   "pos": "n. / v.",
+   "ipa": "/ˈɡrædʒuət/",
+   "parts": [
+    {
+     "t": "grad",
+     "k": "root",
+     "vi": "bước"
+    },
+    {
+     "t": "uate",
+     "k": "suf",
+     "vi": ""
+    }
+   ],
+   "meaning": "người tốt nghiệp; tốt nghiệp",
+   "story": "bước lên bậc cuối cùng",
+   "example": "Many graduates struggle to find jobs in their field.",
+   "example_vi": "Nhiều sinh viên tốt nghiệp chật vật tìm việc đúng ngành.",
+   "tp": "edu",
+   "forms": {
+    "n": "graduate, graduation",
+    "v": "graduate"
+   },
+   "col": [
+    "a university graduate",
+    "graduate from university",
+    "graduate unemployment"
+   ]
+  },
+  {
+   "word": "upgrade",
+   "pos": "v. / n.",
+   "ipa": "/ʌpˈɡreɪd/",
+   "parts": [
+    {
+     "t": "up",
+     "k": "pre",
+     "vi": "lên"
+    },
+    {
+     "t": "grade",
+     "k": "root",
+     "vi": "bước, bậc"
+    }
+   ],
+   "meaning": "nâng cấp",
+   "story": "bước lên một bậc cao hơn",
+   "example": "The city plans to upgrade its public transport.",
+   "example_vi": "Thành phố dự định nâng cấp giao thông công cộng.",
+   "tp": "tech",
+   "forms": {
+    "v": "upgrade",
+    "n": "upgrade"
+   },
+   "col": [
+    "upgrade facilities",
+    "a software upgrade",
+    "upgrade to"
+   ]
+  },
+  {
+   "word": "degrade",
+   "pos": "v.",
+   "ipa": "/dɪˈɡreɪd/",
+   "parts": [
+    {
+     "t": "de",
+     "k": "pre",
+     "vi": "xuống"
+    },
+    {
+     "t": "grade",
+     "k": "root",
+     "vi": "bước, bậc"
+    }
+   ],
+   "meaning": "phân huỷ; làm suy thoái",
+   "story": "bước xuống bậc thấp hơn",
+   "example": "Plastic takes hundreds of years to degrade.",
+   "example_vi": "Nhựa mất hàng trăm năm để phân huỷ.",
+   "tp": "env",
+   "forms": {
+    "v": "degrade",
+    "n": "degradation",
+    "adj": "biodegradable"
+   },
+   "col": [
+    "environmental degradation",
+    "land degradation",
+    "biodegradable packaging"
+   ]
+  }
+ ],
+ "wf": [
+  {
+   "s": "The number of tourists ___ increased over the decade.",
+   "base": "GRADUAL",
+   "a": "gradually"
+  },
+  {
+   "s": "Doctors are worried about rising ___ among teenagers.",
+   "base": "AGGRESSIVE",
+   "a": "aggression"
+  },
+  {
+   "s": "Shops should only use ___ packaging.",
+   "base": "DEGRADE",
+   "a": "biodegradable"
+  }
+ ],
+ "err": [
+  {
+   "s": "I have made *a big progress* in English this year.",
+   "a": "a lot of progress"
+  },
+  {
+   "s": "She *graduated* university in 2023.",
+   "a": "graduated from"
+  }
+ ],
+ "tf": [],
+ "pa": [
+  {
+   "s": "The number of cars rose slowly but steadily.",
+   "k": "gradual",
+   "a": "There was a gradual increase in the number of cars."
+  },
+  {
+   "s": "The hospital is going to improve its equipment.",
+   "k": "upgrade",
+   "a": "The hospital is going to upgrade its equipment."
+  }
+ ],
+ "reading": {
+  "title": "Plastic and progress",
+  "text": "Plastic was once seen as a symbol of progress. Today, it is a major cause of environmental degradation. Most plastic takes centuries to degrade, and even then it only breaks into smaller pieces. Some countries have chosen an aggressive approach, banning single-use bags overnight. Others prefer gradual change, taxing plastic and helping companies upgrade their packaging. Meanwhile, young graduates are starting businesses that make biodegradable alternatives from seaweed and rice husks."
+ },
+ "rq": {
+  "type": "gap",
+  "box": [
+   "progress",
+   "degradation",
+   "centuries",
+   "aggressive",
+   "gradual",
+   "upgrade",
+   "graduates",
+   "seaweed"
+  ],
+  "text": "Plastic was once considered a sign of [1], but it now causes serious environmental [2]. It can take [3] to break down. Some governments have taken an [4] approach and banned bags at once, while others prefer [5] change and help firms [6] their packaging.",
+  "a": [
+   "progress",
+   "degradation",
+   "centuries",
+   "aggressive",
+   "gradual",
+   "upgrade"
+  ]
+ },
+ "syn": [
+  [
+   "progress",
+   "advance"
+  ],
+  [
+   "aggressive",
+   "hostile"
+  ],
+  [
+   "gradual",
+   "steady"
+  ],
+  [
+   "upgrade",
+   "improve"
+  ],
+  [
+   "degrade",
+   "break down"
+  ]
+ ],
+ "spk": {
+  "part": 2,
+  "topic": "Describe an important step forward you made in your studies.",
+  "bullets": [
+   "what it was",
+   "when it happened",
+   "what helped you",
+   "and explain why it was important to you."
+  ]
+ },
+ "wt": "problem",
+ "write": "Plastic pollution is a growing problem around the world. What are the causes, and what solutions can you suggest?"
+}

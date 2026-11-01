@@ -1,0 +1,311 @@
+{
+ "id": "mot",
+ "root": "mot / mov",
+ "origin": "Latin movere",
+ "core": "chuyển động",
+ "image": "một quả bóng đang lăn về phía trước",
+ "hook": "{{motivate}}, {{promote}}, {{emotion}}: động lực, thăng chức và cảm xúc đều đang “chuyển động”?",
+ "bait": {
+  "word": "emotion",
+  "literal": "chuyển động ra ngoài"
+ },
+ "words": [
+  {
+   "word": "motivate",
+   "pos": "v.",
+   "ipa": "/ˈməʊtɪveɪt/",
+   "parts": [
+    {
+     "t": "mot",
+     "k": "root",
+     "vi": "chuyển động"
+    },
+    {
+     "t": "iv",
+     "k": "suf",
+     "vi": ""
+    },
+    {
+     "t": "ate",
+     "k": "suf",
+     "vi": "động từ"
+    }
+   ],
+   "meaning": "tạo động lực, thúc đẩy",
+   "story": "làm cho ai đó bắt đầu chuyển động",
+   "example": "Good teachers motivate students to read more.",
+   "example_vi": "Giáo viên giỏi tạo động lực cho học sinh đọc nhiều hơn.",
+   "tp": "edu",
+   "forms": {
+    "v": "motivate",
+    "n": "motivation",
+    "adj": "motivated"
+   },
+   "col": [
+    "highly motivated",
+    "lack motivation",
+    "motivate someone to do something"
+   ]
+  },
+  {
+   "word": "promote",
+   "pos": "v.",
+   "ipa": "/prəˈməʊt/",
+   "parts": [
+    {
+     "t": "pro",
+     "k": "pre",
+     "vi": "về phía trước"
+    },
+    {
+     "t": "mote",
+     "k": "root",
+     "vi": "chuyển động"
+    }
+   ],
+   "meaning": "thăng chức; quảng bá; thúc đẩy",
+   "story": "đẩy ai/cái gì tiến lên phía trước",
+   "example": "The campaign aims to promote healthy eating in schools.",
+   "example_vi": "Chiến dịch nhằm thúc đẩy ăn uống lành mạnh trong trường học.",
+   "tp": "health",
+   "forms": {
+    "v": "promote",
+    "n": "promotion"
+   },
+   "col": [
+    "promote healthy eating",
+    "be promoted to manager",
+    "promote tourism"
+   ]
+  },
+  {
+   "word": "remote",
+   "pos": "adj.",
+   "ipa": "/rɪˈməʊt/",
+   "parts": [
+    {
+     "t": "re",
+     "k": "pre",
+     "vi": "lùi ra xa"
+    },
+    {
+     "t": "mote",
+     "k": "root",
+     "vi": "chuyển động"
+    }
+   ],
+   "meaning": "xa xôi; từ xa",
+   "story": "bị dời ra thật xa",
+   "example": "Many doctors refuse to work in remote areas.",
+   "example_vi": "Nhiều bác sĩ từ chối làm việc ở vùng xa xôi.",
+   "tp": "work",
+   "forms": {
+    "adj": "remote",
+    "adv": "remotely"
+   },
+   "col": [
+    "remote areas",
+    "remote working",
+    "a remote possibility"
+   ]
+  },
+  {
+   "word": "emotion",
+   "pos": "n.",
+   "ipa": "/ɪˈməʊʃn/",
+   "parts": [
+    {
+     "t": "e",
+     "k": "pre",
+     "vi": "ra ngoài"
+    },
+    {
+     "t": "mot",
+     "k": "root",
+     "vi": "chuyển động"
+    },
+    {
+     "t": "ion",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "cảm xúc",
+   "story": "điều chuyển động trong lòng rồi trào ra ngoài",
+   "example": "Music can express emotions that words cannot.",
+   "example_vi": "Âm nhạc diễn tả được những cảm xúc mà lời nói không thể.",
+   "tp": "daily",
+   "forms": {
+    "n": "emotion",
+    "adj": "emotional",
+    "adv": "emotionally"
+   },
+   "col": [
+    "express emotions",
+    "mixed emotions",
+    "emotional support"
+   ]
+  },
+  {
+   "word": "mobile",
+   "pos": "adj.",
+   "ipa": "/ˈməʊbaɪl/",
+   "parts": [
+    {
+     "t": "mob",
+     "k": "root",
+     "vi": "chuyển động"
+    },
+    {
+     "t": "ile",
+     "k": "suf",
+     "vi": "có thể"
+    }
+   ],
+   "meaning": "di động; dễ di chuyển",
+   "story": "có thể chuyển động",
+   "example": "Young workers today are more mobile than their parents.",
+   "example_vi": "Lao động trẻ ngày nay dễ di chuyển hơn thế hệ cha mẹ.",
+   "tp": "tech",
+   "forms": {
+    "adj": "mobile",
+    "n": "mobility",
+    "v": "mobilise"
+   },
+   "col": [
+    "mobile banking",
+    "social mobility",
+    "mobilise resources"
+   ]
+  },
+  {
+   "word": "motive",
+   "pos": "n.",
+   "ipa": "/ˈməʊtɪv/",
+   "parts": [
+    {
+     "t": "mot",
+     "k": "root",
+     "vi": "chuyển động"
+    },
+    {
+     "t": "ive",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "động cơ",
+   "story": "thứ khiến người ta hành động",
+   "example": "Police are still trying to find a motive for the attack.",
+   "example_vi": "Cảnh sát vẫn đang tìm động cơ của vụ tấn công.",
+   "tp": "crime",
+   "forms": {
+    "n": "motive"
+   },
+   "col": [
+    "a motive for",
+    "an ulterior motive",
+    "the profit motive"
+   ]
+  }
+ ],
+ "wf": [
+  {
+   "s": "Bonuses alone are not enough to keep staff ___.",
+   "base": "MOTIVATE",
+   "a": "motivated"
+  },
+  {
+   "s": "She received a ___ after only one year.",
+   "base": "PROMOTE",
+   "a": "promotion"
+  },
+  {
+   "s": "Social ___ is lower in countries where university is expensive.",
+   "base": "MOBILE",
+   "a": "mobility"
+  }
+ ],
+ "err": [
+  {
+   "s": "Many workers *lack of* motivation on Mondays.",
+   "a": "lack"
+  },
+  {
+   "s": "The film was very *emotion*, and many people cried.",
+   "a": "emotional"
+  }
+ ],
+ "tf": [],
+ "pa": [
+  {
+   "s": "The government wants more tourists to visit the region.",
+   "k": "promote",
+   "a": "The government wants to promote tourism in the region."
+  },
+  {
+   "s": "Nobody knows why he did it.",
+   "k": "motive",
+   "a": "Nobody knows his motive."
+  }
+ ],
+ "reading": {
+  "title": "Working from anywhere",
+  "text": "Since 2020, remote working has become normal for millions of office staff. Surveys suggest that many employees feel more motivated at home, where they can organise their own day. Managers, however, worry that people who are rarely in the office are less likely to be promoted, because their work is less visible. Psychologists add an emotional factor: workers who live alone can feel isolated. Meanwhile, mobile technology means that the line between work and private life is becoming harder to draw. For many companies, the solution is a hybrid model with two or three office days a week."
+ },
+ "rq": {
+  "type": "tfng",
+  "items": [
+   {
+    "s": "Remote working became common after 2020.",
+    "a": "T"
+   },
+   {
+    "s": "All employees feel more motivated when they work at home.",
+    "a": "F"
+   },
+   {
+    "s": "Remote workers are paid less than office workers.",
+    "a": "NG"
+   },
+   {
+    "s": "Many companies have chosen a mix of home and office days.",
+    "a": "T"
+   }
+  ]
+ },
+ "syn": [
+  [
+   "motivate",
+   "inspire"
+  ],
+  [
+   "promote",
+   "encourage"
+  ],
+  [
+   "remote",
+   "distant"
+  ],
+  [
+   "emotion",
+   "feeling"
+  ],
+  [
+   "motive",
+   "reason"
+  ]
+ ],
+ "spk": {
+  "part": 2,
+  "topic": "Describe a person who motivated you to study or work harder.",
+  "bullets": [
+   "who the person is",
+   "how you know them",
+   "what they did",
+   "and explain why they motivated you."
+  ]
+ },
+ "wt": "advdis",
+ "write": "More and more people are working from home. Do the advantages of this outweigh the disadvantages?"
+}

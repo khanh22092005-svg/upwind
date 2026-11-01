@@ -1,0 +1,12 @@
+{
+  "parts": [
+    { "title": "Nói, viết, nhìn, nghe", "sub": "Gốc từ về giao tiếp và giác quan", "ids": ["voc", "dict", "log", "aud", "spect", "vid", "scrib", "graph", "sens", "path"] },
+    { "title": "Di chuyển và mang đi", "sub": "Gốc từ về chuyển động: mang, ném, kéo, dẫn, đi, chạy", "ids": ["port", "fer", "mit", "ject", "pel", "tract", "duc", "mot", "ced", "cur", "gress", "vent", "sequ"] },
+    { "title": "Đặt, giữ, làm, xây", "sub": "Gốc từ về hành động lên sự vật", "ids": ["pos", "tain", "cept", "sist", "tend", "press", "struct", "fect", "clud", "solv"] },
+    { "title": "Sự sống, thời gian, niềm tin, thay đổi", "sub": "Gốc từ về con người và thế giới", "ids": ["bio", "gen", "chron", "cred", "quest", "rupt", "vert"] }
+  ],
+  "topics": {
+    "env": "Môi trường", "edu": "Giáo dục", "tech": "Công nghệ", "health": "Sức khoẻ", "work": "Công việc & kinh tế",
+    "soc": "Xã hội & chính phủ", "crime": "Luật & tội phạm", "media": "Truyền thông & văn hoá", "sci": "Khoa học", "daily": "Đời sống & con người"
+  }
+}

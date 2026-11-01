@@ -1,0 +1,184 @@
+{
+ "id": "port",
+ "words": {
+  "import": {
+   "tp": "work",
+   "forms": {
+    "v": "import",
+    "n": "import, importer, importation"
+   },
+   "col": [
+    "import goods from",
+    "cheap imports",
+    "ban the import of",
+    "import duties"
+   ]
+  },
+  "export": {
+   "tp": "work",
+   "forms": {
+    "v": "export",
+    "n": "export, exporter"
+   },
+   "col": [
+    "export to",
+    "a major exporter of",
+    "export earnings",
+    "boost exports"
+   ]
+  },
+  "transport": {
+   "tp": "env",
+   "forms": {
+    "v": "transport",
+    "n": "transport, transportation"
+   },
+   "col": [
+    "public transport",
+    "means of transport",
+    "transport goods by sea",
+    "transport links"
+   ]
+  },
+  "support": {
+   "tp": "soc",
+   "forms": {
+    "v": "support",
+    "n": "support, supporter",
+    "adj": "supportive"
+   },
+   "col": [
+    "financial support",
+    "provide support for",
+    "strongly support",
+    "a supportive environment"
+   ]
+  },
+  "portable": {
+   "tp": "tech",
+   "forms": {
+    "adj": "portable",
+    "n": "portability"
+   },
+   "col": [
+    "portable devices",
+    "a portable charger",
+    "highly portable"
+   ]
+  },
+  "deport": {
+   "tp": "crime",
+   "forms": {
+    "v": "deport",
+    "n": "deportation"
+   },
+   "col": [
+    "be deported to",
+    "face deportation",
+    "deport illegal immigrants"
+   ]
+  },
+  "portfolio": {
+   "tp": "work",
+   "forms": {
+    "n": "portfolio"
+   },
+   "col": [
+    "a design portfolio",
+    "build a portfolio",
+    "an investment portfolio",
+    "a diverse portfolio"
+   ]
+  }
+ },
+ "reading": {
+  "title": "A small country, a big trader",
+  "text": "The Netherlands is tiny, yet it is the world's second-largest exporter of food. Its success depends on excellent transport: the port of Rotterdam receives huge volumes of imports, which are processed and sent on across Europe. The government supports farmers with research funding and cheap loans, and many companies hold a broad portfolio of products, from flowers to cheese. Critics point out that the system relies on migrant workers, some of whom are deported when their permits expire, and that moving so many goods by lorry and ship has a heavy environmental cost."
+ },
+ "wf": [
+  {
+   "s": "Thanks to their ___ parents, the twins both won places at top universities.",
+   "base": "SUPPORT",
+   "a": "supportive"
+  },
+  {
+   "s": "Japan is a leading ___ of cars and electronics.",
+   "base": "EXPORT",
+   "a": "exporter"
+  },
+  {
+   "s": "Thousands of migrants face ___ under the new law.",
+   "base": "DEPORT",
+   "a": "deportation"
+  }
+ ],
+ "err": [
+  {
+   "s": "More people should use *public transportations* to reduce traffic jams.",
+   "a": "public transport"
+  },
+  {
+   "s": "The government should give more *supports* to small businesses.",
+   "a": "support"
+  }
+ ],
+ "write": "Some people believe a country should produce its own food instead of importing it. Do you agree or disagree? Viết 2–3 câu, dùng ít nhất 2 từ trong chương.",
+ "pa": [
+  {
+   "s": "The country buys most of its oil from abroad.",
+   "k": "import",
+   "a": "The country imports most of its oil."
+  },
+  {
+   "s": "Buses and trains in the city are cheap and reliable.",
+   "k": "public transport",
+   "a": "Public transport in the city is cheap and reliable."
+  }
+ ],
+ "sp": "Is it better for a country to grow its own food or to buy food from other countries?",
+ "wt": "opinion",
+ "rq": {
+  "type": "gap",
+  "box": [
+   "exporter",
+   "transport",
+   "imports",
+   "supports",
+   "portfolio",
+   "deported",
+   "cost",
+   "permits"
+  ],
+  "text": "Although it is small, the Netherlands is the world's second-largest [1] of food. This depends on good [2]: Rotterdam receives large volumes of [3] and sends goods across Europe. The government [4] farmers with funding, and companies sell a wide [5] of products. Critics note that some migrant workers are [6] when their documents expire.",
+  "a": [
+   "exporter",
+   "transport",
+   "imports",
+   "supports",
+   "portfolio",
+   "deported"
+  ]
+ },
+ "syn": [
+  [
+   "import",
+   "bring in from abroad"
+  ],
+  [
+   "support",
+   "back"
+  ],
+  [
+   "transport",
+   "carry"
+  ],
+  [
+   "portable",
+   "easy to carry"
+  ],
+  [
+   "deport",
+   "expel"
+  ]
+ ]
+}

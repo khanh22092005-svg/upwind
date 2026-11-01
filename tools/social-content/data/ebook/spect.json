@@ -1,0 +1,200 @@
+{
+ "id": "spect",
+ "words": {
+  "inspect": {
+   "tp": "work",
+   "forms": {
+    "v": "inspect",
+    "n": "inspection, inspector"
+   },
+   "col": [
+    "inspect carefully",
+    "carry out an inspection",
+    "a safety inspection",
+    "a school inspector"
+   ]
+  },
+  "respect": {
+   "tp": "daily",
+   "forms": {
+    "v": "respect",
+    "n": "respect",
+    "adj": "respectful, respectable, respective",
+    "adv": "respectively"
+   },
+   "col": [
+    "show respect for",
+    "earn the respect of",
+    "mutual respect",
+    "in this respect"
+   ]
+  },
+  "suspect": {
+   "tp": "crime",
+   "forms": {
+    "v": "suspect",
+    "n": "suspect, suspicion",
+    "adj": "suspicious",
+    "adv": "suspiciously"
+   },
+   "col": [
+    "a prime suspect",
+    "strongly suspect that",
+    "arouse suspicion",
+    "under suspicion"
+   ]
+  },
+  "prospect": {
+   "tp": "work",
+   "forms": {
+    "n": "prospect, prospects",
+    "adj": "prospective"
+   },
+   "col": [
+    "job prospects",
+    "career prospects",
+    "the prospect of",
+    "prospective students"
+   ]
+  },
+  "retrospect": {
+   "tp": "daily",
+   "forms": {
+    "n": "retrospect, retrospective",
+    "adj": "retrospective",
+    "adv": "retrospectively"
+   },
+   "col": [
+    "in retrospect",
+    "with hindsight and in retrospect",
+    "a retrospective exhibition"
+   ]
+  },
+  "perspective": {
+   "tp": "media",
+   "forms": {
+    "n": "perspective"
+   },
+   "col": [
+    "from a different perspective",
+    "put things into perspective",
+    "a fresh perspective",
+    "a global perspective"
+   ]
+  },
+  "spectator": {
+   "tp": "media",
+   "forms": {
+    "n": "spectator, spectacle",
+    "adj": "spectacular",
+    "adv": "spectacularly"
+   },
+   "col": [
+    "attract spectators",
+    "a spectator sport",
+    "a spectacular view"
+   ]
+  },
+  "conspicuous": {
+   "tp": "daily",
+   "forms": {
+    "adj": "conspicuous, inconspicuous",
+    "adv": "conspicuously"
+   },
+   "col": [
+    "conspicuous consumption",
+    "highly conspicuous",
+    "conspicuously absent"
+   ]
+  }
+ },
+ "reading": {
+  "title": "The price of looking rich",
+  "text": "Economists use the term conspicuous consumption for buying expensive goods mainly so that others will notice them. From a historical perspective, this is nothing new: wealthy Romans built spectacular villas for the same reason. What has changed is the audience. Social media turns every friend into a spectator, and many young people suspect that their followers judge them by what they own. In retrospect, some admit that the designer bags and new phones damaged their financial prospects. Researchers who inspected the spending data of 5,000 graduates found that the most image-conscious saved 40 percent less."
+ },
+ "wf": [
+  {
+   "s": "Several viewers found the man's behaviour ___ and called the police.",
+   "base": "SUSPECT",
+   "a": "suspicious"
+  },
+  {
+   "s": "All ___ students must complete the online application by May.",
+   "base": "PROSPECT",
+   "a": "prospective"
+  },
+  {
+   "s": "The two factories produce 300 and 500 cars a day, ___.",
+   "base": "RESPECT",
+   "a": "respectively"
+  }
+ ],
+ "err": [
+  {
+   "s": "Young graduates today have better career *perspectives* than their parents did.",
+   "a": "prospects"
+  },
+  {
+   "s": "Football is the most popular *spectacular* sport in the country.",
+   "a": "spectator"
+  }
+ ],
+ "write": "In many countries, people spend money on luxury goods to show their status. Is this a positive or negative development? Viết 2–3 câu, dùng ít nhất 2 từ trong chương.",
+ "pa": [
+  {
+   "s": "Looking back, I should have studied harder at school.",
+   "k": "retrospect",
+   "a": "In retrospect, I should have studied harder at school."
+  },
+  {
+   "s": "Graduates in engineering have good chances of finding a job.",
+   "k": "prospects",
+   "a": "Engineering graduates have good job prospects."
+  }
+ ],
+ "sp": "Why do some people buy expensive brands that they cannot really afford?",
+ "wt": "problem",
+ "rq": {
+  "type": "ynng",
+  "items": [
+   {
+    "s": "Showing off wealth is a recent invention.",
+    "a": "N"
+   },
+   {
+    "s": "Social media has increased the pressure to display possessions.",
+    "a": "Y"
+   },
+   {
+    "s": "Governments should tax luxury goods more heavily.",
+    "a": "NG"
+   },
+   {
+    "s": "Spending on image can harm young people's finances.",
+    "a": "Y"
+   }
+  ]
+ },
+ "syn": [
+  [
+   "inspect",
+   "examine closely"
+  ],
+  [
+   "prospects",
+   "chances of success"
+  ],
+  [
+   "in retrospect",
+   "looking back"
+  ],
+  [
+   "perspective",
+   "point of view"
+  ],
+  [
+   "conspicuous",
+   "noticeable"
+  ]
+ ]
+}

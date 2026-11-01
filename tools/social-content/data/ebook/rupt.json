@@ -1,0 +1,182 @@
+{
+ "id": "rupt",
+ "words": {
+  "erupt": {
+   "tp": "env",
+   "forms": {
+    "v": "erupt",
+    "n": "eruption"
+   },
+   "col": [
+    "a volcano erupts",
+    "violence erupted",
+    "erupt into laughter",
+    "a volcanic eruption"
+   ]
+  },
+  "interrupt": {
+   "tp": "daily",
+   "forms": {
+    "v": "interrupt",
+    "n": "interruption",
+    "adj": "uninterrupted"
+   },
+   "col": [
+    "interrupt someone",
+    "without interruption",
+    "uninterrupted sleep",
+    "constant interruptions"
+   ]
+  },
+  "disrupt": {
+   "tp": "tech",
+   "forms": {
+    "v": "disrupt",
+    "n": "disruption",
+    "adj": "disruptive"
+   },
+   "col": [
+    "disrupt services",
+    "cause disruption",
+    "disruptive behaviour",
+    "disruptive technology"
+   ]
+  },
+  "corrupt": {
+   "tp": "crime",
+   "forms": {
+    "adj": "corrupt",
+    "v": "corrupt",
+    "n": "corruption"
+   },
+   "col": [
+    "corrupt officials",
+    "tackle corruption",
+    "widespread corruption",
+    "a corrupt system"
+   ]
+  },
+  "bankrupt": {
+   "tp": "work",
+   "forms": {
+    "adj": "bankrupt",
+    "n": "bankruptcy"
+   },
+   "col": [
+    "go bankrupt",
+    "declare bankruptcy",
+    "on the verge of bankruptcy"
+   ]
+  },
+  "abrupt": {
+   "tp": "daily",
+   "forms": {
+    "adj": "abrupt",
+    "adv": "abruptly"
+   },
+   "col": [
+    "an abrupt change",
+    "come to an abrupt end",
+    "stop abruptly"
+   ]
+  }
+ },
+ "reading": {
+  "title": "When the taxi apps arrived",
+  "text": "Ride-hailing apps are a classic example of disruptive technology. When they arrived in Jakarta, protests by traditional taxi drivers erupted almost overnight, and traffic in the city centre was disrupted for days. Many small taxi firms went bankrupt within two years. Supporters of the apps argued that the old licensing system had been corrupt, with permits sold to friends of officials. Others worried about the abrupt end of a stable profession. Today, most drivers work for the apps, and their income can be interrupted at any moment by a change in the algorithm."
+ },
+ "wf": [
+  {
+   "s": "Pupils who show ___ behaviour may be sent home.",
+   "base": "DISRUPT",
+   "a": "disruptive"
+  },
+  {
+   "s": "The company filed for ___ after losing its biggest client.",
+   "base": "BANKRUPT",
+   "a": "bankruptcy"
+  },
+  {
+   "s": "The meeting ended ___ when the fire alarm went off.",
+   "base": "ABRUPT",
+   "a": "abruptly"
+  }
+ ],
+ "err": [
+  {
+   "s": "Several firms *became* bankrupt during the crisis.",
+   "a": "went"
+  },
+  {
+   "s": "The government promised to fight *corrupt* in the police force.",
+   "a": "corruption"
+  }
+ ],
+ "write": "Technology such as ride-hailing apps creates jobs but also destroys traditional ones. Is this a positive development? Viết 2–3 câu, dùng ít nhất 2 từ trong chương.",
+ "pa": [
+  {
+   "s": "The film ended very suddenly.",
+   "k": "abrupt",
+   "a": "The film came to an abrupt end."
+  },
+  {
+   "s": "The storm caused problems for flights all over Europe.",
+   "k": "disrupt",
+   "a": "The storm disrupted flights all over Europe."
+  }
+ ],
+ "wt": "advdis",
+ "rq": {
+  "type": "sent",
+  "items": [
+   {
+    "s": "Ride-hailing apps are an example of ____ technology.",
+    "a": "disruptive"
+   },
+   {
+    "s": "Protests by taxi drivers ____ almost overnight.",
+    "a": "erupted"
+   },
+   {
+    "s": "Supporters said the old licensing system was ____.",
+    "a": "corrupt"
+   },
+   {
+    "s": "Drivers' income can be interrupted by a change in the ____.",
+    "a": "algorithm"
+   }
+  ]
+ },
+ "spk": {
+  "part": 2,
+  "topic": "Describe a time when your plans were suddenly disrupted.",
+  "bullets": [
+   "what you had planned",
+   "what happened",
+   "how you felt",
+   "and explain what you did next."
+  ]
+ },
+ "syn": [
+  [
+   "disrupt",
+   "interfere with"
+  ],
+  [
+   "erupt",
+   "break out"
+  ],
+  [
+   "abrupt",
+   "sudden"
+  ],
+  [
+   "go bankrupt",
+   "go out of business"
+  ],
+  [
+   "corruption",
+   "dishonesty"
+  ]
+ ]
+}

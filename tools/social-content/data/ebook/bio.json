@@ -1,0 +1,329 @@
+{
+ "id": "bio",
+ "root": "bio",
+ "origin": "Greek bios",
+ "core": "sự sống",
+ "image": "một mầm cây non đang vươn lên",
+ "hook": "{{antibiotic}}, {{biodiversity}}, {{biofuel}}: chữ “bio” ở đâu cũng có nghĩa là… sự sống.",
+ "bait": {
+  "word": "antibiotic",
+  "literal": "chống lại sự sống"
+ },
+ "words": [
+  {
+   "word": "antibiotic",
+   "pos": "n.",
+   "ipa": "/ˌæntibaɪˈɒtɪk/",
+   "parts": [
+    {
+     "t": "anti",
+     "k": "pre",
+     "vi": "chống lại"
+    },
+    {
+     "t": "bio",
+     "k": "root",
+     "vi": "sự sống"
+    },
+    {
+     "t": "tic",
+     "k": "suf",
+     "vi": "tính từ"
+    }
+   ],
+   "meaning": "thuốc kháng sinh",
+   "story": "chống lại sự sống của vi khuẩn",
+   "example": "Doctors are trying to prescribe fewer antibiotics.",
+   "example_vi": "Bác sĩ đang cố gắng kê ít thuốc kháng sinh hơn.",
+   "tp": "health",
+   "forms": {
+    "n": "antibiotic, antibiotics"
+   },
+   "col": [
+    "a course of antibiotics",
+    "antibiotic resistance",
+    "prescribe antibiotics"
+   ],
+   "trap": "Kháng sinh diệt vi khuẩn ({{bacteria}}), không có tác dụng với virus như cảm cúm."
+  },
+  {
+   "word": "biodiversity",
+   "pos": "n.",
+   "ipa": "/ˌbaɪəʊdaɪˈvɜːsəti/",
+   "parts": [
+    {
+     "t": "bio",
+     "k": "root",
+     "vi": "sự sống"
+    },
+    {
+     "t": "divers",
+     "k": "root",
+     "vi": "đa dạng"
+    },
+    {
+     "t": "ity",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "đa dạng sinh học",
+   "story": "sự sống ở muôn hình muôn vẻ",
+   "example": "Rainforests have the highest biodiversity on Earth.",
+   "example_vi": "Rừng mưa nhiệt đới có độ đa dạng sinh học cao nhất Trái Đất.",
+   "tp": "env",
+   "forms": {
+    "n": "biodiversity"
+   },
+   "col": [
+    "protect biodiversity",
+    "loss of biodiversity",
+    "rich in biodiversity"
+   ]
+  },
+  {
+   "word": "biodegradable",
+   "pos": "adj.",
+   "ipa": "/ˌbaɪəʊdɪˈɡreɪdəbl/",
+   "parts": [
+    {
+     "t": "bio",
+     "k": "root",
+     "vi": "sự sống"
+    },
+    {
+     "t": "de",
+     "k": "pre",
+     "vi": "xuống"
+    },
+    {
+     "t": "grad",
+     "k": "root",
+     "vi": "bước"
+    },
+    {
+     "t": "able",
+     "k": "suf",
+     "vi": "có thể"
+    }
+   ],
+   "meaning": "có thể phân huỷ sinh học",
+   "story": "sinh vật làm nó “xuống cấp” dần cho tới khi biến mất",
+   "example": "Many cafés now use biodegradable cups.",
+   "example_vi": "Nhiều quán cà phê nay dùng cốc phân huỷ sinh học.",
+   "tp": "env",
+   "forms": {
+    "adj": "biodegradable",
+    "v": "biodegrade"
+   },
+   "col": [
+    "biodegradable packaging",
+    "biodegradable plastic",
+    "fully biodegradable"
+   ]
+  },
+  {
+   "word": "biofuel",
+   "pos": "n.",
+   "ipa": "/ˈbaɪəʊfjuːəl/",
+   "parts": [
+    {
+     "t": "bio",
+     "k": "root",
+     "vi": "sự sống"
+    },
+    {
+     "t": "fuel",
+     "k": "root",
+     "vi": "nhiên liệu"
+    }
+   ],
+   "meaning": "nhiên liệu sinh học",
+   "story": "nhiên liệu làm từ sinh vật (cây, dầu ăn, rác hữu cơ)",
+   "example": "Some airlines are testing biofuels made from used cooking oil.",
+   "example_vi": "Một số hãng bay đang thử nhiên liệu sinh học làm từ dầu ăn đã qua sử dụng.",
+   "tp": "env",
+   "forms": {
+    "n": "biofuel"
+   },
+   "col": [
+    "produce biofuels",
+    "biofuel crops",
+    "switch to biofuels"
+   ]
+  },
+  {
+   "word": "biotechnology",
+   "pos": "n.",
+   "ipa": "/ˌbaɪəʊtekˈnɒlədʒi/",
+   "parts": [
+    {
+     "t": "bio",
+     "k": "root",
+     "vi": "sự sống"
+    },
+    {
+     "t": "techno",
+     "k": "pre",
+     "vi": "kỹ thuật"
+    },
+    {
+     "t": "log",
+     "k": "root",
+     "vi": "môn học"
+    },
+    {
+     "t": "y",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "công nghệ sinh học",
+   "story": "dùng kỹ thuật với các sinh vật sống",
+   "example": "Advances in biotechnology have produced new vaccines.",
+   "example_vi": "Tiến bộ công nghệ sinh học đã tạo ra các vắc-xin mới.",
+   "tp": "sci",
+   "forms": {
+    "n": "biotechnology, biotech"
+   },
+   "col": [
+    "advances in biotechnology",
+    "the biotechnology industry",
+    "biotech companies"
+   ]
+  },
+  {
+   "word": "biometric",
+   "pos": "adj.",
+   "ipa": "/ˌbaɪəʊˈmetrɪk/",
+   "parts": [
+    {
+     "t": "bio",
+     "k": "root",
+     "vi": "sự sống"
+    },
+    {
+     "t": "metr",
+     "k": "root",
+     "vi": "đo"
+    },
+    {
+     "t": "ic",
+     "k": "suf",
+     "vi": "tính từ"
+    }
+   ],
+   "meaning": "(thuộc) sinh trắc học",
+   "story": "đo các đặc điểm của cơ thể sống",
+   "example": "Many phones now use biometric data such as fingerprints.",
+   "example_vi": "Nhiều điện thoại nay dùng dữ liệu sinh trắc như vân tay.",
+   "tp": "tech",
+   "forms": {
+    "adj": "biometric",
+    "n": "biometrics"
+   },
+   "col": [
+    "biometric data",
+    "biometric passports",
+    "biometric identification"
+   ]
+  }
+ ],
+ "wf": [
+  {
+   "s": "Doctors warn that the ___ use of antibiotics is dangerous.",
+   "base": "EXCEED",
+   "a": "excessive"
+  },
+  {
+   "s": "The country plans to ___ its economy by investing in biotechnology.",
+   "base": "DIVERSE",
+   "a": "diversify"
+  },
+  {
+   "s": "Plastic bags are not ___, so they stay in the environment for centuries.",
+   "base": "DEGRADE",
+   "a": "biodegradable"
+  }
+ ],
+ "err": [
+  {
+   "s": "The new law aims to protect the *biodiverse* of the region.",
+   "a": "biodiversity"
+  },
+  {
+   "s": "Many cafés use *biodegrade* cups.",
+   "a": "biodegradable"
+  }
+ ],
+ "tf": [],
+ "pa": [
+  {
+   "s": "Doctors should give out fewer antibiotics.",
+   "k": "prescribe",
+   "a": "Doctors should prescribe fewer antibiotics."
+  },
+  {
+   "s": "Many types of animals and plants are disappearing.",
+   "k": "biodiversity",
+   "a": "There is a serious loss of biodiversity."
+  }
+ ],
+ "reading": {
+  "title": "Life in a cup",
+  "text": "Every year, billions of coffee cups end up in landfill. Many cafés now offer biodegradable cups, but scientists warn that these only break down under industrial conditions. Meanwhile, biotechnology companies are developing new materials made by bacteria, which could replace plastic altogether. Supporters say such innovations will protect biodiversity by keeping waste out of rivers and oceans. Critics reply that the simplest solution is a reusable cup."
+ },
+ "rq": {
+  "type": "sent",
+  "items": [
+   {
+    "s": "Billions of coffee cups end up in ____ each year.",
+    "a": "landfill"
+   },
+   {
+    "s": "Biodegradable cups only break down under ____ conditions.",
+    "a": "industrial"
+   },
+   {
+    "s": "Some new materials are made by ____.",
+    "a": "bacteria"
+   },
+   {
+    "s": "Critics think the simplest solution is a ____ cup.",
+    "a": "reusable"
+   }
+  ]
+ },
+ "syn": [
+  [
+   "antibiotic",
+   "antibacterial drug"
+  ],
+  [
+   "biodiversity",
+   "variety of life"
+  ],
+  [
+   "biofuel",
+   "plant-based fuel"
+  ],
+  [
+   "biometric data",
+   "fingerprint and face data"
+  ],
+  [
+   "biotechnology",
+   "biotech"
+  ]
+ ],
+ "spk": {
+  "part": 1,
+  "qs": [
+   "Do you use reusable bags or cups?",
+   "Do you take antibiotics when you have a cold?",
+   "Have you ever visited a national park?"
+  ]
+ },
+ "wt": "opinion",
+ "write": "Some people think that protecting biodiversity is more important than economic growth. To what extent do you agree or disagree?"
+}

@@ -1,0 +1,306 @@
+{
+ "id": "fect",
+ "root": "fect / fic / fac",
+ "origin": "Latin facere",
+ "core": "làm",
+ "image": "đôi tay đang nhào nặn một thứ gì đó",
+ "hook": "{{effect}} hay {{affect}}? Hai từ ai cũng nhầm lại chung một gốc “làm”.",
+ "bait": {
+  "word": "factor",
+  "literal": "người làm ra"
+ },
+ "words": [
+  {
+   "word": "effect",
+   "pos": "n.",
+   "ipa": "/ɪˈfekt/",
+   "parts": [
+    {
+     "t": "ef",
+     "k": "pre",
+     "vi": "ra ngoài"
+    },
+    {
+     "t": "fect",
+     "k": "root",
+     "vi": "làm"
+    }
+   ],
+   "meaning": "tác động; kết quả",
+   "story": "thứ được làm ra từ một nguyên nhân",
+   "example": "Social media has a strong effect on teenagers' self-esteem.",
+   "example_vi": "Mạng xã hội tác động mạnh đến lòng tự trọng của thanh thiếu niên.",
+   "tp": "sci",
+   "forms": {
+    "n": "effect",
+    "adj": "effective",
+    "adv": "effectively"
+   },
+   "col": [
+    "have an effect on",
+    "side effects",
+    "cause and effect",
+    "an effective solution"
+   ],
+   "trap": "{{effect}} thường là danh từ, {{affect}} là động từ: {{affect}} something = {{have an effect on}} it."
+  },
+  {
+   "word": "affect",
+   "pos": "v.",
+   "ipa": "/əˈfekt/",
+   "parts": [
+    {
+     "t": "af",
+     "k": "pre",
+     "vi": "lên"
+    },
+    {
+     "t": "fect",
+     "k": "root",
+     "vi": "làm"
+    }
+   ],
+   "meaning": "ảnh hưởng",
+   "story": "làm điều gì đó lên ai",
+   "example": "Air pollution affects millions of people in big cities.",
+   "example_vi": "Ô nhiễm không khí ảnh hưởng đến hàng triệu người ở các thành phố lớn.",
+   "tp": "env",
+   "forms": {
+    "v": "affect"
+   },
+   "col": [
+    "directly affect",
+    "be badly affected by",
+    "affect someone's health"
+   ]
+  },
+  {
+   "word": "efficient",
+   "pos": "adj.",
+   "ipa": "/ɪˈfɪʃnt/",
+   "parts": [
+    {
+     "t": "ef",
+     "k": "pre",
+     "vi": "ra ngoài"
+    },
+    {
+     "t": "fic",
+     "k": "root",
+     "vi": "làm"
+    },
+    {
+     "t": "ient",
+     "k": "suf",
+     "vi": "tính từ"
+    }
+   ],
+   "meaning": "hiệu quả (ít lãng phí)",
+   "story": "làm ra được nhiều mà tốn ít",
+   "example": "LED bulbs are far more energy-efficient than old ones.",
+   "example_vi": "Bóng LED tiết kiệm điện hơn nhiều so với bóng cũ.",
+   "tp": "env",
+   "forms": {
+    "adj": "efficient, inefficient",
+    "n": "efficiency",
+    "adv": "efficiently"
+   },
+   "col": [
+    "energy-efficient",
+    "highly efficient",
+    "improve efficiency"
+   ]
+  },
+  {
+   "word": "infect",
+   "pos": "v.",
+   "ipa": "/ɪnˈfekt/",
+   "parts": [
+    {
+     "t": "in",
+     "k": "pre",
+     "vi": "vào trong"
+    },
+    {
+     "t": "fect",
+     "k": "root",
+     "vi": "làm"
+    }
+   ],
+   "meaning": "lây nhiễm",
+   "story": "làm cho mầm bệnh đi vào trong người",
+   "example": "The virus infected thousands of people within weeks.",
+   "example_vi": "Virus lây nhiễm cho hàng nghìn người chỉ trong vài tuần.",
+   "tp": "health",
+   "forms": {
+    "v": "infect",
+    "n": "infection",
+    "adj": "infectious"
+   },
+   "col": [
+    "infectious diseases",
+    "a viral infection",
+    "become infected"
+   ]
+  },
+  {
+   "word": "defect",
+   "pos": "n.",
+   "ipa": "/ˈdiːfekt/",
+   "parts": [
+    {
+     "t": "de",
+     "k": "pre",
+     "vi": "xuống, hỏng"
+    },
+    {
+     "t": "fect",
+     "k": "root",
+     "vi": "làm"
+    }
+   ],
+   "meaning": "khuyết tật, lỗi",
+   "story": "thứ bị làm ra kém, hỏng hóc",
+   "example": "The cars were recalled because of a safety defect.",
+   "example_vi": "Những chiếc xe bị thu hồi vì lỗi an toàn.",
+   "tp": "tech",
+   "forms": {
+    "n": "defect",
+    "adj": "defective"
+   },
+   "col": [
+    "a design defect",
+    "a birth defect",
+    "defective products"
+   ]
+  },
+  {
+   "word": "factor",
+   "pos": "n.",
+   "ipa": "/ˈfæktə/",
+   "parts": [
+    {
+     "t": "fact",
+     "k": "root",
+     "vi": "làm"
+    },
+    {
+     "t": "or",
+     "k": "suf",
+     "vi": "người, vật"
+    }
+   ],
+   "meaning": "yếu tố",
+   "story": "thứ góp phần làm nên kết quả",
+   "example": "Price is the most important factor when people buy a phone.",
+   "example_vi": "Giá là yếu tố quan trọng nhất khi người ta mua điện thoại.",
+   "tp": "sci",
+   "forms": {
+    "n": "factor"
+   },
+   "col": [
+    "a key factor",
+    "a contributing factor",
+    "risk factors"
+   ]
+  }
+ ],
+ "wf": [
+  {
+   "s": "Masks are an ___ way to reduce the spread of flu.",
+   "base": "EFFECT",
+   "a": "effective"
+  },
+  {
+   "s": "Washing your hands helps to prevent ___ diseases.",
+   "base": "INFECT",
+   "a": "infectious"
+  },
+  {
+   "s": "Modern washing machines use energy more ___.",
+   "base": "EFFICIENT",
+   "a": "efficiently"
+  }
+ ],
+ "err": [
+  {
+   "s": "Stress can *effect* your sleep.",
+   "a": "affect"
+  },
+  {
+   "s": "Smoking has a bad *affect* on health.",
+   "a": "effect"
+  }
+ ],
+ "tf": [],
+ "pa": [
+  {
+   "s": "Many different things lead to obesity.",
+   "k": "factor",
+   "a": "Obesity is caused by several factors."
+  },
+  {
+   "s": "The storm caused serious problems for farmers.",
+   "k": "affect",
+   "a": "Farmers were badly affected by the storm."
+  }
+ ],
+ "reading": {
+  "title": "Warmer homes, lower bills",
+  "text": "Energy prices have a direct effect on household budgets, and rising costs affect poorer families most. One of the most effective responses is not new power stations but more efficient homes. Insulating walls and roofs can cut heating bills by a third. Experts say the key factor is cost: many families cannot afford the work upfront, so some governments now offer loans that are repaid through the savings. Poorly built homes with defects such as damp walls can also harm health, increasing the risk of infections."
+ },
+ "rq": {
+  "type": "gap",
+  "box": [
+   "effect",
+   "affect",
+   "efficient",
+   "third",
+   "cost",
+   "loans",
+   "infections",
+   "defect"
+  ],
+  "text": "Energy prices have a direct [1] on family budgets. Instead of building power stations, making homes more [2] is an effective response, as insulation can reduce heating bills by a [3]. The main barrier is [4], so some governments offer [5]. Damp homes can also cause [6].",
+  "a": [
+   "effect",
+   "efficient",
+   "third",
+   "cost",
+   "loans",
+   "infections"
+  ]
+ },
+ "syn": [
+  [
+   "effect",
+   "impact"
+  ],
+  [
+   "affect",
+   "influence"
+  ],
+  [
+   "efficient",
+   "economical"
+  ],
+  [
+   "defect",
+   "fault"
+  ],
+  [
+   "factor",
+   "element"
+  ]
+ ],
+ "spk": {
+  "part": 1,
+  "qs": [
+   "Does the weather affect your mood?",
+   "Would you describe yourself as an efficient person?",
+   "What factors are important to you when you choose a phone?"
+  ]
+ },
+ "wt": "problem",
+ "write": "Many families struggle to pay their energy bills. What are the causes of this problem, and what can governments do to help?"
+}

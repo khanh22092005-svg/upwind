@@ -1,0 +1,356 @@
+{
+ "id": "log",
+ "root": "log / logy",
+ "origin": "Greek logos",
+ "core": "lời nói, lý lẽ, môn học",
+ "image": "một người đứng nói, từng lời được sắp xếp theo lý lẽ",
+ "hook": "{{biology}}, {{psychology}}, {{technology}}: vì sao cả ba đều kết thúc bằng “-logy”?",
+ "bait": {
+  "word": "apology",
+  "literal": "lời bào chữa trước toà"
+ },
+ "words": [
+  {
+   "word": "logic",
+   "pos": "n.",
+   "ipa": "/ˈlɒdʒɪk/",
+   "parts": [
+    {
+     "t": "log",
+     "k": "root",
+     "vi": "lý lẽ"
+    },
+    {
+     "t": "ic",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "lô-gic, lập luận hợp lý",
+   "story": "đi theo đúng lý lẽ, bước này dẫn tới bước kia",
+   "example": "The logic behind the plan is simple: cheaper energy means lower prices.",
+   "example_vi": "Lô-gic của kế hoạch rất đơn giản: năng lượng rẻ hơn thì giá thấp hơn.",
+   "tp": "sci",
+   "forms": {
+    "n": "logic",
+    "adj": "logical, illogical",
+    "adv": "logically"
+   },
+   "col": [
+    "logical reasoning",
+    "a logical conclusion",
+    "follow the logic",
+    "it seems logical to"
+   ]
+  },
+  {
+   "word": "biology",
+   "pos": "n.",
+   "ipa": "/baɪˈɒlədʒi/",
+   "parts": [
+    {
+     "t": "bio",
+     "k": "pre",
+     "vi": "sự sống"
+    },
+    {
+     "t": "log",
+     "k": "root",
+     "vi": "môn học"
+    },
+    {
+     "t": "y",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "sinh học",
+   "story": "môn học về sự sống",
+   "example": "Marine biology is the study of life in the oceans.",
+   "example_vi": "Sinh học biển là ngành nghiên cứu sự sống dưới đại dương.",
+   "tp": "sci",
+   "forms": {
+    "n": "biology, biologist",
+    "adj": "biological"
+   },
+   "col": [
+    "marine biology",
+    "biological diversity",
+    "a biology degree"
+   ]
+  },
+  {
+   "word": "psychology",
+   "pos": "n.",
+   "ipa": "/saɪˈkɒlədʒi/",
+   "parts": [
+    {
+     "t": "psycho",
+     "k": "pre",
+     "vi": "tâm trí"
+    },
+    {
+     "t": "log",
+     "k": "root",
+     "vi": "môn học"
+    },
+    {
+     "t": "y",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "tâm lý học; tâm lý",
+   "story": "môn học về tâm trí con người",
+   "example": "Understanding customer psychology helps companies sell more.",
+   "example_vi": "Hiểu tâm lý khách hàng giúp doanh nghiệp bán được nhiều hơn.",
+   "tp": "health",
+   "forms": {
+    "n": "psychology, psychologist",
+    "adj": "psychological",
+    "adv": "psychologically"
+   },
+   "col": [
+    "child psychology",
+    "psychological pressure",
+    "psychological effects",
+    "psychologically damaging"
+   ]
+  },
+  {
+   "word": "apology",
+   "pos": "n.",
+   "ipa": "/əˈpɒlədʒi/",
+   "parts": [
+    {
+     "t": "apo",
+     "k": "pre",
+     "vi": "tránh khỏi"
+    },
+    {
+     "t": "log",
+     "k": "root",
+     "vi": "lời nói"
+    },
+    {
+     "t": "y",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "lời xin lỗi",
+   "story": "lời nói ra để gỡ mình khỏi lỗi lầm",
+   "example": "The company issued a public apology for the data leak.",
+   "example_vi": "Công ty đã công khai xin lỗi vì vụ rò rỉ dữ liệu.",
+   "tp": "daily",
+   "forms": {
+    "n": "apology",
+    "v": "apologise",
+    "adj": "apologetic"
+   },
+   "col": [
+    "make an apology",
+    "a public apology",
+    "apologise for",
+    "owe someone an apology"
+   ]
+  },
+  {
+   "word": "dialogue",
+   "pos": "n.",
+   "ipa": "/ˈdaɪəlɒɡ/",
+   "parts": [
+    {
+     "t": "dia",
+     "k": "pre",
+     "vi": "qua lại"
+    },
+    {
+     "t": "logue",
+     "k": "root",
+     "vi": "lời nói"
+    }
+   ],
+   "meaning": "cuộc đối thoại",
+   "story": "lời nói đi qua đi lại giữa hai bên",
+   "example": "The two governments agreed to open a dialogue on climate change.",
+   "example_vi": "Hai chính phủ đồng ý mở cuộc đối thoại về biến đổi khí hậu.",
+   "tp": "soc",
+   "forms": {
+    "n": "dialogue"
+   },
+   "col": [
+    "open a dialogue",
+    "constructive dialogue",
+    "dialogue between",
+    "encourage dialogue"
+   ]
+  },
+  {
+   "word": "ecology",
+   "pos": "n.",
+   "ipa": "/iˈkɒlədʒi/",
+   "parts": [
+    {
+     "t": "eco",
+     "k": "pre",
+     "vi": "ngôi nhà, môi trường sống"
+    },
+    {
+     "t": "log",
+     "k": "root",
+     "vi": "môn học"
+    },
+    {
+     "t": "y",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "sinh thái học; hệ sinh thái",
+   "story": "môn học về “ngôi nhà chung” của mọi sinh vật",
+   "example": "Building the dam could damage the ecology of the river.",
+   "example_vi": "Xây đập có thể làm tổn hại hệ sinh thái của dòng sông.",
+   "tp": "env",
+   "forms": {
+    "n": "ecology, ecologist, ecosystem",
+    "adj": "ecological",
+    "adv": "ecologically"
+   },
+   "col": [
+    "ecological damage",
+    "ecological balance",
+    "a fragile ecosystem"
+   ]
+  },
+  {
+   "word": "technology",
+   "pos": "n.",
+   "ipa": "/tekˈnɒlədʒi/",
+   "parts": [
+    {
+     "t": "techno",
+     "k": "pre",
+     "vi": "kỹ thuật, tay nghề"
+    },
+    {
+     "t": "log",
+     "k": "root",
+     "vi": "môn học"
+    },
+    {
+     "t": "y",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "công nghệ",
+   "story": "môn học về kỹ thuật làm ra đồ vật",
+   "example": "Advances in technology have changed the way we work.",
+   "example_vi": "Tiến bộ công nghệ đã thay đổi cách chúng ta làm việc.",
+   "tp": "tech",
+   "forms": {
+    "n": "technology",
+    "adj": "technological",
+    "adv": "technologically"
+   },
+   "col": [
+    "advances in technology",
+    "information technology",
+    "technological progress",
+    "cutting-edge technology"
+   ]
+  }
+ ],
+ "wf": [
+  {
+   "s": "The minister's argument seemed perfectly ___ at first.",
+   "base": "LOGIC",
+   "a": "logical"
+  },
+  {
+   "s": "Losing a job can have serious ___ effects on a person.",
+   "base": "PSYCHOLOGY",
+   "a": "psychological"
+  },
+  {
+   "s": "The manager was very ___ about the mistake and offered a refund.",
+   "base": "APOLOGY",
+   "a": "apologetic"
+  }
+ ],
+ "err": [
+  {
+   "s": "The airline *said* an apology to passengers for the delay.",
+   "a": "made"
+  },
+  {
+   "s": "Rapid *technology* progress has created new jobs.",
+   "a": "technological"
+  }
+ ],
+ "reading": {
+  "title": "Screens and the teenage brain",
+  "text": "Few topics divide parents and scientists like screen time. Psychologists warn that constant notifications put teenagers under psychological pressure, while biologists point out that the adolescent brain is still developing. Technology companies reply that their products help young people stay connected. The logic of a total ban is attractive, but most experts believe it would fail. Instead, they recommend an open dialogue at home: parents and children agree on rules together, and adults apologise when they break the rules themselves."
+ },
+ "write": "Some people believe technology has made our lives more complicated. To what extent do you agree? Viết 2–3 câu, dùng ít nhất 2 từ trong chương.",
+ "tf": [
+  {
+   "s": "Scientists and parents agree about screen time.",
+   "a": "F"
+  },
+  {
+   "s": "Most experts think a total ban on phones would not work.",
+   "a": "T"
+  },
+  {
+   "s": "Teenagers who use phones less get better exam results.",
+   "a": "NG"
+  }
+ ],
+ "pa": [
+  {
+   "s": "The two sides agreed to start talking to each other.",
+   "k": "dialogue",
+   "a": "The two sides agreed to open a dialogue."
+  },
+  {
+   "s": "The way people think about money affects how they spend it.",
+   "k": "psychology",
+   "a": "The psychology of money affects how people spend it."
+  }
+ ],
+ "wt": "opinion",
+ "spk": {
+  "part": 2,
+  "topic": "Describe a piece of technology you use every day.",
+  "bullets": [
+   "what it is",
+   "when you started using it",
+   "how you use it",
+   "and explain how your life would be different without it."
+  ]
+ },
+ "syn": [
+  [
+   "logical",
+   "rational"
+  ],
+  [
+   "apologise",
+   "say sorry"
+  ],
+  [
+   "dialogue",
+   "discussion"
+  ],
+  [
+   "technological progress",
+   "advances in technology"
+  ],
+  [
+   "psychological",
+   "mental"
+  ]
+ ]
+}

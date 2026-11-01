@@ -1,0 +1,201 @@
+{
+ "id": "mit",
+ "words": {
+  "submit": {
+   "tp": "edu",
+   "forms": {
+    "v": "submit",
+    "n": "submission",
+    "adj": "submissive"
+   },
+   "col": [
+    "submit an application",
+    "submit an assignment",
+    "the submission deadline"
+   ]
+  },
+  "admit": {
+   "tp": "edu",
+   "forms": {
+    "v": "admit",
+    "n": "admission, admittance"
+   },
+   "col": [
+    "admit to university",
+    "reluctantly admit",
+    "admission fees",
+    "admit that"
+   ]
+  },
+  "permit": {
+   "tp": "soc",
+   "forms": {
+    "v": "permit",
+    "n": "permit, permission",
+    "adj": "permissive"
+   },
+   "col": [
+    "a work permit",
+    "a parking permit",
+    "ask for permission",
+    "be permitted to"
+   ]
+  },
+  "omit": {
+   "tp": "edu",
+   "forms": {
+    "v": "omit",
+    "n": "omission"
+   },
+   "col": [
+    "omit details",
+    "be omitted from",
+    "a serious omission"
+   ]
+  },
+  "emit": {
+   "tp": "env",
+   "forms": {
+    "v": "emit",
+    "n": "emission"
+   },
+   "col": [
+    "emit carbon dioxide",
+    "carbon emissions",
+    "reduce emissions",
+    "emit greenhouse gases"
+   ]
+  },
+  "transmit": {
+   "tp": "health",
+   "forms": {
+    "v": "transmit",
+    "n": "transmission, transmitter"
+   },
+   "col": [
+    "transmit a disease",
+    "transmit data",
+    "the transmission of the virus"
+   ]
+  },
+  "intermittent": {
+   "tp": "env",
+   "forms": {
+    "adj": "intermittent",
+    "adv": "intermittently"
+   },
+   "col": [
+    "intermittent rain",
+    "intermittent problems",
+    "work intermittently"
+   ]
+  },
+  "mission": {
+   "tp": "work",
+   "forms": {
+    "n": "mission, missionary"
+   },
+   "col": [
+    "a rescue mission",
+    "a mission statement",
+    "on a mission to"
+   ]
+  }
+ },
+ "reading": {
+  "title": "Cleaner skies over the city",
+  "text": "Five years ago, the city emitted more carbon dioxide per person than almost anywhere in Europe. The new mayor came to office on a mission to change this. Drivers now need a permit to enter the centre, and petrol cars are not permitted at all on weekdays. Officials admit that the scheme had problems at first: the electric buses suffered intermittent breakdowns, and some poorer districts were omitted from the cycle network. Still, data transmitted by air-quality sensors show that emissions have fallen by a third, and the city has submitted its plan to the EU as a model."
+ },
+ "wf": [
+  {
+   "s": "The government has promised to cut carbon ___ by 50% by 2035.",
+   "base": "EMIT",
+   "a": "emissions"
+  },
+  {
+   "s": "You need written ___ from your parents to go on the trip.",
+   "base": "PERMIT",
+   "a": "permission"
+  },
+  {
+   "s": "Museum ___ is free for children under twelve.",
+   "base": "ADMIT",
+   "a": "admission"
+  }
+ ],
+ "err": [
+  {
+   "s": "Factories should reduce the amount of *emits* they release into the air.",
+   "a": "emissions"
+  },
+  {
+   "s": "Students must *give* their essays before Friday.",
+   "a": "submit"
+  }
+ ],
+ "write": "Some people say that only governments can reduce air pollution, while others think individuals must act. Viết 2–3 câu, dùng ít nhất 2 từ trong chương.",
+ "pa": [
+  {
+   "s": "Cars produce a lot of harmful gases.",
+   "k": "emit",
+   "a": "Cars emit a lot of harmful gases."
+  },
+  {
+   "s": "The manager accepted that he had made a mistake.",
+   "k": "admit",
+   "a": "The manager admitted that he had made a mistake."
+  }
+ ],
+ "wt": "problem",
+ "rq": {
+  "type": "tfng",
+  "items": [
+   {
+    "s": "The mayor wanted to reduce the city's carbon dioxide output.",
+    "a": "T"
+   },
+   {
+    "s": "The electric buses worked perfectly from the start.",
+    "a": "F"
+   },
+   {
+    "s": "Air quality has improved in every district of the city.",
+    "a": "NG"
+   },
+   {
+    "s": "The city has sent its plan to the EU.",
+    "a": "T"
+   }
+  ]
+ },
+ "spk": {
+  "part": 1,
+  "qs": [
+   "How do you usually travel to school or work?",
+   "Is the air clean where you live?",
+   "Would you like to drive an electric car?"
+  ]
+ },
+ "syn": [
+  [
+   "emit",
+   "give off"
+  ],
+  [
+   "admit",
+   "acknowledge"
+  ],
+  [
+   "permit",
+   "allow"
+  ],
+  [
+   "omit",
+   "leave out"
+  ],
+  [
+   "submit",
+   "hand in"
+  ]
+ ]
+}

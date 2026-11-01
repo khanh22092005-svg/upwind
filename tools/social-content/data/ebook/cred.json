@@ -1,0 +1,176 @@
+{
+ "id": "cred",
+ "words": {
+  "credible": {
+   "tp": "media",
+   "forms": {
+    "adj": "credible",
+    "n": "credibility"
+   },
+   "col": [
+    "a credible source",
+    "credible evidence",
+    "lose credibility",
+    "damage someone's credibility"
+   ]
+  },
+  "incredible": {
+   "tp": "daily",
+   "forms": {
+    "adj": "incredible",
+    "adv": "incredibly"
+   },
+   "col": [
+    "an incredible achievement",
+    "incredibly difficult",
+    "incredibly fast"
+   ]
+  },
+  "credit": {
+   "tp": "work",
+   "forms": {
+    "n": "credit, creditor",
+    "v": "credit, discredit"
+   },
+   "col": [
+    "take credit for",
+    "give someone credit for",
+    "a credit card",
+    "on credit"
+   ]
+  },
+  "credentials": {
+   "tp": "work",
+   "forms": {
+    "n": "credentials"
+   },
+   "col": [
+    "academic credentials",
+    "check someone's credentials",
+    "impressive credentials"
+   ]
+  },
+  "credulous": {
+   "tp": "media",
+   "forms": {
+    "adj": "credulous, incredulous",
+    "n": "credulity"
+   },
+   "col": [
+    "credulous readers",
+    "an incredulous look",
+    "incredulous at"
+   ]
+  }
+ },
+ "reading": {
+  "title": "Who can you trust online?",
+  "text": "Fake news spreads incredibly fast, often faster than the truth. Researchers have found that false stories are shared most often by credulous readers who do not check the source. To be credible, a report should name its sources and the credentials of the experts it quotes. Several platforms now label posts from unreliable websites, and they deserve some credit for this. However, critics say that labels alone cannot restore the credibility of journalism, and that schools must teach young people how to judge information for themselves."
+ },
+ "wf": [
+  {
+   "s": "The minister lost all ___ after the scandal.",
+   "base": "CREDIBLE",
+   "a": "credibility"
+  },
+  {
+   "s": "The task was ___ difficult, but she finished it in a day.",
+   "base": "INCREDIBLE",
+   "a": "incredibly"
+  },
+  {
+   "s": "She stared at him, ___ that he had forgotten her birthday again.",
+   "base": "CREDULOUS",
+   "a": "incredulous"
+  }
+ ],
+ "err": [
+  {
+   "s": "The manager *got* credit for the team's success, which was unfair.",
+   "a": "took"
+  },
+  {
+   "s": "The newspaper quoted a *credulous* source, so most readers believed the story.",
+   "a": "credible"
+  }
+ ],
+ "write": "Some people think social media companies are responsible for stopping fake news. Others say users are responsible. Viết 2–3 câu, dùng ít nhất 2 từ trong chương.",
+ "pa": [
+  {
+   "s": "People no longer trust the newspaper after the scandal.",
+   "k": "credibility",
+   "a": "The newspaper lost its credibility after the scandal."
+  },
+  {
+   "s": "His success was praised, but it was really his team's work.",
+   "k": "credit",
+   "a": "He took the credit for his team's work."
+  }
+ ],
+ "wt": "discussion",
+ "rq": {
+  "type": "mcq",
+  "items": [
+   {
+    "q": "Who shares false stories most often, according to the research?",
+    "o": [
+     "Journalists",
+     "Readers who do not check sources",
+     "Technology companies",
+     "Teachers"
+    ],
+    "a": "B"
+   },
+   {
+    "q": "What makes a report credible?",
+    "o": [
+     "It is shared many times.",
+     "It names its sources and experts.",
+     "It is published online.",
+     "It is short."
+    ],
+    "a": "B"
+   },
+   {
+    "q": "What do critics believe?",
+    "o": [
+     "Labels have solved the problem.",
+     "Schools should teach young people to judge information.",
+     "Platforms deserve no credit.",
+     "Fake news is slow."
+    ],
+    "a": "B"
+   }
+  ]
+ },
+ "spk": {
+  "part": 1,
+  "qs": [
+   "Where do you usually get the news?",
+   "Do you trust what you read on social media?",
+   "Have you ever believed a story that turned out to be false?"
+  ]
+ },
+ "syn": [
+  [
+   "credible",
+   "believable"
+  ],
+  [
+   "credentials",
+   "qualifications"
+  ],
+  [
+   "take credit for",
+   "be praised for"
+  ],
+  [
+   "incredible",
+   "unbelievable"
+  ],
+  [
+   "credulous",
+   "too trusting"
+  ]
+ ]
+}

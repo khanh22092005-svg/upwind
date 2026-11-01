@@ -1,0 +1,317 @@
+{
+ "id": "scrib",
+ "root": "scrib / script",
+ "origin": "Latin scribere",
+ "core": "viết",
+ "image": "ngòi bút đang viết từng dòng chữ",
+ "hook": "{{describe}}, {{prescribe}}, {{subscribe}}: chỉ đổi tiền tố, từ “mô tả” thành “kê đơn” rồi “đăng ký kênh”?",
+ "bait": {
+  "word": "manuscript",
+  "literal": "viết bằng tay"
+ },
+ "words": [
+  {
+   "word": "describe",
+   "pos": "v.",
+   "ipa": "/dɪˈskraɪb/",
+   "parts": [
+    {
+     "t": "de",
+     "k": "pre",
+     "vi": "xuống"
+    },
+    {
+     "t": "scribe",
+     "k": "root",
+     "vi": "viết"
+    }
+   ],
+   "meaning": "mô tả",
+   "story": "viết xuống những gì mình thấy",
+   "example": "The report describes the main causes of poverty.",
+   "example_vi": "Bản báo cáo mô tả các nguyên nhân chính của nghèo đói.",
+   "tp": "media",
+   "forms": {
+    "v": "describe",
+    "n": "description",
+    "adj": "descriptive"
+   },
+   "col": [
+    "describe in detail",
+    "a detailed description",
+    "be described as",
+    "beyond description"
+   ]
+  },
+  {
+   "word": "prescribe",
+   "pos": "v.",
+   "ipa": "/prɪˈskraɪb/",
+   "parts": [
+    {
+     "t": "pre",
+     "k": "pre",
+     "vi": "trước"
+    },
+    {
+     "t": "scribe",
+     "k": "root",
+     "vi": "viết"
+    }
+   ],
+   "meaning": "kê đơn (thuốc); quy định",
+   "story": "viết ra trước những gì người bệnh phải làm",
+   "example": "Doctors prescribe antibiotics too often.",
+   "example_vi": "Bác sĩ kê kháng sinh quá thường xuyên.",
+   "tp": "health",
+   "forms": {
+    "v": "prescribe",
+    "n": "prescription",
+    "adj": "prescriptive"
+   },
+   "col": [
+    "prescribe antibiotics",
+    "a prescription drug",
+    "available on prescription"
+   ]
+  },
+  {
+   "word": "subscribe",
+   "pos": "v.",
+   "ipa": "/səbˈskraɪb/",
+   "parts": [
+    {
+     "t": "sub",
+     "k": "pre",
+     "vi": "phía dưới"
+    },
+    {
+     "t": "scribe",
+     "k": "root",
+     "vi": "viết"
+    }
+   ],
+   "meaning": "đăng ký (dài hạn); tán thành",
+   "story": "ký tên ở phía dưới văn bản",
+   "example": "Millions of people subscribe to streaming services.",
+   "example_vi": "Hàng triệu người đăng ký dịch vụ xem phim trực tuyến.",
+   "tp": "media",
+   "forms": {
+    "v": "subscribe",
+    "n": "subscription, subscriber"
+   },
+   "col": [
+    "subscribe to a channel",
+    "a monthly subscription",
+    "subscribe to the view that"
+   ]
+  },
+  {
+   "word": "manuscript",
+   "pos": "n.",
+   "ipa": "/ˈmænjuskrɪpt/",
+   "parts": [
+    {
+     "t": "manu",
+     "k": "pre",
+     "vi": "bàn tay"
+    },
+    {
+     "t": "script",
+     "k": "root",
+     "vi": "viết"
+    }
+   ],
+   "meaning": "bản thảo (viết tay)",
+   "story": "thứ được viết ra bằng tay",
+   "example": "The museum holds ancient manuscripts from the 12th century.",
+   "example_vi": "Bảo tàng lưu giữ các bản thảo cổ từ thế kỷ 12.",
+   "tp": "media",
+   "forms": {
+    "n": "manuscript"
+   },
+   "col": [
+    "an original manuscript",
+    "ancient manuscripts",
+    "submit a manuscript"
+   ]
+  },
+  {
+   "word": "transcript",
+   "pos": "n.",
+   "ipa": "/ˈtrænskrɪpt/",
+   "parts": [
+    {
+     "t": "trans",
+     "k": "pre",
+     "vi": "qua, sang"
+    },
+    {
+     "t": "cript",
+     "k": "root",
+     "vi": "viết"
+    }
+   ],
+   "meaning": "bản ghi lời; bảng điểm",
+   "story": "viết chép sang từ lời nói hoặc hồ sơ",
+   "example": "Universities ask applicants for an official transcript of their grades.",
+   "example_vi": "Các trường đại học yêu cầu bảng điểm chính thức của người nộp hồ sơ.",
+   "tp": "edu",
+   "forms": {
+    "n": "transcript, transcription",
+    "v": "transcribe"
+   },
+   "col": [
+    "an academic transcript",
+    "a full transcript of",
+    "transcribe an interview"
+   ]
+  },
+  {
+   "word": "inscription",
+   "pos": "n.",
+   "ipa": "/ɪnˈskrɪpʃn/",
+   "parts": [
+    {
+     "t": "in",
+     "k": "pre",
+     "vi": "vào, lên trên"
+    },
+    {
+     "t": "script",
+     "k": "root",
+     "vi": "viết"
+    },
+    {
+     "t": "ion",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "dòng chữ khắc",
+   "story": "chữ viết khắc lên đá, kim loại",
+   "example": "The inscription on the monument is in Latin.",
+   "example_vi": "Dòng chữ khắc trên tượng đài viết bằng tiếng La-tinh.",
+   "tp": "media",
+   "forms": {
+    "n": "inscription",
+    "v": "inscribe"
+   },
+   "col": [
+    "an ancient inscription",
+    "the inscription reads",
+    "inscribed on"
+   ]
+  }
+ ],
+ "wf": [
+  {
+   "s": "The ___ gave a clear picture of the town in the 1900s.",
+   "base": "DESCRIBE",
+   "a": "description"
+  },
+  {
+   "s": "This medicine is only available on ___.",
+   "base": "PRESCRIBE",
+   "a": "prescription"
+  },
+  {
+   "s": "The magazine has more than 50,000 ___.",
+   "base": "SUBSCRIBE",
+   "a": "subscribers"
+  }
+ ],
+ "err": [
+  {
+   "s": "Please *describe me* your typical day.",
+   "a": "describe your typical day to me"
+  },
+  {
+   "s": "She paid for a yearly *subscribe* to the newspaper.",
+   "a": "subscription"
+  }
+ ],
+ "reading": {
+  "title": "From manuscripts to subscriptions",
+  "text": "Before the printing press, every book was a manuscript, copied by hand over many months. Historians describe monasteries as the libraries of medieval Europe, and inscriptions on stone were often the only public texts. Today, the situation is reversed: text is everywhere and almost free. Readers subscribe to newsletters, students download transcripts of lectures, and doctors send prescriptions by email. Some writers worry that we read more but think less. Others reply that more people can now write and publish than at any time in history."
+ },
+ "write": "Some people think printed books will disappear in the future. Do you agree? Viết 2–3 câu, dùng ít nhất 2 từ trong chương.",
+ "pa": [
+  {
+   "s": "Can you tell me what the thief looked like?",
+   "k": "describe",
+   "a": "Can you describe the thief?"
+  },
+  {
+   "s": "I pay every month to watch films on this website.",
+   "k": "subscription",
+   "a": "I have a monthly subscription to this film website."
+  }
+ ],
+ "wt": "opinion",
+ "rq": {
+  "type": "mcq",
+  "items": [
+   {
+    "q": "How were books produced before the printing press?",
+    "o": [
+     "By machines in monasteries",
+     "By copying them by hand",
+     "By carving them in stone",
+     "By reading them aloud"
+    ],
+    "a": "B"
+   },
+   {
+    "q": "What has changed most about text today, according to the writer?",
+    "o": [
+     "It is everywhere and almost free.",
+     "It is mainly written on stone.",
+     "It is read only by students.",
+     "It is more expensive than before."
+    ],
+    "a": "A"
+   },
+   {
+    "q": "What do some writers worry about?",
+    "o": [
+     "People write too little.",
+     "Doctors use email.",
+     "People read more but think less.",
+     "Newsletters are too long."
+    ],
+    "a": "C"
+   }
+  ]
+ },
+ "spk": {
+  "part": 1,
+  "qs": [
+   "Do you prefer reading on paper or on a screen?",
+   "How often do you write by hand?",
+   "What kind of online content do you subscribe to?"
+  ]
+ },
+ "syn": [
+  [
+   "describe",
+   "give an account of"
+  ],
+  [
+   "subscribe",
+   "sign up"
+  ],
+  [
+   "prescribe",
+   "order (a medicine)"
+  ],
+  [
+   "manuscript",
+   "handwritten text"
+  ],
+  [
+   "transcript",
+   "written record"
+  ]
+ ]
+}

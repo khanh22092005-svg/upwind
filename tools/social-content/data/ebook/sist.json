@@ -1,0 +1,327 @@
+{
+ "id": "sist",
+ "root": "sist / sta",
+ "origin": "Latin sistere, stare",
+ "core": "đứng",
+ "image": "một người đứng vững, hai chân bám chặt xuống đất",
+ "hook": "{{insist}}, {{persist}}, {{resist}}: khăng khăng, kiên trì, chống lại… ba kiểu “đứng yên” khác nhau.",
+ "bait": {
+  "word": "obstacle",
+  "literal": "thứ đứng chắn đường"
+ },
+ "words": [
+  {
+   "word": "insist",
+   "pos": "v.",
+   "ipa": "/ɪnˈsɪst/",
+   "parts": [
+    {
+     "t": "in",
+     "k": "pre",
+     "vi": "trên"
+    },
+    {
+     "t": "sist",
+     "k": "root",
+     "vi": "đứng"
+    }
+   ],
+   "meaning": "khăng khăng, nhất quyết",
+   "story": "đứng lì trên quan điểm của mình",
+   "example": "She insisted on paying for dinner.",
+   "example_vi": "Cô ấy nhất quyết trả tiền bữa tối.",
+   "tp": "daily",
+   "forms": {
+    "v": "insist",
+    "adj": "insistent",
+    "n": "insistence"
+   },
+   "col": [
+    "insist on",
+    "insist that",
+    "politely insist"
+   ]
+  },
+  {
+   "word": "persist",
+   "pos": "v.",
+   "ipa": "/pəˈsɪst/",
+   "parts": [
+    {
+     "t": "per",
+     "k": "pre",
+     "vi": "xuyên suốt"
+    },
+    {
+     "t": "sist",
+     "k": "root",
+     "vi": "đứng"
+    }
+   ],
+   "meaning": "kiên trì; kéo dài dai dẳng",
+   "story": "đứng vững suốt từ đầu đến cuối",
+   "example": "If the symptoms persist, see a doctor.",
+   "example_vi": "Nếu triệu chứng kéo dài, hãy đi khám.",
+   "tp": "health",
+   "forms": {
+    "v": "persist",
+    "adj": "persistent",
+    "n": "persistence"
+   },
+   "col": [
+    "persistent problems",
+    "persist in",
+    "a persistent cough"
+   ]
+  },
+  {
+   "word": "resist",
+   "pos": "v.",
+   "ipa": "/rɪˈzɪst/",
+   "parts": [
+    {
+     "t": "re",
+     "k": "pre",
+     "vi": "chống lại"
+    },
+    {
+     "t": "sist",
+     "k": "root",
+     "vi": "đứng"
+    }
+   ],
+   "meaning": "chống lại; cưỡng lại",
+   "story": "đứng vững chống lại một lực đẩy",
+   "example": "It is hard to resist the temptation to check your phone.",
+   "example_vi": "Thật khó cưỡng lại cám dỗ kiểm tra điện thoại.",
+   "tp": "health",
+   "forms": {
+    "v": "resist",
+    "n": "resistance",
+    "adj": "resistant, irresistible"
+   },
+   "col": [
+    "resist temptation",
+    "resist change",
+    "antibiotic resistance",
+    "water-resistant"
+   ]
+  },
+  {
+   "word": "consistent",
+   "pos": "adj.",
+   "ipa": "/kənˈsɪstənt/",
+   "parts": [
+    {
+     "t": "con",
+     "k": "pre",
+     "vi": "cùng"
+    },
+    {
+     "t": "sist",
+     "k": "root",
+     "vi": "đứng"
+    },
+    {
+     "t": "ent",
+     "k": "suf",
+     "vi": "tính từ"
+    }
+   ],
+   "meaning": "nhất quán, đều đặn",
+   "story": "luôn đứng cùng một chỗ",
+   "example": "Consistent practice is the key to learning a language.",
+   "example_vi": "Luyện tập đều đặn là chìa khoá để học ngoại ngữ.",
+   "tp": "edu",
+   "forms": {
+    "adj": "consistent, inconsistent",
+    "n": "consistency",
+    "adv": "consistently"
+   },
+   "col": [
+    "consistent results",
+    "be consistent with",
+    "consistently high"
+   ]
+  },
+  {
+   "word": "assist",
+   "pos": "v.",
+   "ipa": "/əˈsɪst/",
+   "parts": [
+    {
+     "t": "as",
+     "k": "pre",
+     "vi": "bên cạnh"
+    },
+    {
+     "t": "sist",
+     "k": "root",
+     "vi": "đứng"
+    }
+   ],
+   "meaning": "hỗ trợ",
+   "story": "đứng bên cạnh để giúp",
+   "example": "Volunteers assist elderly people with their shopping.",
+   "example_vi": "Tình nguyện viên hỗ trợ người cao tuổi đi mua sắm.",
+   "tp": "soc",
+   "forms": {
+    "v": "assist",
+    "n": "assistance, assistant"
+   },
+   "col": [
+    "assist with",
+    "financial assistance",
+    "a teaching assistant"
+   ]
+  },
+  {
+   "word": "obstacle",
+   "pos": "n.",
+   "ipa": "/ˈɒbstəkl/",
+   "parts": [
+    {
+     "t": "ob",
+     "k": "pre",
+     "vi": "chắn ngang"
+    },
+    {
+     "t": "sta",
+     "k": "root",
+     "vi": "đứng"
+    },
+    {
+     "t": "cle",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "trở ngại",
+   "story": "thứ đứng chắn ngang đường",
+   "example": "Cost is the main obstacle to studying abroad.",
+   "example_vi": "Chi phí là trở ngại chính để đi du học.",
+   "tp": "edu",
+   "forms": {
+    "n": "obstacle"
+   },
+   "col": [
+    "a major obstacle",
+    "overcome obstacles",
+    "an obstacle to progress"
+   ]
+  }
+ ],
+ "wf": [
+  {
+   "s": "The cough was mild but very ___.",
+   "base": "PERSIST",
+   "a": "persistent"
+  },
+  {
+   "s": "Many bacteria are now ___ to common antibiotics.",
+   "base": "RESIST",
+   "a": "resistant"
+  },
+  {
+   "s": "Refugees need financial ___ to rebuild their lives.",
+   "base": "ASSIST",
+   "a": "assistance"
+  }
+ ],
+ "err": [
+  {
+   "s": "My parents insisted *me to study* medicine.",
+   "a": "that I study"
+  },
+  {
+   "s": "His results are not *consistent to* the effort he makes.",
+   "a": "consistent with"
+  }
+ ],
+ "tf": [],
+ "pa": [
+  {
+   "s": "The biggest problem for many students is money.",
+   "k": "obstacle",
+   "a": "Money is the main obstacle for many students."
+  },
+  {
+   "s": "He kept trying even though he failed many times.",
+   "k": "persist",
+   "a": "He persisted despite many failures."
+  }
+ ],
+ "reading": {
+  "title": "Why do we give up?",
+  "text": "Most people who start learning a language give up within six months. Psychologists say the biggest obstacle is not talent but habit. Learners who make consistent progress usually study a little every day rather than for hours at the weekend. They also learn to resist the temptation to switch apps or courses whenever they feel bored. Teachers can assist by setting small, clear goals. Persistent learners, the research shows, are not those who never fail, but those who keep going after a bad week."
+ },
+ "rq": {
+  "type": "mcq",
+  "items": [
+   {
+    "q": "What is the main obstacle for language learners, according to psychologists?",
+    "o": [
+     "Lack of talent",
+     "Habit",
+     "Cost",
+     "A shortage of teachers"
+    ],
+    "a": "B"
+   },
+   {
+    "q": "How do successful learners usually study?",
+    "o": [
+     "For many hours at the weekend",
+     "A little every day",
+     "Only with a teacher",
+     "With many different apps"
+    ],
+    "a": "B"
+   },
+   {
+    "q": "According to the research, persistent learners are people who…",
+    "o": [
+     "never fail.",
+     "keep going after difficult periods.",
+     "study for the longest time.",
+     "change courses often."
+    ],
+    "a": "B"
+   }
+  ]
+ },
+ "syn": [
+  [
+   "insist",
+   "demand"
+  ],
+  [
+   "persist",
+   "continue"
+  ],
+  [
+   "resist",
+   "withstand"
+  ],
+  [
+   "assist",
+   "help"
+  ],
+  [
+   "obstacle",
+   "barrier"
+  ]
+ ],
+ "spk": {
+  "part": 2,
+  "topic": "Describe a time when you did not give up on something difficult.",
+  "bullets": [
+   "what it was",
+   "why it was difficult",
+   "what you did",
+   "and explain how you felt afterwards."
+  ]
+ },
+ "wt": "twopart",
+ "write": "Many people start learning a new skill but give up quickly. Why does this happen? What can be done to help people continue?"
+}

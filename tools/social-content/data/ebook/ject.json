@@ -1,0 +1,183 @@
+{
+ "id": "ject",
+ "words": {
+  "reject": {
+   "tp": "soc",
+   "forms": {
+    "v": "reject",
+    "n": "rejection"
+   },
+   "col": [
+    "reject a proposal",
+    "flatly reject",
+    "fear of rejection",
+    "reject the idea that"
+   ]
+  },
+  "inject": {
+   "tp": "work",
+   "forms": {
+    "v": "inject",
+    "n": "injection"
+   },
+   "col": [
+    "inject money into",
+    "inject new life into",
+    "a flu injection"
+   ]
+  },
+  "project": {
+   "tp": "work",
+   "forms": {
+    "n": "project, projection, projector",
+    "v": "project",
+    "adj": "projected"
+   },
+   "col": [
+    "carry out a project",
+    "a research project",
+    "projected growth",
+    "sales projections"
+   ]
+  },
+  "object": {
+   "tp": "soc",
+   "forms": {
+    "v": "object",
+    "n": "objection"
+   },
+   "col": [
+    "object to",
+    "strongly object",
+    "raise an objection",
+    "have no objection to"
+   ]
+  },
+  "eject": {
+   "tp": "daily",
+   "forms": {
+    "v": "eject",
+    "n": "ejection"
+   },
+   "col": [
+    "be ejected from",
+    "eject the disc",
+    "eject a player from the game"
+   ]
+  },
+  "subject": {
+   "tp": "edu",
+   "forms": {
+    "n": "subject",
+    "adj": "subjective, subject to",
+    "adv": "subjectively"
+   },
+   "col": [
+    "a compulsory subject",
+    "be subject to",
+    "a subjective opinion",
+    "subject to approval"
+   ]
+  },
+  "trajectory": {
+   "tp": "sci",
+   "forms": {
+    "n": "trajectory"
+   },
+   "col": [
+    "career trajectory",
+    "an upward trajectory",
+    "change the trajectory of"
+   ]
+  }
+ },
+ "reading": {
+  "title": "Saving a dying town",
+  "text": "Ten years ago, Hollowfield was on a downward trajectory: the mine had closed and young people were leaving. When the council proposed a giant shopping centre, residents rejected the plan, objecting that it would destroy the historic centre. Instead, a local group launched a project to turn empty buildings into studios for artists. The government injected two million pounds into the scheme, subject to strict conditions on how the money was spent. Opinions about the results are subjective, but visitor numbers have tripled and the population is growing again."
+ },
+ "wf": [
+  {
+   "s": "Beauty is ___: what one person loves, another may hate.",
+   "base": "SUBJECT",
+   "a": "subjective"
+  },
+  {
+   "s": "The plan went ahead despite strong ___ from local residents.",
+   "base": "OBJECT",
+   "a": "objections"
+  },
+  {
+   "s": "His application was turned down, but he did not let the ___ stop him.",
+   "base": "REJECT",
+   "a": "rejection"
+  }
+ ],
+ "err": [
+  {
+   "s": "Many parents object *against* the new school timetable.",
+   "a": "to"
+  },
+  {
+   "s": "All prices are *subjective* to change without notice.",
+   "a": "subject"
+  }
+ ],
+ "write": "Should governments spend money on regenerating old towns, or on building new ones? Viết 2–3 câu, dùng ít nhất 2 từ trong chương.",
+ "pa": [
+  {
+   "s": "Many local people were against the plan to build a new road.",
+   "k": "object",
+   "a": "Many local people objected to the plan to build a new road."
+  },
+  {
+   "s": "The committee said no to the proposal.",
+   "k": "reject",
+   "a": "The committee rejected the proposal."
+  }
+ ],
+ "sp": "What can governments do to stop young people leaving small towns?",
+ "wt": "discussion",
+ "rq": {
+  "type": "sent",
+  "items": [
+   {
+    "s": "Before the project, Hollowfield was on a downward ____.",
+    "a": "trajectory"
+   },
+   {
+    "s": "Residents objected that a shopping centre would destroy the ____ centre.",
+    "a": "historic"
+   },
+   {
+    "s": "Empty buildings were turned into ____ for artists.",
+    "a": "studios"
+   },
+   {
+    "s": "Since the project began, visitor numbers have ____.",
+    "a": "tripled"
+   }
+  ]
+ },
+ "syn": [
+  [
+   "reject",
+   "turn down"
+  ],
+  [
+   "object to",
+   "oppose"
+  ],
+  [
+   "inject money into",
+   "invest in"
+  ],
+  [
+   "subjective",
+   "personal"
+  ],
+  [
+   "project",
+   "scheme"
+  ]
+ ]
+}

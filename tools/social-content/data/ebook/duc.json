@@ -1,0 +1,198 @@
+{
+ "id": "duc",
+ "words": {
+  "reduce": {
+   "tp": "env",
+   "forms": {
+    "v": "reduce",
+    "n": "reduction"
+   },
+   "col": [
+    "reduce pollution",
+    "significantly reduce",
+    "a sharp reduction in",
+    "reduce the risk of"
+   ]
+  },
+  "produce": {
+   "tp": "work",
+   "forms": {
+    "v": "produce",
+    "n": "product, production, productivity, produce",
+    "adj": "productive"
+   },
+   "col": [
+    "mass-produce",
+    "food production",
+    "increase productivity",
+    "local produce"
+   ]
+  },
+  "introduce": {
+   "tp": "soc",
+   "forms": {
+    "v": "introduce",
+    "n": "introduction"
+   },
+   "col": [
+    "introduce a law",
+    "introduce a ban on",
+    "the introduction of"
+   ]
+  },
+  "educate": {
+   "tp": "edu",
+   "forms": {
+    "v": "educate",
+    "n": "education, educator",
+    "adj": "educational"
+   },
+   "col": [
+    "educate the public about",
+    "higher education",
+    "well-educated",
+    "educational value"
+   ]
+  },
+  "induce": {
+   "tp": "health",
+   "forms": {
+    "v": "induce",
+    "n": "inducement"
+   },
+   "col": [
+    "induce sleep",
+    "stress-induced",
+    "induce someone to do something"
+   ]
+  },
+  "deduce": {
+   "tp": "sci",
+   "forms": {
+    "v": "deduce",
+    "n": "deduction"
+   },
+   "col": [
+    "deduce from",
+    "logical deduction",
+    "deduce that"
+   ]
+  },
+  "conduct": {
+   "tp": "sci",
+   "forms": {
+    "v": "conduct",
+    "n": "conduct, conductor"
+   },
+   "col": [
+    "conduct research",
+    "conduct a survey",
+    "conduct an experiment",
+    "a code of conduct"
+   ]
+  }
+ },
+ "reading": {
+  "title": "A sugar tax that worked",
+  "text": "In 2018, the UK introduced a tax on sugary drinks. Instead of simply raising prices, the tax induced companies to change their recipes: many producers reduced the sugar in their drinks before the law even came into force. Researchers who conducted a study four years later found that children were consuming 30 percent less sugar from soft drinks. From this, they deduced that taxes aimed at producers can work better than campaigns to educate consumers. Critics replied that obesity rates had not yet fallen, and that education is still essential."
+ },
+ "wf": [
+  {
+   "s": "Working from home has made many employees more ___.",
+   "base": "PRODUCE",
+   "a": "productive"
+  },
+  {
+   "s": "The government announced a 20% ___ in university fees.",
+   "base": "REDUCE",
+   "a": "reduction"
+  },
+  {
+   "s": "Museums have great ___ value for children.",
+   "base": "EDUCATE",
+   "a": "educational"
+  }
+ ],
+ "err": [
+  {
+   "s": "Scientists *made* an experiment to test the new drug.",
+   "a": "conducted"
+  },
+  {
+   "s": "The city has *put* a ban on plastic bags.",
+   "a": "introduced"
+  }
+ ],
+ "write": "Some people think taxes on unhealthy food are the best way to improve public health. Others prefer education. Viết 2–3 câu, dùng ít nhất 2 từ trong chương.",
+ "pa": [
+  {
+   "s": "The government plans to cut the number of cars in the city centre.",
+   "k": "reduce",
+   "a": "The government plans to reduce the number of cars in the city centre."
+  },
+  {
+   "s": "Researchers did a survey of 2,000 students.",
+   "k": "conduct",
+   "a": "Researchers conducted a survey of 2,000 students."
+  }
+ ],
+ "sp": "Do you think governments should tell people what to eat?",
+ "wt": "discussion",
+ "rq": {
+  "type": "mcq",
+  "items": [
+   {
+    "q": "How did many companies react to the sugar tax?",
+    "o": [
+     "They raised their prices.",
+     "They changed their recipes.",
+     "They stopped selling drinks.",
+     "They protested publicly."
+    ],
+    "a": "B"
+   },
+   {
+    "q": "What did the study find four years later?",
+    "o": [
+     "Obesity had fallen sharply.",
+     "Children consumed less sugar from soft drinks.",
+     "Adults drank more soft drinks.",
+     "The tax had no effect."
+    ],
+    "a": "B"
+   },
+   {
+    "q": "What do critics say?",
+    "o": [
+     "Education is still necessary.",
+     "The tax was too low.",
+     "The study was not conducted.",
+     "Producers should pay less."
+    ],
+    "a": "A"
+   }
+  ]
+ },
+ "syn": [
+  [
+   "reduce",
+   "cut"
+  ],
+  [
+   "conduct research",
+   "carry out research"
+  ],
+  [
+   "introduce",
+   "bring in"
+  ],
+  [
+   "induce",
+   "persuade"
+  ],
+  [
+   "deduce",
+   "conclude"
+  ]
+ ]
+}

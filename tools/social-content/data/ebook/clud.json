@@ -1,0 +1,323 @@
+{
+ "id": "clud",
+ "root": "clud / clus / clos",
+ "origin": "Latin claudere",
+ "core": "đóng",
+ "image": "một cánh cửa đang khép lại",
+ "hook": "{{include}}, {{exclude}}, {{conclude}}: cho vào, đẩy ra, khép lại… đều là “đóng” cửa.",
+ "bait": {
+  "word": "conclude",
+  "literal": "đóng lại hoàn toàn"
+ },
+ "words": [
+  {
+   "word": "include",
+   "pos": "v.",
+   "ipa": "/ɪnˈkluːd/",
+   "parts": [
+    {
+     "t": "in",
+     "k": "pre",
+     "vi": "vào trong"
+    },
+    {
+     "t": "clude",
+     "k": "root",
+     "vi": "đóng"
+    }
+   ],
+   "meaning": "bao gồm",
+   "story": "đóng cửa lại khi đã có thứ ở bên trong",
+   "example": "The price includes breakfast and airport transfers.",
+   "example_vi": "Giá đã bao gồm bữa sáng và đưa đón sân bay.",
+   "tp": "daily",
+   "forms": {
+    "v": "include",
+    "n": "inclusion",
+    "prep": "including"
+   },
+   "col": [
+    "include in",
+    "including tax",
+    "social inclusion"
+   ]
+  },
+  {
+   "word": "exclude",
+   "pos": "v.",
+   "ipa": "/ɪkˈskluːd/",
+   "parts": [
+    {
+     "t": "ex",
+     "k": "pre",
+     "vi": "ra ngoài"
+    },
+    {
+     "t": "clude",
+     "k": "root",
+     "vi": "đóng"
+    }
+   ],
+   "meaning": "loại trừ, gạt ra",
+   "story": "đóng cửa để ai đó ở bên ngoài",
+   "example": "Poor families are often excluded from good schools.",
+   "example_vi": "Các gia đình nghèo thường bị gạt khỏi những trường tốt.",
+   "tp": "soc",
+   "forms": {
+    "v": "exclude",
+    "n": "exclusion"
+   },
+   "col": [
+    "be excluded from",
+    "social exclusion",
+    "exclude the possibility"
+   ]
+  },
+  {
+   "word": "conclude",
+   "pos": "v.",
+   "ipa": "/kənˈkluːd/",
+   "parts": [
+    {
+     "t": "con",
+     "k": "pre",
+     "vi": "hoàn toàn"
+    },
+    {
+     "t": "clude",
+     "k": "root",
+     "vi": "đóng"
+    }
+   ],
+   "meaning": "kết luận; kết thúc",
+   "story": "đóng lại hoàn toàn",
+   "example": "The report concluded that the policy had failed.",
+   "example_vi": "Báo cáo kết luận rằng chính sách đã thất bại.",
+   "tp": "sci",
+   "forms": {
+    "v": "conclude",
+    "n": "conclusion",
+    "adj": "conclusive"
+   },
+   "col": [
+    "conclude that",
+    "in conclusion",
+    "draw a conclusion",
+    "conclusive evidence"
+   ]
+  },
+  {
+   "word": "exclusive",
+   "pos": "adj.",
+   "ipa": "/ɪkˈskluːsɪv/",
+   "parts": [
+    {
+     "t": "ex",
+     "k": "pre",
+     "vi": "ra ngoài"
+    },
+    {
+     "t": "clus",
+     "k": "root",
+     "vi": "đóng"
+    },
+    {
+     "t": "ive",
+     "k": "suf",
+     "vi": "tính từ"
+    }
+   ],
+   "meaning": "độc quyền; dành riêng",
+   "story": "đóng cửa với số đông, chỉ cho vài người",
+   "example": "The newspaper published an exclusive interview with the president.",
+   "example_vi": "Tờ báo đăng bài phỏng vấn độc quyền với tổng thống.",
+   "tp": "work",
+   "forms": {
+    "adj": "exclusive",
+    "adv": "exclusively"
+   },
+   "col": [
+    "an exclusive club",
+    "exclusive rights",
+    "exclusively for"
+   ]
+  },
+  {
+   "word": "inclusive",
+   "pos": "adj.",
+   "ipa": "/ɪnˈkluːsɪv/",
+   "parts": [
+    {
+     "t": "in",
+     "k": "pre",
+     "vi": "vào trong"
+    },
+    {
+     "t": "clus",
+     "k": "root",
+     "vi": "đóng"
+    },
+    {
+     "t": "ive",
+     "k": "suf",
+     "vi": "tính từ"
+    }
+   ],
+   "meaning": "toàn diện, không phân biệt",
+   "story": "đón mọi người vào trong",
+   "example": "Schools should be inclusive of students with disabilities.",
+   "example_vi": "Trường học nên hoà nhập học sinh khuyết tật.",
+   "tp": "edu",
+   "forms": {
+    "adj": "inclusive",
+    "n": "inclusion"
+   },
+   "col": [
+    "inclusive education",
+    "an inclusive society",
+    "all-inclusive"
+   ]
+  },
+  {
+   "word": "disclose",
+   "pos": "v.",
+   "ipa": "/dɪsˈkləʊz/",
+   "parts": [
+    {
+     "t": "dis",
+     "k": "pre",
+     "vi": "ngược lại"
+    },
+    {
+     "t": "close",
+     "k": "root",
+     "vi": "đóng"
+    }
+   ],
+   "meaning": "tiết lộ",
+   "story": "mở cái vốn đang đóng",
+   "example": "Companies must disclose how much their directors earn.",
+   "example_vi": "Doanh nghiệp phải công bố thu nhập của ban giám đốc.",
+   "tp": "work",
+   "forms": {
+    "v": "disclose",
+    "n": "disclosure"
+   },
+   "col": [
+    "disclose information",
+    "refuse to disclose",
+    "full disclosure"
+   ]
+  }
+ ],
+ "wf": [
+  {
+   "s": "The museum offers free entry to everyone, ___ children.",
+   "base": "INCLUDE",
+   "a": "including"
+  },
+  {
+   "s": "Students who cheat may face ___ from school.",
+   "base": "EXCLUDE",
+   "a": "exclusion"
+  },
+  {
+   "s": "There is still no ___ evidence that the drug works.",
+   "base": "CONCLUDE",
+   "a": "conclusive"
+  }
+ ],
+ "err": [
+  {
+   "s": "The price is *included* tax.",
+   "a": "includes"
+  },
+  {
+   "s": "*In conclusive*, the benefits outweigh the drawbacks.",
+   "a": "In conclusion"
+  }
+ ],
+ "tf": [],
+ "pa": [
+  {
+   "s": "The final finding of the report was that the plan had worked.",
+   "k": "conclude",
+   "a": "The report concluded that the plan had worked."
+  },
+  {
+   "s": "The company would not say how much it paid the manager.",
+   "k": "disclose",
+   "a": "The company refused to disclose the manager's salary."
+  }
+ ],
+ "reading": {
+  "title": "Learning together",
+  "text": "For decades, children with disabilities were often excluded from mainstream schools and taught separately. Today, most countries support inclusive education, in which all children learn together. A recent review of 40 studies concluded that inclusion benefits not only disabled pupils but also their classmates, who become more tolerant. However, teachers say they need training and extra staff; without them, inclusion can exist on paper only. Several governments have refused to disclose how much they actually spend on support."
+ },
+ "rq": {
+  "type": "mcq",
+  "items": [
+   {
+    "q": "In the past, many children with disabilities were…",
+    "o": [
+     "taught at home.",
+     "taught separately.",
+     "given extra teachers.",
+     "not taught at all."
+    ],
+    "a": "B"
+   },
+   {
+    "q": "What did the review of 40 studies find?",
+    "o": [
+     "Only disabled pupils benefit from inclusion.",
+     "Inclusion benefits all pupils.",
+     "Inclusion lowers exam results.",
+     "Teachers prefer separate schools."
+    ],
+    "a": "B"
+   },
+   {
+    "q": "What problem do teachers mention?",
+    "o": [
+     "A lack of training and staff",
+     "Too many students",
+     "Complaints from parents",
+     "Long school holidays"
+    ],
+    "a": "A"
+   }
+  ]
+ },
+ "syn": [
+  [
+   "include",
+   "contain"
+  ],
+  [
+   "exclude",
+   "leave out"
+  ],
+  [
+   "conclude",
+   "decide"
+  ],
+  [
+   "exclusive",
+   "restricted"
+  ],
+  [
+   "disclose",
+   "reveal"
+  ]
+ ],
+ "spk": {
+  "part": 3,
+  "qs": [
+   "Should children with disabilities study in the same classes as other children?",
+   "How can schools make every student feel included?"
+  ]
+ },
+ "wt": "discussion",
+ "write": "Some people think children with special needs should study in separate schools, while others believe they should learn in mainstream schools. Discuss both views and give your own opinion."
+}

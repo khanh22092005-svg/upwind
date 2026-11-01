@@ -1,0 +1,318 @@
+{
+ "id": "path",
+ "root": "path",
+ "origin": "Greek pathos",
+ "core": "cảm xúc; nỗi đau, bệnh",
+ "image": "một trái tim rung lên khi thấy người khác đau",
+ "hook": "{{sympathy}}, {{empathy}}, {{apathy}}: thêm một tiền tố, cảm xúc đổi hẳn chiều.",
+ "bait": {
+  "word": "apathy",
+  "literal": "không có cảm xúc"
+ },
+ "words": [
+  {
+   "word": "sympathy",
+   "pos": "n.",
+   "ipa": "/ˈsɪmpəθi/",
+   "parts": [
+    {
+     "t": "sym",
+     "k": "pre",
+     "vi": "cùng"
+    },
+    {
+     "t": "path",
+     "k": "root",
+     "vi": "cảm xúc"
+    },
+    {
+     "t": "y",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "sự cảm thông",
+   "story": "cùng chịu nỗi đau với người khác",
+   "example": "We would like to express our sympathy to the victims' families.",
+   "example_vi": "Chúng tôi xin bày tỏ sự cảm thông với gia đình các nạn nhân.",
+   "tp": "daily",
+   "forms": {
+    "n": "sympathy",
+    "adj": "sympathetic",
+    "v": "sympathise"
+   },
+   "col": [
+    "express sympathy",
+    "have sympathy for",
+    "a sympathetic listener"
+   ],
+   "trap": "{{sympathetic}} = cảm thông, không phải “dễ thương, thân thiện” ({{friendly}})."
+  },
+  {
+   "word": "empathy",
+   "pos": "n.",
+   "ipa": "/ˈempəθi/",
+   "parts": [
+    {
+     "t": "em",
+     "k": "pre",
+     "vi": "vào trong"
+    },
+    {
+     "t": "path",
+     "k": "root",
+     "vi": "cảm xúc"
+    },
+    {
+     "t": "y",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "sự thấu cảm",
+   "story": "bước vào bên trong cảm xúc của người khác",
+   "example": "Good doctors show empathy towards their patients.",
+   "example_vi": "Bác sĩ giỏi thể hiện sự thấu cảm với bệnh nhân.",
+   "tp": "daily",
+   "forms": {
+    "n": "empathy",
+    "adj": "empathetic",
+    "v": "empathise"
+   },
+   "col": [
+    "show empathy",
+    "empathy for",
+    "lack empathy"
+   ]
+  },
+  {
+   "word": "apathy",
+   "pos": "n.",
+   "ipa": "/ˈæpəθi/",
+   "parts": [
+    {
+     "t": "a",
+     "k": "pre",
+     "vi": "không"
+    },
+    {
+     "t": "path",
+     "k": "root",
+     "vi": "cảm xúc"
+    },
+    {
+     "t": "y",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "sự thờ ơ",
+   "story": "không có chút cảm xúc nào",
+   "example": "Voter apathy is a growing problem in many democracies.",
+   "example_vi": "Sự thờ ơ của cử tri là vấn đề ngày càng lớn ở nhiều nền dân chủ.",
+   "tp": "soc",
+   "forms": {
+    "n": "apathy",
+    "adj": "apathetic"
+   },
+   "col": [
+    "voter apathy",
+    "public apathy",
+    "political apathy"
+   ]
+  },
+  {
+   "word": "pathetic",
+   "pos": "adj.",
+   "ipa": "/pəˈθetɪk/",
+   "parts": [
+    {
+     "t": "path",
+     "k": "root",
+     "vi": "nỗi đau"
+    },
+    {
+     "t": "etic",
+     "k": "suf",
+     "vi": "tính từ"
+    }
+   ],
+   "meaning": "thảm hại; đáng thương",
+   "story": "khiến người ta thấy đau lòng hoặc chán ngán",
+   "example": "The team gave a pathetic performance and lost 5–0.",
+   "example_vi": "Đội bóng chơi thảm hại và thua 0–5.",
+   "tp": "daily",
+   "forms": {
+    "adj": "pathetic",
+    "adv": "pathetically"
+   },
+   "col": [
+    "a pathetic excuse",
+    "a pathetic attempt",
+    "pathetically small"
+   ]
+  },
+  {
+   "word": "antipathy",
+   "pos": "n.",
+   "ipa": "/ænˈtɪpəθi/",
+   "parts": [
+    {
+     "t": "anti",
+     "k": "pre",
+     "vi": "chống lại"
+    },
+    {
+     "t": "path",
+     "k": "root",
+     "vi": "cảm xúc"
+    },
+    {
+     "t": "y",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "ác cảm",
+   "story": "cảm xúc chống lại ai đó",
+   "example": "There is deep antipathy between the two parties.",
+   "example_vi": "Hai đảng có ác cảm sâu sắc với nhau.",
+   "tp": "soc",
+   "forms": {
+    "n": "antipathy"
+   },
+   "col": [
+    "deep antipathy",
+    "antipathy towards",
+    "mutual antipathy"
+   ]
+  },
+  {
+   "word": "pathogen",
+   "pos": "n.",
+   "ipa": "/ˈpæθədʒən/",
+   "parts": [
+    {
+     "t": "path",
+     "k": "root",
+     "vi": "bệnh"
+    },
+    {
+     "t": "ogen",
+     "k": "suf",
+     "vi": "sinh ra"
+    }
+   ],
+   "meaning": "mầm bệnh",
+   "story": "thứ sinh ra bệnh",
+   "example": "Washing hands removes most pathogens.",
+   "example_vi": "Rửa tay loại bỏ phần lớn mầm bệnh.",
+   "tp": "health",
+   "forms": {
+    "n": "pathogen, pathology",
+    "adj": "pathogenic"
+   },
+   "col": [
+    "dangerous pathogens",
+    "airborne pathogens",
+    "spread pathogens"
+   ]
+  }
+ ],
+ "wf": [
+  {
+   "s": "The nurse was very ___ and listened patiently to my worries.",
+   "base": "SYMPATHY",
+   "a": "sympathetic"
+  },
+  {
+   "s": "Young people are often described as politically ___.",
+   "base": "APATHY",
+   "a": "apathetic"
+  },
+  {
+   "s": "A good leader needs to ___ with people from different backgrounds.",
+   "base": "EMPATHY",
+   "a": "empathise"
+  }
+ ],
+ "err": [
+  {
+   "s": "The hotel staff were very *sympathetic*: they smiled and greeted every guest.",
+   "a": "friendly"
+  },
+  {
+   "s": "Many people have *antipathy for* the idea of higher taxes.",
+   "a": "antipathy towards"
+  }
+ ],
+ "reading": {
+  "title": "Can empathy be taught?",
+  "text": "Some schools in Denmark have weekly lessons in empathy. Children discuss their problems and learn to understand how others feel. Supporters say these lessons reduce bullying and create a more sympathetic atmosphere in class. Critics argue that emotions cannot be taught like maths, and that the lessons take time away from academic subjects. Yet the alternative may be worse: studies link a lack of empathy in young adults to political apathy and to antipathy towards people who are different. Teaching children to care, supporters say, is not a waste of time."
+ },
+ "write": "Some people think that schools should teach children emotional skills such as empathy. Do you agree? Viết 2–3 câu, dùng ít nhất 2 từ trong chương.",
+ "pa": [
+  {
+   "s": "Many young people are not interested in politics.",
+   "k": "apathy",
+   "a": "There is widespread political apathy among young people."
+  },
+  {
+   "s": "Good teachers understand how their students feel.",
+   "k": "empathy",
+   "a": "Good teachers show empathy towards their students."
+  }
+ ],
+ "wt": "opinion",
+ "rq": {
+  "type": "ynng",
+  "items": [
+   {
+    "s": "Empathy lessons can make classrooms kinder.",
+    "a": "Y"
+   },
+   {
+    "s": "Emotional skills are less important than academic subjects.",
+    "a": "N"
+   },
+   {
+    "s": "Every country should copy the Danish model.",
+    "a": "NG"
+   },
+   {
+    "s": "A lack of empathy may be linked to wider social problems.",
+    "a": "Y"
+   }
+  ]
+ },
+ "spk": {
+  "part": 1,
+  "qs": [
+   "Who do you talk to when you feel stressed?",
+   "Do you think you are a good listener?",
+   "Do you often watch films that make you sad?"
+  ]
+ },
+ "syn": [
+  [
+   "sympathy",
+   "compassion"
+  ],
+  [
+   "empathy",
+   "understanding of others' feelings"
+  ],
+  [
+   "apathy",
+   "lack of interest"
+  ],
+  [
+   "antipathy",
+   "hostility"
+  ],
+  [
+   "pathogen",
+   "germ"
+  ]
+ ]
+}

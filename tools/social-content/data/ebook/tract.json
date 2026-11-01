@@ -1,0 +1,189 @@
+{
+ "id": "tract",
+ "words": {
+  "attract": {
+   "tp": "work",
+   "forms": {
+    "v": "attract",
+    "n": "attraction",
+    "adj": "attractive"
+   },
+   "col": [
+    "attract tourists",
+    "attract investment",
+    "a tourist attraction",
+    "an attractive offer"
+   ]
+  },
+  "distract": {
+   "tp": "edu",
+   "forms": {
+    "v": "distract",
+    "n": "distraction",
+    "adj": "distracting, distracted"
+   },
+   "col": [
+    "easily distracted",
+    "distract attention from",
+    "a constant distraction"
+   ]
+  },
+  "extract": {
+   "tp": "env",
+   "forms": {
+    "v": "extract",
+    "n": "extract, extraction"
+   },
+   "col": [
+    "extract oil",
+    "extract information",
+    "an extract from"
+   ]
+  },
+  "contract": {
+   "tp": "work",
+   "forms": {
+    "n": "contract, contractor",
+    "v": "contract",
+    "adj": "contractual"
+   },
+   "col": [
+    "sign a contract",
+    "a short-term contract",
+    "break a contract",
+    "contract a disease"
+   ]
+  },
+  "subtract": {
+   "tp": "edu",
+   "forms": {
+    "v": "subtract",
+    "n": "subtraction"
+   },
+   "col": [
+    "subtract from",
+    "addition and subtraction"
+   ]
+  },
+  "retract": {
+   "tp": "media",
+   "forms": {
+    "v": "retract",
+    "n": "retraction"
+   },
+   "col": [
+    "retract a statement",
+    "retract a claim",
+    "publish a retraction"
+   ]
+  },
+  "traction": {
+   "tp": "soc",
+   "forms": {
+    "n": "traction"
+   },
+   "col": [
+    "gain traction",
+    "the idea is gaining traction",
+    "lose traction"
+   ]
+  }
+ },
+ "reading": {
+  "title": "The four-day week",
+  "text": "The idea of a four-day working week is gaining traction. Companies that have tried it say it helps them attract talented staff, and workers report fewer distractions because meetings are shorter. In a recent British trial, most firms chose to keep the new schedule after the six-month contract ended. Critics argue that you cannot simply subtract a day without losing output, and one newspaper had to retract a claim that productivity had doubled. Still, researchers extracted useful data: sick days fell by two thirds, and almost no employee wanted to return to five days."
+ },
+ "wf": [
+  {
+   "s": "Low taxes make the city an ___ place for new businesses.",
+   "base": "ATTRACT",
+   "a": "attractive"
+  },
+  {
+   "s": "Phones are a major ___ for students in class.",
+   "base": "DISTRACT",
+   "a": "distraction"
+  },
+  {
+   "s": "Many young people now work on short-term ___ with no job security.",
+   "base": "CONTRACT",
+   "a": "contracts"
+  }
+ ],
+ "err": [
+  {
+   "s": "The Eiffel Tower is the most famous tourist *attractive* in Paris.",
+   "a": "attraction"
+  },
+  {
+   "s": "Both companies *made* the contract on Monday.",
+   "a": "signed"
+  }
+ ],
+ "write": "Some companies are introducing a four-day working week. Do the advantages outweigh the disadvantages? Viết 2–3 câu, dùng ít nhất 2 từ trong chương.",
+ "pa": [
+  {
+   "s": "Social media makes it hard for students to concentrate.",
+   "k": "distract",
+   "a": "Students are easily distracted by social media."
+  },
+  {
+   "s": "The idea of working from home is becoming more popular.",
+   "k": "traction",
+   "a": "The idea of working from home is gaining traction."
+  }
+ ],
+ "wt": "advdis",
+ "rq": {
+  "type": "gap",
+  "box": [
+   "traction",
+   "attract",
+   "distractions",
+   "contract",
+   "subtract",
+   "retract",
+   "extracted",
+   "output"
+  ],
+  "text": "The four-day week is gaining [1]. Firms say it helps them [2] talented staff, and workers face fewer [3]. Critics say you cannot [4] a day without losing [5], and one newspaper had to [6] an exaggerated claim about productivity.",
+  "a": [
+   "traction",
+   "attract",
+   "distractions",
+   "subtract",
+   "output",
+   "retract"
+  ]
+ },
+ "spk": {
+  "part": 1,
+  "qs": [
+   "What usually distracts you when you study?",
+   "What attracts you to a job?",
+   "Would you like to work four days a week?"
+  ]
+ },
+ "syn": [
+  [
+   "attract",
+   "draw"
+  ],
+  [
+   "distract",
+   "divert attention"
+  ],
+  [
+   "gain traction",
+   "become popular"
+  ],
+  [
+   "retract",
+   "withdraw"
+  ],
+  [
+   "extract",
+   "take out"
+  ]
+ ]
+}

@@ -1,0 +1,313 @@
+{
+ "id": "pel",
+ "root": "pel / puls",
+ "origin": "Latin pellere",
+ "core": "đẩy, xua",
+ "image": "hai bàn tay đẩy mạnh một vật về phía trước",
+ "hook": "{{compel}}, {{expel}}, {{propel}}: ép, đuổi, đẩy tới… ba kiểu “đẩy” khác nhau.",
+ "bait": {
+  "word": "impulse",
+  "literal": "cú đẩy từ bên trong"
+ },
+ "words": [
+  {
+   "word": "compel",
+   "pos": "v.",
+   "ipa": "/kəmˈpel/",
+   "parts": [
+    {
+     "t": "com",
+     "k": "pre",
+     "vi": "cùng, mạnh"
+    },
+    {
+     "t": "pel",
+     "k": "root",
+     "vi": "đẩy"
+    }
+   ],
+   "meaning": "buộc, ép",
+   "story": "dồn hết sức đẩy ai đó phải làm",
+   "example": "The law compels employers to provide safe working conditions.",
+   "example_vi": "Luật buộc chủ lao động phải đảm bảo điều kiện làm việc an toàn.",
+   "tp": "soc",
+   "forms": {
+    "v": "compel",
+    "adj": "compelling, compulsory",
+    "n": "compulsion"
+   },
+   "col": [
+    "feel compelled to",
+    "a compelling argument",
+    "compelling evidence"
+   ]
+  },
+  {
+   "word": "expel",
+   "pos": "v.",
+   "ipa": "/ɪkˈspel/",
+   "parts": [
+    {
+     "t": "ex",
+     "k": "pre",
+     "vi": "ra ngoài"
+    },
+    {
+     "t": "pel",
+     "k": "root",
+     "vi": "đẩy"
+    }
+   ],
+   "meaning": "đuổi (học), trục xuất",
+   "story": "đẩy ra khỏi cửa",
+   "example": "The student was expelled for cheating in the final exam.",
+   "example_vi": "Học sinh đó bị đuổi học vì gian lận trong kỳ thi cuối kỳ.",
+   "tp": "edu",
+   "forms": {
+    "v": "expel",
+    "n": "expulsion"
+   },
+   "col": [
+    "be expelled from school",
+    "expel diplomats",
+    "expel air"
+   ]
+  },
+  {
+   "word": "propel",
+   "pos": "v.",
+   "ipa": "/prəˈpel/",
+   "parts": [
+    {
+     "t": "pro",
+     "k": "pre",
+     "vi": "về phía trước"
+    },
+    {
+     "t": "pel",
+     "k": "root",
+     "vi": "đẩy"
+    }
+   ],
+   "meaning": "đẩy đi, thúc đẩy",
+   "story": "đẩy mạnh về phía trước",
+   "example": "Tourism has propelled the town's economy.",
+   "example_vi": "Du lịch đã thúc đẩy kinh tế của thị trấn.",
+   "tp": "work",
+   "forms": {
+    "v": "propel",
+    "n": "propeller, propulsion"
+   },
+   "col": [
+    "propel growth",
+    "propel someone to fame",
+    "jet-propelled"
+   ]
+  },
+  {
+   "word": "repel",
+   "pos": "v.",
+   "ipa": "/rɪˈpel/",
+   "parts": [
+    {
+     "t": "re",
+     "k": "pre",
+     "vi": "lùi lại"
+    },
+    {
+     "t": "pel",
+     "k": "root",
+     "vi": "đẩy"
+    }
+   ],
+   "meaning": "đẩy lùi; xua đuổi",
+   "story": "đẩy cho lùi trở lại",
+   "example": "This spray repels mosquitoes for up to eight hours.",
+   "example_vi": "Bình xịt này xua muỗi đến tám tiếng.",
+   "tp": "health",
+   "forms": {
+    "v": "repel",
+    "n": "repellent",
+    "adj": "repellent, repulsive"
+   },
+   "col": [
+    "repel insects",
+    "insect repellent",
+    "repel an attack"
+   ]
+  },
+  {
+   "word": "impulse",
+   "pos": "n.",
+   "ipa": "/ˈɪmpʌls/",
+   "parts": [
+    {
+     "t": "im",
+     "k": "pre",
+     "vi": "vào trong"
+    },
+    {
+     "t": "puls",
+     "k": "root",
+     "vi": "đẩy"
+    },
+    {
+     "t": "e",
+     "k": "suf",
+     "vi": ""
+    }
+   ],
+   "meaning": "sự bốc đồng; xung lực",
+   "story": "một cú đẩy bất chợt từ bên trong",
+   "example": "Supermarkets place sweets near checkouts to encourage impulse buying.",
+   "example_vi": "Siêu thị đặt kẹo gần quầy thu ngân để khuyến khích mua hàng bốc đồng.",
+   "tp": "work",
+   "forms": {
+    "n": "impulse",
+    "adj": "impulsive",
+    "adv": "impulsively"
+   },
+   "col": [
+    "impulse buying",
+    "on impulse",
+    "resist the impulse to",
+    "an impulsive decision"
+   ]
+  },
+  {
+   "word": "compulsory",
+   "pos": "adj.",
+   "ipa": "/kəmˈpʌlsəri/",
+   "parts": [
+    {
+     "t": "com",
+     "k": "pre",
+     "vi": "cùng, mạnh"
+    },
+    {
+     "t": "puls",
+     "k": "root",
+     "vi": "đẩy"
+    },
+    {
+     "t": "ory",
+     "k": "suf",
+     "vi": "tính từ"
+    }
+   ],
+   "meaning": "bắt buộc",
+   "story": "bị đẩy phải làm, không có lựa chọn",
+   "example": "Education is compulsory until the age of sixteen.",
+   "example_vi": "Giáo dục là bắt buộc đến 16 tuổi.",
+   "tp": "edu",
+   "forms": {
+    "adj": "compulsory",
+    "n": "compulsion"
+   },
+   "col": [
+    "compulsory education",
+    "compulsory military service",
+    "make something compulsory"
+   ]
+  }
+ ],
+ "wf": [
+  {
+   "s": "Wearing a seat belt is ___ in most countries.",
+   "base": "COMPEL",
+   "a": "compulsory"
+  },
+  {
+   "s": "He made an ___ decision to quit his job.",
+   "base": "IMPULSE",
+   "a": "impulsive"
+  },
+  {
+   "s": "Don't forget to bring insect ___ to the jungle.",
+   "base": "REPEL",
+   "a": "repellent"
+  }
+ ],
+ "err": [
+  {
+   "s": "She was *expulsed* from school for fighting.",
+   "a": "expelled"
+  },
+  {
+   "s": "The lawyer presented a very *compulsory* argument and won the case.",
+   "a": "compelling"
+  }
+ ],
+ "tf": [],
+ "pa": [
+  {
+   "s": "The new law forces companies to publish their pay data.",
+   "k": "compel",
+   "a": "The new law compels companies to publish their pay data."
+  },
+  {
+   "s": "Social media made the singer famous overnight.",
+   "k": "propel",
+   "a": "Social media propelled the singer to fame overnight."
+  }
+ ],
+ "reading": {
+  "title": "Should volunteering be compulsory?",
+  "text": "Several countries now make community service compulsory for secondary students. In my view, this is a mistake. Young people who are compelled to help others often do the minimum, and some schools even threaten to expel pupils who fail to complete their hours. Real volunteering is driven by an inner impulse, not by a rule. That said, I accept that a short, well-designed programme can propel shy teenagers into experiences they would never try alone. The challenge is to invite them without repelling them."
+ },
+ "rq": {
+  "type": "ynng",
+  "items": [
+   {
+    "s": "Compulsory community service is a good idea.",
+    "a": "N"
+   },
+   {
+    "s": "Students who are forced to volunteer tend to make little effort.",
+    "a": "Y"
+   },
+   {
+    "s": "Most schools expel students who refuse community service.",
+    "a": "NG"
+   },
+   {
+    "s": "A short programme can benefit some teenagers.",
+    "a": "Y"
+   }
+  ]
+ },
+ "syn": [
+  [
+   "compel",
+   "force"
+  ],
+  [
+   "expel",
+   "throw out"
+  ],
+  [
+   "propel",
+   "drive forward"
+  ],
+  [
+   "repel",
+   "keep away"
+  ],
+  [
+   "compulsory",
+   "mandatory"
+  ]
+ ],
+ "spk": {
+  "part": 2,
+  "topic": "Describe a time when you bought something on impulse.",
+  "bullets": [
+   "what you bought",
+   "where and when you bought it",
+   "why you bought it",
+   "and explain how you felt about it afterwards."
+  ]
+ },
+ "wt": "opinion",
+ "write": "Some people think community service should be a compulsory part of high school. To what extent do you agree or disagree?"
+}

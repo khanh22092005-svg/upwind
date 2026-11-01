@@ -1,0 +1,301 @@
+{
+ "id": "press",
+ "root": "press",
+ "origin": "Latin premere",
+ "core": "ấn, ép",
+ "image": "một bàn tay ấn mạnh xuống",
+ "hook": "{{express}}, {{impress}}, {{depress}}: bày tỏ, gây ấn tượng, làm buồn… đều là “ấn” theo một hướng.",
+ "bait": {
+  "word": "express",
+  "literal": "ép ra ngoài"
+ },
+ "words": [
+  {
+   "word": "express",
+   "pos": "v.",
+   "ipa": "/ɪkˈspres/",
+   "parts": [
+    {
+     "t": "ex",
+     "k": "pre",
+     "vi": "ra ngoài"
+    },
+    {
+     "t": "press",
+     "k": "root",
+     "vi": "ép"
+    }
+   ],
+   "meaning": "bày tỏ",
+   "story": "ép cho ý nghĩ thoát ra ngoài",
+   "example": "Children should be encouraged to express their feelings.",
+   "example_vi": "Trẻ em nên được khuyến khích bày tỏ cảm xúc.",
+   "tp": "media",
+   "forms": {
+    "v": "express",
+    "n": "expression",
+    "adj": "expressive"
+   },
+   "col": [
+    "express an opinion",
+    "express concern",
+    "freedom of expression"
+   ]
+  },
+  {
+   "word": "impress",
+   "pos": "v.",
+   "ipa": "/ɪmˈpres/",
+   "parts": [
+    {
+     "t": "im",
+     "k": "pre",
+     "vi": "vào trong"
+    },
+    {
+     "t": "press",
+     "k": "root",
+     "vi": "ấn"
+    }
+   ],
+   "meaning": "gây ấn tượng",
+   "story": "ấn sâu vào trí nhớ người khác",
+   "example": "The candidate impressed the interviewers with her confidence.",
+   "example_vi": "Ứng viên gây ấn tượng với người phỏng vấn bằng sự tự tin.",
+   "tp": "work",
+   "forms": {
+    "v": "impress",
+    "n": "impression",
+    "adj": "impressive"
+   },
+   "col": [
+    "make a good impression",
+    "an impressive achievement",
+    "be deeply impressed"
+   ]
+  },
+  {
+   "word": "depress",
+   "pos": "v.",
+   "ipa": "/dɪˈpres/",
+   "parts": [
+    {
+     "t": "de",
+     "k": "pre",
+     "vi": "xuống"
+    },
+    {
+     "t": "press",
+     "k": "root",
+     "vi": "ấn"
+    }
+   ],
+   "meaning": "làm chán nản; làm giảm sút",
+   "story": "ấn tinh thần (hoặc giá cả) xuống",
+   "example": "Long, dark winters can depress people's mood.",
+   "example_vi": "Mùa đông dài và tối có thể làm tâm trạng người ta chùng xuống.",
+   "tp": "health",
+   "forms": {
+    "v": "depress",
+    "n": "depression",
+    "adj": "depressed, depressing"
+   },
+   "col": [
+    "suffer from depression",
+    "a depressing thought",
+    "economic depression"
+   ]
+  },
+  {
+   "word": "suppress",
+   "pos": "v.",
+   "ipa": "/səˈpres/",
+   "parts": [
+    {
+     "t": "sup",
+     "k": "pre",
+     "vi": "phía dưới"
+    },
+    {
+     "t": "press",
+     "k": "root",
+     "vi": "ấn"
+    }
+   ],
+   "meaning": "đàn áp; kìm nén",
+   "story": "ấn xuống phía dưới cho khỏi trồi lên",
+   "example": "The government tried to suppress the protests.",
+   "example_vi": "Chính quyền tìm cách dập tắt các cuộc biểu tình.",
+   "tp": "soc",
+   "forms": {
+    "v": "suppress",
+    "n": "suppression"
+   },
+   "col": [
+    "suppress protests",
+    "suppress emotions",
+    "suppress information"
+   ]
+  },
+  {
+   "word": "oppress",
+   "pos": "v.",
+   "ipa": "/əˈpres/",
+   "parts": [
+    {
+     "t": "op",
+     "k": "pre",
+     "vi": "đè lên"
+    },
+    {
+     "t": "press",
+     "k": "root",
+     "vi": "ấn"
+    }
+   ],
+   "meaning": "áp bức",
+   "story": "ấn đè lên người khác",
+   "example": "The regime oppressed ethnic minorities for decades.",
+   "example_vi": "Chế độ đó áp bức các dân tộc thiểu số suốt nhiều thập kỷ.",
+   "tp": "soc",
+   "forms": {
+    "v": "oppress",
+    "n": "oppression",
+    "adj": "oppressive"
+   },
+   "col": [
+    "oppressed people",
+    "political oppression",
+    "oppressive heat"
+   ]
+  },
+  {
+   "word": "pressure",
+   "pos": "n.",
+   "ipa": "/ˈpreʃə/",
+   "parts": [
+    {
+     "t": "press",
+     "k": "root",
+     "vi": "ấn"
+    },
+    {
+     "t": "ure",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "áp lực",
+   "story": "lực ấn lên một người",
+   "example": "Students today face enormous pressure to succeed.",
+   "example_vi": "Học sinh ngày nay chịu áp lực thành công rất lớn.",
+   "tp": "edu",
+   "forms": {
+    "n": "pressure",
+    "v": "pressure, pressurise"
+   },
+   "col": [
+    "under pressure",
+    "peer pressure",
+    "put pressure on",
+    "blood pressure"
+   ]
+  }
+ ],
+ "wf": [
+  {
+   "s": "The view from the top of the mountain was really ___.",
+   "base": "IMPRESS",
+   "a": "impressive"
+  },
+  {
+   "s": "Grey weather often makes me feel ___.",
+   "base": "DEPRESS",
+   "a": "depressed"
+  },
+  {
+   "s": "Art is a powerful form of ___.",
+   "base": "EXPRESS",
+   "a": "expression"
+  }
+ ],
+ "err": [
+  {
+   "s": "She made a good impression *to* the manager.",
+   "a": "on"
+  },
+  {
+   "s": "Many students are *on pressure* before exams.",
+   "a": "under pressure"
+  }
+ ],
+ "tf": [],
+ "pa": [
+  {
+   "s": "The interviewers thought she was excellent.",
+   "k": "impress",
+   "a": "She impressed the interviewers."
+  },
+  {
+   "s": "Young people should be free to say what they think.",
+   "k": "express",
+   "a": "Young people should be free to express their opinions."
+  }
+ ],
+ "reading": {
+  "title": "Exam pressure",
+  "text": "Students in many Asian countries face intense pressure to do well in university entrance exams. Some study for twelve hours a day, and doctors report rising rates of depression among teenagers. Psychologists warn that students who suppress their stress, rather than express it, are most at risk. Some schools now run weekly sessions where pupils talk openly about their feelings. The early results are impressive: students in these schools report lower stress and, surprisingly, slightly higher marks."
+ },
+ "rq": {
+  "type": "sent",
+  "items": [
+   {
+    "s": "Some students study for ____ hours a day.",
+    "a": "twelve"
+   },
+   {
+    "s": "Doctors report more cases of ____ among teenagers.",
+    "a": "depression"
+   },
+   {
+    "s": "Students who hide their ____ are most at risk.",
+    "a": "stress"
+   },
+   {
+    "s": "In the new sessions, pupils talk openly about their ____.",
+    "a": "feelings"
+   }
+  ]
+ },
+ "syn": [
+  [
+   "express",
+   "convey"
+  ],
+  [
+   "impress",
+   "make an impact on"
+  ],
+  [
+   "suppress",
+   "hold back"
+  ],
+  [
+   "pressure",
+   "stress"
+  ],
+  [
+   "oppress",
+   "treat cruelly"
+  ]
+ ],
+ "spk": {
+  "part": 3,
+  "qs": [
+   "Why do you think students today feel so much pressure?",
+   "Should schools reduce the number of exams?"
+  ]
+ },
+ "wt": "twopart",
+ "write": "Many students suffer from stress because of exams. What are the causes of this? What can schools do to help?"
+}

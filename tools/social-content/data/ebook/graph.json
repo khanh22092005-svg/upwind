@@ -1,0 +1,313 @@
+{
+ "id": "graph",
+ "root": "graph / gram",
+ "origin": "Greek graphein",
+ "core": "viết, vẽ, ghi lại",
+ "image": "một cây bút đang vẽ những đường nét lên trang giấy",
+ "hook": "{{photograph}}, {{biography}} và {{program}}: ảnh, tiểu sử và phần mềm thì liên quan gì đến nhau?",
+ "bait": {
+  "word": "photograph",
+  "literal": "vẽ bằng ánh sáng"
+ },
+ "words": [
+  {
+   "word": "photograph",
+   "pos": "n. / v.",
+   "ipa": "/ˈfəʊtəɡrɑːf/",
+   "parts": [
+    {
+     "t": "photo",
+     "k": "pre",
+     "vi": "ánh sáng"
+    },
+    {
+     "t": "graph",
+     "k": "root",
+     "vi": "vẽ, ghi"
+    }
+   ],
+   "meaning": "bức ảnh; chụp ảnh",
+   "story": "dùng ánh sáng để vẽ lại khung cảnh lên phim",
+   "example": "The museum displays photographs of the city from the 1920s.",
+   "example_vi": "Bảo tàng trưng bày ảnh chụp thành phố từ những năm 1920.",
+   "tp": "media",
+   "forms": {
+    "n": "photograph, photographer, photography",
+    "v": "photograph",
+    "adj": "photographic"
+   },
+   "col": [
+    "take a photograph",
+    "aerial photography",
+    "a photographic memory"
+   ]
+  },
+  {
+   "word": "biography",
+   "pos": "n.",
+   "ipa": "/baɪˈɒɡrəfi/",
+   "parts": [
+    {
+     "t": "bio",
+     "k": "pre",
+     "vi": "sự sống"
+    },
+    {
+     "t": "graph",
+     "k": "root",
+     "vi": "viết"
+    },
+    {
+     "t": "y",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "tiểu sử",
+   "story": "viết lại cuộc đời của một người",
+   "example": "Her biography reveals how difficult her early career was.",
+   "example_vi": "Cuốn tiểu sử của bà cho thấy những năm đầu sự nghiệp khó khăn thế nào.",
+   "tp": "media",
+   "forms": {
+    "n": "biography, biographer, autobiography",
+    "adj": "biographical"
+   },
+   "col": [
+    "an authorised biography",
+    "write an autobiography",
+    "biographical details"
+   ]
+  },
+  {
+   "word": "geography",
+   "pos": "n.",
+   "ipa": "/dʒiˈɒɡrəfi/",
+   "parts": [
+    {
+     "t": "geo",
+     "k": "pre",
+     "vi": "trái đất"
+    },
+    {
+     "t": "graph",
+     "k": "root",
+     "vi": "vẽ, mô tả"
+    },
+    {
+     "t": "y",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "địa lý",
+   "story": "vẽ và mô tả bề mặt trái đất",
+   "example": "The country's geography makes it vulnerable to flooding.",
+   "example_vi": "Địa hình của đất nước khiến nó dễ bị lũ lụt.",
+   "tp": "env",
+   "forms": {
+    "n": "geography, geographer",
+    "adj": "geographical",
+    "adv": "geographically"
+   },
+   "col": [
+    "physical geography",
+    "geographical location",
+    "geographically isolated"
+   ]
+  },
+  {
+   "word": "demographic",
+   "pos": "adj. / n.",
+   "ipa": "/ˌdeməˈɡræfɪk/",
+   "parts": [
+    {
+     "t": "demo",
+     "k": "pre",
+     "vi": "dân chúng"
+    },
+    {
+     "t": "graph",
+     "k": "root",
+     "vi": "ghi lại"
+    },
+    {
+     "t": "ic",
+     "k": "suf",
+     "vi": "tính từ"
+    }
+   ],
+   "meaning": "thuộc nhân khẩu học; nhóm dân số",
+   "story": "ghi chép lại số liệu về dân chúng",
+   "example": "An ageing population is the biggest demographic challenge for Japan.",
+   "example_vi": "Dân số già hoá là thách thức nhân khẩu học lớn nhất của Nhật Bản.",
+   "tp": "soc",
+   "forms": {
+    "n": "demography, demographics",
+    "adj": "demographic"
+   },
+   "col": [
+    "demographic change",
+    "a younger demographic",
+    "demographic trends"
+   ]
+  },
+  {
+   "word": "graphic",
+   "pos": "adj.",
+   "ipa": "/ˈɡræfɪk/",
+   "parts": [
+    {
+     "t": "graph",
+     "k": "root",
+     "vi": "vẽ"
+    },
+    {
+     "t": "ic",
+     "k": "suf",
+     "vi": "tính từ"
+    }
+   ],
+   "meaning": "thuộc đồ hoạ; (mô tả) chi tiết, trần trụi",
+   "story": "được vẽ ra rõ đến từng nét",
+   "example": "The film contains graphic scenes of violence.",
+   "example_vi": "Bộ phim có những cảnh bạo lực trần trụi.",
+   "tp": "media",
+   "forms": {
+    "n": "graphics, graph",
+    "adj": "graphic, graphical",
+    "adv": "graphically"
+   },
+   "col": [
+    "graphic design",
+    "graphic violence",
+    "describe graphically"
+   ]
+  },
+  {
+   "word": "programme",
+   "pos": "n.",
+   "ipa": "/ˈprəʊɡræm/",
+   "parts": [
+    {
+     "t": "pro",
+     "k": "pre",
+     "vi": "trước"
+    },
+    {
+     "t": "gram",
+     "k": "root",
+     "vi": "viết"
+    },
+    {
+     "t": "me",
+     "k": "suf",
+     "vi": ""
+    }
+   ],
+   "meaning": "chương trình",
+   "story": "những gì được viết ra trước, để công bố cho mọi người",
+   "example": "The government launched a programme to plant a million trees.",
+   "example_vi": "Chính phủ khởi động chương trình trồng một triệu cây xanh.",
+   "tp": "soc",
+   "forms": {
+    "n": "programme (UK), program (US, phần mềm), programmer",
+    "v": "program"
+   },
+   "col": [
+    "launch a programme",
+    "an exchange programme",
+    "a training programme"
+   ],
+   "trap": "{{programme}} (chương trình) là chính tả Anh–Anh; {{program}} dùng cho phần mềm ở cả hai kiểu."
+  }
+ ],
+ "reading": {
+  "title": "Maps that tell stories",
+  "text": "Traditional geography lessons asked students to memorise capital cities. Today, teachers use interactive graphics instead. A single map can show demographic change across a century: where young families moved, which villages emptied, how cities grew. Old photographs add a human dimension, and short biographies of local people turn data into stories. Several schools have joined a national programme that trains teachers to build these digital maps. Early results suggest that students not only remember more facts but also understand why places change."
+ },
+ "wf": [
+  {
+   "s": "Mountains make the region ___ isolated from the rest of the country.",
+   "base": "GEOGRAPHY",
+   "a": "geographically"
+  },
+  {
+   "s": "Nelson Mandela's ___, Long Walk to Freedom, was published in 1994.",
+   "base": "BIOGRAPHY",
+   "a": "autobiography"
+  },
+  {
+   "s": "My sister studied ___ and now works for a travel magazine.",
+   "base": "PHOTOGRAPH",
+   "a": "photography"
+  }
+ ],
+ "err": [
+  {
+   "s": "Tourists are not allowed to *make* photographs inside the temple.",
+   "a": "take"
+  },
+  {
+   "s": "The *demography* trends show that the city is getting older.",
+   "a": "demographic"
+  }
+ ],
+ "write": "Some people believe that geography and history should be taught using digital maps and images rather than textbooks. Viết 2–3 câu nêu quan điểm, dùng ít nhất 2 từ trong chương.",
+ "pa": [
+  {
+   "s": "The population of the city is getting older.",
+   "k": "demographic",
+   "a": "The city is facing a major demographic change: its population is ageing."
+  },
+  {
+   "s": "The bank has started a plan to help young people save money.",
+   "k": "programme",
+   "a": "The bank has launched a programme to help young people save money."
+  }
+ ],
+ "sp": "Do you think photographs are a good way to remember the past?",
+ "wt": "opinion",
+ "rq": {
+  "type": "tfng",
+  "items": [
+   {
+    "s": "Geography lessons in the past focused on memorising facts.",
+    "a": "T"
+   },
+   {
+    "s": "Digital maps can show how populations change over time.",
+    "a": "T"
+   },
+   {
+    "s": "Every school in the country now uses digital maps.",
+    "a": "F"
+   },
+   {
+    "s": "Students prefer digital maps to textbooks.",
+    "a": "NG"
+   }
+  ]
+ },
+ "syn": [
+  [
+   "demographic change",
+   "population change"
+  ],
+  [
+   "geographical",
+   "regional"
+  ],
+  [
+   "biography",
+   "life story"
+  ],
+  [
+   "launch a programme",
+   "start a scheme"
+  ],
+  [
+   "graphic",
+   "very detailed"
+  ]
+ ]
+}

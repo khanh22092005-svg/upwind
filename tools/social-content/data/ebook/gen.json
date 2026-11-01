@@ -1,0 +1,307 @@
+{
+ "id": "gen",
+ "root": "gen / gener",
+ "origin": "Latin genus, Greek genos",
+ "core": "sinh ra; dòng giống",
+ "image": "một hạt giống nảy mầm thành cây",
+ "hook": "{{generate}}, {{generation}}, {{genetic}}: điện, thế hệ và gen di truyền đều là chuyện “sinh ra”.",
+ "bait": {
+  "word": "indigenous",
+  "literal": "sinh ra ở bên trong (vùng đất)"
+ },
+ "words": [
+  {
+   "word": "generate",
+   "pos": "v.",
+   "ipa": "/ˈdʒenəreɪt/",
+   "parts": [
+    {
+     "t": "gener",
+     "k": "root",
+     "vi": "sinh ra"
+    },
+    {
+     "t": "ate",
+     "k": "suf",
+     "vi": "động từ"
+    }
+   ],
+   "meaning": "tạo ra, sản sinh",
+   "story": "sinh ra một thứ mới",
+   "example": "Wind farms generate electricity for thousands of homes.",
+   "example_vi": "Các trang trại gió tạo ra điện cho hàng nghìn hộ gia đình.",
+   "tp": "env",
+   "forms": {
+    "v": "generate",
+    "n": "generation, generator"
+   },
+   "col": [
+    "generate electricity",
+    "generate income",
+    "generate interest"
+   ]
+  },
+  {
+   "word": "generation",
+   "pos": "n.",
+   "ipa": "/ˌdʒenəˈreɪʃn/",
+   "parts": [
+    {
+     "t": "gener",
+     "k": "root",
+     "vi": "sinh ra"
+    },
+    {
+     "t": "ation",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "thế hệ",
+   "story": "những người sinh ra cùng một thời",
+   "example": "The younger generation is more comfortable with technology.",
+   "example_vi": "Thế hệ trẻ thoải mái hơn với công nghệ.",
+   "tp": "soc",
+   "forms": {
+    "n": "generation"
+   },
+   "col": [
+    "the younger generation",
+    "future generations",
+    "the generation gap"
+   ]
+  },
+  {
+   "word": "genetic",
+   "pos": "adj.",
+   "ipa": "/dʒəˈnetɪk/",
+   "parts": [
+    {
+     "t": "gen",
+     "k": "root",
+     "vi": "sinh ra"
+    },
+    {
+     "t": "etic",
+     "k": "suf",
+     "vi": "tính từ"
+    }
+   ],
+   "meaning": "(thuộc) di truyền",
+   "story": "thứ có từ lúc sinh ra, truyền qua dòng giống",
+   "example": "Some diseases are partly genetic.",
+   "example_vi": "Một số bệnh có một phần do di truyền.",
+   "tp": "sci",
+   "forms": {
+    "adj": "genetic",
+    "n": "gene, genetics",
+    "adv": "genetically"
+   },
+   "col": [
+    "genetic engineering",
+    "genetically modified",
+    "genetic factors"
+   ]
+  },
+  {
+   "word": "generous",
+   "pos": "adj.",
+   "ipa": "/ˈdʒenərəs/",
+   "parts": [
+    {
+     "t": "gener",
+     "k": "root",
+     "vi": "dòng giống"
+    },
+    {
+     "t": "ous",
+     "k": "suf",
+     "vi": "tính từ"
+    }
+   ],
+   "meaning": "hào phóng",
+   "story": "người “dòng dõi tốt” cư xử rộng lượng",
+   "example": "The company offers a generous pension to its staff.",
+   "example_vi": "Công ty có chế độ lương hưu hào phóng cho nhân viên.",
+   "tp": "daily",
+   "forms": {
+    "adj": "generous",
+    "n": "generosity",
+    "adv": "generously"
+   },
+   "col": [
+    "a generous offer",
+    "generous funding",
+    "donate generously"
+   ]
+  },
+  {
+   "word": "ingenious",
+   "pos": "adj.",
+   "ipa": "/ɪnˈdʒiːniəs/",
+   "parts": [
+    {
+     "t": "in",
+     "k": "pre",
+     "vi": "bên trong"
+    },
+    {
+     "t": "gen",
+     "k": "root",
+     "vi": "sinh ra"
+    },
+    {
+     "t": "ious",
+     "k": "suf",
+     "vi": "tính từ"
+    }
+   ],
+   "meaning": "khéo léo, tài tình",
+   "story": "tài năng sinh ra sẵn ở bên trong",
+   "example": "Engineers found an ingenious way to cool buildings without electricity.",
+   "example_vi": "Các kỹ sư tìm ra cách tài tình để làm mát toà nhà mà không dùng điện.",
+   "tp": "tech",
+   "forms": {
+    "adj": "ingenious",
+    "n": "ingenuity"
+   },
+   "col": [
+    "an ingenious solution",
+    "an ingenious idea",
+    "human ingenuity"
+   ],
+   "trap": "{{ingenious}} (tài tình) khác {{ingenuous}} (ngây thơ, cả tin)."
+  },
+  {
+   "word": "indigenous",
+   "pos": "adj.",
+   "ipa": "/ɪnˈdɪdʒənəs/",
+   "parts": [
+    {
+     "t": "indi",
+     "k": "pre",
+     "vi": "bên trong"
+    },
+    {
+     "t": "gen",
+     "k": "root",
+     "vi": "sinh ra"
+    },
+    {
+     "t": "ous",
+     "k": "suf",
+     "vi": "tính từ"
+    }
+   ],
+   "meaning": "bản địa",
+   "story": "sinh ra ngay bên trong vùng đất đó",
+   "example": "Indigenous communities protect much of the world's forests.",
+   "example_vi": "Các cộng đồng bản địa bảo vệ phần lớn rừng trên thế giới.",
+   "tp": "soc",
+   "forms": {
+    "adj": "indigenous"
+   },
+   "col": [
+    "indigenous people",
+    "indigenous species",
+    "indigenous culture"
+   ]
+  }
+ ],
+ "wf": [
+  {
+   "s": "Her ___ helped hundreds of poor students.",
+   "base": "GENEROUS",
+   "a": "generosity"
+  },
+  {
+   "s": "Many people refuse to eat ___ modified food.",
+   "base": "GENETIC",
+   "a": "genetically"
+  },
+  {
+   "s": "Diesel ___ provide power during blackouts.",
+   "base": "GENERATE",
+   "a": "generators"
+  }
+ ],
+ "err": [
+  {
+   "s": "There is a big *generation difference* between my grandparents and me.",
+   "a": "generation gap"
+  },
+  {
+   "s": "He came up with an *ingenuous* solution to the problem.",
+   "a": "ingenious"
+  }
+ ],
+ "tf": [],
+ "pa": [
+  {
+   "s": "The project will bring in a lot of money for the town.",
+   "k": "generate",
+   "a": "The project will generate a lot of income for the town."
+  },
+  {
+   "s": "People who will live in the future need clean air.",
+   "k": "generations",
+   "a": "Future generations need clean air."
+  }
+ ],
+ "reading": {
+  "title": "Learning from the first farmers",
+  "text": "Indigenous communities manage around a quarter of the world's land, and their territories often contain more wildlife than national parks. In my opinion, governments have been far too slow to recognise this. Traditional knowledge, passed down through generations, includes ingenious methods of farming without chemicals. Some scientists dismiss this knowledge as unscientific, but genetic studies have shown that indigenous crops are often more resistant to drought. Rich countries should be more generous in funding these communities, rather than imposing their own solutions."
+ },
+ "rq": {
+  "type": "ynng",
+  "items": [
+   {
+    "s": "Governments have acted quickly to support indigenous land management.",
+    "a": "N"
+   },
+   {
+    "s": "Traditional farming methods can be very clever.",
+    "a": "Y"
+   },
+   {
+    "s": "National parks should be closed.",
+    "a": "NG"
+   },
+   {
+    "s": "Wealthy nations ought to give more money to indigenous communities.",
+    "a": "Y"
+   }
+  ]
+ },
+ "syn": [
+  [
+   "generate",
+   "produce"
+  ],
+  [
+   "generous",
+   "giving"
+  ],
+  [
+   "ingenious",
+   "clever"
+  ],
+  [
+   "indigenous",
+   "native"
+  ],
+  [
+   "genetic",
+   "hereditary"
+  ]
+ ],
+ "spk": {
+  "part": 3,
+  "qs": [
+   "What can older generations learn from younger people?",
+   "Should governments do more to protect indigenous cultures?"
+  ]
+ },
+ "wt": "opinion",
+ "write": "Governments should give indigenous communities full control over their traditional lands. To what extent do you agree or disagree?"
+}

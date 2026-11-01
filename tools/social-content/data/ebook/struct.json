@@ -1,0 +1,312 @@
+{
+ "id": "struct",
+ "root": "struct",
+ "origin": "Latin struere",
+ "core": "xây, xếp",
+ "image": "những viên gạch được xếp chồng lên nhau",
+ "hook": "{{construct}}, {{destruction}}, {{infrastructure}}: xây và phá đều từ cùng một gốc?",
+ "bait": {
+  "word": "instruct",
+  "literal": "xây vào trong đầu"
+ },
+ "words": [
+  {
+   "word": "construct",
+   "pos": "v.",
+   "ipa": "/kənˈstrʌkt/",
+   "parts": [
+    {
+     "t": "con",
+     "k": "pre",
+     "vi": "cùng nhau"
+    },
+    {
+     "t": "struct",
+     "k": "root",
+     "vi": "xây"
+    }
+   ],
+   "meaning": "xây dựng",
+   "story": "xếp nhiều thứ lại cùng nhau",
+   "example": "The city is constructing a new metro line.",
+   "example_vi": "Thành phố đang xây một tuyến metro mới.",
+   "tp": "work",
+   "forms": {
+    "v": "construct",
+    "n": "construction",
+    "adj": "constructive"
+   },
+   "col": [
+    "construct a bridge",
+    "under construction",
+    "constructive criticism"
+   ]
+  },
+  {
+   "word": "destruction",
+   "pos": "n.",
+   "ipa": "/dɪˈstrʌkʃn/",
+   "parts": [
+    {
+     "t": "de",
+     "k": "pre",
+     "vi": "ngược lại"
+    },
+    {
+     "t": "struct",
+     "k": "root",
+     "vi": "xây"
+    },
+    {
+     "t": "ion",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "sự phá huỷ",
+   "story": "làm ngược lại với xây",
+   "example": "Deforestation leads to the destruction of animal habitats.",
+   "example_vi": "Phá rừng dẫn đến sự phá huỷ môi trường sống của động vật.",
+   "tp": "env",
+   "forms": {
+    "n": "destruction",
+    "v": "destroy",
+    "adj": "destructive"
+   },
+   "col": [
+    "the destruction of",
+    "habitat destruction",
+    "destructive behaviour"
+   ]
+  },
+  {
+   "word": "infrastructure",
+   "pos": "n.",
+   "ipa": "/ˈɪnfrəstrʌktʃə/",
+   "parts": [
+    {
+     "t": "infra",
+     "k": "pre",
+     "vi": "bên dưới"
+    },
+    {
+     "t": "struct",
+     "k": "root",
+     "vi": "xây"
+    },
+    {
+     "t": "ure",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "cơ sở hạ tầng",
+   "story": "những gì được xây bên dưới để nâng đỡ thành phố",
+   "example": "Rural areas need better infrastructure such as roads and internet access.",
+   "example_vi": "Vùng nông thôn cần cơ sở hạ tầng tốt hơn như đường sá và internet.",
+   "tp": "soc",
+   "forms": {
+    "n": "infrastructure"
+   },
+   "col": [
+    "transport infrastructure",
+    "invest in infrastructure",
+    "digital infrastructure"
+   ]
+  },
+  {
+   "word": "instruct",
+   "pos": "v.",
+   "ipa": "/ɪnˈstrʌkt/",
+   "parts": [
+    {
+     "t": "in",
+     "k": "pre",
+     "vi": "vào trong"
+    },
+    {
+     "t": "struct",
+     "k": "root",
+     "vi": "xây"
+    }
+   ],
+   "meaning": "hướng dẫn; ra lệnh",
+   "story": "xây kiến thức vào trong đầu người khác",
+   "example": "Passengers were instructed to stay in their seats.",
+   "example_vi": "Hành khách được yêu cầu ngồi yên tại chỗ.",
+   "tp": "edu",
+   "forms": {
+    "v": "instruct",
+    "n": "instruction, instructor",
+    "adj": "instructive"
+   },
+   "col": [
+    "follow instructions",
+    "be instructed to",
+    "a driving instructor"
+   ]
+  },
+  {
+   "word": "structure",
+   "pos": "n.",
+   "ipa": "/ˈstrʌktʃə/",
+   "parts": [
+    {
+     "t": "struct",
+     "k": "root",
+     "vi": "xây"
+    },
+    {
+     "t": "ure",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "cấu trúc",
+   "story": "cách các phần được xếp lại với nhau",
+   "example": "A good essay needs a clear structure.",
+   "example_vi": "Một bài luận tốt cần cấu trúc rõ ràng.",
+   "tp": "edu",
+   "forms": {
+    "n": "structure",
+    "adj": "structural",
+    "v": "restructure"
+   },
+   "col": [
+    "a clear structure",
+    "social structure",
+    "restructure a company"
+   ]
+  },
+  {
+   "word": "obstruct",
+   "pos": "v.",
+   "ipa": "/əbˈstrʌkt/",
+   "parts": [
+    {
+     "t": "ob",
+     "k": "pre",
+     "vi": "chắn ngang"
+    },
+    {
+     "t": "struct",
+     "k": "root",
+     "vi": "xây"
+    }
+   ],
+   "meaning": "cản trở",
+   "story": "xây chắn ngang đường đi",
+   "example": "Parked cars often obstruct emergency vehicles.",
+   "example_vi": "Xe đỗ bừa thường cản trở xe cấp cứu.",
+   "tp": "crime",
+   "forms": {
+    "v": "obstruct",
+    "n": "obstruction"
+   },
+   "col": [
+    "obstruct traffic",
+    "obstruct justice",
+    "obstruct the view"
+   ]
+  }
+ ],
+ "wf": [
+  {
+   "s": "The road is closed because of ___ work.",
+   "base": "CONSTRUCT",
+   "a": "construction"
+  },
+  {
+   "s": "Storms can be extremely ___.",
+   "base": "DESTRUCTION",
+   "a": "destructive"
+  },
+  {
+   "s": "Read the ___ carefully before you start.",
+   "base": "INSTRUCT",
+   "a": "instructions"
+  }
+ ],
+ "err": [
+  {
+   "s": "The new hospital is still *on construction*.",
+   "a": "under construction"
+  },
+  {
+   "s": "The company needs to *rebuild its structure* to save money.",
+   "a": "restructure"
+  }
+ ],
+ "tf": [],
+ "pa": [
+  {
+   "s": "The fallen tree blocked the road for hours.",
+   "k": "obstruct",
+   "a": "The fallen tree obstructed the road for hours."
+  },
+  {
+   "s": "The government is spending money on roads and railways.",
+   "k": "infrastructure",
+   "a": "The government is investing in transport infrastructure."
+  }
+ ],
+ "reading": {
+  "title": "Roads or railways?",
+  "text": "Every government says it wants to improve infrastructure, but the real question is what to construct. In my view, building more motorways is a mistake. New roads attract more traffic, and within a few years they are as crowded as before. Their construction also causes the destruction of farmland and forests. Some economists argue that roads are essential for rural businesses, and I accept that remote villages need good access. However, for travel between cities, high-speed railways offer a far better structure for long-term growth."
+ },
+ "rq": {
+  "type": "ynng",
+  "items": [
+   {
+    "s": "New motorways solve traffic problems in the long term.",
+    "a": "N"
+   },
+   {
+    "s": "Building roads can damage natural areas.",
+    "a": "Y"
+   },
+   {
+    "s": "Railways are cheaper to build than motorways.",
+    "a": "NG"
+   },
+   {
+    "s": "Rural areas have a genuine need for road access.",
+    "a": "Y"
+   }
+  ]
+ },
+ "syn": [
+  [
+   "construct",
+   "build"
+  ],
+  [
+   "destruction",
+   "damage"
+  ],
+  [
+   "instruct",
+   "direct"
+  ],
+  [
+   "obstruct",
+   "block"
+  ],
+  [
+   "structure",
+   "organisation"
+  ]
+ ],
+ "spk": {
+  "part": 2,
+  "topic": "Describe a building or structure in your city that you like.",
+  "bullets": [
+   "what it is",
+   "where it is",
+   "what it looks like",
+   "and explain why you like it."
+  ]
+ },
+ "wt": "opinion",
+ "write": "Governments should spend more money on railways than on roads. To what extent do you agree or disagree?"
+}

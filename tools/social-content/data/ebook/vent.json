@@ -1,0 +1,324 @@
+{
+ "id": "vent",
+ "root": "vent / ven",
+ "origin": "Latin venire",
+ "core": "đến",
+ "image": "một người bước qua cánh cửa đi vào",
+ "hook": "{{prevent}}, {{event}}, {{adventure}}: ngăn chặn, sự kiện, phiêu lưu đều nói về… “đến”?",
+ "bait": {
+  "word": "adventure",
+  "literal": "những gì sắp đến"
+ },
+ "words": [
+  {
+   "word": "prevent",
+   "pos": "v.",
+   "ipa": "/prɪˈvent/",
+   "parts": [
+    {
+     "t": "pre",
+     "k": "pre",
+     "vi": "trước"
+    },
+    {
+     "t": "vent",
+     "k": "root",
+     "vi": "đến"
+    }
+   ],
+   "meaning": "ngăn chặn",
+   "story": "đến trước để chặn lại",
+   "example": "Vaccines prevent the spread of many diseases.",
+   "example_vi": "Vắc-xin ngăn chặn sự lây lan của nhiều bệnh.",
+   "tp": "health",
+   "forms": {
+    "v": "prevent",
+    "n": "prevention",
+    "adj": "preventive"
+   },
+   "col": [
+    "prevent someone from doing something",
+    "prevent the spread of",
+    "prevention is better than cure"
+   ]
+  },
+  {
+   "word": "event",
+   "pos": "n.",
+   "ipa": "/ɪˈvent/",
+   "parts": [
+    {
+     "t": "e",
+     "k": "pre",
+     "vi": "ra ngoài"
+    },
+    {
+     "t": "vent",
+     "k": "root",
+     "vi": "đến"
+    }
+   ],
+   "meaning": "sự kiện",
+   "story": "điều xảy đến và hiện ra trước mắt",
+   "example": "The city hosts several major sporting events every year.",
+   "example_vi": "Thành phố tổ chức nhiều sự kiện thể thao lớn mỗi năm.",
+   "tp": "media",
+   "forms": {
+    "n": "event",
+    "adj": "eventful",
+    "adv": "eventually"
+   },
+   "col": [
+    "host an event",
+    "a major event",
+    "in the event of"
+   ],
+   "trap": "{{eventually}} = cuối cùng thì, không phải “có thể” ({{possibly}})."
+  },
+  {
+   "word": "convention",
+   "pos": "n.",
+   "ipa": "/kənˈvenʃn/",
+   "parts": [
+    {
+     "t": "con",
+     "k": "pre",
+     "vi": "cùng nhau"
+    },
+    {
+     "t": "vent",
+     "k": "root",
+     "vi": "đến"
+    },
+    {
+     "t": "ion",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "quy ước; hội nghị",
+   "story": "mọi người cùng đến một chỗ và cùng đồng ý",
+   "example": "In many cultures, it is a convention to remove your shoes indoors.",
+   "example_vi": "Ở nhiều nền văn hoá, cởi giày khi vào nhà là một quy ước.",
+   "tp": "media",
+   "forms": {
+    "n": "convention",
+    "adj": "conventional",
+    "adv": "conventionally"
+   },
+   "col": [
+    "social conventions",
+    "conventional methods",
+    "break with convention"
+   ]
+  },
+  {
+   "word": "intervene",
+   "pos": "v.",
+   "ipa": "/ˌɪntəˈviːn/",
+   "parts": [
+    {
+     "t": "inter",
+     "k": "pre",
+     "vi": "ở giữa"
+    },
+    {
+     "t": "vene",
+     "k": "root",
+     "vi": "đến"
+    }
+   ],
+   "meaning": "can thiệp",
+   "story": "đến đứng vào giữa hai bên",
+   "example": "The government should intervene to control house prices.",
+   "example_vi": "Chính phủ nên can thiệp để kiểm soát giá nhà.",
+   "tp": "soc",
+   "forms": {
+    "v": "intervene",
+    "n": "intervention"
+   },
+   "col": [
+    "intervene in",
+    "government intervention",
+    "early intervention"
+   ]
+  },
+  {
+   "word": "venue",
+   "pos": "n.",
+   "ipa": "/ˈvenjuː/",
+   "parts": [
+    {
+     "t": "ven",
+     "k": "root",
+     "vi": "đến"
+    },
+    {
+     "t": "ue",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "địa điểm tổ chức",
+   "story": "nơi mọi người cùng đến",
+   "example": "The stadium will be the main venue for the Games.",
+   "example_vi": "Sân vận động sẽ là địa điểm chính của Thế vận hội.",
+   "tp": "media",
+   "forms": {
+    "n": "venue"
+   },
+   "col": [
+    "a concert venue",
+    "a change of venue",
+    "a suitable venue"
+   ]
+  },
+  {
+   "word": "adventure",
+   "pos": "n.",
+   "ipa": "/ədˈventʃə/",
+   "parts": [
+    {
+     "t": "ad",
+     "k": "pre",
+     "vi": "tới"
+    },
+    {
+     "t": "vent",
+     "k": "root",
+     "vi": "đến"
+    },
+    {
+     "t": "ure",
+     "k": "suf",
+     "vi": "danh từ"
+    }
+   ],
+   "meaning": "cuộc phiêu lưu",
+   "story": "những gì sắp đến với bạn mà chưa biết trước",
+   "example": "Travelling alone was the greatest adventure of my life.",
+   "example_vi": "Đi du lịch một mình là chuyến phiêu lưu lớn nhất đời tôi.",
+   "tp": "daily",
+   "forms": {
+    "n": "adventure",
+    "adj": "adventurous"
+   },
+   "col": [
+    "a sense of adventure",
+    "adventure sports",
+    "an adventurous spirit"
+   ]
+  }
+ ],
+ "wf": [
+  {
+   "s": "The journey was long and very ___.",
+   "base": "EVENT",
+   "a": "eventful"
+  },
+  {
+   "s": "Doctors say ___ is better than cure.",
+   "base": "PREVENT",
+   "a": "prevention"
+  },
+  {
+   "s": "Many people now prefer online shopping to ___ shops.",
+   "base": "CONVENTION",
+   "a": "conventional"
+  }
+ ],
+ "err": [
+  {
+   "s": "Masks can prevent people *to catch* colds.",
+   "a": "from catching"
+  },
+  {
+   "s": "The police *intervened into* the fight.",
+   "a": "intervened in"
+  }
+ ],
+ "tf": [],
+ "pa": [
+  {
+   "s": "The concert will take place in a new building downtown.",
+   "k": "venue",
+   "a": "The concert venue is a new building downtown."
+  },
+  {
+   "s": "The state should not get involved in people's private lives.",
+   "k": "intervene",
+   "a": "The state should not intervene in people's private lives."
+  }
+ ],
+ "reading": {
+  "title": "Big events, big costs",
+  "text": "Hosting a major sporting event such as the Olympics is a dream for many cities. Governments hope the Games will attract tourists and put the city on the map. However, the costs are enormous. New venues are often too large for local needs and stand empty afterwards. To prevent this, recent hosts have broken with convention: Paris 2024 used mostly existing or temporary venues. Economists argue that governments should only intervene with public money if there is a clear plan for what happens after the closing ceremony."
+ },
+ "rq": {
+  "type": "mcq",
+  "items": [
+   {
+    "q": "Why do governments want to host big sporting events?",
+    "o": [
+     "To build new stadiums",
+     "To attract tourists and become better known",
+     "To reduce public spending",
+     "To train local athletes"
+    ],
+    "a": "B"
+   },
+   {
+    "q": "What problem with new venues does the writer mention?",
+    "o": [
+     "They are too small.",
+     "They take too long to build.",
+     "They are often unused afterwards.",
+     "They are far from the city."
+    ],
+    "a": "C"
+   },
+   {
+    "q": "How did Paris 2024 differ from many earlier hosts?",
+    "o": [
+     "It built more venues.",
+     "It relied mainly on existing or temporary venues.",
+     "It had no closing ceremony.",
+     "It was paid for privately."
+    ],
+    "a": "B"
+   }
+  ]
+ },
+ "syn": [
+  [
+   "prevent",
+   "stop"
+  ],
+  [
+   "event",
+   "occasion"
+  ],
+  [
+   "intervene",
+   "step in"
+  ],
+  [
+   "venue",
+   "location"
+  ],
+  [
+   "conventional",
+   "traditional"
+  ]
+ ],
+ "spk": {
+  "part": 1,
+  "qs": [
+   "Do you like going to big events like concerts or festivals?",
+   "What was the last event you went to?",
+   "Would you like to try an adventure sport?"
+  ]
+ },
+ "wt": "advdis",
+ "write": "Some cities spend large amounts of money to host international sporting events. Do the advantages outweigh the disadvantages?"
+}
