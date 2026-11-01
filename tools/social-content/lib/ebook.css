@@ -387,3 +387,10 @@ th{padding:4px 7px}
 .cv-sub{font-size:13pt;font-weight:600;color:#cfe9f7}
 .cv-hero.simple{background:none;border:none;padding:0;margin:20mm auto 0;width:150mm}
 .cv-hero.simple{width:178mm;margin:10mm auto 0}
+.cv-hero.simple{width:172mm;margin:4mm auto 0}
+.cv-waves{z-index:2}
+.cv-hero.simple{width:168mm;margin:2mm auto 0}
+.cv-waves{height:18mm}
+.cv-foot{z-index:3;bottom:4mm;color:#003066}
+.ctree{overflow:visible}.cv-foot{bottom:2.5mm;color:#cfe9f7}
+.cv-hero.simple{margin-top:8mm;width:162mm}

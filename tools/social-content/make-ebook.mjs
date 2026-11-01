@@ -13,6 +13,7 @@ import { createRequire } from "node:module";
 import { ROOT_DIR, OUT_DIR, COLORS, loadFamilies, esc, ensureDir } from "./lib/common.mjs";
 import { globalMap, prefixesOf, canonPrefix } from "./lib/ebook-map.mjs";
 import { icon } from "./lib/icons.mjs";
+import { coverTree } from "./lib/cover-tree.mjs";
 
 const require = createRequire(import.meta.url);
 const { chromium } = require("playwright");
@@ -658,7 +659,7 @@ function coverHTML() {
     <p class="cv-sub">Band 5.5 → 7.0+ · ${chapters.length} gốc từ · ${allWords.length} từ · 8–10 tuần</p>
   </div>
 
-  <div class="cv-hero simple">${tree}</div>
+  <div class="cv-hero simple">${coverTree(hero)}</div>
 
   <svg class="cv-waves" viewBox="0 0 210 30" preserveAspectRatio="none"><path d="M0 14 Q52 2 105 12 T210 10 V30 H0Z" fill="#6ac5e8" opacity=".9"/><path d="M0 20 Q55 10 108 19 T210 17 V30 H0Z" fill="#00244d"/></svg>
   <div class="cv-foot">upwind.asia</div>
