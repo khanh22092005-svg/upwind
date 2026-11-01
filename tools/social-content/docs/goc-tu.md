@@ -11,7 +11,7 @@ Shared setup, voices, subtitles and visual rules are in the [README](../README.m
 node make-video.mjs rupt                    # one family
 node make-video.mjs rupt,vert               # several
 node make-video.mjs spect --max 4           # split into ~60 s parts: out/spect-p1, spect-p2
-node make-video.mjs rupt --voice "Thiền Tâm Đức"  # another voice (V4 or local, depending on the key)
+node make-video.mjs rupt --voice "Thiền Tâm Đức"  # another voice, experiments only (posted videos use "Hải Đăng")
 node make-video.mjs rupt --speed 1.2        # pace (default 1.1, pitch preserved)
 node make-video.mjs rupt --audio-only       # narration MP3 only, to compare voices/models fast
 node make-video.mjs rupt --tts none         # silent draft to check visuals (no TTS at all)

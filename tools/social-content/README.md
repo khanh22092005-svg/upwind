@@ -16,6 +16,8 @@ listed in [`docs/goc-tu.md` §4](docs/goc-tu.md#4-ways-to-expand-the-method).
 
 ## Quick start (reproduces every approved output)
 
+Order for every new piece of content: **carousel first** (check it), **then the video** from the same data.
+
 ```bash
 cd tools/social-content
 export VIENEU_API_KEY="vn_sk_..."         # vieneu.io → Developer. Never commit it, never paste it in files.
@@ -50,7 +52,7 @@ run never deletes the last good video.
 | situation | voice | quality |
 |---|---|---|
 | `VIENEU_API_KEY` set (default) | **VieNeu V4 cloud, "Hải Đăng"** (V4 id "Minh Quân Pro") | best; English clearly better than local |
-| no key | local VieNeu v3 Turbo, "Mai Anh" | free; English sometimes off |
+| no key | local VieNeu v3 Turbo, **"Hải Đăng"** (same name, local preset) | free; English sometimes off |
 | `--en-tts auto` | local Vietnamese plus a separate English voice per word | exact English, two voices |
 | `--one-voice` | Microsoft Emma Multilingual for both | perfect English, Vietnamese slightly accented |
 
@@ -58,8 +60,11 @@ run never deletes the last good video.
   `curl "https://api.vieneu.io/api/tts/voices"` and local ones with `python3 lib/vieneu_tts.py --voices`.
 - **V4 cost:** one video is about 30 API calls and ~10,000 tokens. Clips are cached in `out/.tts-cache` per text and voice,
   so re-rendering after visual changes costs **nothing**. Change the narration and only the changed lines are re-generated.
-- **Local voice choice:** in our test of the 10 recommended local voices, Mai Anh and Thiền Tâm Đức read English best (0.85);
-  Ngọc Huyền scored 0.69. VieNeu v3 Turbo is the newest *open* model. V4 (the web app's model) is cloud-only.
+- **House voice: "Hải Đăng" only**, cloud or local, so every video sounds the same. (An earlier test of local voices
+  scored Mai Anh and Thiền Tâm Đức best for English; use `--voice` only for experiments, not for posted videos.)
+  VieNeu v3 Turbo is the newest *open* model. V4 (the web app's model) is cloud-only.
+- **V4 trial plan:** 50 API calls a day, reset at 00:00 Vietnam time; a video needs ~20–30. When the limit hits, the run
+  stops and the last good video is kept. Unset the key to finish with the local "Hải Đăng".
 - **Narration rule:** an English word must start its own sentence ("{{eruption}} là danh từ…"). When a Vietnamese phrase
   runs straight into English ("… với {{convert}}"), VieNeu repeats its last word ("với với", "còn còn"). The
   renderer closes such phrases with a comma and prints a warning so you can rewrite the line.

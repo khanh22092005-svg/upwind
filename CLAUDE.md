@@ -30,3 +30,9 @@ Videos, carousels ("ảnh cuộn") and handouts for every series ("Học từ t�
 by `tools/social-content/` (not part of the website build): one shared engine, one doc per series. Read its `README.md`
 (series table, voices, visual rules, how to add a series) and the series doc in `docs/` before changing anything there. Outputs go to its gitignored `out/` folder.
 The VieNeu API key is passed only as the `VIENEU_API_KEY` environment variable; never write it into a file or commit it.
+
+House rules for every series:
+- **Carousel first, then video.** Render the carousel, show it, then render the video from the same data.
+- **One voice: "Hải Đăng".** V4 cloud ("Hải Đăng" = V4 id "Minh Quân Pro") when `VIENEU_API_KEY` is set, otherwise the local
+  VieNeu preset "Hải Đăng". Both are the defaults; don't pass another `--voice`. The V4 trial plan allows 50 API calls a
+  day (resets 00:00 Vietnam time); if it runs out, render with the local "Hải Đăng".

@@ -115,9 +115,9 @@ Pick one to three per set; each set teaches a different one.
 3. Band 6 and band 7 sentences are error-free: articles, plurals, agreement, commas.
 4. The idea stays the same across 5 → 6 → 7.
 5. Read band 7 aloud. If it sounds like a thesaurus, simplify it.
-6. `node make-upgrade.mjs <id>` and look at every slide (the script warns on overflow).
-7. `node make-video.mjs --series writing <id> --tts none` for a quick layout check, then without `--tts none`
-   for the voiced video. Watch it once before posting.
+6. **Carousel first:** `node make-upgrade.mjs <id>` and look at every slide (the script warns on overflow).
+7. **Then the video:** `node make-video.mjs --series writing <id> --tts none` for a quick layout check, then without
+   `--tts none` for the voiced video (voice "Hải Đăng", V4 or local). Watch it once before posting.
 
 ## 7. Prompt for drafting a new set
 
