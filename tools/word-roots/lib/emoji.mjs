@@ -14,7 +14,8 @@ export function ensureEmojiAssets(families) {
   const need = new Set();
   for (const f of families) for (const x of [f, ...f.words]) if (x.anim) need.add(x.anim);
   const missing = [...need].filter((cp) => !fs.existsSync(path.join(EDIR, `${cp}.json`)));
-  if (missing.length || !fs.existsSync(LOTTIE_JS)) {
+  const fontsMissing = !fs.existsSync(path.join(ROOT_DIR, "assets", "fonts", "BeVietnamPro-SemiBold.ttf"));
+  if (missing.length || !fs.existsSync(LOTTIE_JS) || fontsMissing) {
     console.log(`Fetching ${missing.length} animated emoji ...`);
     execFileSync(process.execPath, [path.join(ROOT_DIR, "fetch-assets.mjs")], { stdio: "inherit" });
   }

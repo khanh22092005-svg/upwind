@@ -74,6 +74,9 @@ If a Vietnamese phrase runs straight into English ("… với {{convert}}"), Vie
 ("với với", "còn còn"). The renderer closes such phrases with a comma automatically and prints a warning
 so you can rewrite the line.
 
+Subtitles are burned in by ffmpeg/libass (`lib/subtitles.mjs`): one line at a time, the word being spoken in
+orange, timed from the length of each spoken clip (close, not frame-perfect), Be Vietnam Pro from `assets/fonts`.
+
 Output folder: `video.mp4` (1080×1920, 30 fps), `caption.txt` (post text, next-video line,
 **pinned comment** with the quiz answer), and one PNG per scene.
 

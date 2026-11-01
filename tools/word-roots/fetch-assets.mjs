@@ -3,6 +3,7 @@
 //   assets/icons/*.svg     Tabler icons (https://tabler.io/icons, MIT) for small UI glyphs
 //   assets/emoji/*.json    Noto animated emoji (https://googlefonts.github.io/noto-emoji-animation/, CC BY 4.0)
 //   assets/vendor/lottie_svg.min.js   lottie-web player (MIT), plays the emoji animations
+//   assets/fonts/*.ttf     Be Vietnam Pro (SIL OFL) for burned-in video subtitles
 // Run it after adding families or changing `icon` / `anim` values:  node fetch-assets.mjs
 import fs from "node:fs";
 import os from "node:os";
@@ -75,6 +76,22 @@ for (const cp of anims) {
 fs.writeFileSync(path.join(edir, "LICENSE.txt"),
   "Noto Emoji Animation by Google, https://googlefonts.github.io/noto-emoji-animation/\nLicensed under CC BY 4.0: https://creativecommons.org/licenses/by/4.0/\n");
 console.log(`✓ ${anims.size} animated emoji in assets/emoji (${got} downloaded)`);
+
+// Be Vietnam Pro (SIL OFL) for the burned-in subtitles
+const fdir = path.join(ROOT_DIR, "assets", "fonts");
+ensureDir(fdir);
+const FONT_BASE = "https://raw.githubusercontent.com/google/fonts/main/ofl/bevietnampro/";
+for (const f of ["BeVietnamPro-SemiBold.ttf", "BeVietnamPro-Bold.ttf", "BeVietnamPro-ExtraBold.ttf", "OFL.txt"]) {
+  const out = path.join(fdir, f);
+  if (fs.existsSync(out)) continue;
+  const res = await fetch(FONT_BASE + f);
+  if (!res.ok) {
+    missing.push(`font ${f} (HTTP ${res.status})`);
+    continue;
+  }
+  fs.writeFileSync(out, Buffer.from(await res.arrayBuffer()));
+}
+console.log("✓ Be Vietnam Pro fonts in assets/fonts");
 if (missing.length) {
   console.error(`✗ not in Tabler: ${missing.join(", ")}. Pick names from https://tabler.io/icons`);
   process.exit(1);

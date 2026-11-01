@@ -11,7 +11,7 @@ export const W = 1080;
 export const H = 1920;
 
 export function css(w = W, h = H, { video = true } = {}) {
-  const mainH = video ? 1130 : h - 230 - 200;
+  const mainH = video ? 1230 : h - 230 - 200;
   return `
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:${w}px;height:${h}px;overflow:hidden}
@@ -39,6 +39,8 @@ main{position:absolute;top:230px;left:70px;right:70px;height:${mainH}px;display:
 .caption{position:absolute;left:70px;right:70px;top:1400px;min-height:150px;background:#0b2545;color:#fff;
   border-radius:28px;padding:30px 40px;font-size:42px;line-height:1.35;font-weight:600;text-align:center}
 .caption b{color:#ffd166}
+.video .bait,.video .rootcard,.video .split,.video .meaning,.video .example,.video .recap,.video .quiz,.video .cta{zoom:1.07;max-width:calc(100% / 1.07)}
+.video .bait,.video .split,.video .meaning,.video .example,.video .recap,.video .quiz{width:calc(100% / 1.07)}
 .wave{position:absolute;left:0;bottom:0;width:100%;height:${video ? 320 : 210}px;display:block}
 
 /* ---------- animations ---------- */
@@ -205,16 +207,12 @@ export function header(family, logo, { series = "Học từ từ gốc", chip } 
 }
 
 export function frameHtml({ family, scene, logo }) {
-  const cap = (scene.caption ?? plain(scene.say)).replace(/(^|(?<!\.)[.!?]\s+)(\p{Ll})/gu, (m, a, b) => a + b.toUpperCase()); // "..." is a pause, not a sentence end
-  const capHtml = esc(cap).replace(/\b([A-Za-z][a-z]+)\b/g, (m) =>
-    family.words.some((w) => w.word === m.toLowerCase()) ? `<b>${m}</b>` : m
-  );
+  // Subtitles are burned in by ffmpeg (lib/subtitles.mjs), line by line with the spoken word highlighted.
   return `<!doctype html><html lang="vi"><head><meta charset="utf-8">${FONT_LINK}
-<style>${css()}</style></head><body>
+<style>${css()}</style></head><body class="video">
 ${wave()}
 ${header(family, logo)}
 <main>${scene.html.replaceAll("__LOGO__", logo)}</main>
-<div class="caption a-up" style="--d:120ms">${capHtml}</div>
 ${lottieScripts(scene.html)}
 </body></html>`;
 }

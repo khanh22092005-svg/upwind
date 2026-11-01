@@ -24,6 +24,7 @@ import { execFileSync, spawnSync } from "node:child_process";
 import { createRequire } from "node:module";
 import { ROOT_DIR, OUT_DIR, loadFamilies, chunks, plain, ensureDir, captionText, nextFamily } from "./lib/common.mjs";
 import { buildScenes } from "./lib/scenes.mjs";
+import { buildAss } from "./lib/subtitles.mjs";
 import { ensureEmojiAssets } from "./lib/emoji.mjs";
 import { frameHtml, W, H } from "./lib/template.mjs";
 
@@ -206,6 +207,8 @@ function sceneAudio(scene, file) {
   if (VI_TTS === "none") {
     const secs = Math.max(1.5, plain(scene.say).length / 14 / SPEED) + hold;
     run("ffmpeg", ["-y", "-v", "error", "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo", "-t", secs.toFixed(2), file]);
+    scene.__chunks = [{ text: plain(scene.say), weight: 1 }];
+    scene.__speech = secs - hold;
     return file;
   }
   const parts = speakable(scene.say).map((c) => {
@@ -224,6 +227,8 @@ function sceneAudio(scene, file) {
       .join(";") +
     `;${parts.map((_, i) => `[a${i}]`).join("")}concat=n=${parts.length}:v=0:a=1,atempo=${SPEED},alimiter=limit=0.9:level=false,adelay=120|120,apad=pad_dur=${hold.toFixed(2)}[out]`;
   run("ffmpeg", ["-y", "-v", "error", ...inputs, "-filter_complex", filt, "-map", "[out]", "-ar", "44100", file]);
+  scene.__chunks = parts.map((p) => ({ text: p.text, weight: duration(p.file) }));
+  scene.__speech = Math.max(0.5, duration(file) - hold - 0.12);
   return file;
 }
 
@@ -258,6 +263,12 @@ async function captureScene(page, html, dir, stillPng) {
     await page.evaluate((t) => window.__at(t), (f * 1000) / FPS);
     await shot("intro", f);
   }
+  // Overflow check on the settled layout (mid-animation transforms would give false alarms).
+  const tooBig = await page.evaluate(() => {
+    const m = document.querySelector("main");
+    return m.scrollHeight > m.clientHeight + 4 || m.scrollWidth > m.clientWidth + 4;
+  });
+  if (tooBig) console.warn(`  ! scene ${path.basename(dir)} overflows its area; shorten the text`);
   // One full cycle of the emoji animation after the intro; ffmpeg loops it for the rest of the scene.
   let loop = 0;
   if (lotMs > 0) {
@@ -330,6 +341,8 @@ async function makeOne(browser, family, logo, part) {
 
   const page = await browser.newPage({ viewport: { width: W, height: H } });
   const list = [];
+  const subs = [];
+  let clock = 0;
   for (const [i, scene] of scenes.entries()) {
     const tag = `s${String(i).padStart(2, "0")}`;
     const framesDir = path.join(tmp, tag);
@@ -338,7 +351,10 @@ async function makeOne(browser, family, logo, part) {
     const mp4 = path.join(tmp, `${tag}.mp4`);
     segment(framesDir, n, wav, mp4);
     list.push(mp4);
-    process.stdout.write(`  ${scene.kind.padEnd(8)} ${duration(mp4).toFixed(1)}s\n`);
+    const segDur = duration(mp4);
+    subs.push({ start: clock, speech: scene.__speech, end: clock + segDur, chunks: scene.__chunks });
+    clock += segDur;
+    process.stdout.write(`  ${scene.kind.padEnd(8)} ${segDur.toFixed(1)}s\n`);
   }
   await page.close();
 
@@ -348,7 +364,10 @@ async function makeOne(browser, family, logo, part) {
   const joined = path.join(tmp, "joined.mp4");
   run("ffmpeg", ["-y", "-v", "error", "-f", "concat", "-safe", "0", "-i", concat, "-c", "copy", joined]);
   const total = duration(joined);
-  const bar = `[1:v]format=rgba[bar];[0:v][bar]overlay=x='-w+w*t/${total.toFixed(3)}':y=0:shortest=1,format=yuv420p[v]`;
+  const assFile = path.join(tmp, "subs.ass");
+  fs.writeFileSync(assFile, buildAss(subs, { width: W, height: H }));
+  const fontsDir = path.join(ROOT_DIR, "assets", "fonts");
+  const bar = `[1:v]format=rgba[bar];[0:v][bar]overlay=x='-w+w*t/${total.toFixed(3)}':y=0:shortest=1,subtitles=${assFile}:fontsdir=${fontsDir},format=yuv420p[v]`;
   const music = BGM ? `;[2:a]volume=0.12[m];[0:a][m]amix=inputs=2:duration=first:normalize=0[a]` : "";
   run("ffmpeg", ["-y", "-v", "error", "-i", joined, "-f", "lavfi", "-i", `color=c=0xf2711c:s=${W}x14:r=${FPS}`,
     ...(BGM ? ["-stream_loop", "-1", "-i", BGM] : []),
