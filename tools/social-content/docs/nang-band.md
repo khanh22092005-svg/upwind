@@ -1,9 +1,30 @@
-# Writing band content: start here
+# Series: Nâng band câu này (IELTS Writing), start here
 
 Every piece of IELTS Writing content ("Nâng band câu này" carousels, Writing slides, handouts) is built
 from the same rules the teacher uses to **grade** students' essays (the `ielts-writing-grader` skill).
 That way a post on Facebook says the same thing as a comment in a student's doc.
 Read this file before writing a new set in `data/upgrades.json`.
+
+
+Shared setup and visual rules are in the [README](../README.md). Sets so far: `tech-children`, `because-so`, `comma-splice`, `learn-knowledge`.
+
+## Render: `make-upgrade.mjs`
+
+One weak sentence upgraded from band 5 to 6 to 7, every upgrade highlighted and explained, plus a toolkit, a practice sentence
+(model answers in the pinned comment) and a follow slide. 8 slides.
+
+```bash
+node make-upgrade.mjs tech-children         # 4:5
+node make-upgrade.mjs tech-children --size 9:16
+```
+
+**Data** lives in `data/upgrades.json`:
+- `levels[]`: each has a `band`, a `text` with `[[upgrade]]` and `{{weak spot}}` markup, and either `problems[]` (band 5) or `moves[]` (phrase, label, criterion TR/CC/LX/GR, one or two per item; LR/GRA still work as aliases, why). Band-5 problems are tagged too.
+- `toolkit[]`
+- `practice {sentence, answer6, answer7}`
+
+IELTS bands apply to whole essays, so slide 1 and the caption call these "câu kiểu band 5/6/7". The drafting prompt is §7 below.
+
 
 ## 1. The four tags (same as the grading comments)
 
@@ -82,7 +103,7 @@ Pick one to three per set; each set teaches a different one.
 
 ```
 You write data for "Nâng band câu này", an IELTS Writing carousel for Vietnamese learners.
-Follow tools/word-roots/WRITING-BANDS.md exactly (tags TR/CC/LX/GR, band anchors, natural-before-fancy).
+Follow tools/social-content/docs/nang-band.md exactly (tags TR/CC/LX/GR, band anchors, natural-before-fancy).
 Topic: <topic>. Error type to teach (from the error bank): <e.g. Because… so…>.
 Return ONE JSON object shaped like the existing items in data/upgrades.json:
 id, topic, hook (Vietnamese, ≤ 8 words), levels[band 5 with {{weak}} markup + problems[{phrase, criterion, why}],

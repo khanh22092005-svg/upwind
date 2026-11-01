@@ -20,13 +20,13 @@ Pushing to `main` deploys automatically (Cloudflare Workers Builds). There is no
 
 ## IELTS Writing content
 
-Any Writing band content (the "Nâng band câu này" carousels in `tools/word-roots`, slides, handouts) starts from
-`tools/word-roots/WRITING-BANDS.md`. It follows the teacher's essay-grading rules (`ielts-writing-grader` skill): the tags
+Any Writing band content (the "Nâng band câu này" carousels in `tools/social-content`, slides, handouts) starts from
+`tools/social-content/docs/nang-band.md`. It follows the teacher's essay-grading rules (`ielts-writing-grader` skill): the tags
 TR/CC/LX/GR, band 5/6/7 anchors from the official descriptors, natural expression before fancy words, and the error bank.
 
-## Social content kit (`tools/word-roots/`)
+## Social content kit (`tools/social-content/`)
 
-Videos, carousels ("ảnh cuộn") and the handbook for the "Học từ từ gốc" and "Nâng band câu này" series are made by
-`tools/word-roots/` (not part of the website build). Read its `README.md` (commands, voices, visual rules) and `METHOD.md`
-(format, production line, data prompts) before changing anything there. Outputs go to its gitignored `out/` folder.
+Videos, carousels ("ảnh cuộn") and handouts for every series ("Học từ từ gốc", "Nâng band câu này", future ones) are made
+by `tools/social-content/` (not part of the website build): one shared engine, one doc per series. Read its `README.md`
+(series table, voices, visual rules, how to add a series) and the series doc in `docs/` before changing anything there. Outputs go to its gitignored `out/` folder.
 The VieNeu API key is passed only as the `VIENEU_API_KEY` environment variable; never write it into a file or commit it.

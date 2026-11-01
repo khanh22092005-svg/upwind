@@ -1,4 +1,92 @@
-# The word-root video method: teardown, our version, and how to scale it
+# Series: Học từ từ gốc (word roots)
+
+
+Shared setup, voices, subtitles and visual rules are in the [README](../README.md).
+
+## Commands
+
+### Videos: `make-video.mjs`
+
+```bash
+node make-video.mjs rupt                    # one family
+node make-video.mjs rupt,vert               # several
+node make-video.mjs spect --max 4           # split into ~60 s parts: out/spect-p1, spect-p2
+node make-video.mjs rupt --voice "Thiền Tâm Đức"  # another voice (V4 or local, depending on the key)
+node make-video.mjs rupt --speed 1.2        # pace (default 1.1, pitch preserved)
+node make-video.mjs rupt --audio-only       # narration MP3 only, to compare voices/models fast
+node make-video.mjs rupt --tts none         # silent draft to check visuals (no TTS at all)
+node make-video.mjs rupt --tts vieneu       # force the free local model even if a key is set
+node make-video.mjs rupt --en-tts auto      # separate English voice (edge-tts, else gTTS) instead of one voice
+node make-video.mjs rupt --one-voice        # one Microsoft multilingual voice for both languages (needs internet)
+node make-video.mjs rupt --no-sfx           # no pop sounds
+node make-video.mjs rupt --bgm lofi.mp3     # quiet background music (use music you own the rights to)
+```
+
+**Scene order:**
+1. **Bait.** "ÍT AI BIẾT: *bankrupt* nghĩa đen là… cái bàn bị gãy" plus an animated emoji.
+2. **Hook.** "1 gốc *rupt* = 13 từ" (N counts every form shown: main words plus related forms), the hook question, the full word wall, and the tease "Xem hết: thử thách cuối video".
+3. **Root card.**
+4. **For each word:** parts split, then the parts snapping into the word with its meaning, then an example (read in English, then Vietnamese).
+5. **Recap table** of the main words.
+6. **Quiz.** A/B/C, with the answer in the pinned comment.
+7. **Next-video teaser.** Vietnamese only: "Tập sau: gốc … = …" plus "Theo dõi UpWind / mỗi ngày 1 họ từ".
+
+**Look:**
+- Every scene animates in. Animated emoji keep moving for the whole scene.
+- An orange progress bar runs across the top.
+- **Subtitles** (`lib/subtitles.mjs`, ffmpeg/libass):
+  - one line at a time, never splitting a word, breaking by sentence and then by comma
+  - the word being spoken in orange
+  - timed from each spoken clip's length (close, not frame-perfect)
+  - Be Vietnam Pro 62 px, ink with a white outline, no box
+- **Layout:** content area 1230 px high, scenes scaled ×1.07. The hook is not scaled, so its 13 chips fit.
+- **Audio:** pace 1.1×. Every clip is loudness-matched to −17 LUFS, with a soft synthesised pop on each scene.
+
+**Output:** `video.mp4` (1080×1920, 30 fps), `caption.txt` (post text, the next-video line, the **pinned comment**
+with the quiz answer), and one PNG per scene.
+
+### Carousels: `make-carousel.mjs`
+
+```bash
+node make-carousel.mjs rupt                 # 1080×1350 (4:5) for Facebook / Instagram
+node make-carousel.mjs rupt --size 9:16     # 1080×1920 for TikTok photo mode
+node make-carousel.mjs spect --max 4        # split big families (FB/IG cap a post at 10–20 images)
+```
+
+**Slides:**
+1. Bait cover, with the button "Lướt để biết vì sao".
+2. "1 gốc *rupt* = 13 từ" with the whole word wall, and the button "Cùng học nào".
+3. Root card.
+4. One card per word: parts, meaning, story, example, related forms, and the emoji at rest.
+5. Recap.
+6. Quiz.
+7. Next-family teaser.
+
+The script must print **no** "overflows" warnings.
+
+### Handbook: `make-handbook.mjs`
+
+The handbook (A4 PDF) contains the method, prefix and suffix tables, one page per family, exercises with a word bank, and an answer key.
+
+### Add a word-root family
+
+Copy an object in `data/families.json`, or generate one with the prompt in §6 below, then run `node fetch-assets.mjs`.
+
+| field | what |
+|---|---|
+| `id` | short slug for folder names and the CLI |
+| `root`, `origin`, `core` | `"voc / voke"`, `"Latin vocare"`, `"gọi, cất tiếng"` |
+| `say_root` | optional: how the voice should say the root (`"voke"` reads better than `"voc"`) |
+| `anim` | Noto **animated** emoji codepoint (googlefonts.github.io/noto-emoji-animation); `emoji` / `icon` are fallbacks |
+| `image` | the one picture every word in the family hangs on |
+| `hook` | question naming 3 familiar words, English in `{{ }}` |
+| `bait` | `{word, literal, say}`: e.g. `literal: "cái bàn bị gãy"`, `say: "{{Bankrupt}}, phá sản, nghĩa đen là... cái bàn bị gãy!"` |
+| `next` | optional id of the family to tease at the end (default: next in file) |
+| `words[]` | `word, pos, ipa, parts[{t, k: pre/root/suf, vi}], meaning, story, anim, example, example_vi, related[{w,pos,vi}], trap?` |
+
+`parts` must join to spell the word (the script warns if not). The family order in the file is the posting order,
+since each video teases the next one.
+
 
 ## 1. Teardown of the reference reel
 
@@ -151,8 +239,6 @@ in every Vietnamese line, an English word wrapped in {{ }} must START its senten
 phrase like "… với {{word}}" or "Còn {{word}}" (the voice repeats the dangling word).
 ```
 
-## 7. “Nâng band câu này” sets
+## 7. Writing content
 
-Writing sets follow the teacher's grading rules, so their guide and drafting prompt live in
-[`WRITING-BANDS.md`](WRITING-BANDS.md): the TR/CC/LX/GR tags, the band 5/6/7 anchors, natural expression before fancy words,
-the Vietnamese-learner error bank and the checklist. Render with `node make-upgrade.mjs <set>`.
+“Nâng band câu này” and any other Writing content follow [`nang-band.md`](nang-band.md).

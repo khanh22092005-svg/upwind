@@ -6,7 +6,7 @@
 //   node make-upgrade.mjs tech-children --size 9:16
 //   node make-upgrade.mjs all
 //
-// Write new sets from WRITING-BANDS.md (band anchors, tags, error bank, checklist).
+// Write new sets from docs/nang-band.md (band anchors, tags, error bank, checklist).
 // Text markup in the data: [[upgraded phrase]] is highlighted, {{weak phrase}} gets a red wavy underline.
 import fs from "node:fs";
 import path from "node:path";
@@ -33,7 +33,7 @@ const size = opt("size", "4:5");
 const [CW, CH] = SIZES[size] ?? SIZES["4:5"];
 
 const BAND = { 5: "#b42318", 6: "#2b8fc4", 7: "#004b9b" };
-// Same four tags the teacher uses when grading essays (see WRITING-BANDS.md). LR/GRA are accepted as aliases.
+// Same four tags the teacher uses when grading essays (see docs/nang-band.md). LR/GRA are accepted as aliases.
 const CRIT = {
   TR: ["TR", "Trả lời đề", "#7a4cc2"],
   CC: ["CC", "Mạch lạc", "#1a9c5b"],
