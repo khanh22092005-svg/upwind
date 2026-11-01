@@ -17,3 +17,9 @@ Pushing to `main` deploys automatically (Cloudflare Workers Builds). There is no
    mark ever changes, bump `?v=` on every page.
 
 `/opengraph.jpg` (a screenshot of a build error) was deleted; `public/_redirects` sends it to the IELTS preview. Do **not** use it for anything.
+
+## IELTS Writing content
+
+Any Writing band content (the "Nâng band câu này" carousels in `tools/word-roots`, slides, handouts) starts from
+`tools/word-roots/WRITING-BANDS.md`. It follows the teacher's essay-grading rules (`ielts-writing-grader` skill): the tags
+TR/CC/LX/GR, band 5/6/7 anchors from the official descriptors, natural expression before fancy words, and the error bank.

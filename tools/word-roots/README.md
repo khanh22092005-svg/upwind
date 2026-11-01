@@ -143,7 +143,11 @@ node make-upgrade.mjs tech-children          # -> out/carousel/upgrade-tech-chil
 node make-upgrade.mjs tech-children --size 9:16
 ```
 
+**Before writing a new set, read [`WRITING-BANDS.md`](WRITING-BANDS.md).** It turns the teacher's grading rules
+(the same TR/CC/LX/GR tags, band anchors, natural-before-fancy, Vietnamese-learner error bank) into a checklist
+and a drafting prompt. Sets so far: `tech-children`, `because-so`, `comma-splice`, `learn-knowledge`.
+
 Data lives in `data/upgrades.json`: `levels[]` (band, `text` with `[[upgrade]]` / `{{weak spot}}` markup,
-`moves[]` = phrase · label · criterion LR/GRA/CC · why, `problems[]` for band 5), `toolkit[]`, and
+`moves[]` = phrase · label · criterion TR/CC/LX/GR (one or two) · why, `problems[]` for band 5, also tagged), `toolkit[]`, and
 `practice {sentence, answer6, answer7}`. Bands are "sentence-level" by the LR/GRA descriptors; the slides and
 caption say so, since IELTS bands are given for the whole essay.

@@ -6,6 +6,7 @@
 //   node make-upgrade.mjs tech-children --size 9:16
 //   node make-upgrade.mjs all
 //
+// Write new sets from WRITING-BANDS.md (band anchors, tags, error bank, checklist).
 // Text markup in the data: [[upgraded phrase]] is highlighted, {{weak phrase}} gets a red wavy underline.
 import fs from "node:fs";
 import path from "node:path";
@@ -32,7 +33,23 @@ const size = opt("size", "4:5");
 const [CW, CH] = SIZES[size] ?? SIZES["4:5"];
 
 const BAND = { 5: "#b42318", 6: "#2b8fc4", 7: "#004b9b" };
-const CRIT = { LR: ["Từ vựng", "#004b9b"], GRA: ["Ngữ pháp", "#2b8fc4"], CC: ["Mạch lạc", "#1a9c5b"] };
+// Same four tags the teacher uses when grading essays (see WRITING-BANDS.md). LR/GRA are accepted as aliases.
+const CRIT = {
+  TR: ["TR", "Trả lời đề", "#7a4cc2"],
+  CC: ["CC", "Mạch lạc", "#1a9c5b"],
+  LX: ["LX", "Từ vựng", "#004b9b"],
+  GR: ["GR", "Ngữ pháp", "#2b8fc4"],
+};
+const ALIAS = { LR: "LX", GRA: "GR", TA: "TR" };
+/** criterion: "LX" | ["LX","GR"] (max two, main one first). */
+const tags = (c) => [c ?? "LX"].flat().slice(0, 2).map((t) => CRIT[ALIAS[t] ?? t] ?? CRIT.LX);
+const chips = (c) => tags(c).map(([tag, name, col]) => `<span class="crit" style="--c:${col}">${tag} · ${name}</span>`).join("");
+/** "Từ vựng và Ngữ pháp" from every criterion used in a set. */
+const critNames = (set) => {
+  const used = new Set(set.levels.flatMap((l) => [...(l.moves ?? []), ...(l.problems ?? [])]).flatMap((m) => tags(m.criterion).map((t) => t[0])));
+  const names = Object.values(CRIT).filter(([t]) => used.has(t)).map(([, n]) => n);
+  return names.length > 1 ? names.slice(0, -1).join(", ") + " và " + names.at(-1) : names[0] ?? "Từ vựng";
+};
 
 /** [[up]] -> highlight, {{weak}} -> red wavy underline. */
 const markup = (t) =>
@@ -106,12 +123,12 @@ ${swipe ? `<div class="swipe">${swipe} ${icon(UI.swipe, 40, 2.6)}</div>` : ""}
 
 function slides(set) {
   const [b5, b6, b7] = set.levels;
+  const fixes = b5.problems.length;
   const moves = (lvl) =>
     `<div class="list">${lvl.moves
       .map((m, i) => {
-        const [critName, c] = CRIT[m.criterion] ?? CRIT.LR;
         return `<div class="item"><div class="num" style="--c:${BAND[lvl.band]}">${i + 1}</div><div>
-          <div class="t"><span class="ph">${esc(m.phrase)}</span><span class="crit" style="--c:${c}">${critName}</span></div>
+          <div class="t"><span class="ph">${esc(m.phrase)}</span>${chips(m.criterion)}</div>
           <div class="d"><b>${esc(m.label)}:</b> ${esc(m.why)}</div></div></div>`;
       })
       .join("")}</div>`;
@@ -121,8 +138,8 @@ function slides(set) {
       html: `<div class="kicker">${icon(UI.write, 34, 2.4)} NÂNG BAND CÂU NÀY</div>
         <div class="h1">${esc(set.hook)}</div>
         <div class="scorewrap">${sentence(b5, { marks: false })}<div class="score">5.0</div></div>
-        <div class="prompt">Sửa 3 chỗ là lên <b>band 7</b>. Bạn đoán được chỗ nào không?</div>
-        <div class="note">Band chấm theo cả bài. Ở đây là “câu kiểu band 5/6/7” theo tiêu chí Từ vựng và Ngữ pháp.</div>`,
+        <div class="prompt">Sửa ${fixes} chỗ là lên <b>band 7</b>. Bạn đoán được chỗ nào không?</div>
+        <div class="note">Band chấm theo cả bài. Ở đây là “câu kiểu band 5/6/7” theo tiêu chí ${critNames(set)}.</div>`,
     },
     {
       swipe: "Xem cách sửa",
@@ -130,7 +147,7 @@ function slides(set) {
         ${sentence(b5)}
         <div class="list">${b5.problems
           .map((p, i) => `<div class="item"><div class="num" style="--c:${BAND[5]}">${i + 1}</div><div>
-            <div class="t" style="color:#7a1a12">“${esc(p.phrase)}”</div><div class="d">${esc(p.why)}</div></div></div>`)
+            <div class="t" style="color:#7a1a12">“${esc(p.phrase)}”${p.criterion ? chips(p.criterion) : ""}</div><div class="d">${esc(p.why)}</div></div></div>`)
           .join("")}</div>`,
     },
     { html: `<div class="h2">Lên ${bandPill(6, true)}</div>${sentence(b6)}${moves(b6)}` },
@@ -168,7 +185,7 @@ function caption(set) {
   return [
     `✍️ Nâng band câu này | ${set.topic}`,
     "",
-    `${set.hook} Sửa 3 chỗ là lên band 7 👇`,
+    `${set.hook} Sửa ${b5.problems.length} chỗ là lên band 7 👇`,
     "",
     `🔴 Band 5: ${plainText(b5.text)}`,
     `🔵 Band 6: ${plainText(b6.text)}`,
@@ -179,7 +196,7 @@ function caption(set) {
     "",
     `✏️ Đến lượt bạn: "${set.practice.sentence}" Viết bản band 7 vào bình luận nhé!`,
     "",
-    "(Band chấm theo cả bài; đây là câu kiểu band 5/6/7 theo tiêu chí Từ vựng và Ngữ pháp.)",
+    `(Band chấm theo cả bài; đây là câu kiểu band 5/6/7 theo tiêu chí ${critNames(set)}.)`,
     "💾 Lưu lại · Theo dõi UpWind: mỗi tuần 1 câu",
     "#nangbandcaunay #ieltswriting #upwind #ielts #hoctienganh",
     "",

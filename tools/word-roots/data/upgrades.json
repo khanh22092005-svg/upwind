@@ -10,15 +10,21 @@
         "problems": [
           {
             "phrase": "many",
-            "why": "Từ số lượng cơ bản, không cho thấy xu hướng."
+            "why": "Từ số lượng cơ bản, không cho thấy xu hướng.",
+            "criterion": "LX"
           },
           {
             "phrase": "use smartphones too much",
-            "why": "Diễn đạt chung chung, “too much” là từ của văn nói."
+            "why": "Diễn đạt chung chung, “too much” là từ của văn nói.",
+            "criterion": "LX"
           },
           {
             "phrase": "and it is very bad",
-            "why": "Hai câu đơn nối bằng “and”; “very bad” không nói rõ hại thế nào."
+            "why": "Hai câu đơn nối bằng “and”; “very bad” không nói rõ hại thế nào.",
+            "criterion": [
+              "GR",
+              "CC"
+            ]
           }
         ]
       },
@@ -29,19 +35,19 @@
           {
             "phrase": "a growing number of",
             "label": "Cụm chỉ xu hướng",
-            "criterion": "LR",
+            "criterion": "LX",
             "why": "Thay “many”: vừa nói số lượng, vừa nói đang tăng."
           },
           {
             "phrase": "spend excessive time on",
             "label": "Collocation",
-            "criterion": "LR",
+            "criterion": "LX",
             "why": "Thay “use … too much” bằng cụm học thuật tự nhiên."
           },
           {
             "phrase": "which can harm",
             "label": "Mệnh đề quan hệ",
-            "criterion": "GRA",
+            "criterion": "GR",
             "why": "Nối hai ý thành một câu phức thay cho “and it”."
           }
         ]
@@ -53,25 +59,25 @@
           {
             "phrase": "excessive smartphone use among children",
             "label": "Danh từ hoá",
-            "criterion": "GRA",
+            "criterion": "GR",
             "why": "Gói cả mệnh đề thành một cụm danh từ, câu gọn và học thuật hơn."
           },
           {
             "phrase": "increasingly common",
             "label": "Cụm chỉ xu hướng",
-            "criterion": "LR",
+            "criterion": "LX",
             "why": "Diễn tả sự thay đổi theo thời gian."
           },
           {
             "phrase": "posing serious risks to",
             "label": "Mệnh đề phân từ",
-            "criterion": "GRA",
+            "criterion": "GR",
             "why": "V-ing nêu hệ quả, không cần thêm “and” hay “which”."
           },
           {
             "phrase": "physical and mental well-being",
             "label": "Từ vựng chính xác",
-            "criterion": "LR",
+            "criterion": "LX",
             "why": "Nói rõ “sức khoẻ” gồm những mặt nào."
           }
         ]
@@ -103,6 +109,326 @@
       "sentence": "Many people think university should be free because education is very important.",
       "answer6": "Many people believe that university education should be free, as it plays an important role in society.",
       "answer7": "Many argue that tertiary education should be free of charge, given its crucial role in social mobility."
+    }
+  },
+  {
+    "id": "because-so",
+    "topic": "Environment: traffic & pollution",
+    "hook": "Lỗi “Because… so…” đang kéo band bạn xuống",
+    "levels": [
+      {
+        "band": 5,
+        "text": "{{Because}} there are {{too many cars}} in big cities, {{so}} the air is {{very dirty}}.",
+        "problems": [
+          {
+            "phrase": "Because … so",
+            "criterion": "GR",
+            "why": "Tiếng Anh chỉ dùng một trong hai: Because… hoặc …, so…, không dùng cả hai."
+          },
+          {
+            "phrase": "too many cars",
+            "criterion": "LX",
+            "why": "“too many” mang giọng văn nói, chưa học thuật."
+          },
+          {
+            "phrase": "very dirty",
+            "criterion": "LX",
+            "why": "Không khí không “dirty”; collocation đúng là “polluted”."
+          }
+        ]
+      },
+      {
+        "band": 6,
+        "text": "[[Due to the large number of]] cars in big cities, the air [[has become heavily polluted]].",
+        "moves": [
+          {
+            "phrase": "Due to the large number of",
+            "label": "Cụm chỉ nguyên nhân",
+            "criterion": "GR",
+            "why": "Due to + cụm danh từ thay cho “Because… so…”, câu chỉ còn một mệnh đề chính."
+          },
+          {
+            "phrase": "has become heavily polluted",
+            "label": "Collocation",
+            "criterion": [
+              "LX",
+              "GR"
+            ],
+            "why": "heavily polluted là collocation chuẩn; hiện tại hoàn thành cho thấy tình trạng đã thay đổi."
+          }
+        ]
+      },
+      {
+        "band": 7,
+        "text": "[[The rapid growth in car ownership]] [[has led to]] [[severe air pollution]] in many major cities.",
+        "moves": [
+          {
+            "phrase": "The rapid growth in car ownership",
+            "label": "Danh từ hoá",
+            "criterion": "GR",
+            "why": "Biến nguyên nhân thành chủ ngữ, câu gọn và học thuật hơn."
+          },
+          {
+            "phrase": "has led to",
+            "label": "Động từ nguyên nhân – kết quả",
+            "criterion": "CC",
+            "why": "Nối nguyên nhân với kết quả ngay trong động từ, không cần “so”."
+          },
+          {
+            "phrase": "severe air pollution",
+            "label": "Collocation",
+            "criterion": "LX",
+            "why": "severe + pollution: nói rõ mức độ thay cho “very”."
+          }
+        ]
+      }
+    ],
+    "toolkit": [
+      {
+        "formula": "Because + mệnh đề, + mệnh đề (không “so”)",
+        "use": "sửa lỗi Because… so…"
+      },
+      {
+        "formula": "Due to / Because of + N",
+        "use": "nêu nguyên nhân bằng cụm danh từ"
+      },
+      {
+        "formula": "A has led to B",
+        "use": "nối nguyên nhân với kết quả"
+      },
+      {
+        "formula": "the rapid growth in + N",
+        "use": "danh từ hoá một sự thay đổi"
+      },
+      {
+        "formula": "heavily / severely polluted",
+        "use": "thay “very dirty”"
+      }
+    ],
+    "practice": {
+      "sentence": "Because the internet is very convenient, so many students use it to study.",
+      "answer6": "Because the internet is very convenient, many students use it for their studies.",
+      "answer7": "Owing to its convenience, the internet has become a popular learning tool among students."
+    }
+  },
+  {
+    "id": "comma-splice",
+    "topic": "Work: working from home",
+    "hook": "Dấu phẩy này đang làm bạn mất điểm",
+    "levels": [
+      {
+        "band": 5,
+        "text": "Working from home {{is very good}}{{, you}} {{don't}} have to spend {{many time}} on the road.",
+        "problems": [
+          {
+            "phrase": ", you",
+            "criterion": "GR",
+            "why": "Comma splice: hai câu hoàn chỉnh không nối bằng dấu phẩy."
+          },
+          {
+            "phrase": "is very good",
+            "criterion": "LX",
+            "why": "Khen chung chung, chưa nói tốt ở điểm nào."
+          },
+          {
+            "phrase": "you / don't",
+            "criterion": "LX",
+            "why": "Văn viết học thuật tránh “you” và dạng viết tắt."
+          },
+          {
+            "phrase": "many time",
+            "criterion": "GR",
+            "why": "time không đếm được → much time / a lot of time."
+          }
+        ]
+      },
+      {
+        "band": 6,
+        "text": "Working from home [[is beneficial because]] [[employees do not]] have to spend [[a great deal of time]] [[commuting]].",
+        "moves": [
+          {
+            "phrase": "is beneficial because",
+            "label": "Nối mệnh đề",
+            "criterion": "GR",
+            "why": "because nối hai ý thành một câu, sửa comma splice."
+          },
+          {
+            "phrase": "employees do not",
+            "label": "Chủ ngữ rõ ràng",
+            "criterion": "LX",
+            "why": "Nói rõ ai được lợi, bỏ “you” và dạng viết tắt."
+          },
+          {
+            "phrase": "a great deal of time",
+            "label": "Lượng từ",
+            "criterion": "GR",
+            "why": "a great deal of đi với danh từ không đếm được."
+          },
+          {
+            "phrase": "commuting",
+            "label": "Từ chính xác",
+            "criterion": "LX",
+            "why": "spend time + V-ing; commute = đi lại giữa nhà và nơi làm."
+          }
+        ]
+      },
+      {
+        "band": 7,
+        "text": "[[One major benefit of remote work is that]] it [[eliminates the daily commute]], [[saving employees considerable time]].",
+        "moves": [
+          {
+            "phrase": "One major benefit of remote work is that",
+            "label": "Câu chủ đề",
+            "criterion": "CC",
+            "why": "Mở ý rõ ràng: nói ngay đây là lợi ích gì."
+          },
+          {
+            "phrase": "eliminates the daily commute",
+            "label": "Collocation",
+            "criterion": "LX",
+            "why": "Nói chính xác lợi ích thay cho “very good”."
+          },
+          {
+            "phrase": "saving employees considerable time",
+            "label": "Mệnh đề phân từ",
+            "criterion": "GR",
+            "why": "V-ing nêu kết quả, không cần thêm “and”."
+          }
+        ]
+      }
+    ],
+    "toolkit": [
+      {
+        "formula": "One major benefit of + N is that + mệnh đề",
+        "use": "viết câu chủ đề cho một lợi ích"
+      },
+      {
+        "formula": "…, because / which / so …",
+        "use": "nối hai câu, tránh comma splice"
+      },
+      {
+        "formula": "spend time + V-ing",
+        "use": "spend time commuting / studying"
+      },
+      {
+        "formula": "much / a great deal of + N không đếm được",
+        "use": "time, money, information"
+      },
+      {
+        "formula": "…, V-ing + O",
+        "use": "nêu kết quả bằng mệnh đề phân từ"
+      }
+    ],
+    "practice": {
+      "sentence": "Studying online is very convenient, you can study everywhere.",
+      "answer6": "Studying online is convenient because students can learn from anywhere.",
+      "answer7": "One key advantage of online learning is its flexibility, allowing students to study from almost anywhere."
+    }
+  },
+  {
+    "id": "learn-knowledge",
+    "topic": "Education: reading books",
+    "hook": "“Learn knowledge”: lỗi dịch từ tiếng Việt",
+    "levels": [
+      {
+        "band": 5,
+        "text": "Reading books {{help}} children {{learn more knowledge}} and {{know more about}} the world.",
+        "problems": [
+          {
+            "phrase": "help",
+            "criterion": "GR",
+            "why": "Chủ ngữ là V-ing (Reading books) tính là số ít → helps."
+          },
+          {
+            "phrase": "learn more knowledge",
+            "criterion": "LX",
+            "why": "Dịch từ “học kiến thức”; người bản xứ nói gain / acquire knowledge."
+          },
+          {
+            "phrase": "know more about",
+            "criterion": "LX",
+            "why": "Dịch từ “biết thêm về”; tự nhiên hơn là learn about / understand."
+          }
+        ]
+      },
+      {
+        "band": 6,
+        "text": "Reading books [[helps]] children [[gain knowledge]] and [[learn more about]] the world.",
+        "moves": [
+          {
+            "phrase": "helps",
+            "label": "Hoà hợp chủ – vị",
+            "criterion": "GR",
+            "why": "Chủ ngữ V-ing đi với động từ số ít."
+          },
+          {
+            "phrase": "gain knowledge",
+            "label": "Collocation",
+            "criterion": "LX",
+            "why": "gain + knowledge, không dùng learn + knowledge."
+          },
+          {
+            "phrase": "learn more about",
+            "label": "Collocation",
+            "criterion": "LX",
+            "why": "learn about = biết thêm về một điều gì."
+          }
+        ]
+      },
+      {
+        "band": 7,
+        "text": "[[Regular reading]] [[broadens children's knowledge]] and [[deepens their understanding of]] the world.",
+        "moves": [
+          {
+            "phrase": "Regular reading",
+            "label": "Chủ ngữ cụ thể",
+            "criterion": "LX",
+            "why": "Thói quen đọc đều đặn mới tạo ra lợi ích; chủ ngữ chính xác hơn."
+          },
+          {
+            "phrase": "broadens children's knowledge",
+            "label": "Collocation",
+            "criterion": "LX",
+            "why": "broaden + knowledge: mở rộng hiểu biết."
+          },
+          {
+            "phrase": "deepens their understanding of",
+            "label": "Cấu trúc song song",
+            "criterion": [
+              "LX",
+              "GR"
+            ],
+            "why": "Hai động từ cùng dạng (broadens… and deepens…) làm câu cân đối."
+          }
+        ]
+      }
+    ],
+    "toolkit": [
+      {
+        "formula": "gain / acquire knowledge",
+        "use": "thay “learn knowledge”"
+      },
+      {
+        "formula": "broaden one's knowledge / horizons",
+        "use": "mở rộng hiểu biết"
+      },
+      {
+        "formula": "deepen one's understanding of + N",
+        "use": "hiểu sâu hơn về"
+      },
+      {
+        "formula": "V-ing (chủ ngữ) + V số ít",
+        "use": "Reading helps, Travelling gives"
+      },
+      {
+        "formula": "learn about + N",
+        "use": "thay “know more about”"
+      }
+    ],
+    "practice": {
+      "sentence": "Travelling help people know more about other culture.",
+      "answer6": "Travelling helps people learn more about other cultures.",
+      "answer7": "Travelling broadens people's horizons and deepens their understanding of other cultures."
     }
   }
 ]
