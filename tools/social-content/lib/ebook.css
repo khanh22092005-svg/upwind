@@ -291,3 +291,37 @@ table.sns td{padding:2px 6px}
 #how .lead{margin:4px 0 8px}
 #how .note{padding:8px 12px;font-size:9pt}
 #affix td{padding:2px 7px;font-size:8.8pt}
+/* ===== padding pass: text never touches a border ===== */
+.uband{margin:0}
+.ul{padding:14px 18px;min-width:78px}
+.ur{padding:14px 20px 14px}
+.upart{margin-bottom:4px;line-height:1.6}
+.uweek,.uskill{padding:2px 10px}
+.utitle{margin:2px 0}
+.usub{margin-top:2px}
+.goals,.leadin{padding:12px 16px}
+.goals h4,.leadin h4{margin-bottom:6px}
+.card .cl{padding:12px 14px}.card .cr{padding:12px 16px}
+.passage{padding:14px 18px}
+.tipbox{padding:14px 16px}
+.watch{padding:5px 10px}
+.gapbox{padding:7px 12px}
+.summary{padding:8px 14px}
+.cue{padding:10px 16px}
+.useful{padding:7px 12px}
+.sktip{padding:6px 10px}
+.review{padding:6px 16px 14px}
+.note{padding:10px 14px}
+.step{padding:12px 14px}
+.goal{padding:9px 14px}
+.tag{padding:2px 8px}
+.bank span{padding:1px 10px}
+.col{padding:1px 7px}
+.troot{padding:7px 18px}
+.tword{padding:3px 10px}
+.tforms,.tcols{padding:3px 8px}
+.pt{padding:2px 7px}
+table.plan td{padding:5px 6px}
+th{padding:5px 8px}
+td{padding:5px 8px}
+.cstats div{padding:12px 16px}
