@@ -9,7 +9,7 @@ file, script and doc; everything shared lives here and in `lib/`.
 | series | makes | data | script | read first |
 |---|---|---|---|---|
 | **Học từ từ gốc** (word roots) | 9:16 videos, 4:5 carousels, A4 handbook | `data/families.json` | `make-video.mjs`, `make-carousel.mjs`, `make-handbook.mjs` | [`docs/goc-tu.md`](docs/goc-tu.md) |
-| **Nâng band câu này** (IELTS Writing) | 4:5 carousels | `data/upgrades.json` | `make-upgrade.mjs` | [`docs/nang-band.md`](docs/nang-band.md) |
+| **Nâng band câu này** (IELTS Writing) | 4:5 carousels, 9:16 videos | `data/upgrades.json` | `make-upgrade.mjs`, `make-video.mjs --series writing` | [`docs/nang-band.md`](docs/nang-band.md) |
 
 Ideas for the next series (nghĩa đen bất ngờ, âm thanh mang nghĩa, phrasal verbs, lỗi người Việt, shadowing…) are
 listed in [`docs/goc-tu.md` §4](docs/goc-tu.md#4-ways-to-expand-the-method).
@@ -22,6 +22,7 @@ export VIENEU_API_KEY="vn_sk_..."         # vieneu.io → Developer. Never commi
 node make-video.mjs rupt                   # -> out/rupt/video.mp4 + caption.txt (V4 voice "Hải Đăng")
 node make-carousel.mjs rupt                # -> out/carousel/rupt/01.png … 12.png + caption.txt
 node make-upgrade.mjs all                  # -> out/carousel/upgrade-<set>/01.png … + caption.txt (every Writing set)
+node make-video.mjs --series writing all  # -> out/writing-<set>/video.mp4 + caption.txt (every Writing set)
 node make-handbook.mjs                     # -> out/handbook/upwind-goc-tu.pdf
 ```
 

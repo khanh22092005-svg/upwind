@@ -14,6 +14,7 @@ import { createRequire } from "node:module";
 import { ROOT_DIR, OUT_DIR, esc, ensureDir } from "./lib/common.mjs";
 import { css, wave, header, FONT_LINK } from "./lib/template.mjs";
 import { icon, UI_ICONS as UI } from "./lib/icons.mjs";
+import { BAND, chips, critNames, markup, plainText, bandPill, loadUpgrades, nextSet, upgradeCaption } from "./lib/upgrade.mjs";
 
 const require = createRequire(import.meta.url);
 const { chromium } = require("playwright");
@@ -32,32 +33,6 @@ const SIZES = { "4:5": [1080, 1350], "9:16": [1080, 1920] };
 const size = opt("size", "4:5");
 const [CW, CH] = SIZES[size] ?? SIZES["4:5"];
 
-const BAND = { 5: "#b42318", 6: "#2b8fc4", 7: "#004b9b" };
-// Same four tags the teacher uses when grading essays (see docs/nang-band.md). LR/GRA are accepted as aliases.
-const CRIT = {
-  TR: ["TR", "Trả lời đề", "#7a4cc2"],
-  CC: ["CC", "Mạch lạc", "#1a9c5b"],
-  LX: ["LX", "Từ vựng", "#004b9b"],
-  GR: ["GR", "Ngữ pháp", "#2b8fc4"],
-};
-const ALIAS = { LR: "LX", GRA: "GR", TA: "TR" };
-/** criterion: "LX" | ["LX","GR"] (max two, main one first). */
-const tags = (c) => [c ?? "LX"].flat().slice(0, 2).map((t) => CRIT[ALIAS[t] ?? t] ?? CRIT.LX);
-const chips = (c) => tags(c).map(([tag, name, col]) => `<span class="crit" style="--c:${col}">${tag} · ${name}</span>`).join("");
-/** "Từ vựng và Ngữ pháp" from every criterion used in a set. */
-const critNames = (set) => {
-  const used = new Set(set.levels.flatMap((l) => [...(l.moves ?? []), ...(l.problems ?? [])]).flatMap((m) => tags(m.criterion).map((t) => t[0])));
-  const names = Object.values(CRIT).filter(([t]) => used.has(t)).map(([, n]) => n);
-  return names.length > 1 ? names.slice(0, -1).join(", ") + " và " + names.at(-1) : names[0] ?? "Từ vựng";
-};
-
-/** [[up]] -> highlight, {{weak}} -> red wavy underline. */
-const markup = (t) =>
-  esc(t)
-    .replace(/\[\[(.+?)\]\]/g, '<mark class="up">$1</mark>')
-    .replace(/\{\{(.+?)\}\}/g, '<span class="bad">$1</span>');
-const plainText = (t) => t.replace(/\[\[|\]\]|\{\{|\}\}/g, "");
-const bandPill = (b, big = false) => `<span class="bandpill${big ? " big" : ""}" style="--b:${BAND[b]}">Band ${b}</span>`;
 const sentence = (lvl, { marks = true, small = false } = {}) =>
   `<div class="sent${small ? " small" : ""}" style="--b:${BAND[lvl.band]}">${marks ? markup(lvl.text) : esc(plainText(lvl.text))}</div>`;
 
@@ -180,33 +155,7 @@ function slides(set) {
   ];
 }
 
-function caption(set) {
-  const [b5, b6, b7] = set.levels;
-  return [
-    `✍️ Nâng band câu này | ${set.topic}`,
-    "",
-    `${set.hook} Sửa ${b5.problems.length} chỗ là lên band 7 👇`,
-    "",
-    `🔴 Band 5: ${plainText(b5.text)}`,
-    `🔵 Band 6: ${plainText(b6.text)}`,
-    `🔷 Band 7: ${plainText(b7.text)}`,
-    "",
-    "🧰 Công cụ:",
-    ...set.toolkit.map((t) => `• ${t.formula}: ${t.use}`),
-    "",
-    `✏️ Đến lượt bạn: "${set.practice.sentence}" Viết bản band 7 vào bình luận nhé!`,
-    "",
-    `(Band chấm theo cả bài; đây là câu kiểu band 5/6/7 theo tiêu chí ${critNames(set)}.)`,
-    "💾 Lưu lại · Theo dõi UpWind: mỗi tuần 1 câu",
-    "#nangbandcaunay #ieltswriting #upwind #ielts #hoctienganh",
-    "",
-    "--- Bình luận ghim (đáp án mẫu) ---",
-    `Band 6: ${set.practice.answer6}`,
-    `Band 7: ${set.practice.answer7}`,
-  ].join("\n");
-}
-
-const sets = JSON.parse(fs.readFileSync(path.join(ROOT_DIR, "data", "upgrades.json"), "utf8"));
+const sets = loadUpgrades();
 const chosen = target === "all" ? sets : sets.filter((s) => target.split(",").includes(s.id));
 if (!chosen.length) {
   console.error(`No set "${target}". Available: ${sets.map((s) => s.id).join(", ")}`);
@@ -231,7 +180,7 @@ try {
       await pg.screenshot({ path: path.join(dir, `${String(i + 1).padStart(2, "0")}.png`) });
     }
     await pg.close();
-    fs.writeFileSync(path.join(dir, "caption.txt"), caption(set) + "\n");
+    fs.writeFileSync(path.join(dir, "caption.txt"), upgradeCaption(set, nextSet(sets, set)) + "\n");
     console.log(`✓ ${path.relative(ROOT_DIR, dir)}: ${all.length} slides (${CW}x${CH})`);
   }
 } finally {

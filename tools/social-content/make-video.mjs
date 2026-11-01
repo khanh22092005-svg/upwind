@@ -10,6 +10,8 @@
 //   node make-video.mjs voc --tts none          # silent draft to check visuals quickly
 //   node make-video.mjs voc --no-sfx            # no pop sounds on reveals
 //   node make-video.mjs voc --bgm music.mp3     # quiet background music (use music you own the rights to)
+//   node make-video.mjs --series writing because-so   # "Nâng band câu này" Writing video from data/upgrades.json
+//                                                     #   -> out/writing-because-so/video.mp4 (all options above apply)
 //
 // Voices: Vietnamese -> VieNeu-TTS (pip install vieneu). English words and example sentences -> a dedicated
 // English voice (edge-tts en-GB, or gTTS British). VieNeu reads English inconsistently (the same word can
@@ -27,6 +29,8 @@ import { buildScenes } from "./lib/scenes.mjs";
 import { buildAss } from "./lib/subtitles.mjs";
 import { ensureEmojiAssets } from "./lib/emoji.mjs";
 import { frameHtml, W, H } from "./lib/template.mjs";
+import { loadUpgrades, nextSet, upgradeCaption } from "./lib/upgrade.mjs";
+import { buildUpgradeScenes, writingFrameHtml } from "./lib/upgrade-scenes.mjs";
 
 const require = createRequire(import.meta.url);
 const { chromium } = require("playwright");
@@ -38,7 +42,7 @@ const opt = (name, def) => {
   return i >= 0 ? args[i + 1] : def;
 };
 const flag = (name) => args.includes(`--${name}`);
-const VALUED = new Set(["tts", "en-tts", "voice", "en-voice", "speed", "max", "bgm", "one-voice"]);
+const VALUED = new Set(["tts", "en-tts", "voice", "en-voice", "speed", "max", "bgm", "one-voice", "series"]);
 const target = args.find((a, i) => !a.startsWith("--") && !VALUED.has(args[i - 1]?.slice(2))) ?? "all";
 // VieNeu V4 (the model on vieneu.io) via its cloud API when VIENEU_API_KEY is set; else VieNeu v3 Turbo locally.
 const CLOUD_KEY = process.env.VIENEU_API_KEY || "";
@@ -51,6 +55,7 @@ if (ONE_VOICE && VI_TTS !== "none") {
   VI_TTS = "edge-multi";
   EN_TTS = "edge-multi";
 }
+const SERIES = opt("series", "roots"); // roots (data/families.json) | writing (data/upgrades.json)
 const SPEED = Number(opt("speed", 1.1)) || 1.1;
 const MAX = Number(opt("max", 0)) || 0;
 const BGM = opt("bgm", "");
@@ -311,15 +316,18 @@ function segment(framesDir, frames, wav, mp4) {
 }
 
 async function makeOne(browser, family, logo, part) {
-  const id = part ? `${family.id}-p${part.n}` : family.id;
+  const writing = SERIES === "writing";
+  const id = writing ? `writing-${family.id}` : part ? `${family.id}-p${part.n}` : family.id;
   // Build in a scratch folder; the previous output is only replaced once the new video is finished.
   const finalDir = path.join(OUT_DIR, id);
   const dir = path.join(OUT_DIR, `.building-${id}`);
   fs.rmSync(dir, { recursive: true, force: true });
   const tmp = path.join(dir, ".tmp");
   ensureDir(tmp);
-  const { scenes, words, quizAnswer } = buildScenes(family, { ...(part ? { from: part.from, max: MAX, part } : {}), next: nextFamily(families, family) });
-  console.log(`▶ ${id}: ${words.length} words, ${scenes.length} scenes`);
+  const { scenes, words, quizAnswer } = writing
+    ? buildUpgradeScenes(family, { next: nextSet(families, family) })
+    : buildScenes(family, { ...(part ? { from: part.from, max: MAX, part } : {}), next: nextFamily(families, family) });
+  console.log(`▶ ${id}: ${writing ? "" : `${words.length} words, `}${scenes.length} scenes`);
   if (VI_TTS === "vieneu") prefetchVieneu(scenes);
 
   if (AUDIO_ONLY) {
@@ -346,7 +354,7 @@ async function makeOne(browser, family, logo, part) {
   for (const [i, scene] of scenes.entries()) {
     const tag = `s${String(i).padStart(2, "0")}`;
     const framesDir = path.join(tmp, tag);
-    const n = await captureScene(page, frameHtml({ family, scene, logo }), framesDir, path.join(dir, `${tag}-${scene.kind}.png`));
+    const n = await captureScene(page, (writing ? writingFrameHtml : frameHtml)({ family, scene, logo }), framesDir, path.join(dir, `${tag}-${scene.kind}.png`));
     const wav = sceneAudio(scene, path.join(tmp, `${tag}.wav`));
     const mp4 = path.join(tmp, `${tag}.mp4`);
     segment(framesDir, n, wav, mp4);
@@ -376,7 +384,8 @@ async function makeOne(browser, family, logo, part) {
     path.join(dir, "video.mp4")]);
   fs.rmSync(tmp, { recursive: true, force: true });
 
-  fs.writeFileSync(path.join(dir, "caption.txt"), captionText(family, words, quizAnswer, part, nextFamily(families, family)) + "\n");
+  const cap = writing ? upgradeCaption(family, nextSet(families, family)) : captionText(family, words, quizAnswer, part, nextFamily(families, family));
+  fs.writeFileSync(path.join(dir, "caption.txt"), cap + "\n");
   fs.rmSync(finalDir, { recursive: true, force: true });
   fs.renameSync(dir, finalDir);
   console.log(`  ✓ ${path.relative(ROOT_DIR, path.join(finalDir, "video.mp4"))} (${duration(path.join(finalDir, "video.mp4")).toFixed(0)}s)`);
@@ -410,8 +419,9 @@ if (VI_TTS === "vieneu" || EN_TTS === "vieneu") {
 if (VI_TTS !== "none" && !/^vieneu/.test(EN_TTS)) resolveEnglishEngine();
 if (VI_TTS === "vieneu" && EN_TTS === "vieneu") console.log(`Voice: VieNeu "${VIENEU_VOICE}" for both Vietnamese and English`);
 
-const families = loadFamilies();
-ensureEmojiAssets(families);
+// "families" = the items of the chosen series (root families, or Writing upgrade sets).
+const families = SERIES === "writing" ? loadUpgrades() : loadFamilies();
+if (SERIES !== "writing") ensureEmojiAssets(families);
 const chosen = target === "all" ? families : families.filter((f) => target.split(",").includes(f.id));
 if (!chosen.length) {
   console.error(`No family "${target}". Available: ${families.map((f) => f.id).join(", ")}`);
@@ -421,7 +431,7 @@ const logo = "data:image/svg+xml;base64," + fs.readFileSync(path.join(ROOT_DIR, 
 const browser = AUDIO_ONLY ? null : await chromium.launch();
 try {
   for (const f of chosen) {
-    if (MAX && f.words.length > MAX) {
+    if (MAX && f.words && f.words.length > MAX) {
       for (let from = 0, n = 1; from < f.words.length; from += MAX, n++)
         await makeOne(browser, f, logo, { from, n, hasNext: from + MAX < f.words.length });
     } else await makeOne(browser, f, logo);

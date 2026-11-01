@@ -23,6 +23,22 @@ node make-upgrade.mjs tech-children --size 9:16
 - `toolkit[]`
 - `practice {sentence, answer6, answer7}`
 
+## Render the video: `make-video.mjs --series writing`
+
+The same set as a vertical 9:16 video, using the shared video engine (voice, animations, highlighted subtitles, progress bar).
+Every `make-video.mjs` option works.
+
+```bash
+node make-video.mjs --series writing because-so            # -> out/writing-because-so/video.mp4 + caption.txt + scene PNGs
+node make-video.mjs --series writing because-so --tts none # silent draft to check the layout
+```
+
+Scenes: hook (band 5 sentence, stamped 5.0) → one scene per problem → band 6 sentence → one scene per upgrade →
+band 7 the same way → save-this ladder → your turn (comment challenge) → next set teaser + follow. The phrase being
+explained lights up in the sentence. Post the sets in file order so the "Tập sau" teaser is kept. The narration is
+built from the data, so the rules for `why` in §5 matter. Code: `lib/upgrade.mjs` (shared with the carousel) and
+`lib/upgrade-scenes.mjs`.
+
 IELTS bands apply to whole essays, so slide 1 and the caption call these "câu kiểu band 5/6/7". The drafting prompt is §7 below.
 
 
@@ -87,6 +103,8 @@ Pick one to three per set; each set teaches a different one.
 - English stays English: tags, IELTS terms (collocation, comma splice), every example phrase.
 - `label` names the technique (Collocation, Danh từ hoá, Mệnh đề quan hệ, Mệnh đề phân từ, Cụm chỉ nguyên nhân…).
 - `toolkit` formulas must be reusable in other essays, and each one should match a move in the set.
+- The video reads `why` aloud: put every English word or phrase in “quotes” (it is then marked as English) and use
+  words, not symbols (no →, +, =, /). Write "nên dùng “much time” hoặc “a lot of time”", not "→ much time / a lot of time".
 - `practice.sentence` has the **same error type** as the set, on a different topic. `answer6` fixes the errors;
   `answer7` follows §3 (same idea, natural, no forced words).
 
@@ -98,6 +116,8 @@ Pick one to three per set; each set teaches a different one.
 4. The idea stays the same across 5 → 6 → 7.
 5. Read band 7 aloud. If it sounds like a thesaurus, simplify it.
 6. `node make-upgrade.mjs <id>` and look at every slide (the script warns on overflow).
+7. `node make-video.mjs --series writing <id> --tts none` for a quick layout check, then without `--tts none`
+   for the voiced video. Watch it once before posting.
 
 ## 7. Prompt for drafting a new set
 

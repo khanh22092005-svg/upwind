@@ -72,7 +72,7 @@
             "phrase": "posing serious risks to",
             "label": "Mệnh đề phân từ",
             "criterion": "GR",
-            "why": "V-ing nêu hệ quả, không cần thêm “and” hay “which”."
+            "why": "Mệnh đề “-ing” nêu hệ quả, không cần thêm “and” hay “which”."
           },
           {
             "phrase": "physical and mental well-being",
@@ -123,7 +123,7 @@
           {
             "phrase": "Because … so",
             "criterion": "GR",
-            "why": "Tiếng Anh chỉ dùng một trong hai: Because… hoặc …, so…, không dùng cả hai."
+            "why": "Tiếng Anh chỉ dùng một trong hai, “because” hoặc “so”, không dùng cả hai."
           },
           {
             "phrase": "too many cars",
@@ -145,7 +145,7 @@
             "phrase": "Due to the large number of",
             "label": "Cụm chỉ nguyên nhân",
             "criterion": "GR",
-            "why": "Due to + cụm danh từ thay cho “Because… so…”, câu chỉ còn một mệnh đề chính."
+            "why": "“Due to” đi với cụm danh từ, thay cho “because… so…”; câu chỉ còn một mệnh đề chính."
           },
           {
             "phrase": "has become heavily polluted",
@@ -154,7 +154,7 @@
               "LX",
               "GR"
             ],
-            "why": "heavily polluted là collocation chuẩn; hiện tại hoàn thành cho thấy tình trạng đã thay đổi."
+            "why": "“Heavily polluted” là collocation chuẩn; thì hiện tại hoàn thành cho thấy tình trạng đã thay đổi."
           }
         ]
       },
@@ -178,7 +178,7 @@
             "phrase": "severe air pollution",
             "label": "Collocation",
             "criterion": "LX",
-            "why": "severe + pollution: nói rõ mức độ thay cho “very”."
+            "why": "“Severe pollution” nói rõ mức độ, thay cho “very”."
           }
         ]
       }
@@ -238,7 +238,7 @@
           {
             "phrase": "many time",
             "criterion": "GR",
-            "why": "time không đếm được → much time / a lot of time."
+            "why": "“Time” không đếm được, nên dùng “much time” hoặc “a lot of time”."
           }
         ]
       },
@@ -250,7 +250,7 @@
             "phrase": "is beneficial because",
             "label": "Nối mệnh đề",
             "criterion": "GR",
-            "why": "because nối hai ý thành một câu, sửa comma splice."
+            "why": "“Because” nối hai ý thành một câu, sửa lỗi comma splice."
           },
           {
             "phrase": "employees do not",
@@ -262,13 +262,13 @@
             "phrase": "a great deal of time",
             "label": "Lượng từ",
             "criterion": "GR",
-            "why": "a great deal of đi với danh từ không đếm được."
+            "why": "“A great deal of” đi với danh từ không đếm được."
           },
           {
             "phrase": "commuting",
             "label": "Từ chính xác",
             "criterion": "LX",
-            "why": "spend time + V-ing; commute = đi lại giữa nhà và nơi làm."
+            "why": "Sau “spend time” là động từ thêm “ing”; “commute” là đi lại giữa nhà và nơi làm."
           }
         ]
       },
@@ -292,7 +292,7 @@
             "phrase": "saving employees considerable time",
             "label": "Mệnh đề phân từ",
             "criterion": "GR",
-            "why": "V-ing nêu kết quả, không cần thêm “and”."
+            "why": "Mệnh đề “-ing” nêu kết quả, không cần thêm “and”."
           }
         ]
       }
@@ -337,17 +337,17 @@
           {
             "phrase": "help",
             "criterion": "GR",
-            "why": "Chủ ngữ là V-ing (Reading books) tính là số ít → helps."
+            "why": "Chủ ngữ “Reading books” tính là số ít, nên phải là “helps”."
           },
           {
             "phrase": "learn more knowledge",
             "criterion": "LX",
-            "why": "Dịch từ “học kiến thức”; người bản xứ nói gain / acquire knowledge."
+            "why": "Dịch từ “học kiến thức”; người bản xứ nói “gain knowledge” hoặc “acquire knowledge”."
           },
           {
             "phrase": "know more about",
             "criterion": "LX",
-            "why": "Dịch từ “biết thêm về”; tự nhiên hơn là learn about / understand."
+            "why": "Dịch từ “biết thêm về”; tự nhiên hơn là “learn about” hoặc “understand”."
           }
         ]
       },
@@ -359,19 +359,19 @@
             "phrase": "helps",
             "label": "Hoà hợp chủ – vị",
             "criterion": "GR",
-            "why": "Chủ ngữ V-ing đi với động từ số ít."
+            "why": "Chủ ngữ dạng “-ing” đi với động từ số ít."
           },
           {
             "phrase": "gain knowledge",
             "label": "Collocation",
             "criterion": "LX",
-            "why": "gain + knowledge, không dùng learn + knowledge."
+            "why": "Nói “gain knowledge”, không nói “learn knowledge”."
           },
           {
             "phrase": "learn more about",
             "label": "Collocation",
             "criterion": "LX",
-            "why": "learn about = biết thêm về một điều gì."
+            "why": "“Learn about” nghĩa là biết thêm về một điều gì."
           }
         ]
       },
@@ -389,7 +389,7 @@
             "phrase": "broadens children's knowledge",
             "label": "Collocation",
             "criterion": "LX",
-            "why": "broaden + knowledge: mở rộng hiểu biết."
+            "why": "“Broaden knowledge” là mở rộng hiểu biết."
           },
           {
             "phrase": "deepens their understanding of",
@@ -398,7 +398,7 @@
               "LX",
               "GR"
             ],
-            "why": "Hai động từ cùng dạng (broadens… and deepens…) làm câu cân đối."
+            "why": "Hai động từ cùng dạng, “broadens” và “deepens”, làm câu cân đối."
           }
         ]
       }
