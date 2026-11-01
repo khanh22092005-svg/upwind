@@ -424,3 +424,12 @@ th{padding:4px 7px}
 .cv-top-ov{height:95mm;background:linear-gradient(180deg,rgba(11,74,128,.95) 0%,rgba(11,74,128,.7) 55%,rgba(11,74,128,0) 100%)}
 .cv-photo h1,.cv-line2{text-shadow:0 2px 12px rgba(0,30,60,.55)}
 .cv-photo .cv-head{margin-top:12mm}
+/* bigger title block, sky-blue headline, stronger overlay */
+.cv-photo .cv-head{margin-top:20mm}
+.cv-photo h1{font-size:60pt;line-height:1.05;margin:0 0 16px;color:#6ac5e8;letter-spacing:-.01em}
+.cv-line2{font-size:25pt;font-weight:800;color:#fff;margin-bottom:14px;line-height:1.2}
+.cv-line2 span{color:#6ac5e8;margin:0 6px}
+.cv-photo .cv-sub{font-size:13pt;font-weight:600;color:#e6f4fb}
+.cv-top-ov{height:150mm;background:linear-gradient(180deg,rgba(9,62,110,.97) 0%,rgba(9,62,110,.9) 45%,rgba(9,62,110,.55) 75%,rgba(9,62,110,0) 100%)}
+.cv-bgimg{bottom:2mm}
+.cv-top-ov{height:135mm;background:linear-gradient(180deg,rgba(9,62,110,.98) 0%,rgba(9,62,110,.96) 66%,rgba(9,62,110,.6) 84%,rgba(9,62,110,0) 100%)}
