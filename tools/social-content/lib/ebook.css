@@ -411,3 +411,16 @@ th{padding:4px 7px}
 .cv-patch{position:absolute;left:182mm;top:254mm;width:22mm;height:22mm;border-radius:50%;z-index:1;
   background:radial-gradient(circle,rgb(18,80,132) 55%,rgba(18,80,132,0) 72%)}
 .cv-foot{bottom:1.2mm;font-size:7.5pt}
+/* full-bleed tree behind the whole cover */
+.cv-bgimg{left:50%;transform:translateX(-50%);width:285mm;right:auto;bottom:-2mm;
+  -webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 8%);mask-image:linear-gradient(180deg,transparent 0%,#000 8%)}
+.cv-top-ov{position:absolute;left:0;right:0;top:0;height:120mm;z-index:1;background:linear-gradient(180deg,#0b4a80 0%,rgba(11,74,128,.88) 45%,rgba(11,74,128,0) 100%)}
+.cv-photo .cv-head{margin-top:14mm}
+.cv-photo h1{font-size:50pt;line-height:1.05;margin:0 0 8px;white-space:nowrap}
+.cv-line2{font-size:19pt;font-weight:700;color:#6ac5e8;margin-bottom:8px}
+.cv-line2 span{color:#fff;margin:0 4px}
+.cv-photo .cv-sub{font-size:10.5pt;text-shadow:0 1px 6px rgba(0,30,60,.6)}
+.cv-bgimg{bottom:8mm;-webkit-mask-image:none;mask-image:none}
+.cv-top-ov{height:95mm;background:linear-gradient(180deg,rgba(11,74,128,.95) 0%,rgba(11,74,128,.7) 55%,rgba(11,74,128,0) 100%)}
+.cv-photo h1,.cv-line2{text-shadow:0 2px 12px rgba(0,30,60,.55)}
+.cv-photo .cv-head{margin-top:12mm}

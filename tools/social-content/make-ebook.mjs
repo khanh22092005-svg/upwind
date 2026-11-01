@@ -18,7 +18,7 @@ import { coverTree } from "./lib/cover-tree.mjs";
 const require = createRequire(import.meta.url);
 const { chromium } = require("playwright");
 
-const TITLE = "Từ vựng IELTS: Học từ từ gốc Latin";
+const TITLE = "Học Từ, Từ Gốc · Từ vựng IELTS từ gốc Latin";
 const SUB = "Từ vựng học thuật cho IELTS band 5.5 → 7.0+ · 40 gốc từ · collocation · họ từ · bài tập Reading, Writing, Speaking có đáp án";
 const DATA = path.join(ROOT_DIR, "data", "ebook");
 const only = process.argv[2] && !process.argv[2].startsWith("-") ? process.argv[2].split(",") : null;
@@ -656,11 +656,12 @@ function coverHTML() {
   <div class="cv-top"><div class="cv-brand"><img src="${logo}" alt=""><span>UpWind <b>IELTS</b></span></div></div>
 
   <div class="cv-head">
-    <h1><span>Từ Vựng IELTS</span><br>Học Từ<br>Từ Gốc Latin</h1>
+    <h1>Học Từ, Từ Gốc</h1>
+    <div class="cv-line2">Gốc từ Latin <span>→</span> Từ vựng IELTS</div>
     <p class="cv-sub">Band 5.5 → 7.0+ · ${chapters.length} gốc từ · ${allWords.length} từ · 8–10 tuần</p>
   </div>
 
-  <img class="cv-bgimg" src="${coverImg}" alt=""><div class="cv-patch"></div><div class="cv-fade"></div>
+  <img class="cv-bgimg" src="${coverImg}" alt=""><div class="cv-top-ov"></div><div class="cv-fade"></div>
 
   <svg class="cv-waves" viewBox="0 0 210 30" preserveAspectRatio="none"><path d="M0 14 Q52 2 105 12 T210 10 V30 H0Z" fill="#6ac5e8" opacity=".9"/><path d="M0 20 Q55 10 108 19 T210 17 V30 H0Z" fill="#00244d"/></svg>
   <div class="cv-foot">upwind.asia</div>

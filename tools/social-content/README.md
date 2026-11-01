@@ -10,7 +10,7 @@ file, script and doc; everything shared lives here and in `lib/`.
 |---|---|---|---|---|
 | **Học từ từ gốc** (word roots) | 9:16 videos, 4:5 carousels, A4 handbook | `data/families.json` | `make-video.mjs`, `make-carousel.mjs`, `make-handbook.mjs` | [`docs/goc-tu.md`](docs/goc-tu.md) |
 | **Nâng band câu này** (IELTS Writing) | 4:5 carousels, 9:16 videos | `data/upgrades.json` | `make-upgrade.mjs`, `make-video.mjs --series writing` | [`docs/nang-band.md`](docs/nang-band.md) |
-| **Từ vựng IELTS: Học từ từ gốc Latin** (ebook) | A4 PDF, 40 units | `data/families.json` + `data/ebook/` | `make-ebook.mjs` | [`docs/ebook.md`](docs/ebook.md) |
+| **Học Từ, Từ Gốc · Từ vựng IELTS từ gốc Latin** (ebook) | A4 PDF, 40 units | `data/families.json` + `data/ebook/` | `make-ebook.mjs` | [`docs/ebook.md`](docs/ebook.md) |
 
 Ideas for the next series (nghĩa đen bất ngờ, âm thanh mang nghĩa, phrasal verbs, lỗi người Việt, shadowing…) are
 listed in [`docs/goc-tu.md` §4](docs/goc-tu.md#4-ways-to-expand-the-method).

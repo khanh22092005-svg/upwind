@@ -25,6 +25,6 @@ for title, key in [("Bài kiểm tra cuối sách", "FT"), ("Đáp án", "ANS"),
     if key in pages:
         w.add_outline_item(title, off + pages[key] - 1)
 w.page_mode = "/UseOutlines"
-w.add_metadata({"/Title": "UpWind · Từ vựng IELTS: Học từ từ gốc Latin", "/Author": "UpWind IELTS"})
+w.add_metadata({"/Title": "UpWind · Học Từ, Từ Gốc · Từ vựng IELTS từ gốc Latin", "/Author": "UpWind IELTS"})
 with open(out, "wb") as f:
     w.write(f)

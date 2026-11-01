@@ -1,4 +1,4 @@
-# Ebook: "Từ vựng IELTS: Học từ từ gốc Latin" (A4 PDF)
+# Ebook: "Học Từ, Từ Gốc · Từ vựng IELTS từ gốc Latin" (A4 PDF)
 
 ```bash
 node make-ebook.mjs                 # -> out/ebook/upwind-giai-ma-tu-vung.pdf (40 units)
