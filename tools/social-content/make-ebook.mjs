@@ -600,6 +600,7 @@ ${chapterHtml.join("\n")}
 </body></html>`;
 }
 
+const coverImg = "data:image/webp;base64," + fs.readFileSync(path.join(ROOT_DIR, "assets", "ebook", "cover-tree.webp")).toString("base64");
 function coverHTML() {
   // hero: one real root family from the book, drawn as a word tree
   const hero = chapters.find((c) => c.id === "spect") ?? chapters[0];
@@ -650,7 +651,7 @@ function coverHTML() {
   return `<!doctype html><html lang="vi"><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=block" rel="stylesheet">
 <style>@page{size:A4;margin:0}${css}</style></head><body class="coverbody">
-<div class="cv">
+<div class="cv cv-photo">
   <svg class="cv-sail" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M50 4 L50 78 L6 78 Z" fill="rgba(106,197,232,.07)"/></svg>
   <div class="cv-top"><div class="cv-brand"><img src="${logo}" alt=""><span>UpWind <b>IELTS</b></span></div></div>
 
@@ -659,7 +660,7 @@ function coverHTML() {
     <p class="cv-sub">Band 5.5 → 7.0+ · ${chapters.length} gốc từ · ${allWords.length} từ · 8–10 tuần</p>
   </div>
 
-  <div class="cv-hero simple">${coverTree(hero)}</div>
+  <img class="cv-bgimg" src="${coverImg}" alt=""><div class="cv-fade"></div>
 
   <svg class="cv-waves" viewBox="0 0 210 30" preserveAspectRatio="none"><path d="M0 14 Q52 2 105 12 T210 10 V30 H0Z" fill="#6ac5e8" opacity=".9"/><path d="M0 20 Q55 10 108 19 T210 17 V30 H0Z" fill="#00244d"/></svg>
   <div class="cv-foot">upwind.asia</div>
