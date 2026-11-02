@@ -4,6 +4,7 @@
 //   node make-carousel.mjs voc               # -> out/carousel/voc/01.png ... + caption.txt  (1080x1350, 4:5)
 //   node make-carousel.mjs all
 //   node make-carousel.mjs voc --size 9:16   # 1080x1920 for TikTok photo mode
+//   node make-carousel.mjs rupt --series quiz  # "Đoán từ · gốc từ": question slide, swipe, answer slide (x5)
 //   node make-carousel.mjs spect --max 4     # split big families into parts (FB/IG cap posts at 10-20 images)
 //
 // Slides: duo cover ("Tại sao A…, còn B…?"; bait cover if the family has no duo) -> hook + word wall -> root -> one card per word -> recap -> quiz -> CTA.
@@ -15,6 +16,7 @@ import { buildScenes, partsBlocks, posVi } from "./lib/scenes.mjs";
 import { icon, UI_ICONS as UI } from "./lib/icons.mjs";
 import { animEmoji, lottieScripts, ensureEmojiAssets } from "./lib/emoji.mjs";
 import { css, wave, header, FONT_LINK } from "./lib/template.mjs";
+import { buildQuizScenes, QUIZ_STYLE, quizCaption } from "./lib/quiz-scenes.mjs";
 
 const require = createRequire(import.meta.url);
 const { chromium } = require("playwright");
@@ -24,7 +26,7 @@ const opt = (name, def) => {
   const i = args.indexOf(`--${name}`);
   return i >= 0 ? args[i + 1] : def;
 };
-const VALUED = new Set(["size", "max"]);
+const VALUED = new Set(["size", "max", "series"]);
 const target = args.find((a, i) => !a.startsWith("--") && !VALUED.has(args[i - 1]?.slice(2)));
 if (!target) {
   console.error("Usage: node make-carousel.mjs <family-id>[,<id>...] | all  [--size 4:5|9:16] [--max N]");
@@ -38,6 +40,7 @@ if (!SIZES[size]) {
 }
 const [CW, CH] = SIZES[size];
 const MAX = Number(opt("max", 0)) || 0;
+const QUIZ = opt("series", "roots") === "quiz";
 const tall = CH > 1500;
 
 const EXTRA = `
@@ -61,11 +64,11 @@ header{top:46px}
 .dots{background:#fff;border-radius:999px;padding:4px 18px}
 `;
 
-function page(family, logo, body, n, total, { swipe = false } = {}) {
+function page(family, logo, body, n, total, { swipe = false, chip } = {}) {
   const label = typeof swipe === "string" ? swipe : "Lướt để xem";
   return `<!doctype html><html lang="vi"><head><meta charset="utf-8">${FONT_LINK}
-<style>${css(CW, CH, { video: false })}${EXTRA}</style></head><body class="static">
-${wave(false)}${header(family, logo)}
+<style>${css(CW, CH, { video: false })}${EXTRA}${QUIZ ? QUIZ_STYLE : ""}</style></head><body class="static">
+${wave(false)}${QUIZ ? header(family, logo, { series: "Đoán từ · gốc từ", chip }) : header(family, logo)}
 <main>${body.replaceAll("__LOGO__", logo)}</main>
 <div class="dots">${n}/${total}</div>
 ${lottieScripts(body, { freezeAt: 0.97 })}
@@ -88,23 +91,39 @@ function wordCard(f, w, n, total) {
   </div>`;
 }
 
+/** Quiz carousel: intro, then for each word a question slide ("Lướt xem đáp án") and its answer, then the end. */
+function quizBodies(family) {
+  const { scenes, words } = buildQuizScenes(family);
+  const html = (s) => (typeof s.html === "function" ? s.html() : s.html);
+  const bodies = scenes.map((s) => ({
+    html: html(s),
+    chip: s.chip,
+    swipe: s.kind === "intro" ? "Bắt đầu" : s.kind === "ask" ? "Lướt xem đáp án" : s.kind === "reveal" ? "Từ tiếp theo" : false,
+  }));
+  return { bodies, caption: quizCaption(family, words) };
+}
+
 async function makeOne(browser, family, logo, part) {
-  const id = part ? `${family.id}-p${part.n}` : family.id;
+  const id = QUIZ ? `doan-${family.id}` : part ? `${family.id}-p${part.n}` : family.id;
   const dir = path.join(OUT_DIR, "carousel", size === "4:5" ? id : `${id}-${size.replace(":", "x")}`);
   fs.rmSync(dir, { recursive: true, force: true });
   ensureDir(dir);
+  const quiz = QUIZ ? quizBodies(family) : null;
   const { scenes, words, quizAnswer } = buildScenes(family, { ...(part ? { from: part.from, max: MAX, part } : {}), next: nextFamily(families, family) });
   const byKind = (k) => scenes.find((s) => s.kind === k)?.html;
 
-  const bodies = [];
-  if (byKind("duo")) bodies.push({ html: byKind("duo"), swipe: "Lướt để biết vì sao" });
+  const bodies = quiz ? quiz.bodies : [];
+  if (quiz);
+  else if (byKind("duo")) bodies.push({ html: byKind("duo"), swipe: "Lướt để biết vì sao" });
   else if (byKind("bait")) bodies.push({ html: byKind("bait"), swipe: "Lướt để biết vì sao" });
-  bodies.push({ html: byKind("hook").replace(/<div class="tease[^]*?<\/div>/, ""), swipe: "Cùng học nào" });
-  bodies.push({ html: byKind("root") });
-  words.forEach((w, i) => bodies.push({ html: wordCard(family, w, i + 1, words.length) }));
-  bodies.push({ html: byKind("recap") });
-  bodies.push({ html: byKind("quiz") });
-  bodies.push({ html: byKind("cta") });
+  if (!quiz) bodies.push({ html: byKind("hook").replace(/<div class="tease[^]*?<\/div>/, ""), swipe: "Cùng học nào" });
+  if (!quiz) {
+    bodies.push({ html: byKind("root") });
+    words.forEach((w, i) => bodies.push({ html: wordCard(family, w, i + 1, words.length) }));
+    bodies.push({ html: byKind("recap") });
+    bodies.push({ html: byKind("quiz") });
+    bodies.push({ html: byKind("cta") });
+  }
 
   const pg = await browser.newPage({ viewport: { width: CW, height: CH } });
   for (const [i, b] of bodies.entries()) {
@@ -119,7 +138,7 @@ async function makeOne(browser, family, logo, part) {
     await pg.screenshot({ path: path.join(dir, `${String(i + 1).padStart(2, "0")}.png`) });
   }
   await pg.close();
-  const caption = captionText(family, words, quizAnswer, part, nextFamily(families, family)).replace("Theo dõi UpWind", "Lướt hết để làm thử thách · Theo dõi UpWind");
+  const caption = quiz ? quiz.caption : captionText(family, words, quizAnswer, part, nextFamily(families, family)).replace("Theo dõi UpWind", "Lướt hết để làm thử thách · Theo dõi UpWind");
   fs.writeFileSync(path.join(dir, "caption.txt"), caption + "\n");
   console.log(`✓ ${path.relative(ROOT_DIR, dir)}: ${bodies.length} slides (${CW}x${CH})`);
 }

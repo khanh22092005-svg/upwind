@@ -10,6 +10,7 @@
 //   node make-video.mjs voc --tts none          # silent draft to check visuals quickly
 //   node make-video.mjs voc --no-sfx            # no pop sounds on reveals
 //   node make-video.mjs voc --bgm music.mp3     # quiet background music (use music you own the rights to)
+//   node make-video.mjs --series quiz rupt    # "Đoán từ · gốc từ" 5-word guessing game -> out/doan-rupt/video.mp4
 //   node make-video.mjs --series writing because-so   # "Nâng band câu này" Writing video from data/upgrades.json
 //                                                     #   -> out/writing-because-so/video.mp4 (all options above apply)
 //
@@ -31,6 +32,7 @@ import { ensureEmojiAssets } from "./lib/emoji.mjs";
 import { frameHtml, W, H } from "./lib/template.mjs";
 import { loadUpgrades, nextSet, upgradeCaption } from "./lib/upgrade.mjs";
 import { buildUpgradeScenes, writingFrameHtml } from "./lib/upgrade-scenes.mjs";
+import { buildQuizScenes, quizFrameHtml, quizCaption, COUNTDOWN } from "./lib/quiz-scenes.mjs";
 
 const require = createRequire(import.meta.url);
 const { chromium } = require("playwright");
@@ -55,7 +57,7 @@ if (ONE_VOICE && VI_TTS !== "none") {
   VI_TTS = "edge-multi";
   EN_TTS = "edge-multi";
 }
-const SERIES = opt("series", "roots"); // roots (data/families.json) | writing (data/upgrades.json)
+const SERIES = opt("series", "roots"); // roots | quiz (both data/families.json) | writing (data/upgrades.json)
 // Writing videos explain grammar slowly, so they default to natural pace; word-root videos keep 1.1.
 const SPEED = Number(opt("speed", SERIES === "writing" ? 1.0 : 1.1)) || 1.1;
 const MAX = Number(opt("max", 0)) || 0;
@@ -273,6 +275,31 @@ if (SFX && !cached(POP)) {
   run("ffmpeg", ["-y", "-v", "error", "-f", "lavfi", "-i", `aevalsrc=${e}|${e}:s=44100:d=0.22`, POP]);
 }
 
+// Quiz: clock ticks during the countdown, a chime when the answer appears.
+const TICK = path.join(CACHE, "tick.wav");
+const DING = path.join(CACHE, "ding.wav");
+if (SFX && SERIES === "quiz") {
+  if (!cached(TICK)) {
+    const e = "0.7*sin(2*PI*1900*t)*exp(-110*t)+0.4*sin(2*PI*950*t)*exp(-70*t)";
+    run("ffmpeg", ["-y", "-v", "error", "-f", "lavfi", "-i", `aevalsrc=${e}|${e}:s=44100:d=0.08`, TICK]);
+  }
+  if (!cached(DING)) {
+    const e = "0.35*(sin(2*PI*1046*t)+0.7*sin(2*PI*1568*t)*(1-exp(-400*t*t)))*exp(-5*t)";
+    run("ffmpeg", ["-y", "-v", "error", "-f", "lavfi", "-i", `aevalsrc=${e}|${e}:s=44100:d=0.9`, DING]);
+  }
+}
+
+/** Mix countdown ticks (one per half second from t0) into a scene's narration WAV. */
+function addTicks(wav, t0) {
+  const n = COUNTDOWN * 2;
+  const ins = Array.from({ length: n }, () => ["-i", TICK]).flat();
+  const f = Array.from({ length: n }, (_, k) => `[${k + 1}:a]volume=${k % 2 ? 0.55 : 0.9},adelay=${Math.round((t0 + k * 0.5) * 1000)}|${Math.round((t0 + k * 0.5) * 1000)}[t${k}]`).join(";");
+  const out = wav.replace(/\.wav$/, "-t.wav");
+  run("ffmpeg", ["-y", "-v", "error", "-i", wav, ...ins, "-filter_complex",
+    `${f};[0:a]${Array.from({ length: n }, (_, k) => `[t${k}]`).join("")}amix=inputs=${n + 1}:duration=first:normalize=0[a]`, "-map", "[a]", "-ar", "44100", out]);
+  fs.renameSync(out, wav);
+}
+
 /* ---------- animated capture ---------- */
 /** Steps every CSS animation frame by frame and saves JPEGs; returns the number of intro frames. */
 async function captureScene(page, html, dir, stillPng) {
@@ -320,7 +347,7 @@ async function captureScene(page, html, dir, stillPng) {
   return { intro, loop };
 }
 
-function segment(framesDir, frames, wav, mp4) {
+function segment(framesDir, frames, wav, mp4, sfx = POP) {
   const { intro } = frames;
   const secs = Math.max(duration(wav), intro / FPS + 0.3);
   const hold = Math.max(0, secs - intro / FPS);
@@ -337,7 +364,7 @@ function segment(framesDir, frames, wav, mp4) {
   const loopIdx = SFX ? 3 : 2;
   const loopTrim = loop ? `[${loopIdx}:v]trim=duration=${hold.toFixed(3)},setpts=PTS-STARTPTS[L];` : "";
   run("ffmpeg", ["-y", "-v", "error", ...introIn, "-i", wav,
-    ...(SFX ? ["-i", POP] : []),
+    ...(SFX ? ["-i", sfx] : []),
     ...loopIn,
     "-filter_complex", `${loopTrim}${video};${audio}`,
     "-map", "[v]", "-map", "[a]", "-t", secs.toFixed(3), "-r", String(FPS),
@@ -346,7 +373,8 @@ function segment(framesDir, frames, wav, mp4) {
 
 async function makeOne(browser, family, logo, part) {
   const writing = SERIES === "writing";
-  const id = writing ? `writing-${family.id}` : part ? `${family.id}-p${part.n}` : family.id;
+  const quiz = SERIES === "quiz";
+  const id = writing ? `writing-${family.id}` : quiz ? `doan-${family.id}` : part ? `${family.id}-p${part.n}` : family.id;
   // Build in a scratch folder; the previous output is only replaced once the new video is finished.
   const finalDir = path.join(OUT_DIR, id);
   const dir = path.join(OUT_DIR, `.building-${id}`);
@@ -355,6 +383,8 @@ async function makeOne(browser, family, logo, part) {
   ensureDir(tmp);
   const { scenes, words, quizAnswer } = writing
     ? buildUpgradeScenes(family, { next: nextSet(families, family) })
+    : quiz
+    ? buildQuizScenes(family, { speed: SPEED })
     : buildScenes(family, { ...(part ? { from: part.from, max: MAX, part } : {}), next: nextFamily(families, family) });
   console.log(`▶ ${id}: ${writing ? "" : `${words.length} words, `}${scenes.length} scenes`);
   if (VI_TTS === "vieneu") prefetchVieneu(scenes);
@@ -383,10 +413,13 @@ async function makeOne(browser, family, logo, part) {
   for (const [i, scene] of scenes.entries()) {
     const tag = `s${String(i).padStart(2, "0")}`;
     const framesDir = path.join(tmp, tag);
-    const n = await captureScene(page, (writing ? writingFrameHtml : frameHtml)({ family, scene, logo }), framesDir, path.join(dir, `${tag}-${scene.kind}.png`));
+    // Audio first: a quiz countdown starts when the narration ends, so the scene HTML needs its length.
     const wav = sceneAudio(scene, path.join(tmp, `${tag}.wav`));
+    const frame = writing ? writingFrameHtml : quiz ? quizFrameHtml : frameHtml;
+    const n = await captureScene(page, frame({ family, scene, logo }), framesDir, path.join(dir, `${tag}-${scene.kind}.png`));
+    if (scene.countdown && SFX) addTicks(wav, scene.t0(scene.__speech));
     const mp4 = path.join(tmp, `${tag}.mp4`);
-    segment(framesDir, n, wav, mp4);
+    segment(framesDir, n, wav, mp4, scene.ding ? DING : POP);
     list.push(mp4);
     const segDur = duration(mp4);
     subs.push({ start: clock, speech: scene.__speech, end: clock + segDur, chunks: scene.__chunks });
@@ -413,7 +446,7 @@ async function makeOne(browser, family, logo, part) {
     path.join(dir, "video.mp4")]);
   fs.rmSync(tmp, { recursive: true, force: true });
 
-  const cap = writing ? upgradeCaption(family, nextSet(families, family)) : captionText(family, words, quizAnswer, part, nextFamily(families, family));
+  const cap = writing ? upgradeCaption(family, nextSet(families, family)) : quiz ? quizCaption(family, words) : captionText(family, words, quizAnswer, part, nextFamily(families, family));
   fs.writeFileSync(path.join(dir, "caption.txt"), cap + "\n");
   fs.rmSync(finalDir, { recursive: true, force: true });
   fs.renameSync(dir, finalDir);

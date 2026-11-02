@@ -9,6 +9,7 @@ file, script and doc; everything shared lives here and in `lib/`.
 | series | makes | data | script | read first |
 |---|---|---|---|---|
 | **Học từ từ gốc** (word roots) | 9:16 videos, 4:5 carousels, A4 handbook | `data/families.json` | `make-video.mjs`, `make-carousel.mjs`, `make-handbook.mjs` | [`docs/goc-tu.md`](docs/goc-tu.md) |
+| **Đoán từ · gốc từ** (5-word guessing game) | 9:16 videos, 4:5 carousels | `data/families.json` | `make-video.mjs --series quiz`, `make-carousel.mjs --series quiz` | [`docs/doan-tu.md`](docs/doan-tu.md) |
 | **Nâng band câu này** (IELTS Writing) | 4:5 carousels, 9:16 videos | `data/upgrades.json` | `make-upgrade.mjs`, `make-video.mjs --series writing` | [`docs/nang-band.md`](docs/nang-band.md) |
 | **Học Từ, Từ Gốc · Từ vựng IELTS từ gốc Latin** (ebook) | A4 PDF, 40 units | `data/families.json` + `data/ebook/` | `make-ebook.mjs` | [`docs/ebook.md`](docs/ebook.md) |
 
