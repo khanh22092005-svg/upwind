@@ -19,7 +19,7 @@ export function chunks(text: string) {
 export const plain = (text: string) => text.replace(/\{\{(.+?)\}\}/g, "$1");
 
 /** All spellings of a word we may meet in text: the word, its forms, related words. */
-function spellings(w: Word) {
+export function spellings(w: Word) {
   const list = [w.word, ...Object.values(w.forms ?? {}).flatMap((v) => v.split(",")), ...(w.related ?? []).map((r) => r.w)];
   return [...new Set(list.map((s) => s.replace(/\(.*?\)/g, "").trim().toLowerCase()).filter(Boolean))];
 }
@@ -69,19 +69,14 @@ export function affixIndex(kind: Exclude<PartKind, "root">) {
     .sort((a, b) => b.words.length - a.words.length || a.key.localeCompare(b.key));
 }
 
-/** Practice for one unit: the ebook's "Hoàn thành câu" (same sentences and word bank),
- * then 2 of its "Word form" items, then 3 meaning questions. */
-export function practiceFor(f: Family) {
-  const gaps = shuffle(f.words, f.id + "C").slice(0, Math.min(5, f.words.length - 1));
-  const bank = shuffle(f.words.map((w) => w.word), f.id + "bank");
-  const wf = (f.wf ?? []).slice(0, 2);
-  const mcq = shuffle(f.words, f.id + "mcq")
-    .slice(0, 3)
-    .map((w) => {
-      const others = shuffle(f.words.filter((o) => o.word !== w.word), w.word).slice(0, 3);
-      return { w, options: shuffle([w, ...others], w.word + "opt").map((o) => o.meaning) };
-    });
-  return { gaps, bank, wf, mcq };
+/** The words a unit's challenge asks to type: the ebook's "Hoàn thành câu" order (same seed as make-ebook.mjs). */
+export const recallWords = (f: Family, n = 4) => shuffle(f.words, f.id + "C").slice(0, Math.min(n, f.words.length));
+
+/** The root's letters as they appear in `text`, to give as a scaffold (none if the form changes the root). */
+export function rootIn(w: Word, text: string) {
+  const root = w.parts.find((p) => p.k === "root");
+  const t = root?.t.replace(/\(.*?\)/g, "").toLowerCase();
+  return t && text.toLowerCase().includes(t) ? t : undefined;
 }
 
 export const todayKey = (d = new Date()) =>

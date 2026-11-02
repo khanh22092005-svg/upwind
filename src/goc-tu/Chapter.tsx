@@ -1,8 +1,11 @@
 import { AnimatePresence, motion } from "motion/react";
 import confetti from "canvas-confetti";
 import { useEffect, useMemo, useState } from "react";
-import { allWords, COLORS, DAYS, families, iconSvg, nextFamily, parts, shortRoot, type Family, type Part, type Word } from "./data";
-import { shuffle, splitAt } from "./lib";
+import { COLORS, DAYS, families, iconSvg, nextFamily, parts, shortRoot, type Family, type Word } from "./data";
+import { splitAt } from "./lib";
+import { Branch, type TwigState } from "./Branch";
+import { bridgesFor } from "./bridges";
+import { CutWord } from "./CutWord";
 import { completeChapter, progressStore, restartChapter, saveStep, stars, useProgress } from "./progress";
 import { speak } from "./speech";
 import { ColoredWord, go, Icon, KindLegend, PartGloss, Rich, Speak, Stars, ZaloCta } from "./ui";
@@ -29,7 +32,8 @@ export function Chapter({ family: f, startWord }: { family: Family; startWord?: 
     const rec = progressStore.get().chapters[f.id];
     return rec && !rec.doneAt && rec.step > 0 && rec.step <= PRACTICE ? rec.step : 0;
   });
-  const [result, setResult] = useState<{ score: number; total: number } | null>(null);
+  const [result, setResult] = useState<{ score: number; total: number; fruit: { family: Family; w: Word }[] } | null>(null);
+  const twigStates = (current: number): TwigState[] => f.words.map((_, i) => (i < current ? "leaf" : i === current ? "now" : "bare"));
 
   useEffect(() => {
     if (step > 0 && step <= PRACTICE) saveStep(f.id, step);
@@ -64,13 +68,14 @@ export function Chapter({ family: f, startWord }: { family: Family; startWord?: 
           transition={{ duration: 0.22, ease: [0.32, 0.72, 0, 1] }}
         >
           {step === 0 && <Bait f={f} onNext={next} />}
-          {step === 1 && <RootCard f={f} onNext={next} />}
+          {step === 1 && <RootCard f={f} onNext={next} twigs={twigStates(-1)} />}
           {step >= 2 && step < PRACTICE && (
             <WordScreen
               key={f.words[step - 2].word}
               f={f}
               w={f.words[step - 2]}
               index={step - 2}
+              twigs={twigStates(step - 2)}
               onNext={next}
               onBack={() => setStep((s) => s - 1)}
             />
@@ -78,9 +83,9 @@ export function Chapter({ family: f, startWord }: { family: Family; startWord?: 
           {step === PRACTICE && (
             <Practice
               f={f}
-              onFinish={(score, total) => {
+              onFinish={(score, total, fruit) => {
                 completeChapter(f.id, f.words.map((w) => w.word), score, total);
-                setResult({ score, total });
+                setResult({ score, total, fruit });
                 setStep(DONE);
                 burst(true);
               }}
@@ -132,7 +137,7 @@ function Bait({ f, onNext }: { f: Family; onNext: () => void }) {
   );
 }
 
-function RootCard({ f, onNext }: { f: Family; onNext: () => void }) {
+function RootCard({ f, onNext, twigs }: { f: Family; onNext: () => void; twigs: TwigState[] }) {
   return (
     <section className="screen">
       <p className="kicker">Gốc từ · Phần {f.part + 1}: {parts[f.part].title}</p>
@@ -150,13 +155,14 @@ function RootCard({ f, onNext }: { f: Family; onNext: () => void }) {
           {f.image}
         </div>
       </div>
+      <Branch f={f} states={twigs} />
       <p className="muted center">
-        Giữ hình ảnh này trong đầu: cả {f.words.length} từ tiếp theo đều treo trên nó.
+        Một gốc, {f.words.length} nhánh con. Giữ hình ảnh này trong đầu: mỗi từ là một nhánh mọc ra từ nó. Cắt từng từ ra để nó mọc lá.
       </p>
       <KindLegend />
       <BottomBar>
         <button className="btn primary wide" onClick={onNext}>
-          Bắt đầu với từ đầu tiên →
+          Cho nhánh đầu tiên mọc lá →
         </button>
       </BottomBar>
     </section>
@@ -166,20 +172,49 @@ function RootCard({ f, onNext }: { f: Family; onNext: () => void }) {
 const badgeSvg = (name?: string) =>
   `<svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${iconSvg(name)}</svg>`;
 
-type Phase = "build" | "guess" | "card";
+type Phase = "cut" | "guess" | "card";
 
-function WordScreen({ f, w, index, onNext, onBack }: { f: Family; w: Word; index: number; onNext: () => void; onBack: () => void }) {
-  const [phase, setPhase] = useState<Phase>("build");
-  const [shown, setShown] = useState(0); // guess: 0 nothing, 1 story, 2 meaning
+function WordScreen({
+  f,
+  w,
+  index,
+  twigs,
+  onNext,
+  onBack,
+}: {
+  f: Family;
+  w: Word;
+  index: number;
+  twigs: TwigState[];
+  onNext: () => void;
+  onBack: () => void;
+}) {
+  const [phase, setPhase] = useState<Phase>("cut");
+  const [shown, setShown] = useState(false);
   const last = index === f.words.length - 1;
+  const grown = twigs.map((t, i) => (i === index && phase === "card" ? "leaf" : t));
   return (
     <section className="screen">
+      <Branch f={f} states={grown} />
       <p className="kicker">
-        Từ {index + 1}/{f.words.length} ·{" "}
-        {phase === "build" ? "Ghép từ" : phase === "guess" ? "Đoán nghĩa" : "Thẻ từ"}
+        Nhánh {index + 1}/{f.words.length} · {phase === "cut" ? "Cắt từ" : phase === "guess" ? "Đoán nghĩa" : "Lá mới"}
       </p>
 
-      {phase === "build" && <Builder f={f} w={w} onDone={() => setPhase("guess")} />}
+      {phase === "cut" && (
+        <>
+          <p className="cut-meaning muted">
+            Từ này nghĩa là… bạn sẽ tự đoán. Trước hết, hãy tìm xem nó ghép từ những mảnh nào.
+          </p>
+          <CutWord
+            w={w}
+            onDone={() => {
+              speak(w.word);
+              burst();
+              setPhase("guess");
+            }}
+          />
+        </>
+      )}
 
       {phase === "guess" && (
         <div className="guess">
@@ -187,50 +222,55 @@ function WordScreen({ f, w, index, onNext, onBack }: { f: Family; w: Word; index
             <ColoredWord w={w} /> <Speak text={w.word} big />
           </div>
           <PartGloss parts={w.parts} />
-          <p className="q">→ Nghĩa là gì? Đoán trước khi xem nhé.</p>
+          <p className="q">→ Ghép nghĩa các mảnh lại: từ này nghĩa là gì? Nghĩ trong đầu rồi mới xem.</p>
+          {shown && <p className="q small">Bạn đoán thế nào? Chọn ở dưới để cành mọc lá.</p>}
           <AnimatePresence>
-            {shown >= 1 && (
-              <motion.div className="story" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
-                <small>Câu chuyện</small>
-                {w.story}
-              </motion.div>
-            )}
-            {shown >= 2 && (
-              <motion.div className="meaning" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
-                <small>Nghĩa</small>
-                {w.meaning}
+            {shown && (
+              <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
+                <div className="story">
+                  <small>Câu chuyện</small>
+                  {w.story}
+                </div>
+                <div className="meaning">
+                  <small>Nghĩa</small>
+                  {w.meaning}
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
         </div>
       )}
 
-      {phase === "card" && <WordCard w={w} />}
+      {phase === "card" && <WordCard w={w} f={f} />}
 
       <BottomBar>
-        {phase === "build" && index > 0 && (
+        {phase === "cut" && index > 0 && (
           <button className="btn ghost" onClick={onBack} aria-label="Từ trước">
             ←
           </button>
         )}
-        {phase === "build" && (
+        {phase === "cut" && (
           <button className="btn ghost wide" onClick={() => setPhase("guess")}>
-            Bỏ qua phần ghép
+            Bỏ qua phần cắt
           </button>
         )}
-        {phase === "guess" && shown < 2 && (
-          <button className="btn primary wide" onClick={() => setShown((s) => s + 1)}>
-            {shown === 0 ? "Xem câu chuyện" : "Xem nghĩa"}
+        {phase === "guess" && !shown && (
+          <button className="btn primary wide" onClick={() => setShown(true)}>
+            Xem nghĩa
           </button>
         )}
-        {phase === "guess" && shown >= 2 && (
-          <button className="btn primary wide" onClick={() => setPhase("card")}>
-            Xem thẻ từ đầy đủ →
-          </button>
+        {phase === "guess" && shown && (
+          <div className="selfcheck" role="group" aria-label="Bạn đoán thế nào?">
+            {["Đoán đúng", "Gần đúng", "Chưa đúng"].map((label, k) => (
+              <button key={k} type="button" className={"btn " + (k === 0 ? "primary" : "ghost")} onClick={() => setPhase("card")}>
+                {label}
+              </button>
+            ))}
+          </div>
         )}
         {phase === "card" && (
           <button className="btn primary wide" onClick={onNext}>
-            {last ? "Vào luyện tập →" : "Từ tiếp theo →"}
+            {last ? "Vào thử thách →" : "Nhánh tiếp theo →"}
           </button>
         )}
       </BottomBar>
@@ -238,7 +278,7 @@ function WordScreen({ f, w, index, onNext, onBack }: { f: Family; w: Word; index
   );
 }
 
-export function WordCard({ w }: { w: Word }) {
+export function WordCard({ w, f }: { w: Word; f?: Family }) {
   const [before, form, after] = splitAt(w);
   return (
     <article className="word-card">
@@ -271,6 +311,13 @@ export function WordCard({ w }: { w: Word }) {
           ))}
         </div>
       )}
+      {!!w.col?.length && (
+        <div className="related">
+          <small>Hay đi cùng</small>
+          <span lang="en">{w.col.join(" · ")}</span>
+        </div>
+      )}
+      {f && <Bridges w={w} f={f} />}
       {w.trap && (
         <div className="trap">
           ⚠ <Rich text={w.trap} />
@@ -280,96 +327,40 @@ export function WordCard({ w }: { w: Word }) {
   );
 }
 
-type Chip = { id: number; part: Part; slot: number | null };
-
-function Builder({ f, w, onDone }: { f: Family; w: Word; onDone: () => void }) {
-  const chips = useMemo<Chip[]>(() => {
-    const own = new Set(w.parts.map((p) => p.t));
-    const kind = w.parts.find((p) => p.k !== "root")?.k ?? "pre";
-    const pool = allWords.flatMap(({ w: o }) => o.parts).filter((p) => p.k === kind && !own.has(p.t));
-    const distractor = shuffle(pool, w.word + f.id)[0];
-    const list: Chip[] = w.parts.map((part, i) => ({ id: i, part, slot: i }));
-    if (distractor) list.push({ id: 99, part: distractor, slot: null });
-    return shuffle(list, w.word);
-  }, [f.id, w]);
-  const [placed, setPlaced] = useState<number[]>([]);
-  const [shake, setShake] = useState<number | null>(null);
-  const [mistakes, setMistakes] = useState(0);
-  const complete = placed.length === w.parts.length;
-
-  useEffect(() => {
-    if (!complete) return;
-    burst();
-    speak(w.word);
-    const t = setTimeout(onDone, 1100);
-    return () => clearTimeout(t);
-  }, [complete, onDone, w.word]);
-
-  const tap = (c: Chip) => {
-    if (complete || placed.includes(c.id)) return;
-    if (c.slot === placed.length) {
-      setPlaced((p) => [...p, c.id]);
-      setMistakes(0);
-    } else {
-      setShake(c.id);
-      setMistakes((m) => m + 1);
-      setTimeout(() => setShake(null), 450);
-    }
-  };
-
+/** "Cũng mọc trên…": the same prefix (or suffix) on other branches. Tap to jump there. */
+function Bridges({ w, f }: { w: Word; f: Family }) {
+  const affixes = w.parts.filter((p) => p.k === "pre");
+  const list = (affixes.length ? affixes : w.parts.filter((p) => p.k === "suf")).map((p) => ({ p, words: bridgesFor(p, f) })).filter((x) => x.words.length);
+  if (!list.length) return null;
   return (
-    <div className="builder">
-      <p className="q">
-        Ghép các mảnh thành từ có nghĩa: <b>{w.meaning}</b>
-      </p>
-      <div className="slots">
-        {w.parts.map((p, i) => {
-          const chip = chips.find((c) => c.slot === i && placed.includes(c.id));
-          return (
-            <div key={i} className={"slot" + (chip ? " filled" : "")} style={chip ? { borderColor: COLORS[p.k] } : undefined}>
-              <span className="slot-word" style={{ color: COLORS[p.k] }}>
-                {chip && (
-                  <motion.span layoutId={`chip-${w.word}-${chip.id}`} transition={{ type: "spring", stiffness: 500, damping: 32 }}>
-                    {p.t}
-                  </motion.span>
-                )}
-              </span>
-              <small>{p.vi}</small>
-            </div>
-          );
-        })}
-      </div>
-      {complete && (
-        <motion.div className="built" initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
-          <ColoredWord w={w} /> ✓
-        </motion.div>
-      )}
-      <div className="chips">
-        {chips.map((c) =>
-          placed.includes(c.id) ? (
-            <span key={c.id} className="chip ghost-chip" aria-hidden="true">
-              {c.part.t}
-            </span>
-          ) : (
-            <motion.button
-              key={c.id}
-              layoutId={`chip-${w.word}-${c.id}`}
-              type="button"
-              className={"chip" + (shake === c.id ? " shake" : "") + (mistakes >= 2 && c.slot === placed.length ? " glow" : "")}
-              style={{ color: COLORS[c.part.k], borderColor: COLORS[c.part.k] }}
-              onClick={() => tap(c)}
-            >
-              {c.part.t}
-            </motion.button>
-          ),
-        )}
-      </div>
-      <p className="muted center small">Gợi ý: mỗi ô ghi nghĩa của mảnh cần đặt vào. Có một mảnh thừa.</p>
+    <div className="bridges">
+      {list.map(({ p, words }) => (
+        <div key={p.t}>
+          <small>
+            <b style={{ color: COLORS[p.k] }}>{p.k === "pre" ? `${p.t}-` : `-${p.t}`}</b> cũng mọc trên {words.length} nhánh khác:
+          </small>
+          <div className="bridge-words">
+            {words.slice(0, 6).map((x) => (
+              <a key={x.family.id + x.w.word} className="chip small" href={`#/${x.family.id}/${encodeURIComponent(x.w.word)}`} lang="en">
+                {x.w.word} <small>· {shortRoot(x.family)}</small>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
 
-function Done({ f, result, onRestart }: { f: Family; result: { score: number; total: number } | null; onRestart: () => void }) {
+function Done({
+  f,
+  result,
+  onRestart,
+}: {
+  f: Family;
+  result: { score: number; total: number; fruit: { family: Family; w: Word }[] } | null;
+  onRestart: () => void;
+}) {
   const p = useProgress();
   const rec = p.chapters[f.id];
   const score = result?.score ?? rec?.best ?? 0;
@@ -396,6 +387,7 @@ function Done({ f, result, onRestart }: { f: Family; result: { score: number; to
       <h2>
         Xong gốc <span style={{ color: COLORS.root }}>{f.root}</span>!
       </h2>
+      <Branch f={f} states={f.words.map(() => "leaf")} />
       <Stars n={stars(score, total)} />
       <p className="score">
         Đúng ngay lần đầu: <b>{score}/{total}</b>
@@ -404,6 +396,18 @@ function Done({ f, result, onRestart }: { f: Family; result: { score: number; to
         {f.words.length} từ đã vào lịch <a href="#/on-tap">ôn tập</a>. Hẹn bạn vài ngày nữa để ôn lại trước khi quên.
         {rec?.doneAt && <> · {new Date(rec.doneAt).toLocaleDateString("vi-VN")}</>}
       </p>
+      {!!result?.fruit.length && (
+        <div className="bridges">
+          <small>Nhánh mới bạn vừa chạm tới:</small>
+          <div className="bridge-words">
+            {result.fruit.map((x) => (
+              <a key={x.w.word} className="chip small fruit-chip" href={`#/${x.family.id}/${encodeURIComponent(x.w.word)}`}>
+                <span className="fruit-dot" /> {x.w.word} <small>· gốc {shortRoot(x.family)}</small>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
       <div className="done-actions">
         <button className="btn primary wide" onClick={() => go(nf.id)}>
           Bài tiếp theo: gốc {nf.root} →

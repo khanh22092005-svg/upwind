@@ -13,6 +13,8 @@ export type Progress = {
   chapters: Record<string, ChapterRec>;
   cards: Record<string, CardRec>;
   days: string[];
+  /** words met as "quả lạ" on another branch (word -> time); optional, so v1 data still loads */
+  seen?: Record<string, number>;
 };
 
 const empty = (): Progress => ({ version: 1, chapters: {}, cards: {}, days: [] });
@@ -125,7 +127,25 @@ export function gradeWord(word: string, grade: Grade) {
   });
 }
 
+/** A word met as "quả lạ" (strange fruit) in another unit's challenge. */
+export function markSeen(word: string) {
+  if (state.seen?.[word] || state.cards[word]) return;
+  commit({ ...state, seen: { ...state.seen, [word]: Date.now() } });
+}
+
 export const resetProgress = () => commit(empty());
+
+export type LeafState = "bare" | "seen" | "growing" | "learned" | "strong" | "due";
+/** What a word's leaf on the tree looks like. */
+export function leafState(p: Progress, word: string, growing = false, now = Date.now()): LeafState {
+  const r = p.cards[word];
+  if (r) {
+    if (r.card.due.getTime() <= now) return "due";
+    return r.reviews >= 3 || r.card.stability >= 21 ? "strong" : "learned";
+  }
+  if (growing) return "growing";
+  return p.seen?.[word] ? "seen" : "bare";
+}
 
 export function dueWords(p: Progress, now = new Date()) {
   return Object.entries(p.cards)

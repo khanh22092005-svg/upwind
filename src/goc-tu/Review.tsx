@@ -3,7 +3,9 @@ import { useMemo, useState } from "react";
 import { allWords, families } from "./data";
 import { dueWords, gradeWord, nextDue, progressStore, Rating, scheduler, streak, useProgress } from "./progress";
 import { ColoredWord, go, Icon, PartGloss, Speak } from "./ui";
-import type { Grade } from "ts-fsrs";
+import { State, type Grade } from "ts-fsrs";
+import { Recall, type RecallResult } from "./Recall";
+import { rootIn } from "./lib";
 
 const byWord = new Map(allWords.map((x) => [x.w.word, x]));
 const LIMIT = 20;
@@ -44,7 +46,20 @@ export function Review() {
     setDone(0);
     setFlipped(false);
   };
+  const [typedRes, setTypedRes] = useState<RecallResult | null>(null);
+  // Young words (fewer than 3 reviews, or just forgotten): flip. Older words: type them (recall).
+  const typeMode = !!rec && rec.reviews >= 3 && rec.card.state !== State.Relearning && !queue.slice(0, i).includes(word);
+  const suggested: Grade | null = typedRes
+    ? !typedRes.ok
+      ? Rating.Again
+      : typedRes.hints
+        ? Rating.Hard
+        : typedRes.ms < 4000
+          ? Rating.Easy
+          : Rating.Good
+    : null;
   const grade = (g: Grade) => {
+    setTypedRes(null);
     gradeWord(word, g);
     if (g === Rating.Again) setQueue((q) => [...q, word]);
     else setDone((d) => d + 1);
@@ -112,39 +127,61 @@ export function Review() {
       </div>
       <AnimatePresence mode="wait">
         <motion.div key={i} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }} transition={{ duration: 0.2 }}>
-          <button type="button" className="review-card" onClick={() => setFlipped(true)} aria-expanded={flipped}>
-            <small className="muted">gốc {family.root}</small>
-            <span className="word-big">
-              <ColoredWord w={w} />
-            </span>
-            <PartGloss parts={w.parts} />
-            {!flipped ? (
-              <span className="hint">Nghĩa là gì? Nghĩ xong thì chạm để lật</span>
-            ) : (
-              <span className="back">
-                <span className="meaning-line">{w.meaning}</span>
-                <span className="story-line">→ {w.story}</span>
-                <span className="example-mini" lang="en">
-                  “{w.example}”
+          {typeMode ? (
+            <div className="review-card typed">
+              <small className="muted">
+                gốc <b>{family.root}</b> ({family.core})
+              </small>
+              <span className="meaning-line">{w.meaning}</span>
+              <Recall key={word + i} target={w.word} scaffold={rootIn(w, w.word)} onResult={setTypedRes} />
+              {typedRes && (
+                <span className="back">
+                  <span className="word-big">
+                    <ColoredWord w={w} />
+                  </span>
+                  <span className="story-line">→ {w.story}</span>
                 </span>
-                <span className="vi">{w.example_vi}</span>
+              )}
+            </div>
+          ) : (
+            <button type="button" className="review-card" onClick={() => setFlipped(true)} aria-expanded={flipped}>
+              <small className="muted">gốc {family.root}</small>
+              <span className="word-big">
+                <ColoredWord w={w} />
               </span>
-            )}
-          </button>
+              <PartGloss parts={w.parts} />
+              {!flipped ? (
+                <span className="hint">Nghĩa là gì? Nghĩ xong thì chạm để lật</span>
+              ) : (
+                <span className="back">
+                  <span className="meaning-line">{w.meaning}</span>
+                  <span className="story-line">→ {w.story}</span>
+                  <span className="example-mini" lang="en">
+                    “{w.example}”
+                  </span>
+                  <span className="vi">{w.example_vi}</span>
+                </span>
+              )}
+            </button>
+          )}
           <div className="center">
             <Speak text={w.word} big />
           </div>
         </motion.div>
       </AnimatePresence>
       <div className="bottombar">
-        {!flipped ? (
+        {typeMode && !typedRes ? (
+          <p className="muted center small" style={{ flex: 1 }}>
+            Từ này bạn đã ôn {rec.reviews} lần: lần này hãy tự gõ ra.
+          </p>
+        ) : !typeMode && !flipped ? (
           <button className="btn primary wide" onClick={() => setFlipped(true)}>
             Lật thẻ
           </button>
         ) : (
           <div className="grades">
             {GRADES.map(({ g, label, cls }) => (
-              <button key={g} className={"grade " + cls} onClick={() => grade(g)}>
+              <button key={g} className={"grade " + cls + (suggested === g ? " suggested" : "")} onClick={() => grade(g)}>
                 <b>{label}</b>
                 <small>{g === Rating.Again ? "hỏi lại" : preview ? fmtWait(preview[g].card.due.getTime() - Date.now()) : ""}</small>
               </button>

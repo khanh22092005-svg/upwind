@@ -3,6 +3,7 @@ import { allWords, COLORS, DAYS, EBOOK_URL, families, iconSvg, parts, shortRoot,
 import { fold } from "./lib";
 import { dueWords, resetProgress, stars, streak, useProgress, type Progress } from "./progress";
 import { go, Icon, KindLegend, Stars, ZaloCta } from "./ui";
+import { Tree } from "./Tree";
 
 const TOTAL = allWords.length;
 
@@ -43,7 +44,7 @@ export function Home() {
             Học từ <span className="u">từ gốc</span>
           </h1>
           <p className="lead">
-            {families.length} gốc La-tinh, {TOTAL} từ vựng IELTS, học trong 8 tuần. Tách từ thành <b style={{ color: COLORS.pre, whiteSpace: "nowrap" }}>tiền tố</b> +{" "}
+            {families.length} gốc La-tinh, {TOTAL} từ vựng IELTS, mọc thành một cái cây. Tách từ thành <b style={{ color: COLORS.pre, whiteSpace: "nowrap" }}>tiền tố</b> +{" "}
             <b style={{ color: COLORS.root }}>gốc</b> + <b style={{ color: COLORS.suf, whiteSpace: "nowrap" }}>hậu tố</b>, hình dung nghĩa gốc, rồi tự đoán nghĩa từ
             mới. Học một gốc, nhớ cả họ từ.
           </p>
@@ -101,8 +102,16 @@ export function Home() {
           <Icon name="arrow-right" size={22} stroke={2} />
         </a>
 
-        <h2 className="sec">{families.length} bài · {families.length} gốc từ</h2>
-        <KindLegend />
+        <h2 className="sec">Cây gốc từ</h2>
+        <p className="muted small">
+          Gốc cây là tiếng Latin. Mỗi tán là một phần của ebook, mỗi cành là một gốc từ, mỗi lá là một từ. Học xong một từ, lá
+          xanh lên; đến hạn ôn, cây ra quả.
+        </p>
+        <Tree p={p} suggest={resume.f.id} />
+
+        <details className="list-toggle">
+          <summary>Xem dạng danh sách ({families.length} bài)</summary>
+          <KindLegend />
         {parts.map((part, pi) => (
           <div key={pi}>
             <div className="part-head">
@@ -140,6 +149,8 @@ export function Home() {
             </div>
           </div>
         ))}
+
+        </details>
 
         <h2 className="sec">Phương pháp 4 bước</h2>
         <ol className="method">

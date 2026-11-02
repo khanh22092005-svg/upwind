@@ -205,7 +205,7 @@ h1, h2, h3 { font-family: var(--font-serif); color: var(--color-upwind-ink); lin
 .feedback.bad { background: oklch(0.96 0.04 60); color: oklch(0.42 0.13 45); }
 
 /* done */
-.done h2 { text-align: center; font-size: 2rem; margin: 6px 0; }
+.done h2 { text-align: center; font-size: 2rem; margin: 6px 0 14px; }
 .score { text-align: center; font-size: 1.15rem; }
 .done-actions { display: grid; gap: 10px; margin: 20px 0; }
 .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -265,3 +265,125 @@ h1, h2, h3 { font-family: var(--font-serif); color: var(--color-upwind-ink); lin
 .ebook-link img { width: 54px; height: auto; border-radius: 6px; box-shadow: 0 4px 12px oklch(0.3 0.05 250 / 0.2); flex: none; }
 .ebook-link span { display: grid; flex: 1; }
 .ebook-link small { color: var(--color-upwind-ink-2); }
+
+/* ---------- v2: tree, branch, cut, recall ---------- */
+:root {
+  --leaf-bare: oklch(0.9 0.015 150);
+  --leaf-growing: oklch(0.86 0.08 150);
+  --leaf-learned: oklch(0.72 0.14 150);
+  --leaf-strong: oklch(0.5 0.13 152);
+  --fruit: #f2711c;
+  --wood: oklch(0.52 0.06 60);
+}
+
+/* big tree */
+.tree-wrap { margin: 6px 0 10px; }
+.tree-tabs { display: flex; gap: 6px; overflow-x: auto; padding: 2px 0 8px; scrollbar-width: none; }
+.tree-tabs button { flex: none; border: 2px solid var(--color-upwind-border); background: #fff; border-radius: 999px; padding: 7px 14px; font-weight: 800; font-size: 0.9rem; min-height: 40px; }
+.tree-tabs button.on { background: var(--color-upwind-primary); border-color: var(--color-upwind-primary); color: #fff; }
+.tree-stage { position: relative; border-radius: 24px; background: linear-gradient(oklch(0.975 0.02 230), oklch(0.985 0.015 150)); border: 2px solid var(--color-upwind-border); overflow: hidden; }
+.tree { display: block; width: 100%; height: auto; aspect-ratio: 1080 / 1300; max-height: 78vh; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+.tree.zoomed { touch-action: none; cursor: grab; }
+.t-ground { fill: oklch(0.88 0.05 140); }
+.t-trunk { fill: var(--wood); }
+.t-trunk-label { font: 800 22px var(--font-sans); fill: #fff; letter-spacing: 0.08em; }
+.t-limb { fill: none; stroke: var(--wood); stroke-width: 22; stroke-linecap: round; }
+.t-canopy { fill: oklch(0.935 0.045 150); stroke: oklch(0.88 0.06 150); stroke-width: 2; cursor: zoom-in; }
+.t-crown.focus .t-canopy { cursor: default; }
+.t-spoke { stroke: var(--wood); stroke-width: 5; opacity: 0.7; }
+.t-part-disc { fill: oklch(0.99 0.01 150 / 0.92); stroke: oklch(0.8 0.08 150); stroke-width: 2; cursor: zoom-in; }
+.t-part-n { font: 800 13px var(--font-sans); fill: var(--color-upwind-accent); letter-spacing: 0.06em; text-transform: uppercase; pointer-events: none; }
+.t-part-title { font: 700 12.5px var(--font-sans); fill: var(--color-upwind-ink); pointer-events: none; }
+.t-node-hit { cursor: pointer; }
+.t-node-hit circle { fill: #fff; stroke: oklch(0.82 0.03 240); stroke-width: 3; }
+.t-node.doing .t-node-hit circle { stroke: oklch(0.8 0.12 85); stroke-width: 4; }
+.t-node.done .t-node-hit circle { stroke: var(--leaf-strong); stroke-width: 4; fill: oklch(0.97 0.03 150); }
+.t-node-hit text { font: 800 15px var(--font-sans); fill: var(--root); pointer-events: none; }
+.t-pulse { fill: none; stroke: var(--fruit); stroke-width: 4; transform-box: fill-box; transform-origin: center; animation: tpulse 1.6s ease-out infinite; pointer-events: none; }
+@keyframes tpulse { 0% { opacity: 0.9; transform: scale(0.85); } 100% { opacity: 0; transform: scale(1.35); } }
+.t-leaf { cursor: pointer; }
+.t-leaf ellipse { fill: var(--leaf-bare); stroke: oklch(0.8 0.03 150); stroke-width: 1.2; transition: fill 400ms; }
+.t-leaf.growing ellipse { fill: var(--leaf-growing); }
+.t-leaf.learned ellipse, .t-leaf.due ellipse { fill: var(--leaf-learned); stroke: oklch(0.6 0.12 150); }
+.t-leaf.strong ellipse { fill: var(--leaf-strong); stroke: oklch(0.42 0.1 152); }
+.t-leaf.seen ellipse { fill: oklch(0.96 0.05 100); stroke: oklch(0.75 0.1 100); stroke-dasharray: 3 2; }
+.t-stem { stroke: oklch(0.7 0.06 120); stroke-width: 1.5; }
+.t-fruit { fill: var(--fruit); stroke: #fff; stroke-width: 1.5; }
+.t-seen { fill: oklch(0.8 0.13 95); }
+.tree-zoom { position: absolute; right: 10px; bottom: 44px; display: grid; gap: 6px; }
+.tree-zoom button { width: 40px; height: 40px; border-radius: 12px; border: 2px solid var(--color-upwind-border); background: #fff; font-weight: 800; font-size: 20px; line-height: 1; }
+.tree-hint { position: absolute; left: 0; right: 0; bottom: 0; margin: 0; padding: 8px 12px; text-align: center; font-size: 0.8rem; font-weight: 700; color: var(--color-upwind-ink-2); background: oklch(1 0 0 / 0.75); pointer-events: none; }
+.tree-legend { display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 10px 2px 2px; font-size: 0.8rem; font-weight: 700; color: var(--color-upwind-ink-2); }
+.tree-legend span { display: inline-flex; align-items: center; gap: 5px; }
+.tree-legend .t-leaf { cursor: default; }
+.tree-count { margin: 4px 2px 0; font-weight: 700; color: var(--color-upwind-ink-2); }
+.list-toggle { margin: 22px 0 6px; }
+.list-toggle summary { cursor: pointer; font-weight: 800; color: var(--color-upwind-primary); padding: 12px 0; list-style: none; }
+.list-toggle summary::before { content: "▸ "; }
+.list-toggle[open] summary::before { content: "▾ "; }
+
+/* one root as a small tree */
+.branch { display: block; width: 100%; max-width: 420px; height: auto; margin: 2px auto 0; overflow: visible; }
+.br-trunk { fill: none; stroke: var(--wood); stroke-width: 9; stroke-linecap: round; }
+.br-twig { fill: none; stroke: var(--wood); stroke-width: 3; stroke-linecap: round; opacity: 0.85; }
+.br-tip { fill: var(--wood); }
+.br-bud { fill: var(--fruit); animation: bud 1.2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes bud { 50% { transform: scale(1.35); } }
+.br-leaf { fill: var(--leaf-learned); stroke: oklch(0.55 0.12 150); stroke-width: 1; }
+.br-label { font: 700 10.5px var(--font-sans); fill: var(--color-upwind-ink-2); }
+.br-root { font: 800 12px var(--font-sans); fill: var(--root); }
+
+/* cut the word */
+.cut { text-align: center; }
+.cut-meaning { text-align: center; margin: 4px 0 0; font-size: 0.92rem; }
+.cut-word { display: flex; justify-content: center; flex-wrap: nowrap; margin: 18px 0 10px; font-size: clamp(30px, 9vw, 46px); font-weight: 800; line-height: 1.2; }
+.cut-letter { position: relative; display: inline-flex; transition: margin 260ms var(--ease); }
+.cut-letter .ch { display: inline-block; min-width: 0.6em; text-align: center; }
+.cut-letter.cut-after { margin-right: 0.42em; }
+.cut-word .gap { position: absolute; top: -6px; bottom: -6px; right: -10px; width: 20px; z-index: 2; border: 0; background: none; padding: 0; display: flex; justify-content: center; }
+.cut-letter.cut-after .gap { right: calc(-0.21em - 10px); }
+.cut-word .gap i { width: 3px; height: 100%; border-radius: 3px; background: repeating-linear-gradient(to bottom, oklch(0.84 0.03 240) 0 4px, transparent 4px 9px); transition: background 200ms; }
+.cut-word .gap:hover i, .cut-word .gap:focus-visible i { background: oklch(0.85 0.04 240); }
+.cut-word .gap.made i { background: var(--color-upwind-ink); }
+.cut-word .gap.wrong i { background: var(--bad); }
+.cut-word .gap.wrong { animation: shake 420ms; }
+.cut-word .gap.hint i { background: var(--fruit); animation: glow 1s infinite; }
+.cut-word.done .gap i { background: transparent !important; }
+.cut-word.done .ch { min-width: 0; }
+.cut-parts { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; min-height: 64px; }
+.cut-part { display: flex; flex-direction: column; align-items: center; border: 2.5px solid; border-radius: 14px; padding: 6px 12px; background: #fff; }
+.cut-part b { font-size: 1.3rem; }
+.cut-part small { font-weight: 700; color: var(--color-upwind-ink-2); }
+.cut-part em { font-style: normal; font-size: 0.7rem; font-weight: 800; color: var(--suf); }
+.selfcheck { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; width: 100%; }
+.selfcheck .btn { padding: 10px 6px; font-size: 0.92rem; }
+.option.small { min-height: 46px; text-align: center; padding: 8px; }
+
+/* recall */
+.meaning-cue { font-size: 1.15rem; font-weight: 800; margin: 2px 0 8px; }
+.pattern { display: flex; flex-wrap: wrap; gap: 4px; margin: 14px 0 10px; }
+.slotc { width: 26px; height: 34px; border-bottom: 3px solid var(--color-upwind-border); display: inline-flex; align-items: flex-end; justify-content: center; font-weight: 800; font-size: 1.25rem; color: var(--color-upwind-ink-2); }
+.slotc.on { color: var(--color-upwind-ink); }
+.slotc.root { color: var(--root); border-color: var(--root); }
+.pattern .sp { width: 12px; }
+.hint-btn { display: block; margin: 6px 0 0; }
+.recall .feedback { margin-top: 12px; }
+
+/* strange fruit */
+.fruit-tag { display: inline-flex; align-items: center; gap: 6px; font-weight: 800; color: var(--fruit); margin: 0; }
+.fruit-dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: var(--fruit); box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--fruit); }
+.dots i.fruit { background: oklch(0.9 0.07 55); }
+.dots i.fruit.past, .dots i.fruit.now { background: var(--fruit); }
+.fruit-chip { display: inline-flex; align-items: center; gap: 6px; }
+
+/* bridges */
+.bridges { display: grid; gap: 8px; margin-top: 4px; }
+.bridges > div { display: grid; gap: 6px; }
+.bridges small { font-weight: 700; color: var(--color-upwind-ink-2); }
+.bridge-words { display: flex; flex-wrap: wrap; gap: 6px; }
+.bridge-words .chip.small { text-decoration: none; min-height: 38px; display: inline-flex; align-items: center; gap: 4px; }
+
+/* typed review */
+.review-card.typed { align-items: stretch; text-align: left; }
+.review-card.typed .meaning-line { font-size: 1.3rem; }
+.grade.suggested { box-shadow: 0 0 0 4px oklch(0.86 0.075 228); }
