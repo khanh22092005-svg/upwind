@@ -325,16 +325,23 @@ h1, h2, h3 { font-family: var(--font-serif); color: var(--color-upwind-ink); lin
 .list-toggle summary::before { content: "▸ "; }
 .list-toggle[open] summary::before { content: "▾ "; }
 
-/* one root as a small tree */
-.branch { display: block; width: 100%; max-width: 420px; height: auto; margin: 2px auto 0; overflow: visible; }
-.br-trunk { fill: none; stroke: var(--wood); stroke-width: 9; stroke-linecap: round; }
-.br-twig { fill: none; stroke: var(--wood); stroke-width: 3; stroke-linecap: round; opacity: 0.85; }
-.br-tip { fill: var(--wood); }
-.br-bud { fill: var(--fruit); animation: bud 1.2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
-@keyframes bud { 50% { transform: scale(1.35); } }
-.br-leaf { fill: var(--leaf-learned); stroke: oklch(0.55 0.12 150); stroke-width: 1; }
-.br-label { font: 700 10.5px var(--font-sans); fill: var(--color-upwind-ink-2); }
-.br-root { font: 800 12px var(--font-sans); fill: var(--root); }
+/* one root as a tree diagram */
+.branch { display: block; width: 100%; max-width: 420px; height: auto; margin: 4px auto 6px; overflow: visible; }
+.br-link { fill: none; stroke: oklch(0.88 0.02 240); stroke-width: 2; stroke-linecap: round; transition: stroke 300ms; }
+.br-link.now { stroke: var(--fruit); stroke-width: 2.5; }
+.br-link.leaf { stroke: var(--leaf-learned); stroke-width: 2.5; }
+.br-rootnode rect { fill: var(--root); }
+.br-root-t { font: 800 17px var(--font-sans); fill: #fff; letter-spacing: 0.02em; }
+.br-root-core { font: 600 10.5px var(--font-sans); fill: oklch(1 0 0 / 0.82); }
+.br-node rect { fill: #fff; stroke: oklch(0.88 0.02 240); stroke-width: 1.5; transition: fill 300ms, stroke 300ms; }
+.br-node.bare rect { fill: oklch(0.975 0.005 240); stroke-dasharray: 3 3; }
+.br-node.now rect { stroke: var(--fruit); stroke-width: 2; animation: brnow 1.4s ease-in-out infinite; }
+@keyframes brnow { 50% { stroke-width: 3.5; } }
+.br-node.leaf rect { fill: oklch(0.95 0.05 150); stroke: var(--leaf-learned); }
+.br-word { font: 800 12px var(--font-sans); fill: var(--color-upwind-ink); }
+.br-node.now .br-word { fill: var(--fruit); }
+.br-node.leaf .br-word { fill: oklch(0.42 0.1 152); }
+.br-dots { font: 800 9px var(--font-sans); fill: oklch(0.78 0.02 240); letter-spacing: 0.1em; }
 
 /* cut the word */
 .cut { text-align: center; }
