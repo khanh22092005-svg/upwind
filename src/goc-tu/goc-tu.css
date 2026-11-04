@@ -170,6 +170,9 @@ h1, h2, h3 { font-family: var(--font-serif); color: var(--color-upwind-ink); lin
 .gloss .plus { color: var(--color-upwind-ink-2); font-weight: 800; }
 .guess .story, .guess .meaning { display: grid; gap: 2px; padding: 14px 16px; border-radius: 16px; margin-top: 12px; }
 .guess .story { background: var(--color-upwind-primary-light); }
+.tale-text { margin: 2px 0 0; font-size: 1.02rem; line-height: 1.6; text-wrap: pretty; }
+.tale-text b { font-weight: 700; color: var(--color-upwind-primary); }
+.tale-word { font-style: normal; font-weight: 800; color: var(--color-upwind-accent); }
 .guess .meaning { background: var(--color-upwind-yellow); font-size: 1.25rem; font-weight: 800; }
 
 .word-card { border: 2px solid var(--color-upwind-border); border-radius: 24px; padding: 18px; display: grid; gap: 8px; }

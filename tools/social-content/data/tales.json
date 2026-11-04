@@ -1,0 +1,334 @@
+{
+  "voc": {
+    "evoke": "Dọn nhà, chị Lan tìm thấy cuốn băng cát-xét cũ. Vừa bấm play, bài hát năm lớp 9 vang lên, và cả một chiều mưa, mùi phấn, tiếng cười lũ bạn bỗng bị **gọi ra** khỏi góc sâu trong trí nhớ. Bài hát đã {{evoke}} những ký ức ấy.",
+    "invoke": "Chủ nhà đòi tăng giá giữa chừng, anh Quân không cãi. Anh lật đúng điều 5 của hợp đồng, **gọi** nó **hướng về** phía mình như gọi một người bảo vệ: \"Hợp đồng ghi rõ giá cố định hai năm.\" Anh đã {{invoke}} điều khoản đó.",
+    "provoke": "Đang yên đang lành, thằng Tùng **bước ra trước** mặt đội bạn rồi **gọi** to: \"Đá thế mà cũng đòi thắng à?\" Cả đội bạn đỏ mặt lao vào cãi nhau. Câu nói của Tùng đã {{provoke}} một trận ồn ào.",
+    "revoke": "Ông Sáu lái xe sau khi uống rượu, tông vào cột điện. Tuần sau, công an **gọi** tấm bằng lái của ông **trở lại**, coi như nó chưa từng được cấp. Bằng lái của ông đã bị {{revoke}}.",
+    "advocate": "Ở buổi họp phụ huynh, ai cũng muốn cắt giờ thể dục để học thêm Toán. Chỉ có cô Hạnh đứng dậy, **lên tiếng hướng về** phía bọn trẻ: \"Các con cần được chạy nhảy.\" Từ đó cô là người {{advocate}} cho giờ ra chơi của cả trường.",
+    "vocal": "Thầy hỏi có ai phản đối lịch thi không, cả lớp im re. Chỉ có Vy giơ tay, cất **giọng** nói rõ ràng từng ý. Lần nào cũng thế, Vy là người {{vocal}} nhất lớp.",
+    "equivocal": "Nam hỏi sếp: \"Em có được tăng lương không ạ?\" Sếp đáp: \"Để xem tình hình đã.\" Hai cách hiểu **nặng ngang nhau**, có cũng được mà không cũng được. Câu trả lời ấy thật {{equivocal}}.",
+    "vocation": "Học kế toán, làm ngân hàng ba năm, Thảo vẫn thấy như có tiếng gì **gọi** mình về bản làng dạy chữ. Cô bỏ việc, lên Hà Giang đứng lớp. Với Thảo, dạy học là {{vocation}}."
+  },
+  "dict": {
+    "predict": "Trận chung kết còn chưa đá, bà nội đã **nói trước**: \"Việt Nam thắng 2–1, bàn quyết định ở phút cuối.\" Cả nhà cười. Đến phút 90, đúng 2–1. Từ đó ai cũng nhờ bà {{predict}} tỉ số.",
+    "contradict": "Sáng nay Tùng bảo mẹ: \"Con làm bài tập xong rồi.\" Tối đến, cô giáo nhắn: \"Tùng chưa nộp bài.\" Lời cô **nói ngược lại** lời Tùng. Hai lời ấy {{contradict}} nhau.",
+    "dictate": "Bà nội không biết chữ, nên mỗi lần viết thư cho chú ở xa, bà **nói** từng câu để Minh chép lại đúng từng chữ. Lời bà nói ra là Minh phải theo. Bà đang {{dictate}}.",
+    "verdict": "Phòng xử im phăng phắc. Sau hai ngày bàn bạc, đại diện bồi thẩm đoàn đứng dậy, **nói** ra điều họ tin là **sự thật**: \"Có tội.\" Một câu thôi mà khép lại cả vụ án. Đó là {{verdict}}.",
+    "indicate": "Đi rừng bị lạc, cả nhóm cuống lên. Anh hướng dẫn viên bình tĩnh **chỉ** tay **vào** lớp rêu trên thân cây: \"Rêu mọc phía này, mình đi hướng ngược lại.\" Lớp rêu đã {{indicate}} đường ra.",
+    "addict": "Ban đầu Huy chỉ chơi game \"một ván thôi\". Rồi một ván thành mười, thức tới 3 giờ sáng, bỏ cả bữa, như thể Huy đã bị **tuyên bố** thuộc **về** cái máy. Huy thành một {{addict}}.",
+    "jurisdiction": "Xe máy bị trộm ở quận 1 nhưng tìm thấy ở Bình Dương. Công an Bình Dương lắc đầu: \"Lời **nói** về **luật** của chúng tôi chỉ có hiệu lực ở tỉnh này.\" Vụ án thuộc {{jurisdiction}} của quận 1."
+  },
+  "log": {
+    "logic": "Mất chìa khoá, Linh không lục tung cả nhà. Cô **lý luận**: tối qua về mở cửa thì còn, rồi vào bếp, rồi đi tắm… Lần theo từng bước, chìa khoá nằm trong túi áo khoác. Đó là {{logic}}.",
+    "biology": "Bé Na ngồi hàng giờ nhìn con sâu hoá bướm, hỏi mẹ đủ thứ: sao nó ăn lá, sao nó ngủ trong kén. Mẹ cười: \"Lớn lên con học **môn** về **sự sống** nhé.\" Môn đó là {{biology}}.",
+    "psychology": "Chị Mai thắc mắc vì sao cứ tối Chủ nhật là mình buồn vô cớ. Chị đọc sách về **tâm trí** con người và hiểu ra nỗi sợ ngày thứ Hai. **Môn học** ấy là {{psychology}}.",
+    "apology": "Lỡ quên sinh nhật bạn thân, Khoa đến tận nhà với hộp bánh và một câu: \"Tao xin lỗi, tao sai rồi.\" Câu **nói** ấy giúp Khoa **gỡ** mình **khỏi** lỗi lầm. Đó là một lời {{apology}}.",
+    "dialogue": "Hai nhà hàng xóm cãi nhau vì cây xoài chìa sang tường. Tổ trưởng mời cả hai ra quán nước, để lời **nói** đi **qua lại** cho đến khi ai cũng hiểu ý nhau. Một cuộc {{dialogue}} xong được chuyện mà năm trận cãi nhau không xong.",
+    "ecology": "Ông Tư phun thuốc diệt sâu, tưởng cứu được ruộng. Ai ngờ chim bỏ đi, ếch cũng hết, năm sau sâu còn nhiều hơn. Cánh đồng là **ngôi nhà** chung, động một chỗ là cả nhà rung. **Môn học** về ngôi nhà ấy là {{ecology}}.",
+    "technology": "Ngày xưa ông nội Phong dùng **tay nghề** mài từng cái đục mất cả buổi. Giờ Phong bấm nút, máy in 3D làm ra cái đục y hệt. Hiểu biết về **kỹ thuật** làm ra đồ vật, đó là {{technology}}."
+  },
+  "aud": {
+    "audience": "Tối thứ Bảy, sân khấu nhỏ ở phố đi bộ chật kín. Khi cô ca sĩ cất giọng, hàng trăm người im lặng, chỉ **nghe**. Những người ấy là {{audience}}.",
+    "audible": "Ông Sáu lãng tai, cả nhà nói gì ông cũng hỏi lại. Đến khi cháu nội ghé sát tai nói chậm từng chữ, ông mới **nghe được**: \"Ông ơi, ăn cơm.\" Phải nói đủ to thì lời mới {{audible}} với ông.",
+    "audition": "Trang đứng giữa sân khấu, tay run run. Ba vị giám khảo ngồi im, chỉ **nghe** Trang hát đúng một phút, rồi gật đầu. Trang đã qua buổi {{audition}}.",
+    "auditorium": "Lễ khai giảng, cả nghìn sinh viên kéo vào một gian phòng khổng lồ, ghế xếp tầng tầng, xây ra làm **nơi** cho **người** ta đến **nghe**. Nơi đó là {{auditorium}}.",
+    "audit": "Cuối năm, công ty bà Hoa mời người ngoài đến kiểm tra sổ sách. Kế toán đọc to từng khoản, còn người kiểm tra ngồi **nghe**, khoản nào lạ là hỏi ngay. Việc ấy là {{audit}}.",
+    "auditory": "Thuỳ nhìn từ mới mãi mà không nhớ, nhưng nghe podcast trên xe buýt thì nhớ ngay. Trí nhớ của Thuỳ đi qua đường **nghe**. Thuỳ học tốt nhất qua kênh {{auditory}}."
+  },
+  "spect": {
+    "inspect": "Trước khi mua chiếc xe máy cũ, anh Long lật yên, soi đèn pin **vào trong** từng khe máy, **nhìn** kỹ xem có rỉ sét không. Người bán sốt ruột, nhưng anh vẫn {{inspect}} đến con ốc cuối cùng.",
+    "respect": "Sáng nào Minh cũng đi ngang qua bác lao công quét đường từ 4 giờ. Hôm ấy cậu bỗng dừng xe, **quay lại nhìn** bác thêm một lần, rồi lần đầu tiên cúi đầu chào. Có những người khiến ta phải nhìn lại, đó là {{respect}}.",
+    "suspect": "Bánh kem trong tủ lạnh biến mất. Mẹ không nói gì, chỉ **nhìn từ dưới lên** cái mép dính kem của thằng Bin, ánh mắt dò xét. Bin chính là {{suspect}}.",
+    "prospect": "Đứng trên mảnh đất trống cạnh trường đại học mới xây, chị Yến **nhìn về phía trước**: vài năm nữa sinh viên đông, mở quán cà phê ở đây sẽ đắt khách. Chị thấy {{prospect}} rất sáng.",
+    "retrospect": "Hồi lớp 12, Đức ghét cô chủ nhiệm vì cô bắt ôn bài đến tối. Mười năm sau, **quay đầu nhìn lại**, Đức mới hiểu cô đã cứu điểm thi của cả lớp. Cái nhìn ngoảnh lại ấy là {{retrospect}}.",
+    "perspective": "Bố và Ngọc cãi nhau về chiếc quần jean rách gối. Bố **nhìn** thấy một cái quần hỏng, Ngọc nhìn thấy thời trang. Mỗi người nhìn **xuyên qua** khung cửa của riêng mình, mỗi người một {{perspective}}.",
+    "spectator": "Trận chung kết, sân Mỹ Đình kín bốn mươi nghìn người. Họ không chạm vào bóng, chỉ ngồi trên khán đài mà **nhìn** và hò hét. Mỗi **người** trong đó là một {{spectator}}.",
+    "conspicuous": "Cả trường mặc áo trắng, riêng Tâm mặc áo đỏ rực vì quên. Thầy hiệu trưởng vừa bước ra, **tất cả** mọi người **cùng nhìn** về phía Tâm. Chiếc áo đỏ quá {{conspicuous}}."
+  },
+  "vid": {
+    "evidence": "Ai cũng bảo con mèo làm vỡ bình hoa. Nhưng camera phòng khách cho **thấy** rõ: chính bố lùi xe đẩy vào kệ. Sự thật lộ **ra ngoài** cho cả nhà cùng xem. Đoạn video là {{evidence}}.",
+    "visible": "Sương mù dày đặc trên đèo Hải Vân, xe phải bò chậm. Đến khúc cua, sương tan, cả vịnh biển bỗng hiện ra, **có thể thấy** đến tận chân trời. Cảnh vật lại {{visible}}.",
+    "revise": "Tối trước hôm thi, Hà mở vở, **nhìn lại** từng trang, gạch chân chỗ đã quên. Rồi cô đọc lại bài luận thêm một lần và sửa ba lỗi ngữ pháp. Hà đang {{revise}}.",
+    "supervise": "Ở xưởng may, chị tổ trưởng đứng trên bục cao, **ở trên nhìn** xuống cả dãy máy. Ai may lệch đường chỉ là chị thấy ngay. Việc của chị là {{supervise}}.",
+    "provide": "Biết đoàn khách leo núi về sẽ mệt, bác chủ homestay đã **thấy trước** điều đó. Tối về, nồi cháo nóng và chậu nước gừng ngâm chân đã chờ sẵn. Bác luôn {{provide}} đủ mọi thứ khách cần.",
+    "vision": "Mười năm trước, khi cả xóm còn trồng lúa, anh Bảo đã **thấy** trước một vườn sầu riêng xuất khẩu. Ai cũng cười. Giờ cả xã làm theo anh. Anh có {{vision}}."
+  },
+  "scrib": {
+    "describe": "Lạc mất con chó, bé An ngồi **viết xuống** giấy mọi thứ em nhớ: lông vàng, tai cụp, cổ đeo chuông. Nhờ tờ giấy ấy mà hàng xóm nhận ra nó. Bé An đã {{describe}} con chó thật kỹ.",
+    "prescribe": "Khám xong, bác sĩ **viết trước** lên tờ giấy: \"Ngày uống 2 viên, sau ăn, đủ 7 ngày.\" Bà Tư cứ thế làm theo. Bác sĩ đã {{prescribe}} thuốc cho bà.",
+    "subscribe": "Mê một tờ tạp chí, Vy ra bưu điện điền phiếu rồi **ký** tên ở **phía dưới**. Từ đó, mỗi tuần báo tự về tận nhà. Vy đã {{subscribe}} cả năm.",
+    "manuscript": "Trong ngăn kéo của ông ngoại có một xấp giấy ố vàng: cuốn tiểu thuyết ông **viết** bằng **tay** suốt hai mươi năm, chưa từng in. Mẹ đem đi đánh máy để xuất bản. Đó là bản {{manuscript}} quý nhất nhà.",
+    "transcript": "Buổi phỏng vấn kéo dài hai tiếng. Về nhà, Duy nghe lại băng ghi âm rồi **viết** chép lời **sang** giấy, từng câu một. Bản chép ấy là {{transcript}}.",
+    "inscription": "Ở chùa làng có một tấm bia đá. Người xưa đã **khắc chữ lên** mặt đá tên những người góp tiền xây chùa từ ba trăm năm trước. Dòng chữ ấy là {{inscription}}."
+  },
+  "graph": {
+    "photograph": "Ông Hiếu ngồi vẽ hoàng hôn trên sông Hương mất ba buổi chiều. Cháu ông giơ điện thoại lên, để **ánh sáng** tự **vẽ** lại cảnh ấy trong một giây. Kết quả là một tấm {{photograph}}.",
+    "biography": "Cụ Châu sống trăm tuổi, đi qua bao thăng trầm. Cháu nội ngồi nghe cụ kể rồi **viết** lại cả **cuộc đời** cụ thành một cuốn sách nhỏ. Cuốn sách ấy là {{biography}}.",
+    "geography": "Bé Na trải tấm bản đồ ra sàn, lấy bút đánh dấu: đây là núi, đây là sông, đây là biển. Em đang **vẽ** và **mô tả** bề mặt **trái đất**. Em đang học {{geography}}.",
+    "demographic": "Trước khi mở quán trà sữa, chị Linh đứng đầu ngõ cả tuần, **ghi lại**: bao nhiêu học sinh, bao nhiêu người già, bao nhiêu dân văn phòng đi qua. Những con số về **dân chúng** ấy là số liệu {{demographic}}.",
+    "graphic": "Bộ phim về tai nạn giao thông chiếu những cảnh rõ đến từng chi tiết, như được **vẽ** ra từng nét. Nhiều học sinh phải nhắm mắt lại. Những cảnh đó quá {{graphic}}.",
+    "programme": "Trước đêm văn nghệ, lớp trưởng **viết** sẵn **trước** lên tấm bảng to: 7 giờ múa, 7 giờ 15 hát, 7 giờ 30 kịch. Ai đến cũng biết tối nay có gì. Tấm bảng ấy là {{programme}}."
+  },
+  "sens": {
+    "sensitive": "Da bé Bông hễ chạm vào len là đỏ ửng, ra nắng một chút là rát. Da em **cảm nhận** mọi thứ rất nhanh, rất mạnh. Da em rất {{sensitive}}.",
+    "sensible": "Bạn rủ đi phượt Hà Giang đúng hôm có bão, Khoa từ chối và hẹn tuần sau. Khoa luôn **cảm nhận** được điều gì là đúng đắn. Khoa là người {{sensible}}.",
+    "consent": "Trước khi đăng ảnh con lên mạng, chị Hà hỏi chồng. Anh xem rồi gật đầu: hai người **cùng cảm nhận** là ảnh đẹp. Có sự {{consent}} của cả hai, ảnh mới được đăng.",
+    "resent": "Năm lớp 3, Tâm bị phạt oan trước cả lớp. Hai mươi năm sau, mỗi lần nhắc lại, Tâm vẫn **cảm** thấy cơn tức ấy **lại** dâng lên như mới hôm qua. Tâm vẫn {{resent}} chuyện đó.",
+    "sentiment": "Sau trận thua 0–5, khắp các quán cà phê ai cũng nói một ý: phải thay huấn luyện viên. Đó là điều cả nước cùng **cảm thấy**. Đó là {{sentiment}} chung.",
+    "sensation": "Cô bé 12 tuổi hát opera trên sân khấu tài năng, ai xem cũng **cảm thấy** nổi da gà. Chỉ một đêm, clip đạt mười triệu lượt xem, cả nước bàn tán. Cô bé đã tạo ra một {{sensation}}."
+  },
+  "path": {
+    "sympathy": "Nghe tin nhà Lan bị cháy, cả xóm kéo đến, người mang gạo, người mang chăn. Ai cũng thấy lòng mình đau **cùng** một **cảm xúc** với Lan. Đó là {{sympathy}}.",
+    "empathy": "Thấy cậu học trò mới cứ cúi gằm, thầy Quân nhớ lại hồi mình cũng bị trêu vì giọng quê. Thầy như **bước vào trong cảm xúc** của cậu bé và biết nó cần gì. Đó là {{empathy}}.",
+    "apathy": "Cả lớp bàn sôi nổi về chuyến dã ngoại, chỉ có Hưng ngồi lướt điện thoại: \"Đi đâu cũng được.\" **Không** một chút **cảm xúc** nào. Đó là sự {{apathy}}.",
+    "pathetic": "Đội bóng của Phong bị dẫn 0–7, thủ môn còn đá phản lưới nhà. Khán giả vừa thấy **đau** lòng vừa ngán ngẩm. Màn trình diễn thật {{pathetic}}.",
+    "antipathy": "Từ ngày bị con ngỗng nhà hàng xóm rượt cắn hồi nhỏ, Yến thấy ghét mọi con ngỗng, một **cảm xúc chống lại** chẳng cần lý do. Yến có {{antipathy}} với ngỗng.",
+    "pathogen": "Bác sĩ soi mẫu nước giếng làng dưới kính hiển vi. Trong đó lúc nhúc một loại vi khuẩn, chính thứ đã **sinh ra bệnh** tiêu chảy cho cả xóm. Nó là một {{pathogen}}."
+  },
+  "port": {
+    "import": "Tết nào chợ cũng đầy táo Mỹ, nho Úc. Người ta **mang** chúng từ bên kia đại dương **vào** trong nước. Đó là hàng {{import}}.",
+    "export": "Thanh long ở vườn chú Ba được đóng thùng, chở ra cảng rồi **mang ra** khỏi đất nước, sang tận châu Âu. Chú {{export}} thanh long.",
+    "transport": "Mỗi sáng, chú Ba chở đầy xe dưa hấu từ Long An, **mang** chúng **băng qua** ba cây cầu để kịp chợ đầu mối lúc trời còn tối. Không có chú, sạp trái cây cả chợ trống trơn. Chú làm nghề {{transport}}.",
+    "support": "Mùa lũ, căn nhà sàn của bà Mai nghiêng hẳn. Cả xóm chặt tre chống **từ bên dưới**, cùng nhau **gánh** đỡ cho nhà khỏi sập. Hàng xóm đã {{support}} bà qua mùa lũ.",
+    "portable": "Anh Đạt có cái loa nhỏ bằng bàn tay. Lên núi, ra biển, vào quán, đâu anh cũng **mang** theo **được**. Cái loa rất {{portable}}.",
+    "deport": "Một du khách bị phát hiện làm việc chui bằng visa du lịch. Tuần sau, anh bị đưa lên máy bay, **mang rời khỏi** đất nước và cấm quay lại năm năm. Anh đã bị {{deport}}.",
+    "portfolio": "Đi phỏng vấn vị trí thiết kế, Thảo **mang** theo một tập bìa cứng đựng những **tờ** bản vẽ đẹp nhất của mình. Nhà tuyển dụng lật vài trang là gật đầu. Tập ấy là {{portfolio}} của Thảo."
+  },
+  "fer": {
+    "transfer": "Hết tiền giữa tháng, Minh nhắn tin cho mẹ. Năm phút sau, tiền được **mang** từ tài khoản của mẹ **sang** tài khoản của Minh. Mẹ vừa {{transfer}} tiền.",
+    "refer": "Đang thuyết trình, Huy dừng lại, **mang** câu nói của thầy hiệu trưởng hôm khai giảng **trở lại**: \"Như thầy đã nói…\" Huy đang {{refer}} tới lời thầy.",
+    "infer": "Chị Hoa về nhà, thấy dép con vứt lung tung, cặp sách còn nguyên, tivi nóng ran. Chị **mang** từng dữ kiện **vào trong** đầu rồi đoán: thằng bé xem tivi cả chiều. Chị đã {{infer}} ra sự thật.",
+    "differ": "Hai chị em sinh đôi giống nhau như đúc. Nhưng một đứa mê bóng đá, một đứa mê vẽ, như bị **mang** về hai phía **tách rời**. Sở thích của hai đứa {{differ}} hoàn toàn.",
+    "offer": "Thấy bà cụ đứng chênh vênh trên xe buýt, Nam đứng dậy, **mang** chỗ ngồi của mình **đến** trước mặt bà: \"Bà ngồi đi ạ.\" Nam đã {{offer}} chỗ ngồi.",
+    "fertile": "Sau mỗi mùa nước nổi, sông để lại một lớp phù sa dày. Năm sau, ruộng nhà ông Tư **mang** về những bông lúa trĩu hạt. Đất ở đây rất {{fertile}}."
+  },
+  "mit": {
+    "submit": "11 giờ 59 đêm, Linh run tay bấm nút **gửi** bài luận lên hệ thống, từ chỗ **bên dưới** chờ thầy ở trên chấm. Chậm một phút là mất điểm. Linh đã {{submit}} kịp.",
+    "admit": "Mẹ hỏi ai làm vỡ bình hoa, Bin im lặng mãi. Cuối cùng em mở miệng, **thả cho** sự thật **đi** ra: \"Con ạ.\" Bin đã {{admit}}.",
+    "permit": "Đến trạm vào khu bảo tồn, kiểm lâm xem giấy tờ của đoàn rồi mở barie, **thả cho đi xuyên qua** cổng. Tờ giấy cho phép ấy là {{permit}}.",
+    "omit": "Chép công thức nấu phở của bà, Ngọc **bỏ qua** dòng \"thêm quế và hồi\", để nó **rơi** mất. Nồi phở nhạt thếch. Ngọc đã {{omit}} một chi tiết quan trọng.",
+    "emit": "Mỗi sáng, ống khói nhà máy cuối làng **gửi** từng cột khói đen **ra ngoài** trời. Cả xóm phải đóng cửa sổ. Nhà máy {{emit}} quá nhiều khói.",
+    "transmit": "Thằng Tí bị cúm vẫn đi học. Nó ho một trận, virus **băng qua** cả lớp, như được **gửi** từ bàn này sang bàn khác. Tuần sau nửa lớp nghỉ ốm. Cúm {{transmit}} rất nhanh.",
+    "intermittent": "Wifi ở quán cà phê chập chờn: có mạng mười giây, mất năm giây, rồi lại có. Những khoảng trống bị **thả** vào **giữa** làm cuộc gọi của Duy đứt quãng. Sóng kiểu ấy là sóng {{intermittent}}.",
+    "mission": "Sếp **gửi** anh Phong ra Hà Nội với đúng một việc: ký bằng được hợp đồng trước thứ Sáu. Anh mang theo việc ấy như một {{mission}}."
+  },
+  "ject": {
+    "reject": "Chị gái mai mối cho Khoa một cô gái, dúi số điện thoại vào tay. Khoa lắc đầu, **ném** tờ giấy **trả lại**. Khoa đã {{reject}}.",
+    "inject": "Bé Na khóc thét khi cô y tá cầm kim. Một giây thôi, thuốc đã được \"**ném**\" **vào** trong cánh tay bé. Cô vừa {{inject}} vắc xin.",
+    "project": "Đêm Trung thu, Huy dựng máy chiếu, **ném** hình chú Cuội **ra phía trước**, lên bức tường trắng. Cả xóm xúm lại xem. Rồi Huy ném ra một kế hoạch lớn hơn: tháng nào cũng chiếu phim cho cả phường. Đó là {{project}} đầu tiên của Huy.",
+    "object": "Họp tổ dân phố, ông tổ trưởng đề xuất chặt hàng cây sấu. Bà Tư đứng phắt dậy, **ném** lời nói **chắn ngang**: \"Tôi không đồng ý!\" Bà {{object}} kịch liệt.",
+    "eject": "Chiếc máy bay chiến đấu gặp sự cố. Phi công kéo cần, ghế ngồi **ném** anh vọt **ra ngoài** buồng lái, dù bung giữa trời. Anh đã {{eject}} an toàn.",
+    "subject": "Đầu năm học, Ngọc nhận một chồng sách mười ba môn, như bị **ném** xuống **bên dưới** một núi bài vở, không được chọn môn nào. Mỗi môn trong chồng ấy là một {{subject}}.",
+    "trajectory": "Quả bóng rời chân tiền đạo số 10, **bay băng qua** hàng thủ theo một đường cong hoàn hảo rồi rơi đúng góc khung thành. Cả sân nín thở dõi theo đường bay ấy. Đó là {{trajectory}} của quả bóng."
+  },
+  "pel": {
+    "compel": "Lũ cuốn trôi cầu, nước dâng tới gối. Cơn lũ **đẩy** cả làng **mạnh** đến mức ai cũng phải bỏ nhà lên trường học trú. Thiên tai đã {{compel}} họ rời đi.",
+    "expel": "Bị bắt quả tang lần thứ ba mang dao vào lớp, Tuấn bị nhà trường **đẩy ra** khỏi cổng trường mãi mãi. Tuấn bị {{expel}}.",
+    "propel": "Chiếc thuyền buồm nằm im giữa vịnh. Bỗng một cơn gió lớn ập tới, **đẩy** nó lao **về phía trước**. Gió đã {{propel}} con thuyền.",
+    "repel": "Tối nào ra vườn chị Hà cũng bị muỗi đốt. Chị thoa tinh dầu sả, và đàn muỗi bay đến gần lại bị **đẩy lùi lại**. Tinh dầu sả {{repel}} muỗi.",
+    "impulse": "Vào siêu thị chỉ định mua bột giặt, Vy thấy đôi giày giảm 50% và một **cú đẩy** từ **bên trong** bảo: mua ngay. Về nhà mới thấy hối hận. Đó là một lần mua theo {{impulse}}.",
+    "compulsory": "Ở trường của Bảo, môn bơi không có quyền chọn: thứ Năm nào cả lớp cũng bị **đẩy** xuống hồ, **cùng** nhau học. Môn bơi là môn {{compulsory}}."
+  },
+  "tract": {
+    "attract": "Lò bánh mì của cô Hạnh vừa mở nắp, mùi bơ thơm **kéo** khách **về phía** quầy như nam châm. Hàng người dài cả chục mét. Mùi bánh {{attract}} khách.",
+    "distract": "Đang làm bài tập, Minh nghe tiếng \"ting\" từ điện thoại. Một tin nhắn **kéo** sự chú ý của cậu **ra xa** bài toán, mất toi nửa tiếng. Điện thoại đã {{distract}} Minh.",
+    "extract": "Bà nội đun sả trong nồi kín, để hơi nước **kéo** tinh dầu **ra ngoài** từ bên trong từng cọng sả. Cả nhà thơm phức. Bà đã {{extract}} tinh dầu sả.",
+    "contract": "Anh Quân muốn thuê nhà, chủ nhà muốn cho thuê. Hai bên **cùng kéo** về một điểm chung: năm triệu một tháng, thuê hai năm, rồi ký tên. Tờ giấy ấy là {{contract}}.",
+    "subtract": "Lương tháng mười triệu, Linh **kéo bớt xuống**: ba triệu tiền nhà, hai triệu ăn uống, một triệu đi lại. Còn lại bốn triệu. Linh đang {{subtract}}.",
+    "retract": "Lỡ đăng bài nói xấu đồng nghiệp lên mạng, hôm sau chị Mai xoá bài, viết lời đính chính, cố **kéo** lời đã nói **trở lại**. Chị đã {{retract}} phát ngôn.",
+    "traction": "Xe máy của Tùng sa vào bùn, bánh quay tít mà không nhích. Anh lót mấy bao tải dưới bánh, bánh bám được, **kéo** cả xe lên. Bao tải đã cho bánh xe {{traction}}."
+  },
+  "duc": {
+    "reduce": "Bác sĩ dặn ông Sáu bớt ăn mặn. Mỗi tuần ông **dẫn** lượng muối **lùi lại** một chút, từ hai thìa còn một thìa. Huyết áp ông ổn hẳn. Ông đã {{reduce}} lượng muối.",
+    "produce": "Mỗi sáng, bà Tư **dẫn** những hạt đậu nành đi một chặng dài: ngâm, xay, nấu, rồi mang **ra phía trước** quầy chợ những bìa đậu phụ trắng mịn. Mỗi ngày bà {{produce}} ba trăm bìa đậu.",
+    "introduce": "Ngày đầu Ngọc đi làm, anh trưởng phòng **dẫn** cô **vào trong** văn phòng, đi qua từng bàn: \"Đây là Ngọc, đồng nghiệp mới của chúng ta.\" Anh đang {{introduce}} Ngọc.",
+    "educate": "Cậu bé chăn trâu chưa biết chữ. Thầy Đức ngày ngày **dẫn** cậu **ra khỏi** sự không biết, từ chữ a đến bài văn đầu tiên. Thầy đã {{educate}} cậu.",
+    "induce": "Đi ngang tiệm trà sữa, Vy định đi thẳng. Nhưng tấm biển \"Mua 1 tặng 1\" **dẫn** cô **vào** trong. Tấm biển đã {{induce}} Vy mua.",
+    "deduce": "Thám tử nhìn đôi giày dính bùn đỏ, bàn tay chai sạn, làn da rám nắng. **Từ** những dữ kiện ấy, anh **dẫn xuống** một kết luận: người này vừa từ vườn cà phê ở Tây Nguyên về. Anh đã {{deduce}} ra điều đó.",
+    "conduct": "Cô Thuỷ đứng trước dàn hợp xướng bốn mươi em, giơ tay lên. Mọi giọng hát **cùng nhau** đi theo cái **dẫn** dắt của đôi tay cô. Cô đang {{conduct}} dàn hợp xướng."
+  },
+  "mot": {
+    "motivate": "Thấy con trai lười chạy bộ, anh Bảo hứa: chạy đủ một trăm cây số thì cả nhà đi Đà Lạt. Thế là sáng nào thằng bé cũng dậy sớm, bắt đầu **chuyển động**. Chuyến đi đã {{motivate}} nó.",
+    "promote": "Sau ba năm làm việc chăm chỉ, chị Hạnh được sếp **đưa lên phía trước**, ngồi vào ghế trưởng phòng. Chị vừa được {{promote}}.",
+    "remote": "Bản của cô giáo Thảo nằm tít trên núi, cách thị trấn bốn mươi cây số đường đèo, như bị **dời ra thật xa** mọi thứ. Đó là một bản rất {{remote}}.",
+    "emotion": "Nhận giấy báo đỗ đại học của con, mẹ Hùng đọc đi đọc lại rồi bật khóc. Có điều gì **chuyển động** trong lòng bà, trào **ra ngoài** thành nước mắt. Đó là {{emotion}}.",
+    "mobile": "Xe cà phê của anh Long có bánh: sáng đậu cổng trường, trưa ra công viên, tối về phố đi bộ. Quán **có thể chuyển động** khắp nơi. Đó là quán cà phê {{mobile}}.",
+    "motive": "Thám tử hỏi: \"Ai có lý do lấy trộm bức tranh?\" Người cháu đang nợ nần chồng chất. Món nợ là thứ có thể khiến anh ta **chuyển động**, ra tay. Đó là {{motive}}."
+  },
+  "ced": {
+    "precede": "Trong đám cưới quê, ông trưởng họ luôn **đi trước** một bước, cả đoàn nhà trai theo sau. Lúc nào ông cũng {{precede}} cả đoàn.",
+    "proceed": "Đến ngã tư, đèn xanh bật lên. Anh cảnh sát giơ tay ra hiệu: cứ **đi** tiếp **về phía trước**. Đoàn xe {{proceed}} qua ngã tư.",
+    "exceed": "Đường cao tốc giới hạn 100 km/h, nhưng Tùng cứ nhấn ga, **đi ra ngoài** giới hạn lên tới 130. Camera chụp lại ngay. Tùng đã {{exceed}} tốc độ cho phép.",
+    "recede": "Sau ba ngày lũ, nước bắt đầu **đi lùi lại**, để lộ dần mái nhà, rồi hàng rào, rồi con đường. Nước lũ đang {{recede}}.",
+    "concede": "Ván cờ tướng kéo dài cả tiếng. Thấy hết đường chạy, ông Tư đặt quân xuống, cười: \"Thôi, tôi thua.\" Ông **nhường hẳn** một bước. Ông đã {{concede}}.",
+    "access": "Làng của Mai nằm bên kia sông, mùa mưa không có đường **đi tới** trường. Năm ngoái, người ta xây một cây cầu. Giờ bọn trẻ có lối {{access}} tới trường quanh năm."
+  },
+  "cur": {
+    "current": "Bé An thả chiếc lá xuống suối, thấy nó bị nước cuốn đi vèo vèo. Dòng nước **đang chạy** ngay lúc này, không bao giờ đứng yên. Đó là {{current}}.",
+    "currency": "Tờ năm trăm nghìn mẹ trả tiền chợ sẽ **chạy** sang tay cô bán cá, rồi sang tay người buôn, rồi vào ngân hàng. Tiền cứ chạy từ tay người này sang tay người khác. Đó là {{currency}}.",
+    "occur": "Đang đi xe buýt, một ý tưởng bỗng **chạy tới** gặp Linh: mở tiệm bánh online! Chẳng cần tìm, ý tưởng tự {{occur}} với cô.",
+    "recur": "Cứ đến mùa nồm, bệnh hen của ông nội lại **chạy** về **lại**, năm nào cũng vậy. Căn bệnh {{recur}} mỗi năm.",
+    "excursion": "Thứ Bảy, cả lớp **chạy ra ngoài** thành phố, đi một ngày lên Ba Vì rồi tối về. Chuyến đi ngắn ấy là một {{excursion}}.",
+    "curriculum": "Từ lớp 1 đến lớp 12, mỗi năm có sẵn một chặng: cộng trừ, rồi phân số, rồi đạo hàm. Học sinh phải **chạy** hết đường đua ấy. Đường đua đó là {{curriculum}}."
+  },
+  "gress": {
+    "progress": "Tháng đầu, Hà chỉ nói được \"Hello\". Tháng thứ ba, cô gọi được món. Tháng thứ sáu, cô trò chuyện với khách nước ngoài cả tiếng. Mỗi tháng một **bước về phía trước**. Đó là {{progress}}.",
+    "aggressive": "Con chó nhà bên hễ thấy người lạ là **bước** xông thẳng **tới**, sủa và nhe răng. Ai đi ngang cũng sợ. Nó rất {{aggressive}}.",
+    "gradual": "Sau ca mổ, bà ngoại tập đi: hôm đầu mười **bước**, tuần sau ra sân, tháng sau đi chợ. Không có gì đột ngột, cứ từng bước một. Bà hồi phục {{gradual}}.",
+    "graduate": "Mười hai năm phổ thông, bốn năm đại học, bao nhiêu bậc thang. Hôm nay Quân **bước** lên bậc cuối cùng, nhận tấm bằng trên sân khấu. Quân đã {{graduate}}.",
+    "upgrade": "Điện thoại của bố chạy chậm như rùa. Duy cài phiên bản mới, máy **bước lên** một **bậc** cao hơn, nhanh hẳn. Duy đã {{upgrade}} điện thoại cho bố.",
+    "degrade": "Chiếc túi ni lông bị vứt trên bãi biển. Nắng, gió, nước mặn làm nó **bước xuống** từng **bậc**: rách, vụn, rồi thành hạt nhựa li ti. Nó {{degrade}} suốt cả trăm năm."
+  },
+  "vent": {
+    "prevent": "Biết bão sắp vào, chú Ba **đến trước** một ngày, chằng chống mái nhà, chặt bớt cành cây. Bão qua, nhà chú không sao. Chú đã {{prevent}} được thiệt hại.",
+    "event": "Cả năm khu phố yên ắng, rồi một đêm lễ hội pháo hoa **đến** và **hiện ra** rực rỡ trước mắt mọi người. Ai cũng nhắc mãi. Đó là {{event}} lớn nhất năm.",
+    "convention": "Ở làng chẳng ai viết thành luật, nhưng mọi người **cùng đến** một thoả thuận: đám cưới thì mừng, đám tang thì viếng. Thói quen chung ấy là {{convention}}.",
+    "intervene": "Hai đứa nhỏ giằng nhau cái xe đồ chơi, sắp đánh nhau tới nơi. Mẹ **đến** đứng **vào giữa**, chia mỗi đứa chơi mười phút. Mẹ đã {{intervene}}.",
+    "venue": "Đám cưới của Ngọc và Bảo, hai trăm khách từ khắp nơi cùng **đến** một nhà hàng bên hồ Tây. Nơi ấy là {{venue}}.",
+    "adventure": "Đạp xe xuyên Việt, Phong không biết đêm nay ngủ ở đâu, mai gặp ai, chuyện gì sẽ **đến** với mình. Đó chính là một cuộc {{adventure}}."
+  },
+  "sequ": {
+    "consequence": "Thức đến 3 giờ sáng chơi game, hôm sau Tùng ngủ gật trong giờ thi. Điểm kém **theo sau** đêm thức trắng, **cùng** đi với nó như hình với bóng. Đó là {{consequence}}.",
+    "sequence": "Bé Na xếp bộ tranh: hạt giống, mầm non, cây con, cây ra hoa. Mỗi tấm **theo sau** tấm trước. Em đã xếp đúng {{sequence}}.",
+    "subsequent": "Tuần đầu, Linh nộp bài trễ một lần. Những tuần **theo sau** đó, cô đặt báo thức sớm và không trễ thêm lần nào. Những tuần {{subsequent}} đều suôn sẻ.",
+    "consecutive": "Đội bóng của trường thắng trận này, **theo sát** là trận kia, **cùng** một mạch năm trận, không đứt quãng. Đó là năm chiến thắng {{consecutive}}.",
+    "sequel": "Xem xong phim hoạt hình, bé An hỏi: \"Rồi con rồng có về nhà không ạ?\" Năm sau, phần phim mới ra rạp, **theo sau** phần đầu. Đó là {{sequel}}.",
+    "prosecute": "Kẻ lừa đảo bỏ trốn, nhưng công tố viên cứ **theo sau** hắn suốt ba năm, đẩy vụ án **về phía trước** cho đến ngày ra toà. Ông đã {{prosecute}} hắn tới cùng."
+  },
+  "pos": {
+    "impose": "Ông chủ mới vừa đến đã **đặt lên** vai nhân viên một quy định: làm cả thứ Bảy, không thêm lương. Không ai được hỏi ý kiến. Ông đã {{impose}} luật mới.",
+    "propose": "Trong bữa cơm, Huy **đặt** một ý **ra trước** mặt cả nhà: \"Tết này mình đi Phú Quốc đi!\" Cả nhà bàn tán rôm rả. Huy vừa {{propose}} một chuyến đi.",
+    "expose": "Bức tường ẩm mốc bị che sau tấm lịch to. Mẹ gỡ tấm lịch xuống, **đặt** mảng mốc **ra ngoài** cho cả nhà cùng thấy. Mẹ đã {{expose}} vết mốc.",
+    "oppose": "Cả lớp muốn đi biển, chỉ có lớp trưởng **đặt** mình **chắn ngược lại**: \"Mùa này bão, không an toàn.\" Lớp trưởng {{oppose}} kế hoạch.",
+    "component": "Ông Hiếu tháo chiếc đồng hồ cũ ra: bánh răng, lò xo, kim, mặt số. Phải **đặt cùng nhau** từng mảnh mới thành chiếc đồng hồ chạy được. Mỗi mảnh là một {{component}}.",
+    "postpone": "Trời mưa tầm tã, trận bóng chiều nay không đá được. Ban tổ chức **đặt** nó **ra phía sau**, dời sang Chủ nhật. Trận đấu bị {{postpone}}."
+  },
+  "tain": {
+    "contain": "Bận mấy, mẹ cũng xếp cho Minh một hộp cơm: cơm, trứng, rau, canh, **giữ** tất cả **cùng** một chỗ, không rơi giọt nào. Hộp cơm {{contain}} cả bữa trưa.",
+    "maintain": "Bốn mươi năm, ông Sáu vẫn **giữ** chiếc xe Cub trong **tay** mình: tra dầu, lau chùi mỗi tuần. Xe vẫn chạy êm như mới. Ông biết cách {{maintain}} nó.",
+    "obtain": "Trượt ba lần, đến lần thứ tư Hà mới **với tới** được tấm bằng lái và **giữ** lấy nó trong tay. Cuối cùng Hà đã {{obtain}} bằng lái.",
+    "retain": "Bão thổi tung mái nhà, cuốn trôi đồ đạc, nhưng bà nội vẫn ôm **giữ lại** được cuốn album ảnh cũ. Đó là thứ duy nhất bà {{retain}} được.",
+    "sustain": "Cây cầu tre bắc qua suối đã ba chục năm. Mấy cột gỗ **giữ** nó **từ bên dưới**, mùa lũ nào cũng đứng vững. Những cột ấy {{sustain}} cả cây cầu.",
+    "detain": "Ở sân bay, một hành khách mang hàng cấm bị **giữ** lại, **tách** khỏi đoàn, đưa vào phòng riêng suốt mấy tiếng. Anh ta bị {{detain}}.",
+    "tenant": "Căn phòng trọ là của bà chủ, nhưng ba năm nay Duy mới là **người giữ** chìa khoá, ngày ngày sống ở đó. Duy là {{tenant}}."
+  },
+  "cept": {
+    "accept": "Bà ngoại đưa phong bao lì xì. Linh ngần ngại một chút rồi đưa hai tay **lấy về phía** mình, cảm ơn bà. Linh đã {{accept}} món quà.",
+    "except": "Cô giáo cho cả lớp về sớm, rồi gọi ba bạn chưa nộp bài, **lấy ra** khỏi nhóm: \"Ba em ở lại.\" Cả lớp được về, {{except}} ba bạn ấy.",
+    "concept": "Bé Na thấy chó, mèo, gà, mỗi con một kiểu. Một hôm, em **nắm** gọn tất cả **cùng nhau** vào một từ: \"con vật\". Em vừa hiểu một {{concept}}.",
+    "perception": "Cùng một cơn mưa, Minh **nắm** bắt nó **qua** đôi mắt của mình: buồn và lạnh. Bà Tư làm ruộng lại thấy lúa được tưới no nê. Mỗi người một {{perception}}.",
+    "capable": "Mới 15 tuổi, Vy đã **nắm** được cả việc sửa xe đạp, nấu cơm, kèm em học. Việc gì vào tay Vy cũng xong. Vy rất {{capable}}.",
+    "capacity": "Chiếc xe khách ghi rõ: 29 chỗ. Đến người thứ 30, bác tài lắc đầu: xe chỉ **chứa** được bấy nhiêu. Đó là {{capacity}} của xe."
+  },
+  "sist": {
+    "insist": "Khách đòi trả nửa giá, nhưng cô bán hàng cứ **đứng** lì **trên** con số của mình: \"Không bớt đồng nào.\" Cô {{insist}} giữ giá.",
+    "persist": "Hai năm liền bị từ chối, Phong vẫn **đứng** vững **suốt** từ đầu đến cuối và nộp hồ sơ lần thứ ba. Lần này anh được nhận. Anh đã {{persist}}.",
+    "resist": "Đĩa bánh nằm ngay trước mặt, nhưng Hà đang ăn kiêng. Cô **đứng** vững, **chống lại** cơn thèm, cầm cốc trà lên thay. Hà đã {{resist}} được.",
+    "consistent": "Năm năm nay, cứ 6 giờ sáng là ông Tư có mặt ở công viên, mưa hay nắng, luôn **đứng cùng** một chỗ. Ông tập rất {{consistent}}.",
+    "assist": "Bác sĩ mổ chính đứng giữa, còn Ngọc **đứng bên cạnh**, đưa dao kéo đúng lúc. Ngọc {{assist}} trong ca mổ.",
+    "obstacle": "Đang chạy việt dã, Bảo bỗng gặp một thân cây đổ **đứng chắn ngang** đường. Cậu phải nhảy qua. Thân cây ấy là một {{obstacle}}."
+  },
+  "tend": {
+    "extend": "Hết ba mươi ngày visa, chị Mai vẫn chưa muốn rời Đà Lạt. Chị lên văn phòng xin **kéo** thời hạn **ra** thêm một tháng. Chị đã {{extend}} visa.",
+    "intend": "Ngồi lên máy bay đi du học, Đức đã **vươn** ý nghĩ **hướng vào** một mục tiêu: học xong sẽ về mở công ty. Anh {{intend}} quay về.",
+    "tension": "Trong phòng họp, sếp và trưởng phòng cãi nhau. Không khí **căng** như sợi dây đàn sắp đứt, không ai dám thở mạnh. Sự căng ấy là {{tension}}.",
+    "intensive": "Còn đúng một tháng là thi IELTS, Thảo học tám tiếng mỗi ngày, **kéo căng** mọi sức lực **vào trong** một việc. Đó là cách học {{intensive}}.",
+    "tendency": "Cứ cuối tuần là Khoa lại ngủ đến trưa, ăn đồ chiên, xem phim đến khuya. Mọi thứ cứ **vươn tới** cùng một hướng. Khoa có {{tendency}} lười vào cuối tuần.",
+    "attend": "Hôm ấy trời mưa to, nhiều người vắng mặt. Nhưng ông Sáu vẫn **vươn tới** và có mặt ở đám cưới cháu đúng giờ. Ông đã {{attend}} đám cưới."
+  },
+  "press": {
+    "express": "Ấm ức cả tuần, cuối cùng Trang viết một lá thư dài, **ép** hết những suy nghĩ trong lòng **ra ngoài** trang giấy. Trang đã {{express}} được cảm xúc của mình.",
+    "impress": "Đi phỏng vấn, Quân trả lời tiếng Anh lưu loát và mang theo sản phẩm tự làm. Hình ảnh ấy **ấn** sâu **vào trong** trí nhớ nhà tuyển dụng. Quân đã {{impress}} họ.",
+    "depress": "Tháng mưa dầm, trời xám xịt, Hùng lại vừa mất việc. Mọi thứ như **ấn** tinh thần anh **xuống**. Những ngày ấy {{depress}} anh.",
+    "suppress": "Trong đám tang ông nội, Bin muốn bật khóc nhưng cố **ấn** nước mắt **xuống**, không cho nó trồi lên. Bin đang {{suppress}} cảm xúc.",
+    "oppress": "Ngày xưa, tên địa chủ bắt tá điền nộp tô gấp đôi, ai không nộp thì bị đánh. Hắn **ấn đè lên** cả làng. Hắn {{oppress}} người dân.",
+    "pressure": "Còn hai ngày là thi, bố mẹ hỏi điểm, thầy nhắc ôn, bạn bè khoe điểm thi thử. Mọi thứ **ấn** lên vai Minh. Đó là {{pressure}}."
+  },
+  "struct": {
+    "construct": "Cả mùa hè, các chú thợ **xếp** từng viên gạch, từng thanh sắt **cùng nhau**. Đến tháng Chín, ngôi trường mới đã đứng sừng sững. Họ đã {{construct}} ngôi trường.",
+    "destruction": "Cơn bão quét qua làng chài trong một đêm, làm **ngược lại** những gì người ta **xây** cả chục năm: nhà sập, thuyền vỡ. Đó là sự {{destruction}}.",
+    "infrastructure": "Đi trên phố, ai cũng chỉ thấy nhà cửa, xe cộ. Nhưng **bên dưới** là ống nước, cáp điện, cống thoát nước được **xây** để nâng đỡ cả thành phố. Đó là {{infrastructure}}.",
+    "instruct": "Ngày đầu Linh làm ở tiệm bánh, chị chủ đứng cạnh, chỉ từng bước, **xây** dần cách làm bánh **vào trong** đầu Linh. Chị đã {{instruct}} Linh rất kỹ.",
+    "structure": "Thầy vẽ lên bảng: mở bài, hai đoạn thân bài, kết bài. Bài luận cũng như ngôi nhà, từng phần phải **xây** đúng chỗ. Đó là {{structure}} của bài.",
+    "obstruct": "Nhà bên cạnh **xây** một bức tường **chắn ngang** lối đi chung. Xe ông Tư không vào ngõ được nữa. Bức tường đã {{obstruct}} lối đi."
+  },
+  "fect": {
+    "effect": "Uống thuốc hạ sốt được nửa tiếng, bé Na đổ mồ hôi rồi hết sốt. Viên thuốc đã **làm ra** một kết quả thấy rõ. Đó là {{effect}} của thuốc.",
+    "affect": "Mấy hôm mất ngủ, Hà làm sai liên tục, gắt gỏng với mọi người. Giấc ngủ kém đã **làm** điều gì đó **lên** cả ngày của cô. Thiếu ngủ {{affect}} Hà rất nhiều.",
+    "efficient": "Hai người cùng rửa bát. Anh Tùng xả nước liên tục, mất nửa tiếng. Chị Hoa ngâm một chậu, mười phút xong, tốn ít nước. Chị **làm ra** nhiều mà tốn ít. Chị rất {{efficient}}.",
+    "infect": "Một con muỗi đốt bé Bin, **làm** cho virus sốt xuất huyết đi **vào trong** máu em. Ba ngày sau em sốt cao. Muỗi đã {{infect}} em.",
+    "defect": "Chiếc áo mới mua về, Ngọc phát hiện đường may lệch, một ống tay dài hơn ống kia. Áo bị **làm hỏng** ngay từ xưởng. Đó là một {{defect}}.",
+    "factor": "Mẹ làm bánh bông lan: trứng, bột, đường, và nhiệt độ lò. Thiếu một thứ là bánh xẹp. Mỗi thứ góp phần **làm** nên chiếc bánh là một {{factor}}."
+  },
+  "clud": {
+    "include": "Mẹ xếp đồ đi biển: áo tắm, kem chống nắng, mũ. Xong mới **đóng** vali lại, mọi thứ nằm gọn **bên trong**. Hành lý đã {{include}} đủ cả.",
+    "exclude": "Bọn trẻ trong xóm lập hội chơi bi, **đóng** cửa chòi lại để thằng Tí đứng **ở ngoài**. Tí buồn cả tuần. Tí bị {{exclude}}.",
+    "conclude": "Sau ba tiếng họp, sếp gập máy tính, **đóng** cuộc họp lại **hoàn toàn**: \"Vậy chốt nhé, tháng sau ra sản phẩm.\" Sếp đã {{conclude}}.",
+    "exclusive": "Quán bar trên tầng ba mươi **đóng** cửa với số đông, chỉ ai có thẻ thành viên mới được vào. Đó là một nơi rất {{exclusive}}.",
+    "inclusive": "Lớp của cô Thuỷ có bạn khiếm thị, bạn nói ngọng, bạn mới từ quê lên. Cô **đón** tất cả **vào trong**, không ai bị bỏ lại. Lớp học rất {{inclusive}}.",
+    "disclose": "Giữ kín chuyện có em bé suốt ba tháng, đến Tết chị Mai mới **mở** điều vốn đang **đóng** ấy ra cho cả nhà biết. Chị đã {{disclose}} tin vui."
+  },
+  "solv": {
+    "solve": "Sợi dây diều rối thành một cục. Ông nội ngồi kiên nhẫn **tháo** từng nút một, cho đến khi dây thẳng lại. Ông đã {{solve}} xong mớ rối.",
+    "solution": "Chuột cứ cắn phá kho lúa, cả nhà bàn mãi không xong. Bé An bảo: \"Nuôi một con mèo!\" Cách **tháo gỡ** ấy hiệu quả ngay. Đó là {{solution}}.",
+    "resolve": "Hai anh em giận nhau cả năm vì mảnh đất của bố mẹ. Tết này mẹ ngồi giữa, **tháo** gỡ **lại** từng hiểu lầm cho đến khi hai người ôm nhau. Mẹ đã {{resolve}} mâu thuẫn.",
+    "dissolve": "Bé Na thả viên đường vào cốc nước rồi khuấy. Viên đường **tháo rời** ra từng hạt, rồi biến mất. Đường đã {{dissolve}}.",
+    "absolute": "Bác sĩ dặn ông Sáu: rượu thì không một giọt, không ngoại lệ, không \"chỉ hôm nay thôi\", lệnh cấm được **tháo khỏi** mọi điều kiện. Đó là lệnh cấm {{absolute}}.",
+    "solvent": "Năm ngoái công ty của anh Quân nợ nần chồng chất. Năm nay bán được hàng, anh **tháo** gỡ hết từng khoản nợ mà két vẫn còn tiền. Công ty giờ đã {{solvent}}: đủ sức trả mọi khoản nợ."
+  },
+  "bio": {
+    "antibiotic": "Vết thương ở chân ông Tư sưng tấy vì vi khuẩn. Bác sĩ cho thuốc **chống lại sự sống** của lũ vi khuẩn ấy. Ba ngày sau vết thương lành. Thuốc đó là {{antibiotic}}.",
+    "biodiversity": "Lặn xuống rạn san hô ở Nha Trang, Duy thấy cá hề, rùa biển, sao biển, hàng trăm loài **sự sống đa dạng** đủ màu. Đó là {{biodiversity}}.",
+    "biodegradable": "Chị Hà đổi sang ống hút làm từ cỏ. Vứt xuống đất, vài tháng sau các **sinh vật** nhỏ đã làm nó **xuống** từng **bước**, rồi biến mất. Ống hút cỏ là loại {{biodegradable}}.",
+    "biofuel": "Quán ăn của chú Ba thải ra bao nhiêu dầu chiên cũ, thứ vốn làm từ cây cối, từ **sự sống**. Một công ty đến thu mua, biến nó thành **nhiên liệu** cho xe buýt. Đó là {{biofuel}}.",
+    "biotechnology": "Ở viện nghiên cứu, Thảo cho nấm men vào bồn ủ để nó tự làm ra thuốc. Dùng **kỹ thuật** với những sinh vật **sống**, đó là {{biotechnology}}.",
+    "biometric": "Sáng nào đến công ty, Long cũng chỉ cần đặt ngón tay lên máy. Máy **đo** dấu vân tay, một đặc điểm của cơ thể **sống**, rồi mở cửa. Đó là máy chấm công {{biometric}}."
+  },
+  "gen": {
+    "generate": "Mùa gió, những cánh quạt khổng lồ ở Bạc Liêu quay tít, **sinh ra** điện cho hàng nghìn ngôi nhà. Gió đang {{generate}} điện.",
+    "generation": "Ông nội lớn lên với radio, bố lớn lên với tivi, còn Bin lớn lên với điện thoại. Mỗi lớp người **sinh ra** cùng một thời. Mỗi lớp ấy là một {{generation}}.",
+    "genetic": "Cả nhà Ngọc, từ ông nội đến bố, đến Ngọc, đều có lúm đồng tiền bên má trái. Thứ có từ lúc **sinh ra**, truyền qua dòng giống ấy là đặc điểm {{genetic}}.",
+    "generous": "Bà Tư bán xôi đầu ngõ. Đứa trẻ nào không đủ tiền, bà vẫn xúc đầy hộp. Người xưa bảo người **dòng giống** tốt thì sống rộng lượng. Bà Tư thật {{generous}}.",
+    "ingenious": "Không có tiền mua máy tưới, ông Sáu đục lỗ chai nhựa, cắm ngược xuống gốc cây cho nước nhỏ giọt cả ngày. Cái khéo ấy như **sinh ra** sẵn **bên trong** ông. Cách làm thật {{ingenious}}.",
+    "indigenous": "Người Ê Đê đã sống trên cao nguyên Đắk Lắk từ bao đời. Họ **sinh ra** ngay **bên trong** vùng đất ấy. Họ là người {{indigenous}}."
+  },
+  "chron": {
+    "chronic": "Cơn đau lưng của mẹ không phải chuyện một hai ngày. Nó kéo dài theo **thời gian**, năm này qua năm khác. Đó là bệnh {{chronic}}.",
+    "chronological": "Dọn album ảnh, Trang xếp lại theo **thời gian**: ảnh đầy tháng, ảnh đi học, ảnh cưới. Xếp đúng **lý lẽ** của năm tháng, đó là thứ tự {{chronological}}.",
+    "synchronise": "Trước giờ hành động, cả đội cứu hộ chỉnh đồng hồ cho **cùng** một **thời gian**, khớp đến từng giây. Họ đã {{synchronise}} đồng hồ.",
+    "chronicle": "Ông giáo già trong làng năm nào cũng ghi vào cuốn sổ: năm nay lụt, năm nay được mùa, năm nay làng có điện. Cuốn sổ ghi mọi việc theo **thời gian** ấy là một {{chronicle}}.",
+    "anachronism": "Trong bộ phim cổ trang, nhà vua đang ra lệnh thì tay áo lộ ra một chiếc đồng hồ đeo tay. Khán giả cười ồ: chiếc đồng hồ đi **ngược** dòng **thời gian**. Đó là một {{anachronism}}."
+  },
+  "cred": {
+    "credible": "Hai người kể về vụ tai nạn. Một người say rượu, mỗi lúc kể một kiểu. Người kia là giáo viên, kể rõ ràng, có cả video. Lời người thứ hai **có thể tin** được. Đó là nhân chứng {{credible}}.",
+    "incredible": "Cô bé mười tuổi giải xong khối Rubik trong sáu giây. Ai xem cũng lắc đầu: **không thể tin** nổi. Thật {{incredible}}.",
+    "credit": "Anh Quân chưa đủ tiền mua máy cày. Ngân hàng **tin** anh sẽ trả nên cho anh vay trước. Đó là {{credit}}.",
+    "credentials": "Xin dạy ở trường quốc tế, cô Thuỷ đặt lên bàn bằng thạc sĩ, chứng chỉ IELTS 8.0, thư giới thiệu. Những giấy tờ ấy khiến nhà trường **tin** cô. Đó là {{credentials}} của cô.",
+    "credulous": "Ai nhắn tin báo trúng thưởng iPhone, ông Sáu cũng **tin**, chuyển \"phí nhận quà\" ba lần liền. Ông tin **quá mức**. Ông quá {{credulous}}."
+  },
+  "quest": {
+    "request": "Lần đầu xin nghỉ phép, sếp chưa trả lời. Hà **hỏi lại** lần nữa, lần này viết đơn đàng hoàng, và sếp ký ngay. Hà đã gửi {{request}} chính thức.",
+    "conquer": "Ba lần leo Fansipan đều phải quay về. Lần thứ tư, Phong quyết **tìm** đường lên đỉnh cho bằng được, **hoàn toàn** không bỏ cuộc. Anh đã {{conquer}} Fansipan.",
+    "acquire": "Mỗi ngày Vy **tìm** thêm năm từ tiếng Anh, ghi vào sổ, mang **về** cho mình. Sau một năm, cô có hơn nghìn từ mới. Vy đã {{acquire}} vốn từ ấy.",
+    "inquiry": "Sau vụ cháy chung cư, cơ quan chức năng **hỏi** sâu **vào bên trong** mọi chuyện: ai lắp điện, ai kiểm tra, vì sao bình cứu hoả hỏng. Đó là một cuộc {{inquiry}}.",
+    "require": "Muốn du học Úc, Đức phải có IELTS 6.5. Trường **hỏi đi hỏi lại** điều đó trong mọi email, vì họ thật sự cần. Trường {{require}} IELTS 6.5.",
+    "questionnaire": "Ra viện, mẹ được phát một tờ giấy toàn **câu hỏi**: \"Bác sĩ có tận tình không? Phòng có sạch không?\" Mẹ tích từng ô. Tờ giấy ấy là {{questionnaire}}."
+  },
+  "rupt": {
+    "erupt": "Ngọn núi lửa ngủ yên suốt trăm năm. Một đêm, mặt đất rung chuyển, đỉnh núi **vỡ** toang, dung nham phun **ra ngoài** đỏ rực. Núi lửa đã {{erupt}}.",
+    "interrupt": "Ông nội đang kể đến đoạn hay nhất thì điện thoại reo inh ỏi, **bẻ gãy** câu chuyện ngay **ở giữa**. Cả nhà tiếc hùi hụi. Cuộc gọi đã {{interrupt}} ông.",
+    "disrupt": "Mất điện cả buổi sáng: máy tính tắt, thang máy dừng, cả văn phòng **vỡ** ra, **tách rời** từng nhóm ngồi chờ. Sự cố đã {{disrupt}} cả ngày làm việc.",
+    "corrupt": "Ông cán bộ nhận phong bì để cấp giấy phép xây nhà sai luật. Đạo đức của ông đã **vỡ** nát **hoàn toàn**. Ông là một quan chức {{corrupt}}.",
+    "bankrupt": "Quán ăn của anh Long lỗ liên tục. Đến ngày không còn đồng nào trả nợ, anh đóng cửa, như **quầy tiền** bị đập **gãy** đôi. Anh đã {{bankrupt}}.",
+    "abrupt": "Cả phòng đang hát karaoke vui vẻ thì nhạc **gãy** đứt, **rời** khỏi giai điệu, im bặt: mất điện. Ai cũng ngơ ngác. Cái kết thật {{abrupt}}."
+  },
+  "vert": {
+    "convert": "Chiếc xe buýt cũ không chạy được nữa. Anh Bảo **xoay** nó **hoàn toàn** thành một quán cà phê nhỏ, có ghế và đèn vàng. Anh đã {{convert}} chiếc xe buýt.",
+    "divert": "Đường chính ngập nước, chú cảnh sát đứng ở ngã tư, **xoay** dòng xe **sang hướng khác**, vào đường vòng. Chú đã {{divert}} giao thông.",
+    "reverse": "Đi nhầm vào ngõ cụt, Tùng không quay đầu được. Anh **xoay** vô lăng, cho xe chạy **ngược trở lại** từng chút. Anh đang {{reverse}} xe ra.",
+    "diverse": "Lớp tiếng Anh của Linh có anh kỹ sư, cô y tá, cậu học sinh, bác hưu trí. Mỗi người **xoay** về **một hướng** khác nhau. Lớp học thật {{diverse}}.",
+    "introvert": "Tiệc công ty xong, ai cũng kéo nhau đi hát tiếp. Riêng Khoa về nhà, pha trà, đọc sách một mình mới thấy khoẻ lại. Năng lượng của Khoa **xoay vào trong**. Khoa là một {{introvert}}.",
+    "controversy": "Thành phố định chặt hàng cây cổ thụ để mở đường. Một phe muốn đường rộng, một phe muốn giữ cây. Hai phe **xoay** mặt **chống lại** nhau suốt nhiều tháng. Đó là một cuộc {{controversy}}.",
+    "versatile": "Chị Hoa sáng dạy Toán, chiều may áo, tối đi hát đám cưới. Việc gì chị cũng **xoay** sang làm được. Chị rất {{versatile}}."
+  }
+}

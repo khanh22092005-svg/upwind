@@ -4,6 +4,8 @@
 // (the same merge as make-ebook.mjs).
 import base from "../../tools/social-content/data/families.json";
 import order from "../../tools/social-content/data/ebook/order.json";
+// The "Câu chuyện" mini-stories shown on this page only (videos and the ebook keep the short `story`).
+import tales from "../../tools/social-content/data/tales.json";
 
 export type PartKind = "pre" | "root" | "suf";
 export type Part = { t: string; k: PartKind; vi: string };
@@ -14,6 +16,8 @@ export type Word = {
   parts: Part[];
   meaning: string;
   story: string;
+  /** A 2-3 sentence everyday story: **word parts** in bold, {{word}} the English word. */
+  tale?: string;
   example: string;
   example_vi: string;
   related?: { w: string; pos: string; vi: string }[];
@@ -72,8 +76,10 @@ order.parts.forEach((part, pi) =>
       unit = { ...f, ...extra, words: f.words.map((w) => ({ ...w, ...(overlay[w.word] ?? {}) })) };
     }
     const i = families.length;
+    const unitTales = (tales as Record<string, Record<string, string>>)[id] ?? {};
     families.push({
       ...unit,
+      words: unit.words.map((w) => ({ ...w, tale: unitTales[w.word] ?? w.tale })),
       icon: unit.icon ?? baseById.get(id)?.icon ?? PART_ICONS[pi],
       n: i + 1,
       part: pi,

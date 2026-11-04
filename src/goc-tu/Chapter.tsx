@@ -227,9 +227,9 @@ function WordScreen({
           <AnimatePresence>
             {shown && (
               <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
-                <div className="story">
+                <div className={"story" + (w.tale ? " tale" : "")}>
                   <small>Câu chuyện</small>
-                  {w.story}
+                  {w.tale ? <Tale text={w.tale} /> : w.story}
                 </div>
                 <div className="meaning">
                   <small>Nghĩa</small>
@@ -423,5 +423,24 @@ function Done({
       </div>
       <ZaloCta />
     </section>
+  );
+}
+
+/** A tale: **word parts** in bold, {{word}} as the English word. */
+function Tale({ text }: { text: string }) {
+  return (
+    <p className="tale-text">
+      {text.split(/(\*\*[^*]+\*\*|\{\{[^}]+\}\})/).map((s, i) =>
+        s.startsWith("**") ? (
+          <b key={i}>{s.slice(2, -2)}</b>
+        ) : s.startsWith("{{") ? (
+          <em key={i} className="tale-word" lang="en">
+            {s.slice(2, -2)}
+          </em>
+        ) : (
+          s
+        ),
+      )}
+    </p>
   );
 }

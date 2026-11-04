@@ -84,6 +84,13 @@ Copy an object in `data/families.json`, or generate one with the prompt in §6 b
 | `next` | optional id of the family to tease at the end (default: next in file) |
 | `words[]` | `word, pos, ipa, parts[{t, k: pre/root/suf, vi}], meaning, story, anim, example, example_vi, related[{w,pos,vi}], trap?` |
 
+**`data/tales.json`** (`{ "<unit id>": { "<word>": "<tale>" } }`) holds the "Câu chuyện" shown on the website's
+"Xem nghĩa" step (`src/goc-tu/`), one per word of every ebook unit. A tale is a real mini-story in 2–3 natural Vietnamese
+sentences: a person in an everyday Vietnamese scene, where something happens that acts out the word's parts (wrapped in
+`**…**`, using the parts' `vi` meanings), ending on the English word wrapped in `{{…}}`. Etymology stays as in `parts`,
+never invented; vary the names and places. Only the website uses it: videos, carousels and the ebook keep the short
+`story`. When you add a unit, add its tales too (a word without one falls back to `story`).
+
 `parts` must join to spell the word (the script warns if not). The family order in the file is the posting order,
 since each video teases the next one.
 
