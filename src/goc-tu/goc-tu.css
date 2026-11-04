@@ -343,32 +343,6 @@ h1, h2, h3 { font-family: var(--font-serif); color: var(--color-upwind-ink); lin
 .br-node.leaf .br-word { fill: oklch(0.42 0.1 152); }
 .br-dots { font: 800 9px var(--font-sans); fill: oklch(0.78 0.02 240); letter-spacing: 0.1em; }
 
-/* cut the word */
-.cut { text-align: center; }
-.cut-meaning { text-align: center; margin: 4px 0 0; font-size: 0.92rem; }
-.cut-word { display: flex; justify-content: center; flex-wrap: nowrap; margin: 18px 0 10px; font-size: clamp(30px, 9vw, 46px); font-weight: 800; line-height: 1.2; }
-.cut-letter { position: relative; display: inline-flex; transition: margin 260ms var(--ease); }
-.cut-letter .ch { display: inline-block; min-width: 0.6em; text-align: center; }
-.cut-letter.cut-after { margin-right: 0.42em; }
-.cut-word .gap { position: absolute; top: -6px; bottom: -6px; right: -10px; width: 20px; z-index: 2; border: 0; background: none; padding: 0; display: flex; justify-content: center; }
-.cut-letter.cut-after .gap { right: calc(-0.21em - 10px); }
-.cut-word .gap i { width: 3px; height: 100%; border-radius: 3px; background: repeating-linear-gradient(to bottom, oklch(0.84 0.03 240) 0 4px, transparent 4px 9px); transition: background 200ms; }
-.cut-word .gap:hover i, .cut-word .gap:focus-visible i { background: oklch(0.85 0.04 240); }
-.cut-word .gap.made i { background: var(--color-upwind-ink); }
-.cut-word .gap.wrong i { background: var(--bad); }
-.cut-word .gap.wrong { animation: shake 420ms; }
-.cut-word .gap.hint i { background: var(--fruit); animation: glow 1s infinite; }
-.cut-word.done .gap i { background: transparent !important; }
-.cut-word.done .ch { min-width: 0; }
-.cut-parts { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; min-height: 64px; }
-.cut-part { display: flex; flex-direction: column; align-items: center; border: 2.5px solid; border-radius: 14px; padding: 6px 12px; background: #fff; }
-.cut-part b { font-size: 1.3rem; }
-.cut-part small { font-weight: 700; color: var(--color-upwind-ink-2); }
-.cut-part em { font-style: normal; font-size: 0.7rem; font-weight: 800; color: var(--suf); }
-.selfcheck { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; width: 100%; }
-.selfcheck .btn { padding: 10px 6px; font-size: 0.92rem; }
-.option.small { min-height: 46px; text-align: center; padding: 8px; }
-
 /* recall */
 .meaning-cue { font-size: 1.15rem; font-weight: 800; margin: 2px 0 8px; }
 .pattern { display: flex; flex-wrap: wrap; gap: 4px; margin: 14px 0 10px; }
@@ -378,6 +352,11 @@ h1, h2, h3 { font-family: var(--font-serif); color: var(--color-upwind-ink); lin
 .pattern .sp { width: 12px; }
 .hint-btn { display: block; margin: 6px 0 0; }
 .recall .feedback { margin-top: 12px; }
+
+/* self-check after a guess */
+.selfcheck { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; width: 100%; }
+.selfcheck .btn { padding: 10px 6px; font-size: 0.92rem; }
+.option.small { min-height: 46px; text-align: center; padding: 8px; }
 
 /* strange fruit */
 .fruit-tag { display: inline-flex; align-items: center; gap: 6px; font-weight: 800; color: var(--fruit); margin: 0; }

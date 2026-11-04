@@ -5,7 +5,7 @@ import { COLORS, DAYS, families, iconSvg, nextFamily, parts, shortRoot, type Fam
 import { splitAt } from "./lib";
 import { Branch, type TwigState } from "./Branch";
 import { bridgesFor } from "./bridges";
-import { CutWord } from "./CutWord";
+import { PartBuilder } from "./PartBuilder";
 import { completeChapter, progressStore, restartChapter, saveStep, stars, useProgress } from "./progress";
 import { speak } from "./speech";
 import { ColoredWord, go, Icon, KindLegend, PartGloss, Rich, Speak, Stars, ZaloCta } from "./ui";
@@ -172,7 +172,7 @@ function RootCard({ f, onNext, twigs }: { f: Family; onNext: () => void; twigs: 
 const badgeSvg = (name?: string) =>
   `<svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${iconSvg(name)}</svg>`;
 
-type Phase = "cut" | "guess" | "card";
+type Phase = "build" | "guess" | "card";
 
 function WordScreen({
   f,
@@ -189,7 +189,7 @@ function WordScreen({
   onNext: () => void;
   onBack: () => void;
 }) {
-  const [phase, setPhase] = useState<Phase>("cut");
+  const [phase, setPhase] = useState<Phase>("build");
   const [shown, setShown] = useState(false);
   const last = index === f.words.length - 1;
   const grown = twigs.map((t, i) => (i === index && phase === "card" ? "leaf" : t));
@@ -197,23 +197,19 @@ function WordScreen({
     <section className="screen">
       <Branch f={f} states={grown} />
       <p className="kicker">
-        Nhánh {index + 1}/{f.words.length} · {phase === "cut" ? "Cắt từ" : phase === "guess" ? "Đoán nghĩa" : "Lá mới"}
+        Nhánh {index + 1}/{f.words.length} · {phase === "build" ? "Ghép từ" : phase === "guess" ? "Đoán nghĩa" : "Lá mới"}
       </p>
 
-      {phase === "cut" && (
-        <>
-          <p className="cut-meaning muted">
-            Từ này nghĩa là… bạn sẽ tự đoán. Trước hết, hãy tìm xem nó ghép từ những mảnh nào.
-          </p>
-          <CutWord
-            w={w}
-            onDone={() => {
-              speak(w.word);
-              burst();
-              setPhase("guess");
-            }}
-          />
-        </>
+      {phase === "build" && (
+        <PartBuilder
+          w={w}
+          prompt="Ghép các mảnh thành một từ. Nghĩa của từ thì bạn sẽ tự đoán sau."
+          onDone={() => {
+            speak(w.word);
+            burst();
+            setPhase("guess");
+          }}
+        />
       )}
 
       {phase === "guess" && (
@@ -244,14 +240,14 @@ function WordScreen({
       {phase === "card" && <WordCard w={w} f={f} />}
 
       <BottomBar>
-        {phase === "cut" && index > 0 && (
+        {phase === "build" && index > 0 && (
           <button className="btn ghost" onClick={onBack} aria-label="Từ trước">
             ←
           </button>
         )}
-        {phase === "cut" && (
+        {phase === "build" && (
           <button className="btn ghost wide" onClick={() => setPhase("guess")}>
-            Bỏ qua phần cắt
+            Bỏ qua phần ghép
           </button>
         )}
         {phase === "guess" && !shown && (

@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import { useMemo, useState } from "react";
 import { affixKey, strangeFruit } from "./bridges";
 import { shortRoot, type Family, type Part, type Word, type WordForm } from "./data";
-import { CutWord } from "./CutWord";
+import { PartBuilder } from "./PartBuilder";
 import { formIn, recallWords, rootIn, spellings, splitAt } from "./lib";
 import { markSeen } from "./progress";
 import { Recall } from "./Recall";
@@ -16,7 +16,7 @@ const accepted = (a: string) => a.split(/\s*\/\s*/).map(norm);
 
 /**
  * Thử thách: no word bank and no "pick the word". Type the word into its sentence (recall), the ebook's
- * Word form items, then "quả lạ": a word from another branch to cut and work out. Score = right on the first
+ * Word form items, then "quả lạ": a word from another branch to build and work out. Score = right on the first
  * try without a hint.
  */
 export function Practice({ f, onFinish }: { f: Family; onFinish: (score: number, total: number, fruit: Fruit[]) => void }) {
@@ -151,11 +151,10 @@ function WordFormQ({ q, onResult }: { q: WordForm; onResult: (ok: boolean) => vo
   );
 }
 
-/** "Quả lạ": a word from another branch that shares a prefix/suffix with this one. Cut it, then work out the meaning. */
+/** "Quả lạ": a word from another branch that shares a prefix/suffix with this one. Build it from its parts, then work out the meaning. */
 function FruitQ({ f, fruit, onResult }: { f: Family; fruit: Fruit; onResult: (ok: boolean) => void }) {
-  const [cut, setCut] = useState(false);
+  const [built, setBuilt] = useState(false);
   const [pick, setPick] = useState<string | null>(null);
-  const known = (p: Part) => p.k === fruit.via.k && affixKey(p) === affixKey(fruit.via);
   const right = pick === fruit.w.meaning;
   return (
     <div className="fruit-q">
@@ -164,10 +163,10 @@ function FruitQ({ f, fruit, onResult }: { f: Family; fruit: Fruit; onResult: (ok
       </p>
       <p className="q small">
         Bạn chưa học từ này. Nhưng nó có <b>{fruit.via.k === "pre" ? `${fruit.via.t}-` : `-${fruit.via.t}`}</b>, giống một từ
-        trong gốc {shortRoot(f)}. Cắt nó ra rồi đoán nghĩa.
+        trong gốc {shortRoot(f)}. Ghép nó lại rồi đoán nghĩa.
       </p>
-      <CutWord w={fruit.w} known={known} onDone={() => setCut(true)} />
-      {cut && (
+      <PartBuilder w={fruit.w} onDone={() => setBuilt(true)} />
+      {built && (
         <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
           <p className="q">
             Vậy <b lang="en">{fruit.w.word}</b> nghĩa là gì?

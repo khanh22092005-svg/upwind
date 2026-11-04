@@ -9,7 +9,7 @@ const ROOT_W = 132;
 const COL_X = 182; // left edge of the word column
 const W = 340;
 
-/** One root as a tree diagram: the root on the left, one branch per word; a word appears once it is reached. */
+/** One root as a tree diagram: the root on the left, one branch per word; a word appears once its leaf has grown. */
 export function Branch({ f, states, onTwig }: { f: Family; states: TwigState[]; onTwig?: (i: number) => void }) {
   const n = f.words.length;
   const H = n * ROW + 8;
@@ -45,7 +45,7 @@ export function Branch({ f, states, onTwig }: { f: Family; states: TwigState[]; 
       {f.words.map((w, i) => {
         const s = states[i] ?? "bare";
         const y = 4 + ROW * i + ROW / 2;
-        const pw = s === "bare" ? 44 : Math.min(W - COL_X - 2, w.word.length * 7.6 + 24);
+        const pw = s === "leaf" ? Math.min(W - COL_X - 2, w.word.length * 7.6 + 24) : 44;
         return (
           <motion.g
             key={w.word}
@@ -60,6 +60,10 @@ export function Branch({ f, states, onTwig }: { f: Family; states: TwigState[]; 
             {s === "bare" ? (
               <text x={COL_X + pw / 2} y={y + 4} textAnchor="middle" className="br-dots">
                 • • •
+              </text>
+            ) : s === "now" ? (
+              <text x={COL_X + pw / 2} y={y + 4.5} textAnchor="middle" className="br-word">
+                ?
               </text>
             ) : (
               <text x={COL_X + 12} y={y + 4.5} className="br-word">

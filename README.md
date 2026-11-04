@@ -23,10 +23,10 @@ Interactive version of the ebook "Học Từ, Từ Gốc" (`/ebook/hoc-tu-tu-goc
 (`?fields=` imports, see `jsonFields()` in `vite.config.ts`).
 
 Home is one tree (`src/goc-tu/Tree.tsx`): trunk "Latin" → the ebook's 4 parts as crowns → 40 roots as branches →
-252 words as leaves, coloured by progress (due words show as fruit). Each unit grows one branch: cut each word into its
-parts (`CutWord.tsx`), guess the meaning, then the word card with "bridges" to other branches that share the prefix
+252 words as leaves, coloured by progress (due words show as fruit). Each unit grows one branch: build each word from its
+parts (`PartBuilder.tsx`), guess the meaning, then the word card with "bridges" to other branches that share the prefix
 (`bridges.ts`). The challenge has no word bank: type the word into the ebook's sentences (`Recall.tsx`), 2 "Word form"
-items, and 2 "quả lạ" (a word from another branch with a known prefix: cut it and work out the meaning). Review
+items, and 2 "quả lạ" (a word from another branch with a known prefix: build it and work out the meaning). Review
 (`ts-fsrs`) flips young words and asks for older ones (3+ reviews) to be typed. There is also a prefix/suffix table and
 word search. Progress is saved in the browser
 (`localStorage` key `upwind-goc-tu-v1`); there are no accounts yet. Deep links: `/goc-tu/#/rupt` (a unit),
