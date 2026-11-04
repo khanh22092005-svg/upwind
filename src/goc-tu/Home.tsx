@@ -69,6 +69,9 @@ export function Home() {
             {resume.label} →
           </button>
           <p className="muted small">Không cần đăng ký · khoảng 5 phút mỗi bài · tiến độ lưu trên máy của bạn</p>
+          <a className="g-try" href="#/thu/voc">
+            <b>Mới · thử nghiệm</b> Chơi bài gốc voc kiểu mới: lắp mảnh, đấu tay đôi →
+          </a>
         </div>
       </section>
 

@@ -1,0 +1,137 @@
+{
+  "id": "voc",
+  "_format": "[x] in a sentence marks the answer. morph: fill a part; duel: two sentences, two look-alike words; blind: the opening guess that returns at the end.",
+  "blind": {
+    "s": "The speech [provoked] anger among the workers.",
+    "options": ["evoked", "invoked", "provoked", "revoked"],
+    "why": "pro⇢ ra phía trước: bài phát biểu như gọi thẳng vào mặt công nhân, khiến họ nổi giận. Gây ra một phản ứng (giận dữ, phản đối) là {{provoke}}."
+  },
+  "morph": [
+    {
+      "word": "evoke",
+      "s": "The old song [e]voked memories of my childhood.",
+      "alt": "The film [e]vokes the atmosphere of Hanoi in the 1990s.",
+      "options": ["e", "in", "pro"],
+      "dir": "full",
+      "ok": "e→ ra ngoài: bài hát gọi ký ức từ sâu bên trong ra.",
+      "why": {
+        "in": "in↓ là gọi vào, gọi một thế lực đến giúp ({{invoke}} = viện dẫn). Bài hát không viện dẫn gì: nó kéo ký ức từ trong ra.",
+        "pro": "pro⇢ là gọi thẳng về phía ai đó để họ phản ứng, mà bài hát thì không chọc tức ký ức."
+      }
+    },
+    {
+      "word": "provoke",
+      "s": "The new tax [pro]voked angry protests across the country.",
+      "alt": "His comments [pro]voked a heated debate online.",
+      "options": ["pro", "e", "re"],
+      "dir": "full",
+      "ok": "pro⇢ ra phía trước: thuế mới như gọi thẳng vào mặt người dân, khiến họ phản ứng.",
+      "why": {
+        "e": "e→ gọi ra thứ vốn có sẵn bên trong, như ký ức, cảm xúc. Ở đây thuế mới chọc giận người dân, đẩy họ ra đường phản đối.",
+        "re": "re↺ là gọi lại, rút lại ({{revoke}}). Thuế mới không bị rút lại; nó gây ra biểu tình."
+      }
+    },
+    {
+      "word": "invoke",
+      "s": "The minister [in]voked emergency powers to close the borders.",
+      "alt": "The company [in]voked a clause in the contract to cancel the deal.",
+      "options": ["in", "e", "pro"],
+      "dir": "symbol",
+      "ok": "in↓ hướng vào: ông gọi một quyền theo luật đứng ra giúp mình.",
+      "why": {
+        "e": "e→ dùng khi gợi ra ký ức, cảm xúc. Bộ trưởng không gợi cảm xúc; ông dựa vào một quyền theo luật.",
+        "pro": "pro⇢ là khiêu khích. Bộ trưởng không chọc tức ai; ông gọi một quyền đứng ra giúp mình."
+      }
+    },
+    {
+      "word": "vocal",
+      "s": "She has been a voc[al] critic of the new policy.",
+      "alt": "Young people have become more voc[al] about climate change.",
+      "options": ["al", "ation", "ate"],
+      "dir": "symbol",
+      "ok": "-al tạo tính từ: vocal critic là người phê bình lên tiếng mạnh mẽ.",
+      "why": {
+        "ation": "-ation tạo danh từ. Đứng trước danh từ critic phải là một tính từ.",
+        "ate": "-ate thường tạo động từ. Chỗ này cần tính từ đứng trước critic."
+      }
+    },
+    {
+      "word": "advocate",
+      "s": "Many experts [ad]vocate a four-day working week.",
+      "alt": "The report [ad]vocates more investment in public transport.",
+      "options": ["ad", "pro", "e", "sub"],
+      "dir": "symbol",
+      "ok": "ad+ hướng tới: lên tiếng hướng về một ý tưởng để ủng hộ nó.",
+      "why": {
+        "pro": "pro⇢ + voc là khiêu khích ({{provoke}}). Các chuyên gia không khiêu khích tuần làm 4 ngày, họ ủng hộ nó.",
+        "e": "e→ là gọi ra, gợi lên. Các chuyên gia không gợi ký ức; họ lên tiếng bênh vực một ý tưởng.",
+        "sub": "sub⇣ (bên dưới) là mảnh của gốc khác, không ghép với voc. Ở đây cần nghĩa lên tiếng hướng về một ý tưởng."
+      }
+    },
+    {
+      "word": "equivocal",
+      "s": "The results of the study were [equi]vocal: some showed a benefit, some did not.",
+      "alt": "When asked about the plan, the mayor gave an [equi]vocal answer.",
+      "options": ["equi", "in", "pro", "con"],
+      "dir": "symbol",
+      "ok": "equi= ngang bằng: hai cách hiểu nặng ngang nhau, nên kết quả mập mờ.",
+      "why": {
+        "in": "in↓ không ghép thành từ ở đây. Vế sau nói kết quả có cái có lợi, có cái không: hai bên ngang nhau.",
+        "pro": "pro⇢ là khiêu khích, nhưng kết quả nghiên cứu không chọc tức ai; nó chỉ không rõ ràng.",
+        "con": "con⇉ (cùng nhau) là mảnh của gốc khác. Gợi ý nằm ở vế sau: hai kết quả ngang nhau."
+      }
+    },
+    {
+      "word": "vocation",
+      "s": "Teaching is not just a job for her; it is a voc[ation].",
+      "alt": "She found her true voc[ation] in nursing.",
+      "options": ["ation", "al", "ate", "ive"],
+      "dir": "symbol",
+      "ok": "-ation tạo danh từ: vocation là “tiếng gọi”, công việc mình sinh ra để làm.",
+      "why": {
+        "al": "-al tạo tính từ, nhưng sau “a” và ở cuối câu cần một danh từ.",
+        "ate": "-ate tạo động từ (hoặc chỉ người, như advocate). Chỗ này cần danh từ chỉ một công việc.",
+        "ive": "-ive tạo tính từ. Sau “it is a” cần một danh từ."
+      }
+    },
+    {
+      "word": "revoke",
+      "s": "His driving licence was [re]voked after the accident.",
+      "alt": "The government [re]voked the factory's licence after the pollution scandal.",
+      "type": true,
+      "hint1": "Mảnh này mang nghĩa “trở lại” ↺.",
+      "hint2": "Bắt đầu bằng chữ r, có 2 chữ cái.",
+      "ok": "re↺ trở lại: gọi lại một quyết định đã ban ra, coi như nó chưa từng có.",
+      "why": { "*": "Đáp án là re↺: giấy phép bị “gọi lại”, tức bị thu hồi." }
+    }
+  ],
+  "words": {
+    "evoke": { "lure": "Đừng nhầm với {{provoke}}, cuối bài sẽ gặp." },
+    "provoke": { "lure": "Đừng nhầm với {{evoke}}, cuối bài sẽ gặp." },
+    "invoke": { "drift": "“Gọi vào” → gọi thần linh đến giúp → nay là dựa vào luật, quyền để hành động." },
+    "advocate": { "drift": "Người được “gọi tới” để nói giúp trước toà → nay là người (hoặc việc) lên tiếng ủng hộ." },
+    "equivocal": { "drift": "“Tiếng nói ngang nhau” → câu có hai nghĩa ngang nhau → nay là mập mờ, nước đôi." },
+    "vocation": {
+      "drift": "“Tiếng gọi” của Chúa → công việc mình được gọi để làm → nay là thiên hướng, sứ mệnh nghề nghiệp.",
+      "lure": "Đừng nhầm với {{vacation}}, cuối bài sẽ gặp."
+    }
+  },
+  "duels": [
+    {
+      "pair": ["evoke", "provoke"],
+      "a": "The smell of the sea [evoked] memories of home.",
+      "b": "The remark [provoked] an angry reply.",
+      "alt": ["The photo [evoked] happy memories of our trip.", "The decision [provoked] strong criticism."],
+      "why": "{{evoke}} e→ gọi ra thứ có sẵn bên trong (ký ức, cảm xúc). {{provoke}} pro⇢ gọi thẳng vào mặt người khác để họ phản ứng (giận, phản đối).",
+      "share": "Mình không còn nhầm evoke và provoke"
+    },
+    {
+      "pair": ["vocation", "vacation"],
+      "a": "For him, nursing is a true [vocation], not just a job.",
+      "b": "We are going to Da Nang for our summer [vacation].",
+      "alt": ["Many young people want a career that feels like a [vocation].", "I am on [vacation] until Monday."],
+      "why": "{{vocation}} có ‹voc› = tiếng gọi: công việc mình được “gọi” để làm. {{vacation}} có vac = trống: những ngày trống việc, đi nghỉ.",
+      "share": "Mình không còn nhầm vocation và vacation"
+    }
+  ]
+}

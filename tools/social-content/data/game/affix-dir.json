@@ -1,0 +1,21 @@
+{
+  "_note": "One symbol per prefix, the same on every root (game brief: 'Ngôn ngữ thị giác chỉ dùng chữ'). Suffixes carry the part of speech they make.",
+  "pre": {
+    "e": { "sym": "→", "vi": "ra ngoài" },
+    "ex": { "sym": "→", "vi": "ra ngoài" },
+    "in": { "sym": "↓", "vi": "vào, hướng tới" },
+    "pro": { "sym": "⇢", "vi": "ra phía trước" },
+    "re": { "sym": "↺", "vi": "trở lại" },
+    "ad": { "sym": "+", "vi": "hướng tới" },
+    "equi": { "sym": "=", "vi": "ngang bằng" },
+    "sub": { "sym": "⇣", "vi": "bên dưới" },
+    "con": { "sym": "⇉", "vi": "cùng nhau" },
+    "de": { "sym": "⤵", "vi": "xuống, rời đi" }
+  },
+  "suf": {
+    "al": { "pos": "adj.", "vi": "tạo tính từ" },
+    "ation": { "pos": "n.", "vi": "tạo danh từ" },
+    "ate": { "pos": "v.", "vi": "tạo động từ (hoặc chỉ người)" },
+    "ive": { "pos": "adj.", "vi": "tạo tính từ" }
+  }
+}

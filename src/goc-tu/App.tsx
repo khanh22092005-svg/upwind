@@ -1,4 +1,5 @@
 import { MotionConfig } from "motion/react";
+import { GameLessonPage } from "./game/Lesson";
 import { Affixes } from "./Affixes";
 import { Chapter } from "./Chapter";
 import { familyById } from "./data";
@@ -17,6 +18,7 @@ export default function App() {
   let view;
   if (first === "on-tap") view = <Review />;
   else if (first === "bang-phu-to") view = <Affixes />;
+  else if (first === "thu" && second && familyById(second)) view = <GameLessonPage key={second} family={familyById(second)!} />;
   else if (family) view = <Chapter key={family.id + (second ?? "")} family={family} startWord={second} />;
   else view = <Home />;
 

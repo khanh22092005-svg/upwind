@@ -249,3 +249,12 @@ phrase like "… với {{word}}" or "Còn {{word}}" (the voice repeats the dangl
 ## 7. Writing content
 
 “Nâng band câu này” and any other Writing content follow [`nang-band.md`](nang-band.md).
+
+## New lesson format (trial: `#/thu/<id>`, code in `src/goc-tu/game/`)
+
+Step 1 of the game brief: one hand-written sample root (`voc`) running beside the current lessons. Data per root in
+`data/game/<id>.json` (format notes inside the file), plus `data/game/affix-dir.json`: one arrow symbol per prefix and the
+part of speech each suffix makes, shared by every root. A lesson is a queue: Đoán mù (unscored) → Lắp Mảnh × n (each
+followed by its Thẻ Từ, with `drift` / `lure` lines) → Đấu Tay Đôi → the opening sentence returns. A miss resets the combo
+and comes back at the end of the queue with the `alt` sentence. Finishing runs the usual `completeChapter` (words go into
+FSRS review); trial-only results (stars, pairs told apart) are kept under the `upwind-goc-tu-game-v0` key.

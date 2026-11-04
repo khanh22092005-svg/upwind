@@ -376,3 +376,80 @@ h1, h2, h3 { font-family: var(--font-serif); color: var(--color-upwind-ink); lin
 .review-card.typed { align-items: stretch; text-align: left; }
 .review-card.typed .meaning-line { font-size: 1.3rem; }
 .grade.suggested { box-shadow: 0 0 0 4px oklch(0.86 0.075 228); }
+
+/* ---------- new lesson format (game/, sample root voc) ---------- */
+.g-try { display: block; margin-top: 12px; padding: 10px 14px; border-radius: 14px; background: oklch(0.96 0.04 60); color: var(--color-upwind-ink); text-decoration: none; font-size: 0.92rem; }
+.g-try b { color: var(--pre); margin-right: 4px; }
+.g-sound { font-size: 20px; font-weight: 800; }
+.g-stage { position: relative; }
+.g-sentence { font-size: 1.12rem; line-height: 1.7; margin: 8px 0 18px; }
+.g-sentence.big { font-size: 1.25rem; }
+.g-word { font-weight: 800; font-size: 1.9rem; color: var(--color-upwind-ink); white-space: nowrap; letter-spacing: 0.01em; }
+.g-sentence:not(.big) .g-word { font-size: 1.15rem; }
+.g-slot { display: inline-flex; align-items: center; justify-content: center; min-width: 1.8em; padding: 0 0.15em; border-bottom: 3px dashed oklch(0.75 0.03 240); color: var(--pre); vertical-align: baseline; }
+.g-slot.wide { min-width: 4.5em; font-size: 1rem; color: var(--color-upwind-ink); background: none; border-top: 0; border-left: 0; border-right: 0; font-weight: 800; padding: 0 4px; }
+.g-slot.filled { border-bottom-style: solid; border-bottom-color: var(--color-upwind-primary); color: var(--color-upwind-primary); }
+.g-slot.ok { border-bottom: 3px solid var(--ok); color: var(--ok); }
+.g-slot.bad { border-bottom: 3px solid var(--bad); color: var(--bad); }
+.g-q { color: oklch(0.75 0.03 240); }
+.g-pieces { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 6px 0 14px; }
+.g-piece { min-height: 58px; min-width: 76px; padding: 8px 16px; border-radius: 16px; border: 2.5px solid var(--color-upwind-border); background: #fff; box-shadow: 0 3px 0 oklch(0.88 0.02 240); }
+.g-piece:disabled { cursor: default; }
+.g-piece.ok { border-color: var(--ok); background: oklch(0.95 0.05 160); }
+.g-piece.bad { border-color: var(--bad); background: oklch(0.96 0.03 50); }
+.g-piece.was { border-color: var(--ok); border-style: dashed; }
+.g-piece.word { font-weight: 800; font-size: 1.1rem; color: var(--color-upwind-primary); }
+.pc { display: inline-flex; flex-direction: column; align-items: center; line-height: 1.15; }
+.pc b { font-size: 1.4rem; font-weight: 800; }
+.pc i { font-style: normal; font-weight: 800; font-size: 0.95rem; }
+.pc small { font-weight: 700; font-size: 0.72rem; color: var(--color-upwind-ink-2); margin-top: 2px; }
+.pc.pre { color: var(--pre); flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 0 3px; }
+.pc.pre small { flex-basis: 100%; text-align: center; }
+.pc.root { color: var(--root); }
+.pc.suf { color: var(--suf); }
+.pc.suf i { font-size: 0.72rem; color: var(--suf); opacity: 0.85; }
+.g-formula .pc { flex-direction: row; vertical-align: baseline; gap: 2px; }
+.g-formula .pc b { font-size: 1rem; }
+.g-formula .pc i { font-size: 0.85rem; }
+.g-formula { margin: 0; color: var(--color-upwind-ink-2); }
+.g-sym { font-size: 0.55em; margin-left: 1px; }
+.g-built { font-weight: 800; }
+.g-type { display: flex; gap: 8px; margin: 6px 0 14px; }
+.g-type input { flex: 1; min-height: 52px; border: 2.5px solid var(--color-upwind-border); border-radius: 14px; padding: 0 14px; font-size: 1.2rem; font-weight: 800; color: var(--pre); }
+.g-hint { font-size: 0.9rem; color: var(--color-upwind-ink-2); text-align: center; margin: 0 0 10px; }
+.g-requeue { display: block; font-size: 0.82rem; color: var(--color-upwind-ink-2); margin-top: 4px; }
+.g-card { margin-top: 12px; }
+.g-drift { display: grid; gap: 2px; padding: 10px 14px; border-radius: 14px; background: oklch(0.97 0.02 85); font-size: 0.92rem; }
+.g-drift small { font-weight: 800; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.05em; color: oklch(0.55 0.1 70); }
+.g-combo { position: absolute; right: 4px; top: -6px; font-weight: 900; font-size: 1.6rem; color: var(--pre); pointer-events: none; }
+.g-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.g-options .option { text-align: center; font-size: 1.05rem; }
+.option.picked { border-color: var(--color-upwind-primary); background: var(--color-upwind-primary-light); }
+.option.ok { border-color: var(--ok); background: oklch(0.95 0.05 160); }
+.option.bad { border-color: var(--bad); background: oklch(0.96 0.03 50); text-decoration: line-through; }
+.g-hold { text-align: center; font-weight: 700; color: var(--color-upwind-accent); margin: 14px 0 0; }
+.g-duel { position: relative; display: grid; gap: 4px; }
+.g-duel-row { display: flex; gap: 10px; align-items: baseline; }
+.g-ab { flex: none; width: 26px; height: 26px; border-radius: 50%; display: inline-grid; place-items: center; background: var(--color-upwind-primary-light); color: var(--color-upwind-primary); font-size: 0.85rem; }
+.g-duel .g-slot { cursor: pointer; }
+.g-close { background: oklch(0.24 0.06 255); color: #fff; margin: 0 -18px; padding: 4px 18px 120px; border-radius: 24px 24px 0 0; min-height: 80vh; }
+.g-close .kicker { color: oklch(0.85 0.1 60); }
+.g-close .g-word, .g-close .g-sentence { color: #fff; }
+.g-close .g-slot.wide { color: #fff; border-bottom-color: oklch(0.7 0.05 250); }
+.g-close .g-slot.ok { color: oklch(0.85 0.15 150); border-bottom-color: oklch(0.85 0.15 150); }
+.g-close-lead { color: oklch(0.85 0.03 250); }
+.g-then { color: oklch(0.85 0.03 250); margin: -6px 0 14px; }
+.g-then b { color: #ffd166; }
+.g-close .option { background: oklch(0.3 0.06 255); color: #fff; border-color: oklch(0.42 0.06 255); }
+.g-close .option.ok { background: oklch(0.45 0.12 155); border-color: oklch(0.7 0.15 155); text-decoration: none; }
+.g-close .option.bad { background: oklch(0.32 0.06 30); border-color: oklch(0.55 0.12 40); color: oklch(0.85 0.03 40); }
+.g-close .feedback { color: var(--color-upwind-ink); }
+.g-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 14px 0; }
+.g-stats div { display: grid; gap: 2px; text-align: center; padding: 12px 6px; border-radius: 16px; background: var(--color-upwind-primary-light); }
+.g-stats b { font-size: 1.5rem; font-weight: 900; color: var(--color-upwind-primary); }
+.g-stats small { font-size: 0.75rem; font-weight: 700; color: var(--color-upwind-ink-2); }
+.g-share-line { text-align: center; font-weight: 800; font-size: 1.1rem; color: var(--pre); margin: 4px 0; }
+.game .ch-bar { flex: 1 1 60px; }
+.g-word .g-slot.ok, .g-word .g-slot.fix { min-width: 0; padding: 0; }
+.g-slot.fix { border-bottom: 3px dashed var(--ok); color: var(--ok); }
+.chapter .screen.g-close { margin: 8px -18px 0; padding: 4px 18px 130px; }
