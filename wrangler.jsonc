@@ -15,12 +15,12 @@
     "run_worker_first": ["/api/*"],
     "not_found_handling": "404-page"
   },
-  // Create once with `npx wrangler d1 create upwind-homework` (or in the Cloudflare dashboard) and paste its id here.
+  // D1 database "upwind-homework" (created 2026-11-05, region APAC).
   // Migrations (./migrations) are applied with `npx wrangler d1 migrations apply DB --remote`.
   // Secrets, set in the dashboard (Workers > upwind > Settings > Variables and Secrets), never in this file:
   //   TEACHER_CODE    password for /homework/#/giao-vien
   //   SESSION_SECRET  long random string that signs login cookies
   "d1_databases": [
-    { "binding": "DB", "database_name": "upwind-homework", "database_id": "00000000-0000-0000-0000-000000000000", "migrations_dir": "migrations" }
+    { "binding": "DB", "database_name": "upwind-homework", "database_id": "ff64b7c7-9967-4e76-a70b-00d0addcadaf", "migrations_dir": "migrations" }
   ]
 }
