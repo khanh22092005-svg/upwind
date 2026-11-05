@@ -9,6 +9,7 @@ Source for **https://upwind.asia**, hosted on Cloudflare (moved from Replit).
 | Intensive Mastery · Writing & Speaking | `/Intensive-Writing-Speaking/` | `Intensive-Writing-Speaking/index.html`, `src/intensive/` |
 | Học từ từ gốc, interactive version of the ebook | `/goc-tu/` | `goc-tu/index.html`, `src/goc-tu/` (data: `tools/social-content/data/ebook/`) |
 | Upwind Green Finance (test, not indexed) | `/test/green-finance/` | `test/green-finance/index.html`, `src/green-finance/` |
+| UpWind Bài tập: homework LMS (not indexed) | `/homework/` | `homework/index.html`, `src/homework/`, API in `worker/index.ts` |
 
 Other folders:
 - `src/assets/` – images imported by the pages
@@ -27,6 +28,22 @@ speech) → practice (the ebook's "Hoàn thành câu" sentences and word bank, 2
 → result. Plus spaced review (`ts-fsrs`), a prefix/suffix table and word search. Progress is saved in the browser
 (`localStorage` key `upwind-goc-tu-v1`); there are no accounts yet. Deep links: `/goc-tu/#/rupt` (a unit),
 `/goc-tu/#/rupt/erupt` (a word), `#/on-tap`, `#/bang-phu-to`.
+
+## Bài tập: homework LMS (`/homework/`)
+
+Students log in with the class code and their name, do homework (SurveyJS form), and get their score, the teacher's
+explanation for every wrong answer and their own error log ("Sổ lỗi") as soon as they submit. Late work is flagged
+automatically. The teacher uses `/homework/#/giao-vien` (class overview, approve/edit homework, class list and code).
+
+- **Worker + D1**: `worker/index.ts` handles `/api/*` (`run_worker_first` in `wrangler.jsonc`); the database schema is in
+  `migrations/`. Marking is shared with the page: `src/homework/grading.ts` (tests: `pnpm test`).
+- **One-time setup in Cloudflare**: create the D1 database (`npx wrangler d1 create upwind-homework`), put its id in
+  `wrangler.jsonc`, apply migrations (`npx wrangler d1 migrations apply DB --remote`), and add the Worker secrets
+  `TEACHER_CODE` and `SESSION_SECRET`. Student names and class codes are entered on the teacher page, never in the repo.
+- **Adding a homework**: write a short answer sheet (`homework/content/<class>/<lesson>.txt`, format at the top of
+  `tools/homework/build.mjs`), then `TEACHER_CODE=… node tools/homework/build.mjs <file>.txt --upload https://upwind.asia`.
+  It arrives as a draft; the teacher checks answers and explanations and presses "Duyệt và mở cho học viên".
+- **Local**: `pnpm build && pnpm api` (site + API on http://localhost:8787, local D1; secrets in `.dev.vars`).
 
 ## Edit & preview
 
