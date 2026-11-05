@@ -55,6 +55,8 @@ export interface Homework {
   /** Deadline, ISO 8601 with offset, e.g. "2026-11-03T18:00:00+07:00". */
   due: string;
   status: "draft" | "approved";
+  /** Done on Google Doc before the site existed: shown with its imported results, cannot be submitted here. */
+  archived?: boolean;
   sections: Section[];
 }
 

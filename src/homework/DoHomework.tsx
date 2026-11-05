@@ -97,7 +97,7 @@ export default function DoHomework({ lesson }: { lesson: string }) {
   }, [lesson]);
 
   const model = useMemo(() => {
-    if (!data || data.result) return null;
+    if (!data || data.result || data.archived) return null;
     const m = new Model(surveyJson(data.homework));
     m.applyTheme(THEME as any);
     let local: Answers = {};
@@ -147,9 +147,11 @@ export default function DoHomework({ lesson }: { lesson: string }) {
       </h1>
       <p className="hw-muted">
         Buổi {fmtDate(hw.date)} · Hạn nộp {fmtDue(hw.due)}
-        {!result && past && <span className="hw-badge late"> Đã quá hạn: vẫn nộp được, bài sẽ ghi là nộp muộn</span>}
+        {!result && past && !hw.archived && <span className="hw-badge late"> Đã quá hạn: vẫn nộp được, bài sẽ ghi là nộp muộn</span>}
       </p>
-      {result ? (
+      {data.archived && !result ? (
+        <p className="hw-card">Bài này làm trên Google Doc trước khi có trang web, và bạn chưa có kết quả được chấm cho bài này. Hỏi cô nếu bạn đã làm rồi nhé.</p>
+      ) : result ? (
         <Results lesson={lesson} hw={hw} result={result.result} late={result.late} />
       ) : (
         <>

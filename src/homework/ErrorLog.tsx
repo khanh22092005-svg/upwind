@@ -50,7 +50,7 @@ export default function ErrorLog({ name }: { name: string }) {
             {e.late && <span className="hw-badge late">Nộp muộn</span>}
           </div>
           <div className="hw-wrong-head">
-            <b>Câu {e.q}</b>
+            <b>Câu {e.q.replace(/ \(\d+\)$/, "")}</b>
             <span className="hw-tag">Bạn chọn</span>
             <span className="hw-yours">{e.value || "(bỏ trống)"}</span>
             <span className="hw-tag">Đáp án</span>

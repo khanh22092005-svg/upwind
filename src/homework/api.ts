@@ -40,11 +40,23 @@ export interface OpenResult {
   comment: string | null;
   correct: number | null;
 }
+export interface SummaryRow {
+  test: string;
+  skill: string;
+  score: number | null;
+  total: number;
+  status: string;
+  note?: string;
+  grader?: string;
+}
 export interface Result {
   score: number;
   total: number;
   items: ResultItem[];
   open: OpenResult[];
+  /** Results brought in from the Google Doc era: score per test in `summary`, only wrong answers in `items`. */
+  imported?: boolean;
+  summary?: SummaryRow[];
 }
 
 export const api = {
@@ -53,7 +65,7 @@ export const api = {
   logout: () => call<{ ok: true }>("POST", "/logout"),
   me: () => call<{ me: { id: number; name: string; class_id: string; class_name: string }; homeworks: HomeworkRow[] }>("GET", "/me"),
   homework: (lesson: string) =>
-    call<{ homework: Homework; draft: Answers; submittedAt: string | null; late: boolean; result: Result | null }>("GET", `/hw/${encodeURIComponent(lesson)}`),
+    call<{ homework: Homework; draft: Answers; submittedAt: string | null; late: boolean; result: Result | null; archived?: boolean }>("GET", `/hw/${encodeURIComponent(lesson)}`),
   saveDraft: (lesson: string, answers: Answers) => call<{ ok: true }>("PUT", `/hw/${encodeURIComponent(lesson)}/draft`, { answers }),
   submit: (lesson: string, answers: Answers) => call<{ result: Result; late: boolean; already?: boolean }>("POST", `/hw/${encodeURIComponent(lesson)}/submit`, { answers }),
   setReason: (lesson: string, sectionId: string, q: string, reason: string) => call<{ ok: true }>("PUT", `/hw/${encodeURIComponent(lesson)}/reason`, { sectionId, q, reason }),
