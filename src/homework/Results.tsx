@@ -72,17 +72,17 @@ function Imported({ hw, result, lesson }: { hw: Homework; result: Result; lesson
       <section className="hw-card">
         <h2 className="hw-h2 tight">Kết quả từng bài</h2>
         <p className="hw-muted small">Bài này làm trên Google Doc, điểm do cô chấm{result.summary?.some((r) => r.grader?.startsWith("Claude")) ? " (bài nộp muộn do Claude chấm)" : ""}.</p>
-        <table className="hw-mini-table">
-          <tbody>
-            {(result.summary || []).map((r, i) => (
-              <tr key={i}>
-                <td>{r.test}</td>
-                <td className="num">{r.status === "Graded" ? `${r.score}/${r.total}` : STATUS[r.status] || r.status}</td>
-                <td className="hw-muted small">{r.note}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <ul className="hw-summary">
+          {(result.summary || []).map((r, i) => (
+            <li key={i}>
+              <span className="hw-summary-test">{r.test}</span>
+              <span className={`hw-summary-score ${r.status === "Graded" ? "" : "missing"}`}>
+                {r.status === "Graded" ? `${r.score}/${r.total}` : STATUS[r.status] || r.status}
+              </span>
+              {r.note && <span className="hw-muted small hw-summary-note">{r.note}</span>}
+            </li>
+          ))}
+        </ul>
       </section>
       {[...groups.entries()].map(([test, items]) => (
         <section key={test} className="hw-card">
@@ -112,7 +112,7 @@ function Wrong({ lesson, it }: { lesson: string; it: ResultItem }) {
         <span className="hw-tag">Bạn chọn</span>
         <span className="hw-yours">{it.value || "(bỏ trống)"}</span>
         <span className="hw-tag">Đáp án</span>
-        <span className="hw-right">{it.expected}</span>
+        <span className="hw-right">{it.expected && it.expected !== "(chưa có)" ? it.expected : "–"}</span>
         {it.max > 1 && (
           <span className="hw-muted small">
             ({it.marks}/{it.max})
