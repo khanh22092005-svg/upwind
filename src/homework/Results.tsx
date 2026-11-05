@@ -18,7 +18,8 @@ export default function Results({ lesson, hw, result, late }: { lesson: string; 
           </div>
         </div>
       </div>
-      {hw.sections.map((s) => {
+      {result.imported && <Imported hw={hw} result={result} lesson={lesson} />}
+      {!result.imported && hw.sections.map((s) => {
         if (s.kind !== "auto") return null;
         const items = result.items.filter((i) => i.sectionId === s.id);
         if (!items.length) return null;
@@ -56,6 +57,45 @@ export default function Results({ lesson, hw, result, late }: { lesson: string; 
   );
 }
 
+const STATUS: Record<string, string> = { Graded: "", "Not done": "Chưa làm", Incomplete: "Làm chưa xong", "No tab": "Chưa có bài", "Not graded yet": "Chưa chấm" };
+
+/** Results from the Google Doc era: the score of each test as graded, then every wrong answer with the teacher's note. */
+function Imported({ hw, result, lesson }: { hw: Homework; result: Result; lesson: string }) {
+  const testOf = (sectionId: string) => {
+    const s = hw.sections.find((x) => x.id === sectionId);
+    return s && s.kind === "auto" ? s.test : "";
+  };
+  const groups = new Map<string, ResultItem[]>();
+  for (const it of result.items) groups.set(testOf(it.sectionId), [...(groups.get(testOf(it.sectionId)) || []), it]);
+  return (
+    <>
+      <section className="hw-card">
+        <h2 className="hw-h2 tight">Kết quả từng bài</h2>
+        <p className="hw-muted small">Bài này làm trên Google Doc, điểm do cô chấm{result.summary?.some((r) => r.grader?.startsWith("Claude")) ? " (bài nộp muộn do Claude chấm)" : ""}.</p>
+        <table className="hw-mini-table">
+          <tbody>
+            {(result.summary || []).map((r, i) => (
+              <tr key={i}>
+                <td>{r.test}</td>
+                <td className="num">{r.status === "Graded" ? `${r.score}/${r.total}` : STATUS[r.status] || r.status}</td>
+                <td className="hw-muted small">{r.note}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+      {[...groups.entries()].map(([test, items]) => (
+        <section key={test} className="hw-card">
+          <h2 className="hw-h2 tight">{test} <span className="hw-muted">· câu sai</span></h2>
+          {items.map((it) => (
+            <Wrong key={it.sectionId + it.q} lesson={lesson} it={it} />
+          ))}
+        </section>
+      ))}
+    </>
+  );
+}
+
 function Wrong({ lesson, it }: { lesson: string; it: ResultItem }) {
   const [reason, setReason] = useState(it.reason || "");
   const [saved, setSaved] = useState(false);
@@ -68,7 +108,7 @@ function Wrong({ lesson, it }: { lesson: string; it: ResultItem }) {
   return (
     <div className="hw-wrong">
       <div className="hw-wrong-head">
-        <b>Câu {it.q}</b>
+        <b>Câu {it.q.replace(/ \(\d+\)$/, "")}</b>
         <span className="hw-tag">Bạn chọn</span>
         <span className="hw-yours">{it.value || "(bỏ trống)"}</span>
         <span className="hw-tag">Đáp án</span>

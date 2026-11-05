@@ -1,0 +1,10 @@
+{
+  "classId": "l3-1",
+  "lessons": [
+    { "lesson": "L2", "title": "Listening: Gap-filling", "date": "2026-10-17", "due": "2026-10-20T18:00:00+07:00", "archived": true },
+    { "lesson": "L3", "title": "Reading: Gap-filling", "date": "2026-10-20", "due": "2026-10-24T18:00:00+07:00", "archived": true },
+    { "lesson": "L4", "title": "Listening: Multiple choice", "date": "2026-10-24", "due": "2026-10-27T18:00:00+07:00", "archived": true },
+    { "lesson": "L5", "title": "Reading: Multiple choice", "date": "2026-10-27", "due": "2026-10-31T18:00:00+07:00", "archived": true },
+    { "lesson": "L6", "archived": false }
+  ]
+}

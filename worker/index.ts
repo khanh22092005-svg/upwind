@@ -66,10 +66,13 @@ async function loadHomework(env: Env, id: string): Promise<Homework | null> {
   return row ? JSON.parse(row.content) : null;
 }
 
-type AnswerRow = { section_id: string; q: string; kind: string; value: string | null; self_reason: string | null; review_state: string | null; comment: string | null; is_correct: number | null };
+type AnswerRow = {
+  section_id: string; q: string; kind: string; value: string | null; self_reason: string | null; review_state: string | null;
+  comment: string | null; is_correct: number | null; marks: number | null; max: number | null; error_code: string | null; expected: string | null; explain: string | null;
+};
 
 async function storedAnswers(env: Env, submissionId: number) {
-  const { results } = await env.DB.prepare("SELECT section_id, q, kind, value, self_reason, review_state, comment, is_correct FROM answers WHERE submission_id = ?")
+  const { results } = await env.DB.prepare("SELECT section_id, q, kind, value, self_reason, review_state, comment, is_correct, marks, max, error_code, expected, explain FROM answers WHERE submission_id = ?")
     .bind(submissionId)
     .all<AnswerRow>();
   const answers: Answers = {};
@@ -85,12 +88,10 @@ async function storedAnswers(env: Env, submissionId: number) {
   return { rows: results, answers };
 }
 
-/** Marks a submission with the homework as it is now, so a corrected answer key or explanation reaches everyone. */
+/** Marks a submission with the homework as it is now, so a corrected answer key or explanation reaches everyone.
+ *  Imported submissions (results from before the site) keep their stored score and wrong answers. */
 async function resultFor(env: Env, hw: Homework, submissionId: number) {
   const { rows, answers } = await storedAnswers(env, submissionId);
-  const g = gradeHomework(hw, answers);
-  const reasons = new Map(rows.map((r) => [answerKey(r.section_id, r.q), r.self_reason]));
-  const items = g.items.map((it) => ({ ...it, reason: reasons.get(answerKey(it.sectionId, it.q)) || undefined }));
   const open = rows
     .filter((r) => r.kind !== "auto")
     .map((r) => ({
@@ -102,6 +103,29 @@ async function resultFor(env: Env, hw: Homework, submissionId: number) {
       comment: r.review_state === "released" ? r.comment : null,
       correct: r.review_state === "released" ? r.is_correct : null,
     }));
+  const sub = await env.DB.prepare("SELECT imported, summary, score, total FROM submissions WHERE id = ?")
+    .bind(submissionId)
+    .first<{ imported: number; summary: string | null; score: number | null; total: number | null }>();
+  if (sub?.imported) {
+    const items = rows
+      .filter((r) => r.kind === "auto")
+      .map((r) => {
+        let value = "";
+        try {
+          value = String(JSON.parse(r.value || '""'));
+        } catch {
+          value = r.value || "";
+        }
+        return {
+          sectionId: r.section_id, q: r.q, value, correct: !!r.is_correct, marks: r.marks ?? 0, max: r.max ?? 1,
+          expected: r.expected || "", explain: r.explain || undefined, code: r.error_code || undefined, reason: r.self_reason || undefined,
+        };
+      });
+    return { score: sub.score ?? 0, total: sub.total ?? 0, items, open, imported: true, summary: sub.summary ? JSON.parse(sub.summary) : [] };
+  }
+  const g = gradeHomework(hw, answers);
+  const reasons = new Map(rows.map((r) => [answerKey(r.section_id, r.q), r.self_reason]));
+  const items = g.items.map((it) => ({ ...it, reason: reasons.get(answerKey(it.sectionId, it.q)) || undefined }));
   return { score: g.score, total: g.total, items, open };
 }
 
@@ -207,6 +231,7 @@ async function student(req: Request, env: Env, s: { sid: number; cid: string }, 
 
   if (method === "GET" && !m[2]) {
     const result = sub?.submitted_at ? await resultFor(env, hw, sub.id) : null;
+    if (hw.archived && !result) return json({ homework: publicHomework(hw), draft: {}, submittedAt: null, late: false, result: null, archived: true });
     return json({ homework: publicHomework(hw), draft: sub?.draft ? JSON.parse(sub.draft) : {}, submittedAt: sub?.submitted_at ?? null, late: !!sub?.is_late, result });
   }
 
@@ -222,6 +247,7 @@ async function student(req: Request, env: Env, s: { sid: number; cid: string }, 
   }
 
   if (method === "POST" && m[2] === "submit") {
+    if (hw.archived) return fail(400, "Bài này làm trên Google Doc trước khi có trang web, không nộp lại ở đây được");
     if (sub?.submitted_at) return json({ already: true, result: await resultFor(env, hw, sub.id), late: !!sub.is_late });
     const { answers = {} } = await body<{ answers?: Answers }>();
     const at = nowIso();
@@ -373,6 +399,41 @@ async function teacher(req: Request, env: Env, path: string, method: string, bod
       }
       return json({ ok: true });
     }
+  }
+
+  // Results from before the site: one submission per student per lesson, with its score and wrong answers as graded.
+  if (method === "POST" && path === "/api/teacher/import") {
+    const b = await body<{
+      classId: string; lesson: string; student: string; submittedAt: string; late: boolean; score: number; total: number;
+      summary: unknown[]; errors: { sectionId: string; q: string; value: string; expected: string; explain?: string; code?: string }[];
+    }>();
+    const classId = String(b.classId || "").toLowerCase();
+    const id = hwId(classId, b.lesson);
+    if (!(await env.DB.prepare("SELECT id FROM homeworks WHERE id = ?").bind(id).first())) return fail(404, `Chưa có bài ${b.lesson}`);
+    const st = await env.DB.prepare("SELECT id FROM students WHERE class_id = ? AND name = ?").bind(classId, b.student).first<{ id: number }>();
+    if (!st) return fail(404, `Không có học viên ${b.student}`);
+    const old = await env.DB.prepare("SELECT id FROM submissions WHERE homework_id = ? AND student_id = ?").bind(id, st.id).first<{ id: number }>();
+    if (old) await env.DB.batch([env.DB.prepare("DELETE FROM answers WHERE submission_id = ?").bind(old.id), env.DB.prepare("DELETE FROM submissions WHERE id = ?").bind(old.id)]);
+    await env.DB.prepare(
+      "INSERT INTO submissions (homework_id, student_id, started_at, submitted_at, is_late, score, total, device, imported, summary) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 1, ?)",
+    )
+      .bind(id, st.id, b.submittedAt, b.submittedAt, b.late ? 1 : 0, b.score, b.total, "Google Doc (nhập từ trước)", JSON.stringify(b.summary ?? []))
+      .run();
+    const sub = await env.DB.prepare("SELECT id FROM submissions WHERE homework_id = ? AND student_id = ?").bind(id, st.id).first<{ id: number }>();
+    const ins = env.DB.prepare(
+      "INSERT OR REPLACE INTO answers (submission_id, section_id, q, kind, value, is_correct, marks, max, error_code, expected, explain) VALUES (?, ?, ?, 'auto', ?, 0, 0, 1, ?, ?, ?)",
+    );
+    const seen = new Set<string>();
+    const stmts = [];
+    for (const e of b.errors ?? []) {
+      // Two wrong letters in one "choose TWO" question become q "17-18" and "17-18 (2)".
+      let q = e.q;
+      for (let n = 2; seen.has(`${e.sectionId}/${q}`); n++) q = `${e.q} (${n})`;
+      seen.add(`${e.sectionId}/${q}`);
+      stmts.push(ins.bind(sub!.id, e.sectionId, q, JSON.stringify(e.value ?? ""), e.code ?? null, e.expected ?? "", e.explain ?? null));
+    }
+    if (stmts.length) await env.DB.batch(stmts);
+    return json({ ok: true, submissionId: sub!.id, errors: stmts.length });
   }
 
   m = path.match(/^\/api\/teacher\/submissions\/(\d+)\/reset$/);
