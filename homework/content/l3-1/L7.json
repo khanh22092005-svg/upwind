@@ -1,0 +1,260 @@
+{
+  "lesson": "L7",
+  "classId": "l3-1",
+  "title": "Reading: Matching",
+  "date": "2026-11-03",
+  "due": "2026-11-07T18:00:00+07:00",
+  "status": "draft",
+  "sections": [
+    {
+      "id": "s1",
+      "kind": "auto",
+      "skill": "Reading",
+      "qtype": "Matching headings",
+      "test": "Cam 20 Test 3 Passage 2",
+      "items": [
+        {
+          "q": "14",
+          "type": "choice",
+          "options": [
+            "i",
+            "ii",
+            "iii",
+            "iv",
+            "v",
+            "vi",
+            "vii"
+          ],
+          "answer": [
+            "v"
+          ],
+          "label": "Section A",
+          "explain": "Đoạn A nêu hai mục tiêu của sở thú: “SHOW PEOPLE how wonderful they are” và “HIGHLIGHT the research and conservation efforts” → v (Two clear educational goals).",
+          "code": "T1"
+        },
+        {
+          "q": "15",
+          "type": "choice",
+          "options": [
+            "i",
+            "ii",
+            "iii",
+            "iv",
+            "v",
+            "vi",
+            "vii"
+          ],
+          "answer": [
+            "ii"
+          ],
+          "label": "Section B",
+          "explain": "Đoạn B: “This comfortable SYMBIOTIC RELATIONSHIP has led to the growth of coral reefs” → ii (Cooperation beneath the waves).",
+          "code": "T1"
+        },
+        {
+          "q": "16",
+          "type": "choice",
+          "options": [
+            "i",
+            "ii",
+            "iii",
+            "iv",
+            "v",
+            "vi",
+            "vii"
+          ],
+          "answer": [
+            "iv"
+          ],
+          "label": "Section C",
+          "explain": "Đoạn C: so sánh “RAINFORESTS OF THE SEA” bị “DISMISSED BY SOME naturalists” → iv (Disagreement about the accuracy of a certain phrase).",
+          "code": "T1"
+        },
+        {
+          "q": "17",
+          "type": "choice",
+          "options": [
+            "i",
+            "ii",
+            "iii",
+            "iv",
+            "v",
+            "vi",
+            "vii"
+          ],
+          "answer": [
+            "vii"
+          ],
+          "label": "Section D",
+          "explain": "Đoạn D: “scientists ADVISE that MORE THAN 90% of reefs COULD BE LOST BY 2050” → vii (A warning of further trouble ahead).",
+          "code": "T1"
+        },
+        {
+          "q": "18",
+          "type": "choice",
+          "options": [
+            "i",
+            "ii",
+            "iii",
+            "iv",
+            "v",
+            "vi",
+            "vii"
+          ],
+          "answer": [
+            "iii"
+          ],
+          "label": "Section E",
+          "explain": "Đoạn E: “scientists ARE TRYING to pinpoint hardy types of coral that could survive” → iii (Working to lessen the problems). Heading i (Tried and tested solutions) không dùng: các cách này còn đang thử, chưa “tried and tested”.",
+          "code": "T5"
+        },
+        {
+          "q": "19",
+          "type": "choice",
+          "options": [
+            "i",
+            "ii",
+            "iii",
+            "iv",
+            "v",
+            "vi",
+            "vii"
+          ],
+          "answer": [
+            "vi"
+          ],
+          "label": "Section F",
+          "explain": "Đoạn F: cho công chúng thấy tiến bộ để “ENCOURAGE THEM TO BELIEVE that we can do something” → vi (Promoting hope).",
+          "code": "T1"
+        }
+      ],
+      "link": "https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/",
+      "instructions": "Câu 14–19: chọn heading i–vii cho từng đoạn A–F. Đọc tóm tắt 1 dòng mỗi đoạn trước, rồi mới chọn."
+    },
+    {
+      "id": "s2",
+      "kind": "auto",
+      "skill": "Listening",
+      "qtype": "Map labelling",
+      "test": "Cam 18 Test 2 Part 2",
+      "items": [
+        {
+          "q": "15",
+          "type": "choice",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I"
+          ],
+          "answer": [],
+          "label": "School",
+          "explain": "“The school will be on that road, AT THE CORNER OF THE SECOND TURNING TO THE LEFT.”",
+          "code": "T3"
+        },
+        {
+          "q": "16",
+          "type": "choice",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I"
+          ],
+          "answer": [],
+          "label": "Sports centre",
+          "explain": "“on the WESTERN SIDE of the development, JUST BELOW the road that branches off from London Road.”",
+          "code": "T3"
+        },
+        {
+          "q": "17",
+          "type": "choice",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I"
+          ],
+          "answer": [],
+          "label": "Clinic",
+          "explain": "“JUST BELOW this [the lake], TO THE RIGHT OF a street of houses.”",
+          "code": "T3"
+        },
+        {
+          "q": "18",
+          "type": "choice",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I"
+          ],
+          "answer": [],
+          "label": "Community centre",
+          "explain": "“the community centre will be ADJOINING this” (dãy nhà cho người trên 65 tuổi, phía đông bắc).",
+          "code": "T3"
+        },
+        {
+          "q": "19",
+          "type": "choice",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I"
+          ],
+          "answer": [],
+          "label": "Supermarket",
+          "explain": "“a supermarket BETWEEN THE TWO ENTRANCES to the development”, ngay phía nam ba cây lớn gần London Road.",
+          "code": "T3"
+        },
+        {
+          "q": "20",
+          "type": "choice",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I"
+          ],
+          "answer": [],
+          "label": "Playground",
+          "explain": "“the playground will be IN THAT CURVE, with nice views of the lake.”",
+          "code": "T3"
+        }
+      ],
+      "link": "https://engnovate.com/ielts-listening-tests/cambridge-ielts-18-academic-listening-test-2/",
+      "instructions": "Câu 15–20: ghi chữ cái A–I. Đặt bút ở lối vào phía nam (South Entrance) và đi theo người nói."
+    }
+  ]
+}

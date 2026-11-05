@@ -1,0 +1,28 @@
+class: l3-1
+lesson: L6
+title: Listening: Matching
+date: 2026-10-31
+due: 2026-11-03 18:00
+
+## Listening | Matching | Cam 21 Test 3 Part 3 | https://engnovate.com/ielts-listening-tests/cambridge-ielts-21-academic-listening-test-3/ | options A-H
+> Câu 25–30: chọn ý A–H cho từng loại vải. Nghe MỘT lần rồi điền.
+25 Lyocell = G | Với Lyocell, người nói nhấn mạnh hoá chất dùng khi sản xuất được thu hồi và dùng lại → G (Chemicals required for production can be reused). H (wholly sustainable source) là của Cork. | T3
+26 Cupro = B | Cupro gây ô nhiễm khi sản xuất và không so được với các loại vải bền vững khác → B (the least sustainable of alternative fabrics). A (fuel efficient) là của EcoVero. | T3
+27 Bamboo = F | Người nói nói không phải bamboo nào cũng bền vững, chỉ organic bamboo → F (needs to be produced in a certain way). H (wholly sustainable) là mức tuyệt đối, dành cho Cork. | T5
+28 EcoVero = A | Quy trình sản xuất EcoVero chỉ dùng một nửa năng lượng → A (fuel efficient). Bài không nói EcoVero không bền (E). | T0
+29 Cork = H | Cork là loại duy nhất bền vững hoàn toàn ngay từ nguồn nguyên liệu, không có nhược điểm → H. G là của Lyocell, F là của Bamboo. | T3
+30 Hemp = D | Người nói nhắc lợi ích cho người mặc: chống tia UV, kháng khuẩn → D (additional health benefits). Bài không nói chi phí sản xuất hemp cao (C). | T0
+
+## Reading | Matching information | Cam 20 Test 4 Passage 2 | https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-4/ | options A-F
+> Câu 14–17: đoạn nào (A–F) chứa thông tin này?
+14 cây bảo vệ bờ biển = C | Đoạn C: mangroves là “ecosystems of trees and shrubs that HELP DEFEND COASTAL AREAS by trapping sediment” → C. | T1
+15 dự đoán bao lâu mới hết thấy tác động = A | Đoạn A: “scientists FORECASTING that global warming would continue for AROUND 40 YEARS” → A. | T1
+16 giải pháp đặc biệt tiết kiệm chi phí = D | Đoạn D: “It’s MUCH CHEAPER than permanently elevating houses… about A THIRD of what it would cost” → D. Cost-effective = đáng tiền, tiết kiệm chi phí, không phải “hiệu quả cao”. | E2
+17 công nghệ tìm nơi cần can thiệp nhất = F | Đoạn F: “Using a Geographic Information System DATA MAPPING TOOL, the programme IDENTIFIED STREETS with low tree canopy cover” → F. | T1
+
+## Reading | Matching people | Cam 20 Test 4 Passage 2 | https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-4/ | options A-E
+> Câu 23–26: A Yanira Pineda · B Susanna Tol · C Elizabeth English · D Raisa Chowdhury · E Greg Spotts. Tìm tên từng người trong bài và đọc kỹ người đó nói gì.
+23 cần chiến lược có sự tham gia và giúp ích cho người dân = B | Susanna Tol: “multifunctional approaches that… ENGAGE AND BENEFIT COMMUNITIES and local decision-makers” → B. | T2
+24 giảm nhiệt là sống còn ở nơi này = E | Greg Spotts: “Urban cooling is literally a matter of LIFE AND DEATH for our future in LA” → E. | T2
+25 vài thập kỷ tới phải làm thêm vì nước dâng = A | Yanira Pineda: “in 20, 30, 40 years, we’ll need to GO BACK IN THERE AND ADJUST to the changing environment” → A. | T2
+26 số nơi cần thích ứng với lũ đã tăng = C | Elizabeth English: “this technology is becoming necessary IN PLACES THAT DIDN’T PREVIOUSLY NEED IT” → C. | T2

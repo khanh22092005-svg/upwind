@@ -1,0 +1,303 @@
+{
+  "lesson": "L6",
+  "classId": "l3-1",
+  "title": "Listening: Matching",
+  "date": "2026-10-31",
+  "due": "2026-11-03T18:00:00+07:00",
+  "status": "draft",
+  "sections": [
+    {
+      "id": "s1",
+      "kind": "auto",
+      "skill": "Listening",
+      "qtype": "Matching",
+      "test": "Cam 21 Test 3 Part 3",
+      "items": [
+        {
+          "q": "25",
+          "type": "choice",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H"
+          ],
+          "answer": [
+            "G"
+          ],
+          "label": "Lyocell",
+          "explain": "Với Lyocell, người nói nhấn mạnh hoá chất dùng khi sản xuất được thu hồi và dùng lại → G (Chemicals required for production can be reused). H (wholly sustainable source) là của Cork.",
+          "code": "T3"
+        },
+        {
+          "q": "26",
+          "type": "choice",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H"
+          ],
+          "answer": [
+            "B"
+          ],
+          "label": "Cupro",
+          "explain": "Cupro gây ô nhiễm khi sản xuất và không so được với các loại vải bền vững khác → B (the least sustainable of alternative fabrics). A (fuel efficient) là của EcoVero.",
+          "code": "T3"
+        },
+        {
+          "q": "27",
+          "type": "choice",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H"
+          ],
+          "answer": [
+            "F"
+          ],
+          "label": "Bamboo",
+          "explain": "Người nói nói không phải bamboo nào cũng bền vững, chỉ organic bamboo → F (needs to be produced in a certain way). H (wholly sustainable) là mức tuyệt đối, dành cho Cork.",
+          "code": "T5"
+        },
+        {
+          "q": "28",
+          "type": "choice",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H"
+          ],
+          "answer": [
+            "A"
+          ],
+          "label": "EcoVero",
+          "explain": "Quy trình sản xuất EcoVero chỉ dùng một nửa năng lượng → A (fuel efficient). Bài không nói EcoVero không bền (E).",
+          "code": "T0"
+        },
+        {
+          "q": "29",
+          "type": "choice",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H"
+          ],
+          "answer": [
+            "H"
+          ],
+          "label": "Cork",
+          "explain": "Cork là loại duy nhất bền vững hoàn toàn ngay từ nguồn nguyên liệu, không có nhược điểm → H. G là của Lyocell, F là của Bamboo.",
+          "code": "T3"
+        },
+        {
+          "q": "30",
+          "type": "choice",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H"
+          ],
+          "answer": [
+            "D"
+          ],
+          "label": "Hemp",
+          "explain": "Người nói nhắc lợi ích cho người mặc: chống tia UV, kháng khuẩn → D (additional health benefits). Bài không nói chi phí sản xuất hemp cao (C).",
+          "code": "T0"
+        }
+      ],
+      "link": "https://engnovate.com/ielts-listening-tests/cambridge-ielts-21-academic-listening-test-3/",
+      "instructions": "Câu 25–30: chọn ý A–H cho từng loại vải. Nghe MỘT lần rồi điền."
+    },
+    {
+      "id": "s2",
+      "kind": "auto",
+      "skill": "Reading",
+      "qtype": "Matching information",
+      "test": "Cam 20 Test 4 Passage 2",
+      "items": [
+        {
+          "q": "14",
+          "type": "choice",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F"
+          ],
+          "answer": [
+            "C"
+          ],
+          "label": "cây bảo vệ bờ biển",
+          "explain": "Đoạn C: mangroves là “ecosystems of trees and shrubs that HELP DEFEND COASTAL AREAS by trapping sediment” → C.",
+          "code": "T1"
+        },
+        {
+          "q": "15",
+          "type": "choice",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F"
+          ],
+          "answer": [
+            "A"
+          ],
+          "label": "dự đoán bao lâu mới hết thấy tác động",
+          "explain": "Đoạn A: “scientists FORECASTING that global warming would continue for AROUND 40 YEARS” → A.",
+          "code": "T1"
+        },
+        {
+          "q": "16",
+          "type": "choice",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F"
+          ],
+          "answer": [
+            "D"
+          ],
+          "label": "giải pháp đặc biệt tiết kiệm chi phí",
+          "explain": "Đoạn D: “It’s MUCH CHEAPER than permanently elevating houses… about A THIRD of what it would cost” → D. Cost-effective = đáng tiền, tiết kiệm chi phí, không phải “hiệu quả cao”.",
+          "code": "E2"
+        },
+        {
+          "q": "17",
+          "type": "choice",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F"
+          ],
+          "answer": [
+            "F"
+          ],
+          "label": "công nghệ tìm nơi cần can thiệp nhất",
+          "explain": "Đoạn F: “Using a Geographic Information System DATA MAPPING TOOL, the programme IDENTIFIED STREETS with low tree canopy cover” → F.",
+          "code": "T1"
+        }
+      ],
+      "link": "https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-4/",
+      "instructions": "Câu 14–17: đoạn nào (A–F) chứa thông tin này?"
+    },
+    {
+      "id": "s3",
+      "kind": "auto",
+      "skill": "Reading",
+      "qtype": "Matching people",
+      "test": "Cam 20 Test 4 Passage 2",
+      "items": [
+        {
+          "q": "23",
+          "type": "choice",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+          ],
+          "answer": [
+            "B"
+          ],
+          "label": "cần chiến lược có sự tham gia và giúp ích cho người dân",
+          "explain": "Susanna Tol: “multifunctional approaches that… ENGAGE AND BENEFIT COMMUNITIES and local decision-makers” → B.",
+          "code": "T2"
+        },
+        {
+          "q": "24",
+          "type": "choice",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+          ],
+          "answer": [
+            "E"
+          ],
+          "label": "giảm nhiệt là sống còn ở nơi này",
+          "explain": "Greg Spotts: “Urban cooling is literally a matter of LIFE AND DEATH for our future in LA” → E.",
+          "code": "T2"
+        },
+        {
+          "q": "25",
+          "type": "choice",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+          ],
+          "answer": [
+            "A"
+          ],
+          "label": "vài thập kỷ tới phải làm thêm vì nước dâng",
+          "explain": "Yanira Pineda: “in 20, 30, 40 years, we’ll need to GO BACK IN THERE AND ADJUST to the changing environment” → A.",
+          "code": "T2"
+        },
+        {
+          "q": "26",
+          "type": "choice",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+          ],
+          "answer": [
+            "C"
+          ],
+          "label": "số nơi cần thích ứng với lũ đã tăng",
+          "explain": "Elizabeth English: “this technology is becoming necessary IN PLACES THAT DIDN’T PREVIOUSLY NEED IT” → C.",
+          "code": "T2"
+        }
+      ],
+      "link": "https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-4/",
+      "instructions": "Câu 23–26: A Yanira Pineda · B Susanna Tol · C Elizabeth English · D Raisa Chowdhury · E Greg Spotts. Tìm tên từng người trong bài và đọc kỹ người đó nói gì."
+    }
+  ]
+}

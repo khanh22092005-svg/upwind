@@ -1,0 +1,23 @@
+class: l3-1
+lesson: L7
+title: Reading: Matching
+date: 2026-11-03
+due: 2026-11-07 18:00
+
+## Reading | Matching headings | Cam 20 Test 3 Passage 2 | https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/ | options i-vii
+> Câu 14–19: chọn heading i–vii cho từng đoạn A–F. Đọc tóm tắt 1 dòng mỗi đoạn trước, rồi mới chọn.
+14 Section A = v | Đoạn A nêu hai mục tiêu của sở thú: “SHOW PEOPLE how wonderful they are” và “HIGHLIGHT the research and conservation efforts” → v (Two clear educational goals). | T1
+15 Section B = ii | Đoạn B: “This comfortable SYMBIOTIC RELATIONSHIP has led to the growth of coral reefs” → ii (Cooperation beneath the waves). | T1
+16 Section C = iv | Đoạn C: so sánh “RAINFORESTS OF THE SEA” bị “DISMISSED BY SOME naturalists” → iv (Disagreement about the accuracy of a certain phrase). | T1
+17 Section D = vii | Đoạn D: “scientists ADVISE that MORE THAN 90% of reefs COULD BE LOST BY 2050” → vii (A warning of further trouble ahead). | T1
+18 Section E = iii | Đoạn E: “scientists ARE TRYING to pinpoint hardy types of coral that could survive” → iii (Working to lessen the problems). Heading i (Tried and tested solutions) không dùng: các cách này còn đang thử, chưa “tried and tested”. | T5
+19 Section F = vi | Đoạn F: cho công chúng thấy tiến bộ để “ENCOURAGE THEM TO BELIEVE that we can do something” → vi (Promoting hope). | T1
+
+## Listening | Map labelling | Cam 18 Test 2 Part 2 | https://engnovate.com/ielts-listening-tests/cambridge-ielts-18-academic-listening-test-2/ | options A-I
+> Câu 15–20: ghi chữ cái A–I. Đặt bút ở lối vào phía nam (South Entrance) và đi theo người nói.
+15 School = | “The school will be on that road, AT THE CORNER OF THE SECOND TURNING TO THE LEFT.” | T3
+16 Sports centre = | “on the WESTERN SIDE of the development, JUST BELOW the road that branches off from London Road.” | T3
+17 Clinic = | “JUST BELOW this [the lake], TO THE RIGHT OF a street of houses.” | T3
+18 Community centre = | “the community centre will be ADJOINING this” (dãy nhà cho người trên 65 tuổi, phía đông bắc). | T3
+19 Supermarket = | “a supermarket BETWEEN THE TWO ENTRANCES to the development”, ngay phía nam ba cây lớn gần London Road. | T3
+20 Playground = | “the playground will be IN THAT CURVE, with nice views of the lake.” | T3
