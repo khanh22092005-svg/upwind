@@ -24,22 +24,25 @@ export default function ErrorLog({ name }: { name: string }) {
       <a href="#/" className="hw-link">← Danh sách bài</a>
       <h1 className="hw-h1">Sổ lỗi của {name}</h1>
       <div className="hw-stats">
-        <div className="hw-card hw-stat"><b>{data.homeworks}</b><span>bài đã nộp</span></div>
-        <div className="hw-card hw-stat"><b>{pct}%</b><span>câu làm đúng</span></div>
-        <div className="hw-card hw-stat"><b>{data.errors.length}</b><span>câu sai đã ghi</span></div>
+        <div className="hw-stat"><b>{data.homeworks}</b><span>bài đã nộp</span></div>
+        <div className="hw-stat"><b>{pct}%</b><span>câu làm đúng</span></div>
+        <div className="hw-stat"><b>{data.errors.length}</b><span>câu sai đã ghi</span></div>
       </div>
       {top.length > 0 && (
-        <section className="hw-card">
+        <div className="hw-card">
           <h2 className="hw-h2 tight">3 lỗi bạn hay mắc nhất</h2>
           <ol className="hw-top3">
-            {top.map(([code, n]) => (
+            {top.map(([code, n], i) => (
               <li key={code}>
-                <b>{codeInfo(code)?.name ?? code}</b> <span className="hw-muted">· {n} lần</span>
-                <div>Lần sau: {codeInfo(code)?.fix}</div>
+                <span className="hw-rank">{i + 1}</span>
+                <span>
+                  <b>{codeInfo(code)?.name ?? code}</b> <span className="hw-count">{n} lần</span>
+                  <span className="hw-fix">Lần sau: {codeInfo(code)?.fix}</span>
+                </span>
               </li>
             ))}
           </ol>
-        </section>
+        </div>
       )}
       <h2 className="hw-h2">Từng câu sai (mới nhất ở trên)</h2>
       {data.errors.length === 0 && <p className="hw-muted">Chưa có câu sai nào. Làm bài để bắt đầu sổ lỗi nhé.</p>}
@@ -54,7 +57,7 @@ export default function ErrorLog({ name }: { name: string }) {
             <span className="hw-tag">Bạn chọn</span>
             <span className="hw-yours">{e.value || "(bỏ trống)"}</span>
             <span className="hw-tag">Đáp án</span>
-            <span className="hw-right">{e.expected}</span>
+            <span className="hw-right">{e.expected && e.expected !== "(chưa có)" ? e.expected : "–"}</span>
           </div>
           {e.explain && <div className="hw-explain">{e.explain}</div>}
           {e.code && (

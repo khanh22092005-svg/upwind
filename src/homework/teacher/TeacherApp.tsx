@@ -96,9 +96,15 @@ function OverviewPage({ classId }: { classId: string }) {
     <>
       <h1 className="hw-h1">Tổng quan lớp</h1>
       <p className="hw-muted">
-        Điểm = số câu đúng / số câu chấm tự động. "Muộn" = nộp sau hạn. % chỉ tính bài đã nộp.
+        Điểm = số câu đúng / số câu chấm tự động. % chỉ tính bài đã nộp.
         {pendingReview > 0 && <> · <b>{pendingReview}</b> câu mở / bài viết đang chờ cô nhận xét.</>}
       </p>
+      <div className="hw-legend" aria-label="Chú thích màu">
+        <span className="done">Đã nộp</span>
+        <span className="late">Nộp muộn</span>
+        <span className="missing">Quá hạn, chưa nộp</span>
+        <span>– chưa đến hạn</span>
+      </div>
       <div className="hw-table-wrap">
         <table className="hw-table">
           <thead>
@@ -111,7 +117,7 @@ function OverviewPage({ classId }: { classId: string }) {
                 </th>
               ))}
               <th>Câu đúng</th>
-              <th>Lỗi hay mắc nhất</th>
+              <th className="left">Lỗi hay mắc nhất</th>
             </tr>
           </thead>
           <tbody>
@@ -150,11 +156,23 @@ function OverviewPage({ classId }: { classId: string }) {
                     );
                   })}
                   <td>{max ? Math.round((100 * got) / max) + "%" : "–"}</td>
-                  <td className="small">{top ? `${codeInfo(top[0])?.name ?? top[0]} (${top[1]})` : "–"}</td>
+                  <td className="small left wrap">{top ? `${codeInfo(top[0])?.name ?? top[0]} (${top[1]})` : "–"}</td>
                 </tr>
               );
             })}
           </tbody>
+          <tfoot>
+            <tr>
+              <th>Đã nộp</th>
+              {hws.map((h) => (
+                <td key={h.id}>
+                  {o.cells.filter((c) => c.homeworkId === h.id && c.submittedAt).length}/{o.students.length}
+                </td>
+              ))}
+              <td></td>
+              <td></td>
+            </tr>
+          </tfoot>
         </table>
       </div>
     </>
