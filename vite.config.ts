@@ -19,6 +19,7 @@ const ebooks = Object.fromEntries(
 //   ebook/<slug>/index.html                -> https://upwind.asia/ebook/<slug>/ (flip-book readers, found automatically)
 //   goc-tu/index.html                      -> https://upwind.asia/goc-tu/ (interactive version of the ebook)
 //   test/green-finance/index.html          -> https://upwind.asia/test/green-finance/
+//   homework/index.html                    -> https://upwind.asia/homework/ (homework LMS; API in worker/index.ts)
 // "/" redirects to /ielts-self-study/ (public/_redirects).
 // `import x from "./file.json?fields=a,b"` keeps only those top-level keys, so a page that needs a few
 // fields of a large data file doesn't ship all of it (used by src/goc-tu for the ebook units).
@@ -49,6 +50,8 @@ function jsonFields(): Plugin {
 export default defineConfig({
   base: "/",
   plugins: [jsonFields(), react(), tailwindcss()],
+  // `pnpm dev` + `pnpm api` (wrangler dev on :8787) for the homework API.
+  server: { proxy: { "/api": "http://localhost:8787" } },
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "src"),
@@ -62,6 +65,7 @@ export default defineConfig({
       input: {
         ...ebooks,
         gocTu: path.resolve(import.meta.dirname, "goc-tu/index.html"),
+        homework: path.resolve(import.meta.dirname, "homework/index.html"),
         greenFinance: path.resolve(import.meta.dirname, "test/green-finance/index.html"),
         ielts: path.resolve(import.meta.dirname, "ielts-self-study/index.html"),
         ieltsFoundation: path.resolve(import.meta.dirname, "ielts-foundation/index.html"),
